@@ -4,6 +4,8 @@ import 'package:gap/gap.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hummingbird/src/models/env.dart';
 
+import '../../providers/auth/google_login_provider.dart';
+
 class GoogleLoginButton extends ConsumerWidget {
   final _googleSignIn = GoogleSignIn(clientId: Env.googleClientId);
 
@@ -20,7 +22,11 @@ class GoogleLoginButton extends ConsumerWidget {
             return;
           }
 
-          print(googleUser);
+          await ref.read(googleLoginProvider.notifier).googleLogin(
+                googleId: googleUser.id,
+                email: googleUser.email,
+                displayName: googleUser.displayName,
+              );
         } catch (err) {
           // TODO: handling error
           print(err);
