@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hummingbird/core/router/bottom_nav_bar.dart';
+import 'package:hummingbird/src/views/home/views/widget/mxn_sample.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(),
       body: SafeArea(
         child: Center(
-          child: Text("HomeScreen"),
+          child: MxNSample(),
         ),
       ),
       bottomNavigationBar: BottomNavBar(),
