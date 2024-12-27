@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hummingbird/src/views/login/login_screen.dart';
 
 import '../../src/views/home/views/home_screen.dart';
 import '../../src/views/more/view/more_screen.dart';
@@ -10,7 +11,7 @@ import '../../src/views/statistics/views/statistics_screen.dart';
 // GoRouter 설정
 final goRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: '/', // 기본적으로 캘린더 화면으로 시작
+    initialLocation: '/login', // 기본적으로 캘린더 화면으로 시작
     routes: [
       GoRoute(
         path: '/',
@@ -42,6 +43,14 @@ final goRouterProvider = Provider<GoRouter>((ref) {
           context: context,
           state: state,
           child: const MoreScreen(),
+        ),
+      ),
+      GoRoute(
+        path: '/login',
+        pageBuilder: (context, state) => buildPageWithDefaultTransition(
+          context: context,
+          state: state,
+          child: const LoginScreen(),
         ),
       ),
     ],
