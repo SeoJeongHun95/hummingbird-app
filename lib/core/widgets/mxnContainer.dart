@@ -1,9 +1,13 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: must_be_immutable, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../enum/mxnRate.dart';
+
+// 사용방법
+// MxN_rate : 가로 세로 비율을 정함
+// MxN_child : 넣을 위젯을 정함
 
 class MxNcontainer extends StatelessWidget {
   const MxNcontainer({
@@ -35,7 +39,10 @@ class MxNcontainer extends StatelessWidget {
       child: SizedBox(
         width: _calcPixel(MxN_rate.width),
         height: _calcPixel(MxN_rate.height),
-        child: MxN_child,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8),
+          child: MxN_child,
+        ),
       ),
     );
   }
