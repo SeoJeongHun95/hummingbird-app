@@ -40,8 +40,6 @@ migrate_working_dir/
 pubspec.lock
 
 # iOS specific
-ios/Podfile.lock
-ios/Runner.xcodeproj/project.pbxproj
 **/ios/Flutter/Flutter.podspec
 **/ios/Flutter/Generated.xcconfig
 **/ios/Flutter/app.flx
@@ -81,4 +79,8 @@ app.*.map.json
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
-# End of https://www.toptal.com/developers/gitignore/api/flutter,dart
+# Freezed generated files
+*.freezed.dart
+
+# Hive adapter files
+*.g.dart
