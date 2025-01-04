@@ -2,6 +2,7 @@ import 'package:envied/envied.dart';
 
 part 'env.g.dart';
 
+// TODO: 환경에 따른 환경변수 파일 경로 수정
 @Envied(path: '.env')
 abstract class Env {
   @EnviedField(varName: 'GOOGLE_CLIENT_ID', obfuscate: true)

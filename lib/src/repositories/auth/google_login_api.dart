@@ -26,7 +26,8 @@ class GoogleLoginApiResponse with _$GoogleLoginApiResponse {
   const factory GoogleLoginApiResponse({
     required String accessToken,
     required String refreshToken,
-    required int tokenExpiresAtInSeconds,
+    required int expiresAt,
+    required bool isNewUser,
   }) = _GoogleLoginApiResponse;
 
   factory GoogleLoginApiResponse.fromJson(Map<String, dynamic> json) =>
@@ -39,6 +40,7 @@ class GoogleLoginApi {
   GoogleLoginApi({required this.dio});
 
   Future<GoogleLoginApiResponse> execute(GoogleLoginApiRequest dto) async {
+    print(dio.options.baseUrl);
     final response = await dio.post('/auth/google', data: dto.toJson());
     return GoogleLoginApiResponse.fromJson(response.data);
   }
