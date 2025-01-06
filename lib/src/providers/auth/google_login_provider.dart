@@ -26,7 +26,7 @@ class GoogleLogin extends _$GoogleLogin {
     ref.read(authProvider.notifier).login(
           accessToken: res.accessToken,
           refreshToken: res.refreshToken,
-          expiresAt: res.tokenExpiresAtInSeconds,
+          expiresAt: res.expiresAt,
         );
   }
 }
