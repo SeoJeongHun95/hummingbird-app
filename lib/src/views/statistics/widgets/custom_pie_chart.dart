@@ -4,12 +4,13 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+// TODO: 클래스 이름 수정 및 재사용 가능하게 refactoring + Percentage 계산 로직 수정정
 class CustomPieChart extends ConsumerWidget {
   const CustomPieChart({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final subjectList = getTestList().sublist(0, 4);
+    final subjectList = getTestList();
     subjectList.sort((a, b) => b.studyTime.compareTo(a.studyTime));
     final total = getTotalTime(subjectList);
     return Row(
@@ -30,7 +31,7 @@ class CustomPieChart extends ConsumerWidget {
         Flexible(
           flex: 1,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: getSubjectStatistics(subjectList, total),
           ),
         )
@@ -56,7 +57,7 @@ class CustomPieChart extends ConsumerWidget {
   List<Widget> getSubjectStatistics(List<TestData> list, int total) {
     return list
         .map((e) => Padding(
-              padding: const EdgeInsets.symmetric(vertical: 2.5),
+              padding: const EdgeInsets.symmetric(vertical: 1),
               child: Row(
                 children: [
                   Container(
