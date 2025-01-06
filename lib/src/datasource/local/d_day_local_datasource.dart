@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-import '../../models/d_day.dart';
+import '../../models/d_day/d_day.dart';
 
 class DDayLocalDatasource {
   final Box<DDay> _box;

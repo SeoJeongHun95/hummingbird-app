@@ -1,5 +1,5 @@
 import '../datasource/local/d_day_local_datasource.dart';
-import '../models/d_day.dart';
+import '../models/d_day/d_day.dart';
 
 class DDayRepository {
   final DDayLocalDatasource _dataSource;
