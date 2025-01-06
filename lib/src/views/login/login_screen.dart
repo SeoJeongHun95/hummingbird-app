@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hummingbird/core/router/bottom_nav_bar.dart';
 import 'package:hummingbird/src/views/login/google_login_button.dart';
+
+import '../../../core/enum/mxnRate.dart';
+import '../../../core/widgets/mxnContainer.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -8,13 +10,38 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: SafeArea(
         child: Center(
-          child: GoogleLoginButton(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  MxNcontainer(
+                    MxN_rate: MxNRate.TWOBYONE,
+                    MxN_child: Text('Hummingbird logo'),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  MxNcontainer(
+                    MxN_rate: MxNRate.TWOBYONE,
+                    MxN_child: Column(
+                      children: [
+                        GoogleLoginButton(),
+                        //   TODO: Add apple login button
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
-      bottomNavigationBar: BottomNavBar(),
     );
   }
 }

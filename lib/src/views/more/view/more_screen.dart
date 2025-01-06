@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hummingbird/core/router/bottom_nav_bar.dart';
+import 'package:hummingbird/src/providers/auth/auth_provider.dart';
 
-class MoreScreen extends StatelessWidget {
+class MoreScreen extends ConsumerWidget {
   const MoreScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
         child: Center(
-          child: Text("MoreScreen"),
+          child: ListTile(
+            leading: const Icon(Icons.logout),
+            title: const Text('Logout'),
+            onTap: () async {
+              ref.read(authProvider.notifier).logout();
+            },
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavBar(),
