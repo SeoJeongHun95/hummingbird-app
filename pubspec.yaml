@@ -9,6 +9,7 @@ environment:
   sdk: ^3.6.0
 
 dependencies:
+  carousel_slider: ^5.0.0
   cupertino_icons: ^1.0.8
   dio: ^5.7.0
   fl_chart: ^0.70.0
