@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/enum/mxnRate.dart';
 import '../../../core/widgets/mxnContainer.dart';
-import 'widgets/timer/timer_widget.dart';
+import 'widgets/timer/suduck_timer_widget.dart';
 //Timer
 
 class Seg1Screen extends StatelessWidget {
@@ -13,7 +13,7 @@ class Seg1Screen extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          TimerWidget(),
+          SuDuckTimerWidget(),
           MxNcontainer(
             MxN_rate: MxNRate.TWOBYTWO,
             MxN_child: Container(
