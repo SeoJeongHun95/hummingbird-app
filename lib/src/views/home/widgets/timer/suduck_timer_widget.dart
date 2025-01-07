@@ -17,8 +17,6 @@ class SuDuckTimerWidget extends ConsumerStatefulWidget {
 }
 
 class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget> {
-  bool isPushed = false;
-
   String _formatTime(int seconds) {
     final int hours = seconds ~/ 3600;
     final int minutes = (seconds % 3600) ~/ 60;
@@ -33,6 +31,8 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget> {
   Widget build(BuildContext context) {
     final suduckTimer = ref.watch(suDuckTimerProvider);
     final sudeckTimerNotifier = ref.read(suDuckTimerProvider.notifier);
+
+    final bool isRunning = suduckTimer.isRunning;
 
     return MxNcontainer(
       MxN_rate: MxNRate.FOURBYTHREE,
@@ -62,12 +62,11 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget> {
                   alignment: Alignment.center,
                   child: GestureDetector(
                     onTap: () {
-                      !isPushed
-                          ? sudeckTimerNotifier.startTimer()
-                          : sudeckTimerNotifier.stopTimer();
-                      setState(() {
-                        isPushed = !isPushed;
-                      });
+                      if (!isRunning) {
+                        sudeckTimerNotifier.startTimer();
+                      } else {
+                        sudeckTimerNotifier.stopTimer();
+                      }
                     },
                     child: Container(
                       width: 120.w,
@@ -76,13 +75,15 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget> {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(8),
                         border: Border(
-                          bottom:
-                              BorderSide(width: 4.h, color: Color(0xffEBEBEB)),
+                          bottom: BorderSide(
+                            width: 4.h,
+                            color: Color(0xffEBEBEB),
+                          ),
                         ),
                       ),
                       child: Center(
                         child: Text(
-                          (!isPushed) ? "START" : "STOP",
+                          (!isRunning) ? "START" : "STOP",
                           style: TextStyle(
                             fontSize: 18.sp,
                             fontWeight: FontWeight.w500,
@@ -93,7 +94,7 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget> {
                     ),
                   ),
                 ),
-                if (!isPushed && suduckTimer.elapsedTime > 0)
+                if (!isRunning && suduckTimer.elapsedTime > 0)
                   Positioned(
                     right: 64,
                     top: 8,

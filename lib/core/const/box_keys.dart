@@ -4,4 +4,5 @@ class BoxKeys {
   static const tokenBoxKey = 'token';
   static const encryptionBoxKey = 'encryption';
   static const dDayBoxKey = 'dDay';
+  static const suduckBoxKey = 'suduck';
 }
