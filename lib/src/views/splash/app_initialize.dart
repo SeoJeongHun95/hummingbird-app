@@ -28,4 +28,5 @@ Future<void> appInitialize() async {
       encryptionCipher: HiveAesCipher(key));
 
   await Hive.openBox<List<int>>(BoxKeys.suduckBoxKey);
+  await Hive.openBox<List<int>>(BoxKeys.subjectBoxKey);
 }
