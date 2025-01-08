@@ -22,12 +22,12 @@ class MxNcontainer extends StatelessWidget {
   // ignore: unused_element
   double _calcPixel(int rate) {
     // ignore: no_leading_underscores_for_local_identifiers
-    final double _pixelRate = 160.w;
+    final double _pixelRate = 80.w;
 
     double result = 0.0;
 
     result = rate * _pixelRate;
-    result = rate == 1 ? result : result + 16;
+    result = rate == 2 ? result : result + 16;
 
     return result;
   }
