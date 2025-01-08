@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hummingbird/src/views/home/widgets/subject/subject_list_widget.dart';
 
-import '../../../core/enum/mxnRate.dart';
-import '../../../core/widgets/mxnContainer.dart';
 import 'widgets/timer/suduck_timer_widget.dart';
 //Timer
 
@@ -14,15 +13,7 @@ class Seg1Screen extends StatelessWidget {
       child: Column(
         children: [
           SuDuckTimerWidget(),
-          MxNcontainer(
-            MxN_rate: MxNRate.TWOBYTWO,
-            MxN_child: Container(
-              color: Colors.orange,
-              child: Center(
-                child: Text("과목 리스트들"),
-              ),
-            ),
-          ),
+          SubjectListWidget(),
           // 임시 광고
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
