@@ -7,7 +7,6 @@ import '../token_provider.dart';
 import 'refresh_token_dio_client_provider.dart';
 
 class DioInterceptor extends Interceptor {
-  final Dio dio;
   final RefreshTokenDioClient refreshTokenDioClient;
   final TokenProvider tokensProvider;
   final int refreshThresholdInMinutes;
@@ -16,7 +15,6 @@ class DioInterceptor extends Interceptor {
   Completer<void>? _refreshCompleter;
 
   DioInterceptor({
-    required this.dio,
     required this.refreshTokenDioClient,
     required this.tokensProvider,
     this.refreshThresholdInMinutes = 1,
