@@ -13,18 +13,17 @@ class SubjectViewModel extends _$SubjectViewModel {
   @override
   AsyncValue<List<Subject>> build() {
     repository = ref.watch(subjectRepositoryProvider);
+    state = const AsyncValue.loading();
     loadSubjects();
-    return const AsyncValue.loading();
+    return state;
   }
 
-  // 모든 과목을 로드
   Future<void> loadSubjects() async {
     state = await AsyncValue.guard(() async {
       return await repository.getAllSubjects();
     });
   }
 
-  // 과목 추가
   Future<void> addSubject(Subject subject) async {
     state = await AsyncValue.guard(() async {
       await repository.addSubject(subject);
@@ -36,7 +35,6 @@ class SubjectViewModel extends _$SubjectViewModel {
     });
   }
 
-  // 과목 업데이트
   Future<void> updateSubject(int index, Subject subject) async {
     state = await AsyncValue.guard(() async {
       await repository.updateSubject(index, subject);
@@ -48,7 +46,6 @@ class SubjectViewModel extends _$SubjectViewModel {
     });
   }
 
-  // 과목 삭제
   Future<void> deleteSubject(int index) async {
     state = await AsyncValue.guard(() async {
       await repository.deleteSubject(index);

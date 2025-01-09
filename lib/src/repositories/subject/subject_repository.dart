@@ -7,9 +7,9 @@ class SubjectRepository {
   final SubjectDataSource localDataSource;
 
   // 로컬 데이터 소스에 과목 추가
-  Future<void> addSubject(Subject subject) async {
-    // TODO: 원격 데이터 소스 통합
-    return localDataSource.addSubject(subject);
+  Future<List<Subject>> addSubject(Subject subject) async {
+    await localDataSource.addSubject(subject);
+    return await getAllSubjects(); // 갱신된 리스트 반환
   }
 
   // 로컬 데이터 소스에서 모든 과목 가져오기

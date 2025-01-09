@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hummingbird/src/views/home/widgets/subject/subject_list_widget.dart';
 
+import 'widgets/subject/subject_list_widget.dart';
 import 'widgets/timer/suduck_timer_widget.dart';
 //Timer
 
