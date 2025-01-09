@@ -1,4 +1,4 @@
-import '../datasource/local/d_day_local_datasource.dart';
+import '../datasource/local/d_day_local_datasource/d_day_local_datasource.dart';
 import '../models/d_day/d_day.dart';
 
 class DDayRepository {

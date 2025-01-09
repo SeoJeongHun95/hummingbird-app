@@ -5,18 +5,18 @@ import '../../../models/d_day/d_day.dart';
 class DummyData {
   static List<DDay> dummyDDayList = [
     DDay(
-      goalTitle: "수능",
-      goalDate: DateTime.now().add(Duration(days: 3)).millisecondsSinceEpoch,
+      title: "수능",
+      targetDate: DateTime.now().add(Duration(days: 3)).millisecondsSinceEpoch,
       color: '${Colors.blue.a}${Colors.blue.r}${Colors.blue.g}${Colors.blue.b}',
     ),
     DDay(
-      goalTitle: "공무원 자격증",
-      goalDate: DateTime.now().add(Duration(days: 10)).millisecondsSinceEpoch,
+      title: "공무원 자격증",
+      targetDate: DateTime.now().add(Duration(days: 10)).millisecondsSinceEpoch,
       color: Colors.greenAccent.toString().substring(10, 16),
     ),
     DDay(
-      goalTitle: "컴활 자격증",
-      goalDate:
+      title: "컴활 자격증",
+      targetDate:
           DateTime.now().subtract(Duration(days: 3)).millisecondsSinceEpoch,
       color: Colors.purple.toString().substring(10, 16),
     )
