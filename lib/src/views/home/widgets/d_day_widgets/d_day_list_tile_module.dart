@@ -26,8 +26,8 @@ class DDayListTileModule extends ConsumerWidget {
               itemCount: dDays.length + 1,
               itemBuilder: (context, index) {
                 if (index < dDays.length) {
-                  final String goalTitle = dDays[index].goalTitle;
-                  final int goalDate = dDays[index].goalDate;
+                  final String goalTitle = dDays[index].title;
+                  final int goalDate = dDays[index].targetDate;
                   final Color color =
                       Color(int.parse('0xff${dDays[index].color}'));
                   return ListTile(
@@ -37,7 +37,6 @@ class DDayListTileModule extends ConsumerWidget {
                         color: color,
                         width: 30.w,
                         alphaOfColor: 70,
-                        borderRadius: 8,
                         child: Icon(
                           Icons.calendar_month,
                           color: color,

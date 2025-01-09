@@ -9,8 +9,8 @@ part 'd_day.g.dart';
 class DDay with _$DDay {
   const factory DDay({
     @HiveField(0) String? id,
-    @HiveField(1) required String goalTitle,
-    @HiveField(2) required int goalDate,
+    @HiveField(1) required String title,
+    @HiveField(2) required int targetDate,
     @HiveField(3) required String color,
   }) = _DDay;
 
