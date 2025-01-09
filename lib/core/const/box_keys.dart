@@ -6,4 +6,5 @@ class BoxKeys {
   static const dDayBoxKey = 'dDay';
   static const suduckBoxKey = 'suduck';
   static const subjectBoxKey = 'subjectBox';
+  static const studyRecordBoxkey = 'studyRecordBox';
 }

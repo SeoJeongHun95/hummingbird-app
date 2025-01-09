@@ -1,7 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../models/study_record/subject/subject.dart';
-import '../../providers/subject/subject_repository_provider.dart';
+import '../../models/subject/subject.dart';
 import '../../repositories/subject/subject_repository.dart';
 
 part 'subject_viewmodel.g.dart';

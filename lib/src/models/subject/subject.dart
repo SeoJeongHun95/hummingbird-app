@@ -5,7 +5,7 @@ part 'subject.freezed.dart';
 part 'subject.g.dart';
 
 @freezed
-@HiveType(typeId: 7) // HiveType 추가
+@HiveType(typeId: 22)
 class Subject with _$Subject {
   factory Subject({
     @HiveField(0) required String title,
