@@ -20,15 +20,12 @@ class StudyRecordRepository {
 
   final StudyRecordDataSource localDataSource;
 
-  // 로컬 데이터 소스에 스터디 기록 추가
   Future<List<StudyRecord>> addStudyRecord(StudyRecord studyRecord) async {
     await localDataSource.addStudyRecord(studyRecord);
-    return await getAllStudyRecords(); // 갱신된 리스트 반환
+    return await getAllStudyRecords();
   }
 
-  // 로컬 데이터 소스에서 모든 스터디 기록 가져오기
   Future<List<StudyRecord>> getAllStudyRecords() async {
-    // TODO: 원격 데이터 소스 통합
     return localDataSource.getAllStudyRecords();
   }
 }
