@@ -6,13 +6,11 @@ class ColorContainerWithOpacity extends StatelessWidget {
       required this.color,
       required this.width,
       required this.alphaOfColor,
-      required this.borderRadius,
       this.child});
 
   final Color color;
   final double width;
   final int alphaOfColor;
-  final double borderRadius;
   final Widget? child;
 
   @override
@@ -22,7 +20,7 @@ class ColorContainerWithOpacity extends StatelessWidget {
         height: width,
         decoration: BoxDecoration(
           color: color.withAlpha(alphaOfColor),
-          borderRadius: BorderRadius.circular(borderRadius),
+          borderRadius: BorderRadius.circular(8),
         ),
         child: child);
   }

@@ -55,7 +55,7 @@ class DDayViewModel extends _$DDayViewModel {
   }
 
   List<DDay> getSortedDDays(List<DDay> dDays) {
-    dDays.sort((a, b) => a.goalDate.compareTo(b.goalDate));
+    dDays.sort((a, b) => a.targetDate.compareTo(b.targetDate));
     return dDays;
   }
 
@@ -64,8 +64,8 @@ class DDayViewModel extends _$DDayViewModel {
     List<String> goalTitleList = [];
     List<String> dDayIndicatorList = [];
     for (int i = 0; i < dDays.length; i++) {
-      goalTitleList.add(dDays[i].goalTitle);
-      dDayIndicatorList.add(getDDayIndicator(dDays[i].goalDate));
+      goalTitleList.add(dDays[i].title);
+      dDayIndicatorList.add(getDDayIndicator(dDays[i].targetDate));
     }
     return (goalTitleList: goalTitleList, dDayIndicatorList: dDayIndicatorList);
   }
