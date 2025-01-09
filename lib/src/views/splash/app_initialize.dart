@@ -2,11 +2,12 @@ import 'dart:convert';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:hummingbird/src/models/study_record/subject/subject.dart';
-import 'package:hummingbird/src/models/token_model.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../../../core/const/box_keys.dart';
+import '../../models/study_record/study_record/study_record.dart';
+import '../../models/study_record/subject/subject.dart';
+import '../../models/token_model.dart';
 
 Future<void> appInitialize() async {
   final directory = await getApplicationDocumentsDirectory();
@@ -30,6 +31,11 @@ Future<void> appInitialize() async {
 
   await Hive.openBox<List<int>>(BoxKeys.suduckBoxKey);
 
+  //과목
   Hive.registerAdapter(SubjectAdapter());
   await Hive.openBox<Subject>(BoxKeys.subjectBoxKey);
+
+  //학습 내역
+  Hive.registerAdapter(StudyRecordAdapter());
+  await Hive.openBox<StudyRecord>(BoxKeys.studyRecordBoxkey);
 }
