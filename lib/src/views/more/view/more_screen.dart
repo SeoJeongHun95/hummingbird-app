@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hummingbird/core/router/bottom_nav_bar.dart';
-import 'package:hummingbird/src/providers/auth/auth_provider.dart';
+
+import '../../../../core/router/bottom_nav_bar.dart';
+import '../../../providers/auth/auth_provider.dart';
 
 class MoreScreen extends ConsumerWidget {
   const MoreScreen({super.key});

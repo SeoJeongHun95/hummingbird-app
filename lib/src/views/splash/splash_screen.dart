@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hummingbird/src/providers/auth/auth_provider.dart';
-import 'package:hummingbird/src/views/splash/app_initialize.dart';
 
 import '../../../core/utils/delay.dart';
+import '../../providers/auth/auth_provider.dart';
+import 'app_initialize.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});

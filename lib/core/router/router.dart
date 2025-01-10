@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hummingbird/src/views/login/login_screen.dart';
-import 'package:hummingbird/src/views/splash/splash_screen.dart';
 
 import '../../src/views/home/home_screen.dart';
+import '../../src/views/login/login_screen.dart';
 import '../../src/views/more/view/more_screen.dart';
 import '../../src/views/social/views/social_screen.dart';
+import '../../src/views/splash/splash_screen.dart';
 import '../../src/views/statistics/views/statistics_screen.dart';
 
 // GoRouter 설정

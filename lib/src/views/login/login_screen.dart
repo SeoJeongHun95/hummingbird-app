@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hummingbird/src/views/login/google_login_button.dart';
 
 import '../../../core/enum/mxnRate.dart';
 import '../../../core/widgets/mxnContainer.dart';
+import 'google_login_button.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

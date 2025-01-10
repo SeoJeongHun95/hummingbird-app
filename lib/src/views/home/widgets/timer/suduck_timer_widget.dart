@@ -8,6 +8,8 @@ import '../../../../providers/suduck_timer/suduck_timer_provider.dart';
 
 final Color timerMainColor = Color(0xffba4849);
 
+//TODO 타이머 복구 할지 말지 다이어로그로 고르게하기
+
 class SuDuckTimerWidget extends ConsumerStatefulWidget {
   const SuDuckTimerWidget({super.key});
 
