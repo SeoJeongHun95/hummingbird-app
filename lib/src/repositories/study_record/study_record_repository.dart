@@ -10,7 +10,7 @@ part 'study_record_repository.g.dart';
 
 @riverpod
 StudyRecordRepository studyRecordRepository(Ref ref) {
-  final box = Hive.box<StudyRecord>(BoxKeys.studyRecordBoxkey);
+  final box = Hive.box<List<StudyRecord>>(BoxKeys.studyRecordBoxkey);
   final studyRecordLocalDataSource = StudyRecordDataSource(box);
   return StudyRecordRepository(studyRecordLocalDataSource);
 }
@@ -20,12 +20,16 @@ class StudyRecordRepository {
 
   final StudyRecordDataSource localDataSource;
 
-  Future<List<StudyRecord>> addStudyRecord(StudyRecord studyRecord) async {
-    await localDataSource.addStudyRecord(studyRecord);
-    return await getAllStudyRecords();
+  Future<void> addStudyRecord(String date, StudyRecord studyRecord) async {
+    await localDataSource.addStudyRecord(date, studyRecord);
   }
 
-  Future<List<StudyRecord>> getAllStudyRecords() async {
-    return localDataSource.getAllStudyRecords();
+  Future<List<StudyRecord>> getStudyRecordsByDate(String date) async {
+    return localDataSource.getStudyRecordsByDate(date);
+  }
+
+  Future<void> updateStudyRecord(
+      String date, StudyRecord updatedStudyRecord) async {
+    await localDataSource.updateStudyRecord(date, updatedStudyRecord);
   }
 }

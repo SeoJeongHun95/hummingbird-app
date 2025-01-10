@@ -1,10 +1,14 @@
 import 'dart:async';
 
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../datasource/suduck_timer_state.dart';
+import '../../models/study_record/study_record.dart';
+import '../../models/subject/subject.dart';
 import '../../repositories/suduck_timer_repositories.dart';
+import '../../viewmodels/study_record/study_record_viewmodel.dart';
 
 part 'suduck_timer_provider.g.dart';
 
@@ -12,18 +16,26 @@ class TimerState {
   final int elapsedTime;
   final int breakTime;
   final bool isRunning;
+  final Subject? currSubject;
 
   TimerState({
     required this.elapsedTime,
     required this.breakTime,
     required this.isRunning,
+    this.currSubject,
   });
 
-  TimerState copyWith({int? elapsedTime, int? breakTime, bool? isRunning}) {
+  TimerState copyWith({
+    int? elapsedTime,
+    int? breakTime,
+    bool? isRunning,
+    Subject? currSubject,
+  }) {
     return TimerState(
       elapsedTime: elapsedTime ?? this.elapsedTime,
       breakTime: breakTime ?? this.breakTime,
       isRunning: isRunning ?? this.isRunning,
+      currSubject: currSubject ?? this.currSubject,
     );
   }
 }
@@ -41,9 +53,10 @@ class SuDuckTimer extends _$SuDuckTimer {
     suduckLocalState = SuduckTimerState(box);
     suduckRepo = SuduckTimerRepositories(suduckLocalState);
 
-    _restoreTimerState();
+    // _restoreTimerState();
 
-    return TimerState(elapsedTime: 0, breakTime: 0, isRunning: false);
+    return TimerState(
+        elapsedTime: 0, breakTime: 0, isRunning: false, currSubject: null);
   }
 
   void startTimer() async {
@@ -57,6 +70,26 @@ class SuDuckTimer extends _$SuDuckTimer {
     state = state.copyWith(isRunning: true);
   }
 
+  Future<void> startTimerWithSubject({required Subject subject}) async {
+    if (state.isRunning) return;
+
+    final startTime = DateTime.now().millisecondsSinceEpoch;
+    await suduckRepo.addSuDuckTimerState([startTime, state.breakTime]);
+
+    final todayDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
+    final newRecord = StudyRecord(
+      subject: subject,
+      startAt: startTime,
+    );
+
+    await ref
+        .read(studyRecordViewModelProvider.notifier)
+        .addStudyRecord(todayDate, newRecord);
+
+    _startTimerLoop();
+    state = state.copyWith(isRunning: true, currSubject: subject); // 현재 과목 설정
+  }
+
   void stopTimer() async {
     _elapsedtimer?.cancel();
     _breaktimer?.cancel();
@@ -65,13 +98,35 @@ class SuDuckTimer extends _$SuDuckTimer {
     state = state.copyWith(isRunning: false);
   }
 
-  void resetTimer() async {
+  Future<void> resetTimer() async {
     _elapsedtimer?.cancel();
     _breaktimer?.cancel();
 
+    final todayDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
+    final currentState = state;
+    final endTime = DateTime.now().millisecondsSinceEpoch;
+
+    if (currentState.currSubject != null) {
+      final updatedRecord = StudyRecord(
+        subject: currentState.currSubject!,
+        endAt: endTime,
+        elapsedTime: currentState.elapsedTime,
+        breakTime: currentState.breakTime,
+      );
+
+      await ref
+          .read(studyRecordViewModelProvider.notifier)
+          .updateStudyRecord(todayDate, updatedRecord);
+    }
+
     await suduckRepo.deleteSuDuckTimerState();
 
-    state = TimerState(elapsedTime: 0, breakTime: 0, isRunning: false);
+    state = TimerState(
+      elapsedTime: 0,
+      breakTime: 0,
+      isRunning: false,
+      currSubject: null,
+    );
   }
 
   Future<void> _restoreTimerState() async {

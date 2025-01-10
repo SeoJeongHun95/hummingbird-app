@@ -5,8 +5,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../../../core/const/box_keys.dart';
-import '../../models/study_record/study_record/study_record.dart';
-import '../../models/study_record/subject/subject.dart';
+import '../../models/study_record/study_record.dart';
+import '../../models/subject/subject.dart';
 import '../../models/token_model.dart';
 
 Future<void> appInitialize() async {
@@ -37,5 +37,6 @@ Future<void> appInitialize() async {
 
   //학습 내역
   Hive.registerAdapter(StudyRecordAdapter());
-  await Hive.openBox<StudyRecord>(BoxKeys.studyRecordBoxkey);
+  // await Hive.deleteBoxFromDisk(BoxKeys.studyRecordBoxkey);
+  await Hive.openBox<List<StudyRecord>>(BoxKeys.studyRecordBoxkey);
 }
