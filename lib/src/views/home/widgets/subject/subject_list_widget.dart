@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hummingbird/src/viewmodels/study_record/study_record_viewmodel.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
@@ -73,12 +72,6 @@ class SubjectListWidget extends ConsumerWidget {
                 child: CircularProgressIndicator(),
               ),
             ),
-            IconButton(
-              onPressed: () => ref
-                  .read(studyRecordViewModelProvider.notifier)
-                  .loadStudyRecordsByDate("2025-01-10"),
-              icon: Icon(Icons.read_more),
-            )
           ],
         ),
       ),
