@@ -2,12 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hummingbird/src/models/token_model.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../../../core/const/box_keys.dart';
-import '../../models/study_record/study_record.dart';
-import '../../models/subject/subject.dart';
-import '../../models/token_model.dart';
+import '../../models/d_day/d_day.dart';
 
 Future<void> appInitialize() async {
   final directory = await getApplicationDocumentsDirectory();
@@ -26,17 +25,11 @@ Future<void> appInitialize() async {
 
   await Hive.initFlutter(directory.path);
   Hive.registerAdapter(TokenModelAdapter());
+  Hive.registerAdapter(DDayAdapter());
+
   await Hive.openBox<TokenModel>(BoxKeys.tokenBoxKey,
       encryptionCipher: HiveAesCipher(key));
 
   await Hive.openBox<List<int>>(BoxKeys.suduckBoxKey);
-
-  //과목
-  Hive.registerAdapter(SubjectAdapter());
-  await Hive.openBox<Subject>(BoxKeys.subjectBoxKey);
-
-  //학습 내역
-  Hive.registerAdapter(StudyRecordAdapter());
-  // await Hive.deleteBoxFromDisk(BoxKeys.studyRecordBoxkey);
-  await Hive.openBox<List<StudyRecord>>(BoxKeys.studyRecordBoxkey);
+  await Hive.openBox<DDay>(BoxKeys.dDayBoxKey);
 }
