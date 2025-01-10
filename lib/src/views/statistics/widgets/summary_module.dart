@@ -4,8 +4,8 @@ import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../core/enum/mxnRate.dart';
+import '../../../../core/enum/period_option.dart';
 import '../../../../core/widgets/mxnContainer.dart';
-import 'chart_scroll_view.dart';
 
 class SummaryModule extends StatelessWidget {
   const SummaryModule({
@@ -54,7 +54,7 @@ class SummaryModule extends StatelessWidget {
 
   Widget getSummaryRichText(
       BuildContext context, String title, bool isAverage) {
-    final totalDays = PeriodOption.weekly == selectedPeriod
+    final totalDays = PeriodOption.WEEKLY == selectedPeriod
         ? DateTime.now().weekday
         : DateTime.now().day;
     final dur = isAverage
@@ -88,7 +88,7 @@ class SummaryModule extends StatelessWidget {
 
   String get targetPeriod {
     return switch (selectedPeriod) {
-      PeriodOption.weekly =>
+      PeriodOption.WEEKLY =>
         '${DateFormat('yyyy-MM-dd').format(targetWeekStartDate)} ~ ${DateFormat('yyyy-MM-dd').format(targetWeekStartDate.add(Duration(days: 6)))}',
       _ => DateFormat('MMMM  yyyy').format(targetMonth),
     };

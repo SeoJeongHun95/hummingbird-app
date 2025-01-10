@@ -6,6 +6,7 @@ import 'package:hummingbird/src/models/token_model.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../../../core/const/box_keys.dart';
+import '../../models/d_day/d_day.dart';
 
 Future<void> appInitialize() async {
   final directory = await getApplicationDocumentsDirectory();
@@ -24,8 +25,11 @@ Future<void> appInitialize() async {
 
   await Hive.initFlutter(directory.path);
   Hive.registerAdapter(TokenModelAdapter());
+  Hive.registerAdapter(DDayAdapter());
+
   await Hive.openBox<TokenModel>(BoxKeys.tokenBoxKey,
       encryptionCipher: HiveAesCipher(key));
 
   await Hive.openBox<List<int>>(BoxKeys.suduckBoxKey);
+  await Hive.openBox<DDay>(BoxKeys.dDayBoxKey);
 }

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
+import '../../../../../core/enum/period_option.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
-import '../chart_scroll_view.dart';
 import 'total_durations_line_chart.dart';
 
 class TotalDuratinosLineChartModule extends StatelessWidget {
@@ -16,10 +16,11 @@ class TotalDuratinosLineChartModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MxNcontainer(
-      MxN_rate: MxNRate.TWOBYTWO,
+      MxN_rate: MxNRate.FOURBYTHREE,
       MxN_child: LayoutBuilder(builder: (context, constraints) {
         return Container(
           color: Colors.white,
+          padding: const EdgeInsets.all(4),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,

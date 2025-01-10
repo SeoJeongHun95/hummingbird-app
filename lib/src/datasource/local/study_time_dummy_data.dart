@@ -24,43 +24,11 @@ class StudyTimeDummyData {
   ];
 
   static List<int> totalWeekDuration = [
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
+    for (int i = 0; i < DateTime.now().weekday; i++) getRandomStudyDuration
   ];
 
   static List<int> totalMonthDuration = [
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
-    getRandomStudyDuration,
+    for (int i = 0; i < DateTime.now().day; i++) getRandomStudyDuration
   ];
 
   static int get totalStudyTimes => studyDurations.fold(0, (a, b) => a + b);

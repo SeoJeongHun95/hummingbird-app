@@ -1,24 +1,24 @@
-import 'package:flutter/material.dart';
-
 import '../../../models/d_day/d_day.dart';
 
 class DummyData {
   static List<DDay> dummyDDayList = [
     DDay(
       title: "수능",
-      targetDate: DateTime.now().add(Duration(days: 3)).millisecondsSinceEpoch,
-      color: '${Colors.blue.a}${Colors.blue.r}${Colors.blue.g}${Colors.blue.b}',
+      targetDatetime:
+          DateTime.now().add(Duration(days: 3)).millisecondsSinceEpoch,
+      color: '227C9D',
     ),
     DDay(
       title: "공무원 자격증",
-      targetDate: DateTime.now().add(Duration(days: 10)).millisecondsSinceEpoch,
-      color: Colors.greenAccent.toString().substring(10, 16),
+      targetDatetime:
+          DateTime.now().add(Duration(days: 10)).millisecondsSinceEpoch,
+      color: '7868E6',
     ),
     DDay(
       title: "컴활 자격증",
-      targetDate:
+      targetDatetime:
           DateTime.now().subtract(Duration(days: 3)).millisecondsSinceEpoch,
-      color: Colors.purple.toString().substring(10, 16),
+      color: 'A3A1A8',
     )
   ];
   static List<String> colors = [

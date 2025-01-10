@@ -150,7 +150,7 @@ class _AddDDayDialogState extends State<AddDDayDialog> {
               ).toUtc();
               final newDDay = DDay(
                   title: _textController.text,
-                  targetDate: goalDateTimeByUtc.millisecondsSinceEpoch,
+                  targetDatetime: goalDateTimeByUtc.millisecondsSinceEpoch,
                   color: color);
               widget.viewModel.addDDay(newDDay);
               Navigator.pop(context);

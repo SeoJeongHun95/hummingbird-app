@@ -64,7 +64,7 @@ class StudyPieChart extends StatelessWidget {
           fontSize: 10.sp,
           fontWeight: FontWeight.w500,
         ),
-        //radius: 30.w,
+        radius: 50.w,
       );
     });
   }
