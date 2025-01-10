@@ -25,7 +25,6 @@ Dio dio(Ref ref) {
   );
 
   dio.interceptors.add(DioInterceptor(
-      dio: dio,
       refreshTokenDioClient: refreshTokenDioClient,
       tokensProvider: tokensHandler));
 

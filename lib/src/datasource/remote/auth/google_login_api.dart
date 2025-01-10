@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../providers/dio_providers/public_dio_provider.dart';
+import '../../../providers/dio_providers/public_dio_provider.dart';
 
 part 'google_login_api.freezed.dart';
 part 'google_login_api.g.dart';
@@ -40,8 +40,8 @@ class GoogleLoginApi {
   GoogleLoginApi({required this.dio});
 
   Future<GoogleLoginApiResponse> execute(GoogleLoginApiRequest dto) async {
-    print(dio.options.baseUrl);
     final response = await dio.post('/auth/google', data: dto.toJson());
+
     return GoogleLoginApiResponse.fromJson(response.data);
   }
 }

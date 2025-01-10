@@ -16,6 +16,7 @@ Dio publicDio(Ref ref) {
 
   dio.interceptors.add(InterceptorsWrapper(onError: (error, handler) async {
     //   TODO: add global error handling
+    print(error);
   }));
 
   return dio;
