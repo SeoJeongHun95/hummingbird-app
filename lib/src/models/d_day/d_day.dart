@@ -8,10 +8,10 @@ part 'd_day.g.dart';
 @HiveType(typeId: 10)
 class DDay with _$DDay {
   const factory DDay({
-    @HiveField(0) String? id,
+    @HiveField(0) String? ddayId,
     @HiveField(1) required String title,
-    @HiveField(2) required int targetDate,
-    @HiveField(3) required String color,
+    @HiveField(2) required String color,
+    @HiveField(3) required int targetDatetime,
   }) = _DDay;
 
   factory DDay.fromJson(Map<String, dynamic> json) => _$DDayFromJson(json);

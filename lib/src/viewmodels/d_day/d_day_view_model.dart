@@ -2,7 +2,7 @@ import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../models/d_day/d_day.dart';
-import '../../providers/d_day/fake_d_day_repository_provider.dart';
+import '../../providers/d_day/d_day_repository_provider.dart';
 import '../../repositories/d_day/d_day_repository.dart';
 
 part 'd_day_view_model.g.dart';
@@ -13,8 +13,7 @@ class DDayViewModel extends _$DDayViewModel {
 
   @override
   Future<List<DDay>> build() async {
-    repository = ref.watch(
-        fakeDDayRepositoryProvider); //TODO: 서버 통신 구현 후 real repository 로 전환
+    repository = ref.watch(dDayRepositoryProvider);
     final dDays = await repository.getAllDDay();
     return getSortedDDays(dDays);
   }
@@ -55,7 +54,7 @@ class DDayViewModel extends _$DDayViewModel {
   }
 
   List<DDay> getSortedDDays(List<DDay> dDays) {
-    dDays.sort((a, b) => a.targetDate.compareTo(b.targetDate));
+    dDays.sort((a, b) => a.targetDatetime.compareTo(b.targetDatetime));
     return dDays;
   }
 
@@ -65,7 +64,7 @@ class DDayViewModel extends _$DDayViewModel {
     List<String> dDayIndicatorList = [];
     for (int i = 0; i < dDays.length; i++) {
       goalTitleList.add(dDays[i].title);
-      dDayIndicatorList.add(getDDayIndicator(dDays[i].targetDate));
+      dDayIndicatorList.add(getDDayIndicator(dDays[i].targetDatetime));
     }
     return (goalTitleList: goalTitleList, dDayIndicatorList: dDayIndicatorList);
   }

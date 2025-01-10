@@ -19,105 +19,118 @@ class DDayListTileModule extends ConsumerWidget {
     return dDaysState.when(
       data: (dDays) {
         return MxNcontainer(
-          MxN_rate: dDays.length > 1 ? MxNRate.TWOBYTWO : MxNRate.TWOBYONE,
+          MxN_rate: MxNRate.TWOBYTWO,
           MxN_child: Container(
             color: Colors.white,
-            child: ListView.builder(
-              itemCount: dDays.length + 1,
-              itemBuilder: (context, index) {
-                if (index < dDays.length) {
-                  final String goalTitle = dDays[index].title;
-                  final int goalDate = dDays[index].targetDate;
-                  final Color color =
-                      Color(int.parse('0xff${dDays[index].color}'));
-                  return ListTile(
-                    contentPadding: EdgeInsets.only(left: 16.0),
-                    dense: true,
-                    leading: ColorContainerWithOpacity(
-                        color: color,
-                        width: 30.w,
-                        alphaOfColor: 70,
-                        child: Icon(
-                          Icons.calendar_month,
-                          color: color,
-                          size: 20.w,
-                        )),
-                    title: Text(
-                      goalTitle,
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    subtitle: Text(
-                      '목표 날짜: ${viewModel.getFormattedDate(goalDate)}',
-                      style: TextStyle(fontSize: 10.sp),
-                    ),
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          viewModel.getDDayIndicator(goalDate),
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.onSurface,
-                            fontSize: 13.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        MenuAnchor(
-                          alignmentOffset: Offset(-17.w, 0),
-                          menuChildren: [
-                            MenuItemButton(
-                              onPressed: () => _showUpdateDialog(
-                                  context: context,
-                                  index: index,
-                                  goalTitle: goalTitle,
-                                  goalDate: goalDate,
-                                  color: dDays[index].color,
-                                  viewModel: viewModel),
-                              child: Text("편집"),
+            child: dDays.isNotEmpty
+                ? ListView.builder(
+                    itemCount: dDays.length + 1,
+                    itemBuilder: (context, index) {
+                      if (index < dDays.length) {
+                        final String goalTitle = dDays[index].title;
+                        final int goalDate = dDays[index].targetDatetime;
+                        final Color color =
+                            Color(int.parse('0xff${dDays[index].color}'));
+                        return ListTile(
+                          contentPadding: EdgeInsets.only(left: 16.0),
+                          dense: true,
+                          leading: ColorContainerWithOpacity(
+                              color: color,
+                              width: 30.w,
+                              alphaOfColor: 70,
+                              child: Icon(
+                                Icons.calendar_month,
+                                color: color,
+                                size: 20.w,
+                              )),
+                          title: Text(
+                            goalTitle,
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.bold,
                             ),
-                            MenuItemButton(
-                              onPressed: () => _showDeleteDDayDialog(
-                                  context: context,
-                                  index: index,
-                                  goalTitle: goalTitle,
-                                  deleteDDay: viewModel.deleteDDay),
-                              child: Text("제거"),
-                            )
-                          ],
-                          builder: (context, controller, child) {
-                            return IconButton(
-                              onPressed: () {
-                                if (controller.isOpen) {
-                                  controller.close();
-                                } else {
-                                  controller.open();
-                                }
-                              },
-                              icon: Icon(
-                                Icons.more_vert,
-                                size: 15.sp,
+                          ),
+                          subtitle: Text(
+                            '목표 날짜: ${viewModel.getFormattedDate(goalDate)}',
+                            style: TextStyle(fontSize: 10.sp),
+                          ),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                viewModel.getDDayIndicator(goalDate),
+                                style: TextStyle(
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface,
+                                  fontSize: 13.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                  );
-                } else {
-                  return Padding(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 15.h, horizontal: 20.w),
+                              MenuAnchor(
+                                alignmentOffset: Offset(-17.w, 0),
+                                menuChildren: [
+                                  MenuItemButton(
+                                    onPressed: () => _showUpdateDialog(
+                                        context: context,
+                                        index: index,
+                                        goalTitle: goalTitle,
+                                        goalDate: goalDate,
+                                        color: dDays[index].color,
+                                        viewModel: viewModel),
+                                    child: Text("편집"),
+                                  ),
+                                  MenuItemButton(
+                                    onPressed: () => _showDeleteDDayDialog(
+                                        context: context,
+                                        index: index,
+                                        goalTitle: goalTitle,
+                                        deleteDDay: viewModel.deleteDDay),
+                                    child: Text("제거"),
+                                  )
+                                ],
+                                builder: (context, controller, child) {
+                                  return IconButton(
+                                    onPressed: () {
+                                      if (controller.isOpen) {
+                                        controller.close();
+                                      } else {
+                                        controller.open();
+                                      }
+                                    },
+                                    icon: Icon(
+                                      Icons.more_vert,
+                                      size: 15.sp,
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
+                        );
+                      } else {
+                        return Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 15.h, horizontal: 20.w),
+                          child: OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                              fixedSize: Size(300.w, 20.w),
+                            ),
+                            onPressed: () => _showAddDialog(context, viewModel),
+                            child: Icon(Icons.add),
+                          ),
+                        );
+                      }
+                    },
+                  )
+                : Center(
                     child: OutlinedButton(
-                      style: OutlinedButton.styleFrom(),
+                      style: OutlinedButton.styleFrom(
+                        fixedSize: Size(300.w, 20.w),
+                      ),
                       onPressed: () => _showAddDialog(context, viewModel),
                       child: Icon(Icons.add),
                     ),
-                  );
-                }
-              },
-            ),
+                  ),
           ),
         );
       },

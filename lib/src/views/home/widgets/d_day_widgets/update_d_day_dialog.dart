@@ -158,7 +158,7 @@ class _UpdateDDayDialogState extends State<UpdateDDayDialog> {
               ).toUtc();
               final updateDDay = DDay(
                   title: _textController.text,
-                  targetDate: goalDateTimeByUtc.millisecondsSinceEpoch,
+                  targetDatetime: goalDateTimeByUtc.millisecondsSinceEpoch,
                   color: color);
               widget.viewModel.updateDDay(widget.index, updateDDay);
               Navigator.pop(context);

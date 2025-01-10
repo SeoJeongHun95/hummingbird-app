@@ -2,7 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../chart_scroll_view.dart';
+import '../../../../../core/enum/period_option.dart';
 
 class TotalDurationsLineChart extends StatelessWidget {
   const TotalDurationsLineChart(
@@ -38,7 +38,7 @@ class TotalDurationsLineChart extends StatelessWidget {
           ),
           minY: 0,
           maxY: 24,
-          maxX: selectedPeriod == PeriodOption.weekly
+          maxX: selectedPeriod == PeriodOption.WEEKLY
               ? 7
               : DateUtils.getDaysInMonth(
                       DateTime.now().year, DateTime.now().month)
@@ -57,8 +57,8 @@ class TotalDurationsLineChart extends StatelessWidget {
               sideTitles: SideTitles(
                   showTitles: true,
                   reservedSize: 25.w,
-                  maxIncluded: selectedPeriod == PeriodOption.weekly,
-                  interval: selectedPeriod == PeriodOption.weekly ? 1 : 5,
+                  maxIncluded: selectedPeriod == PeriodOption.WEEKLY,
+                  interval: selectedPeriod == PeriodOption.WEEKLY ? 1 : 5,
                   getTitlesWidget: bottomTitleWidgets),
             ),
             leftTitles: AxisTitles(
@@ -78,7 +78,7 @@ class TotalDurationsLineChart extends StatelessWidget {
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
     switch (selectedPeriod) {
-      case PeriodOption.weekly:
+      case PeriodOption.WEEKLY:
         return SideTitleWidget(
             axisSide: AxisSide.bottom,
             child: Text(weekDays[value.toInt() - 1]));
@@ -92,7 +92,7 @@ class TotalDurationsLineChart extends StatelessWidget {
 
   LineChartBarData get lineBarData {
     return LineChartBarData(
-      isStepLineChart: selectedPeriod == PeriodOption.weekly,
+      isStepLineChart: selectedPeriod == PeriodOption.WEEKLY,
       barWidth: 3,
       isCurved: true,
       preventCurveOverShooting: true,
