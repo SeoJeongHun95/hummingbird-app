@@ -7,6 +7,8 @@ import 'package:path_provider/path_provider.dart';
 
 import '../../../core/const/box_keys.dart';
 import '../../models/d_day/d_day.dart';
+import '../../models/study_record/study_record.dart';
+import '../../models/subject/subject.dart';
 
 Future<void> appInitialize() async {
   final directory = await getApplicationDocumentsDirectory();
@@ -32,4 +34,11 @@ Future<void> appInitialize() async {
 
   await Hive.openBox<List<int>>(BoxKeys.suduckBoxKey);
   await Hive.openBox<DDay>(BoxKeys.dDayBoxKey);
+
+  Hive.registerAdapter(SubjectAdapter());
+  await Hive.openBox<Subject>(BoxKeys.subjectBoxKey);
+
+  Hive.registerAdapter(StudyRecordAdapter());
+  // await Hive.deleteBoxFromDisk(BoxKeys.studyRecordBoxkey);
+  await Hive.openBox<List<StudyRecord>>(BoxKeys.studyRecordBoxkey);
 }

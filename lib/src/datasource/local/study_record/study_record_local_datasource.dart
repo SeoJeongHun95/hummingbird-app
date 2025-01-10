@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../models/study_record/study_record.dart';
@@ -13,8 +11,6 @@ class StudyRecordDataSource {
     final existingData = await getStudyRecordsByDate(date);
     existingData.add(studyRecord);
 
-    log("$existingData");
-
     await _box.put(date, existingData);
   }
 
@@ -24,8 +20,7 @@ class StudyRecordDataSource {
           _box.get(date, defaultValue: <StudyRecord>[])?.cast<StudyRecord>() ??
               [];
       return existingData;
-    } catch (e, stackTrace) {
-      log("Error reading records for $date: $e", stackTrace: stackTrace);
+    } catch (e, st) {
       return [];
     }
   }
@@ -46,12 +41,8 @@ class StudyRecordDataSource {
       );
       existingData[lastIndex] = newStudyRecord;
 
-      log("Updated record: $newStudyRecord");
-      log("All records: $existingData");
-
       await _box.put(date, existingData);
     } else {
-      log("No records found for date: $date");
       throw Exception('No study records to update.');
     }
   }
