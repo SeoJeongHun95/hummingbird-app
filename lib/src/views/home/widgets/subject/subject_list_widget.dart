@@ -29,7 +29,8 @@ class SubjectListWidget extends ConsumerWidget {
                     itemBuilder: (context, index) {
                       if (index == data.length) {
                         return IconButton(
-                          onPressed: () => _showAddSubjectDialog(context, ref),
+                          onPressed: () =>
+                              _showAddSubjectDialog(context, ref, data.length),
                           icon: Icon(Icons.add),
                         );
                       }
@@ -137,14 +138,14 @@ class SubjectListWidget extends ConsumerWidget {
     );
   }
 
-  void _showAddSubjectDialog(BuildContext context, WidgetRef ref) {
+  void _showAddSubjectDialog(BuildContext context, WidgetRef ref, int order) {
     _showSubjectDialog(
       context,
       ref,
       'Add New Subject',
       '',
       onConfirm: (title, color) {
-        final newSubject = Subject(title: title, color: color, order: 1);
+        final newSubject = Subject(title: title, color: color, order: order);
         ref.read(subjectViewModelProvider.notifier).addSubject(newSubject);
       },
     );
