@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hummingbird/src/viewmodels/study_record/study_record_viewmodel.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
@@ -30,7 +29,8 @@ class SubjectListWidget extends ConsumerWidget {
                     itemBuilder: (context, index) {
                       if (index == data.length) {
                         return IconButton(
-                          onPressed: () => _showAddSubjectDialog(context, ref),
+                          onPressed: () =>
+                              _showAddSubjectDialog(context, ref, data.length),
                           icon: Icon(Icons.add),
                         );
                       }
@@ -73,12 +73,6 @@ class SubjectListWidget extends ConsumerWidget {
                 child: CircularProgressIndicator(),
               ),
             ),
-            IconButton(
-              onPressed: () => ref
-                  .read(studyRecordViewModelProvider.notifier)
-                  .loadStudyRecordsByDate("2025-01-10"),
-              icon: Icon(Icons.read_more),
-            )
           ],
         ),
       ),
@@ -144,14 +138,14 @@ class SubjectListWidget extends ConsumerWidget {
     );
   }
 
-  void _showAddSubjectDialog(BuildContext context, WidgetRef ref) {
+  void _showAddSubjectDialog(BuildContext context, WidgetRef ref, int order) {
     _showSubjectDialog(
       context,
       ref,
       'Add New Subject',
       '',
       onConfirm: (title, color) {
-        final newSubject = Subject(title: title, color: color, order: 1);
+        final newSubject = Subject(title: title, color: color, order: order);
         ref.read(subjectViewModelProvider.notifier).addSubject(newSubject);
       },
     );

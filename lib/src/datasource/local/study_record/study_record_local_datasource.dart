@@ -20,7 +20,7 @@ class StudyRecordDataSource {
           _box.get(date, defaultValue: <StudyRecord>[])?.cast<StudyRecord>() ??
               [];
       return existingData;
-    } catch (e, st) {
+    } catch (e) {
       return [];
     }
   }
