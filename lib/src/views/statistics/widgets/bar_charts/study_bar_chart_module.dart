@@ -10,11 +10,11 @@ class StudyBarChartModule extends StatelessWidget {
       {super.key,
       required this.subjectTitleList,
       required this.studyDurationList,
-      required this.colorList});
+      required this.subjectColorList});
 
   final List<String> subjectTitleList;
   final List<int> studyDurationList;
-  final List<Color> colorList;
+  final List<Color> subjectColorList;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class StudyBarChartModule extends StatelessWidget {
                   child: StudyBarChart(
                       subjectTitleList: subjectTitleList,
                       studyDurationList: studyDurationList,
-                      colorList: colorList),
+                      subjectColorList: subjectColorList),
                 ),
               ),
             ],

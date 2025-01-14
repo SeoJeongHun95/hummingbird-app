@@ -8,53 +8,50 @@ class StudyPieChart extends StatelessWidget {
       {super.key,
       required this.subjectTitleList,
       required this.studyDurationList,
-      required this.colorList,
+      required this.subjectColorList,
       required this.totalStudyDuration});
 
   final List<String> subjectTitleList;
   final List<int> studyDurationList;
-  final List<Color> colorList;
+  final List<Color> subjectColorList;
   final int totalStudyDuration;
 
-  //TODO: subjectList 가 빈 리스트 일 시 분기 처리. 일단 Text() 로 설정. 혹은 다른 방법 모색.
   @override
   Widget build(BuildContext context) {
-    return subjectTitleList.isNotEmpty
-        ? Row(
-            children: [
-              Expanded(
-                child: PieChart(
-                  duration: Duration.zero,
-                  PieChartData(
-                    startDegreeOffset: -90,
-                    sections: getSections(subjectTitleList, studyDurationList,
-                        colorList, totalStudyDuration),
-                    sectionsSpace: 1,
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 30.w,
-              ),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: getLegend(subjectTitleList, studyDurationList,
-                        colorList, totalStudyDuration),
-                  ),
-                ),
-              )
-            ],
-          )
-        : Center(child: Text("데이터가 없습니다."));
+    return Row(
+      children: [
+        Expanded(
+          child: PieChart(
+            duration: Duration.zero,
+            PieChartData(
+              startDegreeOffset: -90,
+              sections: getSections(subjectTitleList, studyDurationList,
+                  subjectColorList, totalStudyDuration),
+              sectionsSpace: 1,
+            ),
+          ),
+        ),
+        SizedBox(
+          width: 30.w,
+        ),
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              children: getLegend(subjectTitleList, studyDurationList,
+                  subjectColorList, totalStudyDuration),
+            ),
+          ),
+        )
+      ],
+    );
   }
 
   List<PieChartSectionData> getSections(List<String> subjectTitleList,
-      List<int> studyDurationList, List<Color> colorList, int total) {
+      List<int> studyDurationList, List<Color> subjectColorList, int total) {
     return List.generate(studyDurationList.length, (index) {
       return PieChartSectionData(
-        color: colorList[index],
-        titlePositionPercentageOffset: 0.6,
+        color: subjectColorList[index],
+        titlePositionPercentageOffset: 0.5,
         value: studyDurationList[index].toDouble(),
         title: index == 0
             ? '${(studyDurationList[index] * 100 / total).toStringAsFixed(1)}%'
@@ -64,13 +61,13 @@ class StudyPieChart extends StatelessWidget {
           fontSize: 10.sp,
           fontWeight: FontWeight.w500,
         ),
-        radius: 50.w,
+        //radius: 50.w,
       );
     });
   }
 
   List<Widget> getLegend(List<String> subjectTitleList,
-      List<int> studyDurationList, List<Color> colorList, int total) {
+      List<int> studyDurationList, List<Color> subjectColorList, int total) {
     final percentageList = calculatePercentage(studyDurationList, total);
     return List.generate(subjectTitleList.length, (index) {
       return Padding(
@@ -82,7 +79,7 @@ class StudyPieChart extends StatelessWidget {
               height: 11.w,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4),
-                  color: colorList[index]),
+                  color: subjectColorList[index]),
             ),
             Gap(10.w),
             SizedBox(

@@ -6,10 +6,12 @@ import '../../../../../core/enum/period_option.dart';
 
 class TotalDurationsLineChart extends StatelessWidget {
   const TotalDurationsLineChart(
-      {super.key, required this.selectedPeriod, required this.totalDurations});
+      {super.key,
+      required this.selectedPeriod,
+      required this.dailyTotalDuration});
 
   final PeriodOption selectedPeriod;
-  final List<int> totalDurations;
+  final List<int> dailyTotalDuration;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class TotalDurationsLineChart extends StatelessWidget {
               getTooltipItems: (touchedSpots) {
                 return touchedSpots.map((barSpot) {
                   return LineTooltipItem(
-                      '${barSpot.y.floor().toString()}h ${((barSpot.y % 1) * 60).floor().toStringAsFixed(0).padLeft(2, '0')}m',
+                      formatTime(barSpot.y * 3600),
                       TextStyle(
                           color: Colors.black, fontWeight: FontWeight.w500));
                 }).toList();
@@ -57,8 +59,8 @@ class TotalDurationsLineChart extends StatelessWidget {
               sideTitles: SideTitles(
                   showTitles: true,
                   reservedSize: 25.w,
-                  maxIncluded: selectedPeriod == PeriodOption.WEEKLY,
-                  interval: selectedPeriod == PeriodOption.WEEKLY ? 1 : 5,
+                  //maxIncluded: selectedPeriod == PeriodOption.WEEKLY,
+                  interval: selectedPeriod == PeriodOption.WEEKLY ? 1 : 7,
                   getTitlesWidget: bottomTitleWidgets),
             ),
             leftTitles: AxisTitles(
@@ -74,14 +76,13 @@ class TotalDurationsLineChart extends StatelessWidget {
     );
   }
 
-  List<String> get weekDays => ['월', '화', '수', '목', '금', '토', '일'];
+  List<String> get weekDays => ['', '월', '화', '수', '목', '금', '토', '일'];
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
     switch (selectedPeriod) {
       case PeriodOption.WEEKLY:
         return SideTitleWidget(
-            axisSide: AxisSide.bottom,
-            child: Text(weekDays[value.toInt() - 1]));
+            axisSide: AxisSide.bottom, child: Text(weekDays[value.toInt()]));
       default:
         return SideTitleWidget(
           axisSide: AxisSide.bottom,
@@ -91,6 +92,13 @@ class TotalDurationsLineChart extends StatelessWidget {
   }
 
   LineChartBarData get lineBarData {
+    final period = switch (selectedPeriod) {
+      PeriodOption.WEEKLY => DateTime.now().weekday,
+      _ => DateTime.now().day,
+    };
+    print(period);
+    print('line chart: $dailyTotalDuration');
+
     return LineChartBarData(
       isStepLineChart: selectedPeriod == PeriodOption.WEEKLY,
       barWidth: 3,
@@ -99,6 +107,9 @@ class TotalDurationsLineChart extends StatelessWidget {
       color: Colors.blue,
       dotData: FlDotData(
           show: true,
+          checkToShowDot: (spot, barData) {
+            return spot.x == period;
+          },
           getDotPainter: (spot, percent, barData, index) {
             return FlDotCirclePainter(
               radius: 2,
@@ -108,12 +119,16 @@ class TotalDurationsLineChart extends StatelessWidget {
             );
           }),
       spots: List.generate(
-        totalDurations.length,
+        period,
         (index) => FlSpot(
           (index + 1).toDouble(),
-          totalDurations[index] / (3600 * 1000),
+          dailyTotalDuration[index] / 3600,
         ),
       ),
     );
+  }
+
+  String formatTime(double seconds) {
+    return '${seconds ~/ 3600}:${(seconds ~/ 60).toStringAsFixed(0).padLeft(2, '0')}:${(seconds % 60).toStringAsFixed(0).padLeft(2, '0')}';
   }
 }

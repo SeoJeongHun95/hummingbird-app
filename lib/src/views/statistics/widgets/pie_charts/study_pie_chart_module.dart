@@ -10,18 +10,18 @@ class StudyPieChartModule extends StatelessWidget {
       {super.key,
       required this.subjectTitleList,
       required this.studyDurationList,
-      required this.colorList,
+      required this.subjectColorList,
       required this.totalStudyDuration});
 
   final List<String> subjectTitleList;
   final List<int> studyDurationList;
-  final List<Color> colorList;
+  final List<Color> subjectColorList;
   final int totalStudyDuration;
 
   @override
   Widget build(BuildContext context) {
     return MxNcontainer(
-      MxN_rate: MxNRate.FOURBYTHREE,
+      MxN_rate: MxNRate.TWOBYONE,
       MxN_child: LayoutBuilder(builder: (context, constraints) {
         return Container(
           color: Colors.white,
@@ -48,7 +48,7 @@ class StudyPieChartModule extends StatelessWidget {
                     child: StudyPieChart(
                       subjectTitleList: subjectTitleList,
                       studyDurationList: studyDurationList,
-                      colorList: colorList,
+                      subjectColorList: subjectColorList,
                       totalStudyDuration: totalStudyDuration,
                     ),
                   ),
