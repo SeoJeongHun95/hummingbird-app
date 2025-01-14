@@ -37,7 +37,6 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-pubspec.lock
 
 # iOS specific
 **/ios/Flutter/Flutter.podspec
