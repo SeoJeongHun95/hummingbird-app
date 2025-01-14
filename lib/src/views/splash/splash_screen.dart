@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/utils/delay.dart';
 import '../../providers/auth/auth_provider.dart';
-import 'app_initialize.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -18,19 +17,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   void initState() {
     super.initState();
     delay(() async {
-      await appInitialize();
-
       final isLoggedIn = ref.watch(authProvider);
 
       if (!isLoggedIn) {
-        if (!mounted) {
-          return;
-        }
         context.pushReplacement('/login');
       } else {
-        if (!mounted) {
-          return;
-        }
         context.pushReplacement('/');
       }
     }, seconds: 1);

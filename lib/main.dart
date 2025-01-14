@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hummingbird/core/utils/show_snack_bar.dart';
+import 'package:hummingbird/src/app_initialize.dart';
 
 import 'core/router/router.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await appInitialize();
 
   runApp(ProviderScope(child: MyApp()));
 }
@@ -19,6 +23,7 @@ class MyApp extends ConsumerWidget {
     return ScreenUtilInit(
       child: MaterialApp.router(
         routerConfig: goRouter,
+        scaffoldMessengerKey: scaffoldMessengerKey,
         debugShowCheckedModeBanner: false,
         title: 'HummingBird',
         theme: ThemeData(

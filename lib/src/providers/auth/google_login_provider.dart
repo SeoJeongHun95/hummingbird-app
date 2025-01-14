@@ -1,6 +1,7 @@
 import 'package:hummingbird/src/providers/auth/auth_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../core/utils/show_snack_bar.dart';
 import '../../datasource/remote/auth/google_login_api.dart';
 
 part 'google_login_provider.g.dart';
@@ -28,5 +29,6 @@ class GoogleLogin extends _$GoogleLogin {
           refreshToken: res.refreshToken,
           expiresAt: res.expiresAt,
         );
+    showSnackBar(message: '로그인에 성공했습니다!');
   }
 }

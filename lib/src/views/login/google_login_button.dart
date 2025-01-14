@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hummingbird/core/utils/is_android.dart';
 import 'package:hummingbird/src/models/env.dart';
@@ -30,14 +29,7 @@ class GoogleLoginButton extends ConsumerWidget {
                 email: googleUser.email,
                 displayName: googleUser.displayName,
               );
-
-          if (!context.mounted) {
-            return;
-          }
-
-          context.pushReplacement('/');
         } catch (err) {
-          // TODO: handling error
           print(err);
         }
       },
