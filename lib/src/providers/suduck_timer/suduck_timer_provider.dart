@@ -56,7 +56,11 @@ class SuDuckTimer extends _$SuDuckTimer {
     // _restoreTimerState();
 
     return TimerState(
-        elapsedTime: 0, breakTime: 0, isRunning: false, currSubject: null);
+      elapsedTime: 0,
+      breakTime: 0,
+      isRunning: false,
+      currSubject: null,
+    );
   }
 
   void startTimer() async {
@@ -87,7 +91,8 @@ class SuDuckTimer extends _$SuDuckTimer {
         .addStudyRecord(todayDate, newRecord);
 
     _startTimerLoop();
-    state = state.copyWith(isRunning: true, currSubject: subject); // 현재 과목 설정
+
+    state = state.copyWith(isRunning: true, currSubject: subject);
   }
 
   void stopTimer() async {
@@ -99,6 +104,29 @@ class SuDuckTimer extends _$SuDuckTimer {
   }
 
   Future<void> resetTimer() async {
+    _elapsedtimer?.cancel();
+    _breaktimer?.cancel();
+
+    final todayDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
+    final currentState = state;
+
+    if (currentState.currSubject != null) {
+      await ref
+          .read(studyRecordViewModelProvider.notifier)
+          .deleteStudyRecord(todayDate);
+    }
+
+    await suduckRepo.deleteSuDuckTimerState();
+
+    state = TimerState(
+      elapsedTime: 0,
+      breakTime: 0,
+      isRunning: false,
+      currSubject: null,
+    );
+  }
+
+  Future<void> saveTimer() async {
     _elapsedtimer?.cancel();
     _breaktimer?.cancel();
 
@@ -159,7 +187,6 @@ class SuDuckTimer extends _$SuDuckTimer {
   void _startBreakLoop() {
     _breaktimer = Timer.periodic(const Duration(seconds: 1), (timer) async {
       state = state.copyWith(breakTime: state.breakTime + 1);
-
       if (state.breakTime % 10 == 0) {
         await suduckLocalState.updateSuDuckTimerState(state.breakTime);
       }

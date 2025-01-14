@@ -32,4 +32,8 @@ class StudyRecordRepository {
       String date, StudyRecord updatedStudyRecord) async {
     await localDataSource.updateStudyRecord(date, updatedStudyRecord);
   }
+
+  Future<void> deleteStudyRecord(String date) async {
+    await localDataSource.deleteStudyRecord(date);
+  }
 }

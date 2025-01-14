@@ -39,6 +39,11 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
     loadStudyRecordsByDate(date); // 업데이트 후 해당 날짜의 학습 기록을 다시 로드
   }
 
+  Future<void> deleteStudyRecord(String date) async {
+    await repository.deleteStudyRecord(date);
+    loadStudyRecordsByDate(date); // 업데이트 후 해당 날짜의 학습 기록을 다시 로드
+  }
+
   // 날짜별로 받아온 학습 기록 합쳐서 로드하는 메서드
   Future<void> loadMergedStudyRecordsByDate(String date) async {
     state = await AsyncValue.guard(() async {
