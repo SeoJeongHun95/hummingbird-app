@@ -96,8 +96,6 @@ class TotalDurationsLineChart extends StatelessWidget {
       PeriodOption.WEEKLY => DateTime.now().weekday,
       _ => DateTime.now().day,
     };
-    print(period);
-    print('line chart: $dailyTotalDuration');
 
     return LineChartBarData(
       isStepLineChart: selectedPeriod == PeriodOption.WEEKLY,
@@ -129,6 +127,6 @@ class TotalDurationsLineChart extends StatelessWidget {
   }
 
   String formatTime(double seconds) {
-    return '${seconds ~/ 3600}:${(seconds ~/ 60).toStringAsFixed(0).padLeft(2, '0')}:${(seconds % 60).toStringAsFixed(0).padLeft(2, '0')}';
+    return '${(seconds ~/ 3600).toString().padLeft(2, '0')}:${(seconds ~/ 60).toStringAsFixed(0).padLeft(2, '0')}:${(seconds % 60).toStringAsFixed(0).padLeft(2, '0')}';
   }
 }

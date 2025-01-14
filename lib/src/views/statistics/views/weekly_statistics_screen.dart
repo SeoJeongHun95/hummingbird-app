@@ -37,7 +37,7 @@ class WeeklyStatisticsScreen extends ConsumerWidget {
                 SummaryModule(
                   totalStudyDuration:
                       dailyTotalDuration.fold(0, (a, b) => a + b),
-                  selectedPeriod: PeriodOption.MONTHLY,
+                  selectedPeriod: PeriodOption.WEEKLY,
                   targetMonth: targetMonth,
                   targetWeekStartDate: targetWeekStartDate,
                 ),

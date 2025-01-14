@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hummingbird/src/providers/study_record/daily_summary_data.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
@@ -14,10 +15,9 @@ class DailySummaryModule extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final studyRecordsState = ref.watch(studyRecordViewModelProvider);
+    final studyRecordsState = ref.watch(dailySummaryDataProvider(_today));
     final studyRecordViewModel =
         ref.read(studyRecordViewModelProvider.notifier);
-    studyRecordViewModel.loadMergedStudyRecordsByDate(_today);
     return studyRecordsState.when(
       data: (studyRecords) {
         final goalDuration = 8 * 60 * 60;
