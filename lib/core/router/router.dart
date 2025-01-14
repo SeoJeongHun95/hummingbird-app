@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../src/providers/auth/auth_provider.dart';
 import '../../src/views/home/home_screen.dart';
 import '../../src/views/login/login_screen.dart';
 import '../../src/views/more/view/more_screen.dart';
@@ -9,10 +10,36 @@ import '../../src/views/social/views/social_screen.dart';
 import '../../src/views/splash/splash_screen.dart';
 import '../../src/views/statistics/views/statistics_screen.dart';
 
+final navigatorKey = GlobalKey<NavigatorState>();
+bool firstRun = true;
+
 // GoRouter 설정
 final goRouterProvider = Provider<GoRouter>((ref) {
+  final isLoggedIn = ref.watch(authProvider);
+
   return GoRouter(
+    navigatorKey: navigatorKey,
     initialLocation: '/splash',
+    redirect: (context, state) {
+      if (firstRun && state.fullPath == '/splash') {
+        firstRun = false;
+        return null;
+      }
+
+      if (state.fullPath == '/login' && isLoggedIn) {
+        return '/';
+      }
+
+      if (!isLoggedIn) {
+        return '/login';
+      }
+
+      if (!firstRun && state.fullPath == '/splash') {
+        return '/';
+      }
+
+      return null;
+    },
     routes: [
       GoRoute(
         path: '/',

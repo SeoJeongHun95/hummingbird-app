@@ -16,7 +16,7 @@ class MoreScreen extends ConsumerWidget {
           child: ListTile(
             leading: const Icon(Icons.logout),
             title: const Text('Logout'),
-            onTap: () async {
+            onTap: () {
               ref.read(authProvider.notifier).logout();
             },
           ),

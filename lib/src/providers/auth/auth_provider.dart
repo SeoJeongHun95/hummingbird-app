@@ -1,5 +1,7 @@
+import 'package:hummingbird/core/utils/show_snack_bar.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../core/utils/show_confirm_dialog.dart';
 import '../../models/token_model.dart';
 import '../token_provider.dart';
 
@@ -33,8 +35,16 @@ class Auth extends _$Auth {
     state = true;
   }
 
-  void logout() {
+  void logout() async {
+    final confirm =
+        await showConfirmDialog('로그아웃하시겠어요?', '로그아웃 후 로그인 화면으로 돌아갑니다.');
+
+    if (!confirm) {
+      return;
+    }
+
     ref.read(tokenProvider).deleteToken();
     state = false;
+    showSnackBar(message: '로그아웃되었습니다.');
   }
 }

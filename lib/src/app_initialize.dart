@@ -5,10 +5,10 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hummingbird/src/models/token_model.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../../../core/const/box_keys.dart';
-import '../../models/d_day/d_day.dart';
-import '../../models/study_record/study_record.dart';
-import '../../models/subject/subject.dart';
+import '../core/const/box_keys.dart';
+import 'models/d_day/d_day.dart';
+import 'models/study_record/study_record.dart';
+import 'models/subject/subject.dart';
 
 Future<void> appInitialize() async {
   final directory = await getApplicationDocumentsDirectory();
