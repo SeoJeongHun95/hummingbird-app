@@ -7,11 +7,11 @@ class StudyBarChart extends StatelessWidget {
       {super.key,
       required this.subjectTitleList,
       required this.studyDurationList,
-      required this.colorList});
+      required this.subjectColorList});
 
   final List<String> subjectTitleList;
   final List<int> studyDurationList;
-  final List<Color> colorList;
+  final List<Color> subjectColorList;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class StudyBarChart extends StatelessWidget {
                 tooltipMargin: 0,
                 getTooltipItem: (group, groupIndex, rod, rodIndex) {
                   return BarTooltipItem(
-                    '${rod.toY ~/ 60}h ${(rod.toY % 60).toStringAsFixed(0).padLeft(2, '0')}m',
+                    formatTime(rod.toY),
                     TextStyle(
                       color: Colors.black,
                       fontSize: 10.sp,
@@ -89,13 +89,17 @@ class StudyBarChart extends StatelessWidget {
         x: index,
         barRods: [
           BarChartRodData(
-            toY: studyDurationList[index] / (60 * 1000),
-            width: 13.w,
+            toY: studyDurationList[index].toDouble(),
+            width: 15.w,
             color: Colors.blue,
           ),
         ],
         showingTooltipIndicators: [0],
       );
     });
+  }
+
+  String formatTime(double seconds) {
+    return '${seconds ~/ 3600}:${(seconds ~/ 60).toStringAsFixed(0).padLeft(2, '0')}:${(seconds % 60).toStringAsFixed(0).padLeft(2, '0')}';
   }
 }

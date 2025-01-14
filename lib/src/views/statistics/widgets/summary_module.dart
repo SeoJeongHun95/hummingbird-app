@@ -57,12 +57,12 @@ class SummaryModule extends StatelessWidget {
     final totalDays = PeriodOption.WEEKLY == selectedPeriod
         ? DateTime.now().weekday
         : DateTime.now().day;
-    final dur = isAverage
-        ? (totalStudyDuration / 1000) ~/ totalDays
-        : totalStudyDuration / 1000;
+    final dur =
+        isAverage ? (totalStudyDuration) ~/ totalDays : totalStudyDuration;
     final hour = dur ~/ 3600;
     final min = (dur % 3600) ~/ 60;
     final sec = dur % 60;
+
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(

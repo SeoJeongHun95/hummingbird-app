@@ -8,10 +8,10 @@ import 'total_durations_line_chart.dart';
 
 class TotalDuratinosLineChartModule extends StatelessWidget {
   const TotalDuratinosLineChartModule(
-      {super.key, required this.period, required this.totalDurations});
+      {super.key, required this.period, required this.dailyTotalDuration});
 
   final PeriodOption period;
-  final List<int> totalDurations;
+  final List<int> dailyTotalDuration;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class TotalDuratinosLineChartModule extends StatelessWidget {
                 height: constraints.maxHeight * 0.7,
                 child: TotalDurationsLineChart(
                   selectedPeriod: period,
-                  totalDurations: totalDurations,
+                  dailyTotalDuration: dailyTotalDuration,
                 ),
               )
             ],
