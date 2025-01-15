@@ -5,7 +5,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../../core/enum/period_option.dart';
 import '../../models/study_record/study_record.dart';
 import '../../repositories/study_record/study_record_repository.dart';
-import '../subject/subject_viewmodel.dart';
 
 part 'study_record_viewmodel.g.dart';
 
@@ -40,27 +39,25 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
   }
 
   // 날짜별로 받아온 학습 기록 합쳐서 로드하는 메서드
-  Future<void> loadMergedStudyRecordsByDate(String date) async {
-    state = await AsyncValue.guard(() async {
-      List<StudyRecord> records = await repository.getStudyRecordsByDate(date);
-      return records
-          .fold<Map<String, StudyRecord>>({}, (acc, record) {
-            final key = '${record.subject.title}:${record.subject.order}';
-            if (acc.containsKey(key)) {
-              final existingRecord = acc[key]!;
-              acc[key] = existingRecord.copyWith(
-                elapsedTime: existingRecord.elapsedTime + record.elapsedTime,
-                breakTime: existingRecord.breakTime + record.breakTime,
-              );
-            } else {
-              acc[key] = record;
-            }
+  Future<List<StudyRecord>> loadMergedStudyRecordsByDate(String date) async {
+    List<StudyRecord> records = await repository.getStudyRecordsByDate(date);
+    return records
+        .fold<Map<String, StudyRecord>>({}, (acc, record) {
+          final key = '${record.subject.title}:${record.subject.order}';
+          if (acc.containsKey(key)) {
+            final existingRecord = acc[key]!;
+            acc[key] = existingRecord.copyWith(
+              elapsedTime: existingRecord.elapsedTime + record.elapsedTime,
+              breakTime: existingRecord.breakTime + record.breakTime,
+            );
+          } else {
+            acc[key] = record;
+          }
 
-            return acc;
-          })
-          .values
-          .toList();
-    });
+          return acc;
+        })
+        .values
+        .toList();
   }
 
   //StudyRecords 를 subjectTitle, 총 공부시간, subjectColor 리스트로 분리시켜 Record 로 반환하는 메서드
@@ -97,21 +94,14 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
   //학습 기록을 특정기간으로 가져오는 메서드
   Future<(List<StudyRecord>, List<int>)> loadStudyRecordsByPeriod(
       DateTime currentDate, PeriodOption option) async {
-    await ref.read(subjectViewModelProvider.notifier).loadSubjects();
-    final subjectState = ref.read(subjectViewModelProvider);
-
-    final subjects = subjectState.value ?? [];
-
     // 기간 설정 및 시작 날짜 계산
     final period = switch (option) {
       PeriodOption.WEEKLY => 7,
       _ => DateUtils.getDaysInMonth(currentDate.year, currentDate.month),
     };
     final startDate = getStartDate(currentDate, option);
-    print("start date: $startDate");
 
-    List<StudyRecord> studyRecords = List.generate(
-        subjects.length, (index) => StudyRecord(subject: subjects[index]));
+    List<StudyRecord> studyRecords = [];
 
     final dailyTotalDuration = List.generate(period, (index) => 0);
     // 각 기간별 데이터 누적 처리

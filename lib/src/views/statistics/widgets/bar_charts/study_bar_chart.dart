@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+//TODO: 현재 기존 subject 가 다 0:00:00 으로 나오는데, 이것을 00:00:00 으로 하고, 보여줄 지 말지 결정 필요.
 class StudyBarChart extends StatelessWidget {
   const StudyBarChart(
       {super.key,
@@ -100,6 +101,6 @@ class StudyBarChart extends StatelessWidget {
   }
 
   String formatTime(double seconds) {
-    return '${seconds ~/ 3600}:${(seconds ~/ 60).toStringAsFixed(0).padLeft(2, '0')}:${(seconds % 60).toStringAsFixed(0).padLeft(2, '0')}';
+    return '${(seconds ~/ 3600).toString().padLeft(2, '0')}:${(seconds ~/ 60).toStringAsFixed(0).padLeft(2, '0')}:${(seconds % 60).toStringAsFixed(0).padLeft(2, '0')}';
   }
 }
