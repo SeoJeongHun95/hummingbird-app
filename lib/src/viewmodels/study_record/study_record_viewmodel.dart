@@ -44,8 +44,7 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
   }
 
   // 날짜별로 받아온 학습 기록 합쳐서 로드하는 메서드
-  Future<List<StudyRecord>> loadMergedStudyRecordsByDate(String date) async {
-    List<StudyRecord> records = await repository.getStudyRecordsByDate(date);
+  List<StudyRecord> loadMergedStudyRecordsByDate(List<StudyRecord> records) {
     return records
         .fold<Map<String, StudyRecord>>({}, (acc, record) {
           final key = '${record.subject.title}:${record.subject.order}';
