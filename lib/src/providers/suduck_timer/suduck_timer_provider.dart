@@ -159,7 +159,7 @@ class SuDuckTimer extends _$SuDuckTimer {
   }
 
   void setSubject(Subject subject) {
-    if (state.currSubject == null) {
+    if (!state.isRunning) {
       state = state.copyWith(currSubject: subject);
     }
   }

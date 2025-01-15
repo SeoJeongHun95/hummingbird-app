@@ -26,19 +26,21 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
     super.initState();
     _colorController = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 1), // 애니메이션 지속 시간
+      duration: const Duration(seconds: 1),
     );
     _colorAnimation = ColorTween(begin: _currentColor, end: _currentColor)
         .animate(_colorController);
   }
 
   void changeColor(Color newColor) {
-    setState(() {
-      _colorAnimation = ColorTween(begin: _currentColor, end: newColor)
-          .animate(_colorController);
-      _currentColor = newColor;
-    });
-    _colorController.forward(from: 0);
+    if (_currentColor != newColor) {
+      setState(() {
+        _colorAnimation = ColorTween(begin: _currentColor, end: newColor)
+            .animate(_colorController);
+        _currentColor = newColor;
+      });
+      _colorController.forward(from: 0);
+    }
   }
 
   String _formatTime(int seconds) {
@@ -58,9 +60,8 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
 
     if (suduckTimer.currSubject != null) {
       changeColor(Color(int.parse("0xff${suduckTimer.currSubject!.color}")));
-    }
-    if (suduckTimer.currSubject == null) {
-      changeColor(Color(0xffba4849));
+    } else {
+      changeColor(const Color(0xffba4849));
     }
 
     final bool isRunning = suduckTimer.isRunning;
@@ -81,7 +82,7 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
                   child: Center(
                     child: Text(
                       suduckTimer.currSubject == null
-                          ? "과목을 선택해 주세요"
+                          ? "미분류"
                           : suduckTimer.currSubject!.title,
                       style: TextStyle(
                         fontSize: 22.sp,
@@ -104,6 +105,7 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
                         fontSize: 52.sp,
                         fontWeight: FontWeight.w600,
                         color: Colors.white,
+                        fontFeatures: [FontFeature.tabularFigures()],
                       ),
                     ),
                   ),

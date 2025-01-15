@@ -29,6 +29,16 @@ class SubjectListWidget extends ConsumerWidget {
     final subjects = ref.watch(subjectViewModelProvider);
     final studyRecord = ref.watch(DailySummaryDataProvider(_today));
 
+    // final studyRecord = ref.watch(studyRecordViewModelProvider);
+    // ref
+    //     .read(studyRecordViewModelProvider.notifier)
+    //     .loadStudyRecordsByDate(_today);
+    // return studyRecord.when(
+    //   data: (recordData) {
+    //     final studyRecord = ref
+    //         .read(studyRecordViewModelProvider.notifier)
+    //         .loadMergedStudyRecordsByDate(recordData);
+
     return studyRecord.when(
       data: (studyRecord) {
         return MxNcontainer(
@@ -83,8 +93,15 @@ class SubjectListWidget extends ConsumerWidget {
                                 Text(subject.title),
                                 matchedSubject != null
                                     ? matchedSubject.elapsedTime != 0
-                                        ? Text(_formatTime(
-                                            matchedSubject.elapsedTime))
+                                        ? Text(
+                                            _formatTime(
+                                                matchedSubject.elapsedTime),
+                                            style: TextStyle(
+                                              fontFeatures: [
+                                                FontFeature.tabularFigures()
+                                              ],
+                                            ),
+                                          )
                                         : Text("")
                                     : Text("")
                               ],
