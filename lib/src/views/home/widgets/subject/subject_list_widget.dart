@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
@@ -29,8 +30,11 @@ class SubjectListWidget extends ConsumerWidget {
                     itemBuilder: (context, index) {
                       if (index == data.length) {
                         return IconButton(
-                          onPressed: () =>
-                              _showAddSubjectDialog(context, ref, data.length),
+                          onPressed: () => _showAddSubjectDialog(
+                            context,
+                            ref,
+                            data.length,
+                          ),
                           icon: Icon(Icons.add),
                         );
                       }
@@ -47,14 +51,37 @@ class SubjectListWidget extends ConsumerWidget {
                           ),
                         ),
                         title: Text(subject.title),
-                        trailing: IconButton(
-                          icon: Icon(Icons.more_horiz_rounded),
-                          onPressed: () {
-                            _showSubjectOptionsDialog(
-                              context,
-                              ref,
-                              subject,
-                              index,
+                        trailing: MenuAnchor(
+                          alignmentOffset: Offset(-17.w, 0),
+                          menuChildren: [
+                            MenuItemButton(
+                              onPressed: () {
+                                _showEditDialog(context, ref, subject, index);
+                              },
+                              child: Text("편집"),
+                            ),
+                            MenuItemButton(
+                              onPressed: () {
+                                ref
+                                    .read(subjectViewModelProvider.notifier)
+                                    .deleteSubject(index);
+                              },
+                              child: Text("제거"),
+                            )
+                          ],
+                          builder: (context, controller, child) {
+                            return IconButton(
+                              onPressed: () {
+                                if (controller.isOpen) {
+                                  controller.close();
+                                } else {
+                                  controller.open();
+                                }
+                              },
+                              icon: Icon(
+                                Icons.more_vert,
+                                size: 15.sp,
+                              ),
                             );
                           },
                         ),
@@ -98,16 +125,17 @@ class SubjectListWidget extends ConsumerWidget {
           title: Text(title),
           content: Column(
             mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextField(
                 controller: titleController,
-                decoration: InputDecoration(labelText: 'Subject Title'),
+                decoration: InputDecoration(labelText: '과목 이름'),
               ),
               TextButton(
                 onPressed: () async {
                   selectedColor = await _showColorPickerDialog(context);
                 },
-                child: Text('Select Color'),
+                child: Text('색상 선택'),
               ),
             ],
           ),
@@ -116,7 +144,7 @@ class SubjectListWidget extends ConsumerWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel'),
+              child: Text('취소'),
             ),
             TextButton(
               onPressed: () {
@@ -125,12 +153,11 @@ class SubjectListWidget extends ConsumerWidget {
                   Navigator.of(context).pop();
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                        content: Text('Please provide both title and color')),
+                    SnackBar(content: Text("과목 이름은 비워둘 수 없습니다")),
                   );
                 }
               },
-              child: Text('Confirm'),
+              child: Text('확인'),
             ),
           ],
         );
@@ -142,8 +169,9 @@ class SubjectListWidget extends ConsumerWidget {
     _showSubjectDialog(
       context,
       ref,
-      'Add New Subject',
+      '과목 추가',
       '',
+      initialColor: "227C9D",
       onConfirm: (title, color) {
         final newSubject = Subject(title: title, color: color, order: order);
         ref.read(subjectViewModelProvider.notifier).addSubject(newSubject);
@@ -156,7 +184,7 @@ class SubjectListWidget extends ConsumerWidget {
     _showSubjectDialog(
       context,
       ref,
-      'Edit Subject',
+      '과목 편집',
       subject.title,
       initialColor: subject.color,
       onConfirm: (title, color) {
@@ -172,45 +200,12 @@ class SubjectListWidget extends ConsumerWidget {
     );
   }
 
-  void _showSubjectOptionsDialog(
-      BuildContext context, WidgetRef ref, Subject subject, int index) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Options for ${subject.title}'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                title: Text('Edit Subject'),
-                onTap: () {
-                  Navigator.of(context).pop();
-                  _showEditDialog(context, ref, subject, index);
-                },
-              ),
-              ListTile(
-                title: Text('Delete Subject'),
-                onTap: () {
-                  Navigator.of(context).pop();
-                  ref
-                      .read(subjectViewModelProvider.notifier)
-                      .deleteSubject(index);
-                },
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
   Future<String?> _showColorPickerDialog(BuildContext context) async {
     final selectedColor = await showDialog<String>(
       context: context,
       builder: (context) {
         return ColorPickerDialog(
-          oldColor: "",
+          oldColor: "227C9D",
         );
       },
     );

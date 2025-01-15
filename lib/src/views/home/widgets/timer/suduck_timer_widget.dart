@@ -49,7 +49,9 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget> {
               child: Center(
                 child: Center(
                   child: Text(
-                    "과목입니다",
+                    suduckTimer.currSubject == null
+                        ? "과목을 선택해 주세요"
+                        : suduckTimer.currSubject!.title,
                     style: TextStyle(
                       fontSize: 22.sp,
                       fontWeight: FontWeight.w600,

@@ -134,6 +134,7 @@ class SuDuckTimer extends _$SuDuckTimer {
     final currentState = state;
     final endTime = DateTime.now().millisecondsSinceEpoch;
 
+    //TODO 과목이 없다면 체크해서 과목 선택 로직 추가
     if (currentState.currSubject != null) {
       final updatedRecord = StudyRecord(
         subject: currentState.currSubject!,
@@ -157,6 +158,7 @@ class SuDuckTimer extends _$SuDuckTimer {
     );
   }
 
+  //TODO 타이머 복구 선택지 기능 어떻게할지
   Future<void> _restoreTimerState() async {
     final storedTime = await suduckLocalState.getSuDuckTimerStates();
 
