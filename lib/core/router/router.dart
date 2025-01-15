@@ -31,7 +31,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       }
 
       if (!isLoggedIn) {
-        return '/login';
+        return '/splash';
       }
 
       if (!firstRun && state.fullPath == '/splash') {

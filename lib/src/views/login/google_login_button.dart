@@ -15,8 +15,8 @@ class GoogleLoginButton extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return OutlinedButton(
-      onPressed: () async {
+    return GestureDetector(
+      onTap: () async {
         try {
           final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
 
@@ -39,8 +39,10 @@ class GoogleLoginButton extends ConsumerWidget {
           Gap(
             8.0,
           ),
-          const Text(
-            'Sign in with Google',
+          Image.asset(
+            'lib/core/imgs/icons/SignInGoogle.png',
+            width: MediaQuery.of(context).size.width * 0.8,
+            height: MediaQuery.of(context).size.height * 0.05,
           ),
         ],
       ),

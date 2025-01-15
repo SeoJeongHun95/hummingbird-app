@@ -1,9 +1,9 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-<<<<<<< Updated upstream
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hummingbird/src/views/login/google_login_button.dart';
 
-import '../../../core/utils/delay.dart';
 import '../../providers/auth/auth_provider.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -13,30 +13,7 @@ class SplashScreen extends ConsumerStatefulWidget {
   ConsumerState<ConsumerStatefulWidget> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends ConsumerState<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    delay(() async {
-      final isLoggedIn = ref.watch(authProvider);
-
-      if (!isLoggedIn) {
-        context.pushReplacement('/login');
-      } else {
-        context.pushReplacement('/');
-      }
-    }, seconds: 1);
-=======
-import 'dart:async';
-
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
-
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen>
+class _SplashScreenState extends ConsumerState<SplashScreen>
     with SingleTickerProviderStateMixin {
   AnimationController? _controller;
   Animation<double>? _fadeAnimation;
@@ -52,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     // 애니메이션 컨트롤러 설정
     _controller = AnimationController(
-      duration: const Duration(seconds: 3),
+      duration: const Duration(milliseconds: 1500),
       vsync: this,
     );
 
@@ -82,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen>
     _controller!.forward();
 
     // 글자 타이핑 애니메이션
-    Timer.periodic(const Duration(milliseconds: 80), (timer) {
+    Timer.periodic(const Duration(milliseconds: 40), (timer) {
       setState(() {
         if (currentCharIndex < message.length) {
           displayText = message.substring(0, currentCharIndex + 1);
@@ -94,7 +71,7 @@ class _SplashScreenState extends State<SplashScreen>
     });
 
     // 프로그레스 바 애니메이션
-    Timer.periodic(const Duration(milliseconds: 30), (timer) {
+    Timer.periodic(const Duration(milliseconds: 10), (timer) {
       setState(() {
         if (_progress < 1.0) {
           _progress += 0.01;
@@ -102,7 +79,7 @@ class _SplashScreenState extends State<SplashScreen>
           timer.cancel();
           Future.delayed(const Duration(seconds: 1), () {
             //todo: 홈 화면으로 이동
-            Navigator.pop(context);
+            context.pushReplacement('/');
           });
         }
       });
@@ -113,22 +90,18 @@ class _SplashScreenState extends State<SplashScreen>
   void dispose() {
     _controller?.dispose();
     super.dispose();
->>>>>>> Stashed changes
   }
 
   @override
+  @override
   Widget build(BuildContext context) {
+    final isLoggedIn = ref.watch(authProvider);
     return Scaffold(
-<<<<<<< Updated upstream
-      body: SafeArea(
-        child: Center(
-          child: Text('Hummingbird Logo'),
-=======
-      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Spacer(flex: 3),
             FadeTransition(
               opacity: _fadeAnimation!,
               child: AnimatedBuilder(
@@ -167,9 +140,10 @@ class _SplashScreenState extends State<SplashScreen>
                 fontFamily: 'NanumPenScript',
               ),
             ),
-            const SizedBox(height: 20),
+            const Spacer(flex: 2),
+            if (isLoggedIn == false) GoogleLoginButton(),
+            const SizedBox(height: 80),
           ],
->>>>>>> Stashed changes
         ),
       ),
     );

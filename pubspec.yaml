@@ -50,6 +50,7 @@ flutter:
 
   assets:
     - lib/core/imgs/images/StudyDuck.png
+    - lib/core/imgs/icons/
 
   fonts:
     - family: NanumPenScript
