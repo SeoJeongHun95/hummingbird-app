@@ -6,8 +6,8 @@ import 'package:intl/intl.dart';
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../models/subject/subject.dart';
-import '../../../../providers/study_record/daily_summary_data.dart';
 import '../../../../providers/suduck_timer/suduck_timer_provider.dart';
+import '../../../../viewmodels/study_record/study_record_viewmodel.dart';
 import '../../../../viewmodels/subject/subject_viewmodel.dart';
 import '../d_day_widgets/color_picker_dialog.dart';
 
@@ -27,10 +27,18 @@ class SubjectListWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final subjects = ref.watch(subjectViewModelProvider);
-    final studyRecord = ref.watch(DailySummaryDataProvider(_today));
+    final studyRecord = ref.watch(studyRecordViewModelProvider);
+
+    ref
+        .read(studyRecordViewModelProvider.notifier)
+        .loadStudyRecordsByDate(_today);
 
     return studyRecord.when(
-      data: (studyRecord) {
+      data: (recordData) {
+        final studyRecord = ref
+            .read(studyRecordViewModelProvider.notifier)
+            .loadMergedStudyRecordsByDate(recordData);
+
         return MxNcontainer(
           MxN_rate: MxNRate.FOURBYTHREE,
           MxN_child: Container(
@@ -83,8 +91,15 @@ class SubjectListWidget extends ConsumerWidget {
                                 Text(subject.title),
                                 matchedSubject != null
                                     ? matchedSubject.elapsedTime != 0
-                                        ? Text(_formatTime(
-                                            matchedSubject.elapsedTime))
+                                        ? Text(
+                                            _formatTime(
+                                                matchedSubject.elapsedTime),
+                                            style: TextStyle(
+                                              fontFeatures: [
+                                                FontFeature.tabularFigures()
+                                              ],
+                                            ),
+                                          )
                                         : Text("")
                                     : Text("")
                               ],
