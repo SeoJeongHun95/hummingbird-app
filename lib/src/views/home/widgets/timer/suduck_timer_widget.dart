@@ -6,8 +6,6 @@ import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../providers/suduck_timer/suduck_timer_provider.dart';
 
-//TODO 타이머 복구 할지 말지 다이어로그로 고르게하기
-
 class SuDuckTimerWidget extends ConsumerStatefulWidget {
   const SuDuckTimerWidget({super.key});
 
@@ -16,7 +14,33 @@ class SuDuckTimerWidget extends ConsumerStatefulWidget {
       _SuDuckTimerWidgetState();
 }
 
-class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget> {
+class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _colorController;
+  late Animation<Color?> _colorAnimation;
+
+  Color _currentColor = const Color(0xffba4849);
+
+  @override
+  void initState() {
+    super.initState();
+    _colorController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1), // 애니메이션 지속 시간
+    );
+    _colorAnimation = ColorTween(begin: _currentColor, end: _currentColor)
+        .animate(_colorController);
+  }
+
+  void changeColor(Color newColor) {
+    setState(() {
+      _colorAnimation = ColorTween(begin: _currentColor, end: newColor)
+          .animate(_colorController);
+      _currentColor = newColor;
+    });
+    _colorController.forward(from: 0);
+  }
+
   String _formatTime(int seconds) {
     final int hours = seconds ~/ 3600;
     final int minutes = (seconds % 3600) ~/ 60;
@@ -27,157 +51,172 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget> {
         '${secs.toString().padLeft(2, '0')}';
   }
 
-  final Color timerMainColor = Color(0xffba4849);
-
   @override
   Widget build(BuildContext context) {
     final suduckTimer = ref.watch(suDuckTimerProvider);
     final sudeckTimerNotifier = ref.read(suDuckTimerProvider.notifier);
 
+    if (suduckTimer.currSubject != null) {
+      changeColor(Color(int.parse("0xff${suduckTimer.currSubject!.color}")));
+    }
+    if (suduckTimer.currSubject == null) {
+      changeColor(Color(0xffba4849));
+    }
+
     final bool isRunning = suduckTimer.isRunning;
 
     return MxNcontainer(
       MxN_rate: MxNRate.FOURBYTHREE,
-      MxN_child: Column(
-        children: [
-          Expanded(child: Container(color: timerMainColor)),
-          Expanded(
-            flex: 2,
-            child: Container(
-              width: double.infinity,
-              color: timerMainColor,
-              child: Center(
-                child: Center(
-                  child: Text(
-                    suduckTimer.currSubject == null
-                        ? "과목을 선택해 주세요"
-                        : suduckTimer.currSubject!.title,
-                    style: TextStyle(
-                      fontSize: 22.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                      fontFeatures: [FontFeature.tabularFigures()],
+      MxN_child: AnimatedBuilder(
+        animation: _colorAnimation,
+        builder: (context, child) {
+          return Column(
+            children: [
+              Expanded(child: Container(color: _colorAnimation.value)),
+              Expanded(
+                flex: 2,
+                child: Container(
+                  width: double.infinity,
+                  color: _colorAnimation.value,
+                  child: Center(
+                    child: Text(
+                      suduckTimer.currSubject == null
+                          ? "과목을 선택해 주세요"
+                          : suduckTimer.currSubject!.title,
+                      style: TextStyle(
+                        fontSize: 22.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ),
-          Expanded(
-            flex: 4,
-            child: Container(
-              width: double.infinity,
-              color: timerMainColor,
-              child: Center(
-                child: Text(
-                  _formatTime(suduckTimer.elapsedTime),
-                  style: TextStyle(
-                    fontSize: 52.sp,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                    fontFeatures: [FontFeature.tabularFigures()],
+              Expanded(
+                flex: 4,
+                child: Container(
+                  width: double.infinity,
+                  color: _colorAnimation.value,
+                  child: Center(
+                    child: Text(
+                      _formatTime(suduckTimer.elapsedTime),
+                      style: TextStyle(
+                        fontSize: 52.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ),
-          Expanded(
-            flex: 3,
-            child: Container(
-              width: double.maxFinite,
-              color: timerMainColor,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  if (isRunning || suduckTimer.elapsedTime > 0)
-                    GestureDetector(
-                      onTap: sudeckTimerNotifier.resetTimer,
-                      child: Container(
-                        width: 48.w,
-                        height: 44.h,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border(
-                            bottom: BorderSide(
-                              width: 4.h,
-                              color: Color(0xffEBEBEB),
+              Expanded(
+                flex: 3,
+                child: Container(
+                  width: double.maxFinite,
+                  color: _colorAnimation.value,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      if (isRunning || suduckTimer.elapsedTime > 0)
+                        GestureDetector(
+                          onTap: sudeckTimerNotifier.resetTimer,
+                          child: Container(
+                            width: 48.w,
+                            height: 44.h,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border(
+                                bottom: BorderSide(
+                                  width: 4.h,
+                                  color: const Color(0xffEBEBEB),
+                                ),
+                              ),
+                            ),
+                            child: Icon(
+                              Icons.delete_rounded,
+                              size: 24.w,
+                              color: _colorAnimation.value,
                             ),
                           ),
                         ),
-                        child: Icon(
-                          Icons.delete_rounded,
-                          size: 24.w,
-                          color: timerMainColor,
+                      Align(
+                        alignment: Alignment.center,
+                        child: GestureDetector(
+                          onTap: () {
+                            if (!isRunning) {
+                              suduckTimer.currSubject == null
+                                  ? sudeckTimerNotifier.startTimer()
+                                  : sudeckTimerNotifier.startTimerWithSubject(
+                                      subject: suduckTimer.currSubject!);
+                            } else {
+                              sudeckTimerNotifier.stopTimer();
+                            }
+                          },
+                          child: Container(
+                            width: 120.w,
+                            height: 44.h,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border(
+                                bottom: BorderSide(
+                                  width: 4.h,
+                                  color: const Color(0xffEBEBEB),
+                                ),
+                              ),
+                            ),
+                            child: Center(
+                              child: Text(
+                                (!isRunning) ? "START" : "PAUSE",
+                                style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w500,
+                                  color: _colorAnimation.value,
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: GestureDetector(
-                      onTap: () {
-                        if (!isRunning) {
-                          sudeckTimerNotifier.startTimer();
-                        } else {
-                          sudeckTimerNotifier.stopTimer();
-                        }
-                      },
-                      child: Container(
-                        width: 120.w,
-                        height: 44.h,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border(
-                            bottom: BorderSide(
-                              width: 4.h,
-                              color: Color(0xffEBEBEB),
+                      if (isRunning || suduckTimer.elapsedTime > 0)
+                        GestureDetector(
+                          onTap: sudeckTimerNotifier.saveTimer,
+                          child: Container(
+                            width: 48.w,
+                            height: 44.h,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border(
+                                bottom: BorderSide(
+                                  width: 4.h,
+                                  color: const Color(0xffEBEBEB),
+                                ),
+                              ),
+                            ),
+                            child: Icon(
+                              Icons.save_rounded,
+                              size: 24.w,
+                              color: _colorAnimation.value,
                             ),
                           ),
                         ),
-                        child: Center(
-                          child: Text(
-                            (!isRunning) ? "START" : "PAUSE",
-                            style: TextStyle(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.w500,
-                              color: timerMainColor,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    ],
                   ),
-                  if (isRunning || suduckTimer.elapsedTime > 0)
-                    GestureDetector(
-                      onTap: sudeckTimerNotifier.saveTimer,
-                      child: Container(
-                        width: 48.w,
-                        height: 44.h,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border(
-                            bottom: BorderSide(
-                              width: 4.h,
-                              color: Color(0xffEBEBEB),
-                            ),
-                          ),
-                        ),
-                        child: Icon(
-                          Icons.save_rounded,
-                          size: 24.w,
-                          color: timerMainColor,
-                        ),
-                      ),
-                    ),
-                ],
+                ),
               ),
-            ),
-          ),
-          Expanded(child: Container(color: timerMainColor)),
-        ],
+              Expanded(child: Container(color: _colorAnimation.value)),
+            ],
+          );
+        },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _colorController.dispose();
+    super.dispose();
   }
 }
