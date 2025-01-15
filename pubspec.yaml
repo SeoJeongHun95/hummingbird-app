@@ -1,7 +1,7 @@
 name: hummingbird
 description: "A new Flutter project."
 
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
 
@@ -46,5 +46,12 @@ dev_dependencies:
   riverpod_lint: ^2.6.2
 
 flutter:
-
   uses-material-design: true
+
+  assets:
+    - lib/core/imgs/images/StudyDuck.png
+
+  fonts:
+    - family: NanumPenScript
+      fonts:
+        - asset: lib/core/font/NanumPenScript-Regular.ttf
