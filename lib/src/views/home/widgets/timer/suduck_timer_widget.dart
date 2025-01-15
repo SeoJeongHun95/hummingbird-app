@@ -6,8 +6,6 @@ import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../providers/suduck_timer/suduck_timer_provider.dart';
 
-final Color timerMainColor = Color(0xffba4849);
-
 //TODO 타이머 복구 할지 말지 다이어로그로 고르게하기
 
 class SuDuckTimerWidget extends ConsumerStatefulWidget {
@@ -29,6 +27,8 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget> {
         '${secs.toString().padLeft(2, '0')}';
   }
 
+  final Color timerMainColor = Color(0xffba4849);
+
   @override
   Widget build(BuildContext context) {
     final suduckTimer = ref.watch(suDuckTimerProvider);
@@ -40,81 +40,142 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget> {
       MxN_rate: MxNRate.FOURBYTHREE,
       MxN_child: Column(
         children: [
-          Container(
-            width: double.infinity,
-            height: 140.h,
-            color: timerMainColor,
-            child: Center(
-              child: Text(
-                _formatTime(suduckTimer.elapsedTime),
-                style: TextStyle(
-                  fontSize: 52.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                  fontFeatures: [FontFeature.tabularFigures()],
+          Expanded(child: Container(color: timerMainColor)),
+          Expanded(
+            flex: 2,
+            child: Container(
+              width: double.infinity,
+              color: timerMainColor,
+              child: Center(
+                child: Center(
+                  child: Text(
+                    suduckTimer.currSubject == null
+                        ? "과목을 선택해 주세요"
+                        : suduckTimer.currSubject!.title,
+                    style: TextStyle(
+                      fontSize: 22.sp,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                      fontFeatures: [FontFeature.tabularFigures()],
+                    ),
+                  ),
                 ),
               ),
             ),
           ),
-          Container(
-            color: timerMainColor,
-            child: Stack(
-              children: [
-                Align(
-                  alignment: Alignment.center,
-                  child: GestureDetector(
-                    onTap: () {
-                      if (!isRunning) {
-                        sudeckTimerNotifier.startTimer();
-                      } else {
-                        sudeckTimerNotifier.stopTimer();
-                      }
-                    },
-                    child: Container(
-                      width: 120.w,
-                      height: 44.h,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border(
-                          bottom: BorderSide(
-                            width: 4.h,
-                            color: Color(0xffEBEBEB),
-                          ),
-                        ),
-                      ),
-                      child: Center(
-                        child: Text(
-                          (!isRunning) ? "START" : "STOP",
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w500,
-                            color: timerMainColor,
-                          ),
-                        ),
-                      ),
-                    ),
+          Expanded(
+            flex: 4,
+            child: Container(
+              width: double.infinity,
+              color: timerMainColor,
+              child: Center(
+                child: Text(
+                  _formatTime(suduckTimer.elapsedTime),
+                  style: TextStyle(
+                    fontSize: 52.sp,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                    fontFeatures: [FontFeature.tabularFigures()],
                   ),
                 ),
-                if (!isRunning && suduckTimer.elapsedTime > 0)
-                  Positioned(
-                    right: 64,
-                    top: 8,
-                    child: GestureDetector(
-                      onTap: sudeckTimerNotifier.resetTimer,
-                      child: Icon(
-                        Icons.restore,
-                        size: 32.w,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-              ],
+              ),
             ),
           ),
           Expanded(
-            child: Container(color: timerMainColor),
+            flex: 3,
+            child: Container(
+              width: double.maxFinite,
+              color: timerMainColor,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  if (isRunning || suduckTimer.elapsedTime > 0)
+                    GestureDetector(
+                      onTap: sudeckTimerNotifier.resetTimer,
+                      child: Container(
+                        width: 48.w,
+                        height: 44.h,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border(
+                            bottom: BorderSide(
+                              width: 4.h,
+                              color: Color(0xffEBEBEB),
+                            ),
+                          ),
+                        ),
+                        child: Icon(
+                          Icons.delete_rounded,
+                          size: 24.w,
+                          color: timerMainColor,
+                        ),
+                      ),
+                    ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: GestureDetector(
+                      onTap: () {
+                        if (!isRunning) {
+                          sudeckTimerNotifier.startTimer();
+                        } else {
+                          sudeckTimerNotifier.stopTimer();
+                        }
+                      },
+                      child: Container(
+                        width: 120.w,
+                        height: 44.h,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border(
+                            bottom: BorderSide(
+                              width: 4.h,
+                              color: Color(0xffEBEBEB),
+                            ),
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            (!isRunning) ? "START" : "PAUSE",
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w500,
+                              color: timerMainColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  if (isRunning || suduckTimer.elapsedTime > 0)
+                    GestureDetector(
+                      onTap: sudeckTimerNotifier.saveTimer,
+                      child: Container(
+                        width: 48.w,
+                        height: 44.h,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border(
+                            bottom: BorderSide(
+                              width: 4.h,
+                              color: Color(0xffEBEBEB),
+                            ),
+                          ),
+                        ),
+                        child: Icon(
+                          Icons.save_rounded,
+                          size: 24.w,
+                          color: timerMainColor,
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
           ),
+          Expanded(child: Container(color: timerMainColor)),
         ],
       ),
     );

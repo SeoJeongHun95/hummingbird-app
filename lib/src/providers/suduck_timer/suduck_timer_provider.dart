@@ -56,7 +56,11 @@ class SuDuckTimer extends _$SuDuckTimer {
     // _restoreTimerState();
 
     return TimerState(
-        elapsedTime: 0, breakTime: 0, isRunning: false, currSubject: null);
+      elapsedTime: 0,
+      breakTime: 0,
+      isRunning: false,
+      currSubject: null,
+    );
   }
 
   void startTimer() async {
@@ -87,7 +91,8 @@ class SuDuckTimer extends _$SuDuckTimer {
         .addStudyRecord(todayDate, newRecord);
 
     _startTimerLoop();
-    state = state.copyWith(isRunning: true, currSubject: subject); // 현재 과목 설정
+
+    state = state.copyWith(isRunning: true, currSubject: subject);
   }
 
   void stopTimer() async {
@@ -104,8 +109,32 @@ class SuDuckTimer extends _$SuDuckTimer {
 
     final todayDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
     final currentState = state;
+
+    if (currentState.currSubject != null) {
+      await ref
+          .read(studyRecordViewModelProvider.notifier)
+          .deleteStudyRecord(todayDate);
+    }
+
+    await suduckRepo.deleteSuDuckTimerState();
+
+    state = TimerState(
+      elapsedTime: 0,
+      breakTime: 0,
+      isRunning: false,
+      currSubject: null,
+    );
+  }
+
+  Future<void> saveTimer() async {
+    _elapsedtimer?.cancel();
+    _breaktimer?.cancel();
+
+    final todayDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
+    final currentState = state;
     final endTime = DateTime.now().millisecondsSinceEpoch;
 
+    //TODO 과목이 없다면 체크해서 과목 선택 로직 추가
     if (currentState.currSubject != null) {
       final updatedRecord = StudyRecord(
         subject: currentState.currSubject!,
@@ -129,6 +158,7 @@ class SuDuckTimer extends _$SuDuckTimer {
     );
   }
 
+  //TODO 타이머 복구 선택지 기능 어떻게할지
   Future<void> _restoreTimerState() async {
     final storedTime = await suduckLocalState.getSuDuckTimerStates();
 
@@ -159,7 +189,6 @@ class SuDuckTimer extends _$SuDuckTimer {
   void _startBreakLoop() {
     _breaktimer = Timer.periodic(const Duration(seconds: 1), (timer) async {
       state = state.copyWith(breakTime: state.breakTime + 1);
-
       if (state.breakTime % 10 == 0) {
         await suduckLocalState.updateSuDuckTimerState(state.breakTime);
       }

@@ -46,4 +46,15 @@ class StudyRecordDataSource {
       throw Exception('No study records to update.');
     }
   }
+
+  Future<void> deleteStudyRecord(String date) async {
+    final existingData = await getStudyRecordsByDate(date);
+
+    if (existingData.isNotEmpty) {
+      existingData.removeLast();
+      await _box.put(date, existingData);
+    } else {
+      throw Exception('No study records to delete.');
+    }
+  }
 }
