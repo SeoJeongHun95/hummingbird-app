@@ -158,6 +158,12 @@ class SuDuckTimer extends _$SuDuckTimer {
     );
   }
 
+  void setSubject(Subject subject) {
+    if (state.currSubject == null) {
+      state = state.copyWith(currSubject: subject);
+    }
+  }
+
   //TODO 타이머 복구 선택지 기능 어떻게할지
   Future<void> _restoreTimerState() async {
     final storedTime = await suduckLocalState.getSuDuckTimerStates();
