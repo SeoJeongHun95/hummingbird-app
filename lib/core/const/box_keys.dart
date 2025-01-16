@@ -6,4 +6,6 @@ class BoxKeys {
   static const dDayBoxKey = 'dDay';
   static const suduckBoxKey = 'suduck';
   static const subjectBoxKey = 'subjectBox';
+  static const studySettingBoxKey = 'studySetting';
+  static const appSettingBoxKey = 'appSetting';
 }
