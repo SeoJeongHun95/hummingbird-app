@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hummingbird/core/utils/get_formatted_today.dart';
 import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -16,38 +17,36 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
   AsyncValue<List<StudyRecord>> build() {
     repository = ref.watch(studyRecordRepositoryProvider);
     state = const AsyncValue.loading();
+    loadStudyRecords();
     return state;
   }
 
-  // 날짜별로 학습 기록을 불러오는 메서드
-  Future<void> loadStudyRecordsByDate(String date) async {
+  Future<void> loadStudyRecords() async {
     state = await AsyncValue.guard(() async {
-      return await repository.getStudyRecordsByDate(date);
+      final studyRecordsMap = await repository.getStudyRecord();
+      return studyRecordsMap[formattedToday] ?? [];
     });
   }
 
-  // 학습 기록을 추가하는 메서드
-  Future<void> addStudyRecord(String date, StudyRecord studyRecord) async {
-    await repository.addStudyRecord(date, studyRecord);
-    loadStudyRecordsByDate(date); // 추가 후 해당 날짜의 학습 기록을 다시 로드
+  Future<void> addStudyRecord(StudyRecord studyRecord) async {
+    await repository.addStudyRecord(studyRecord);
+    loadStudyRecords();
   }
 
-  // 학습 기록을 업데이트하는 메서드
-  Future<void> updateStudyRecord(String date, StudyRecord studyRecord) async {
-    await repository.updateStudyRecord(date, studyRecord);
-    loadStudyRecordsByDate(date); // 업데이트 후 해당 날짜의 학습 기록을 다시 로드
+  Future<void> updateStudyRecord(StudyRecord studyRecord) async {
+    await repository.updateStudyRecord(studyRecord);
+    loadStudyRecords();
   }
 
-  Future<void> deleteStudyRecord(String date) async {
-    await repository.deleteStudyRecord(date);
-    loadStudyRecordsByDate(date); // 업데이트 후 해당 날짜의 학습 기록을 다시 로드
+  Future<void> deleteStudyRecord() async {
+    await repository.deleteStudyRecord();
+    loadStudyRecords();
   }
 
-  // 날짜별로 받아온 학습 기록 합쳐서 로드하는 메서드
   List<StudyRecord> loadMergedStudyRecordsByDate(List<StudyRecord> records) {
     return records
         .fold<Map<String, StudyRecord>>({}, (acc, record) {
-          final key = '${record.subject.title}:${record.subject.order}';
+          final key = '${record.title}:${record.order}';
           if (acc.containsKey(key)) {
             final existingRecord = acc[key]!;
             acc[key] = existingRecord.copyWith(
@@ -64,7 +63,6 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
         .toList();
   }
 
-  //StudyRecords 를 subjectTitle, 총 공부시간, subjectColor 리스트로 분리시켜 Record 로 반환하는 메서드
   (
     List<String> subjectTitleList,
     List<int> studyDurationList,
@@ -75,17 +73,15 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
     List<Color> subjectColorList = [];
 
     for (int i = 0; i < studyRecords.length; i++) {
-      subjectTitleList.add(studyRecords[i].subject.title);
+      subjectTitleList.add(studyRecords[i].title);
       studyDurationList
           .add(studyRecords[i].elapsedTime + studyRecords[i].breakTime);
-      subjectColorList
-          .add(Color(int.parse('0xff${studyRecords[i].subject.color}')));
+      subjectColorList.add(Color(int.parse('0xff${studyRecords[i].color}')));
     }
 
     return (subjectTitleList, studyDurationList, subjectColorList);
   }
 
-  // StudyRecord 리스트를 공부시간 기준 내림차순 정렬
   List<StudyRecord> sortStudyRecords(List<StudyRecord> records) {
     final sortedRecords = [...records];
     sortedRecords.sort(
@@ -95,10 +91,8 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
     return sortedRecords;
   }
 
-  //학습 기록을 특정기간으로 가져오는 메서드
   Future<(List<StudyRecord>, List<int>)> loadStudyRecordsByPeriod(
       DateTime currentDate, PeriodOption option) async {
-    // 기간 설정 및 시작 날짜 계산
     final period = switch (option) {
       PeriodOption.WEEKLY => 7,
       _ => DateUtils.getDaysInMonth(currentDate.year, currentDate.month),
@@ -108,16 +102,17 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
     List<StudyRecord> studyRecords = [];
 
     final dailyTotalDuration = List.generate(period, (index) => 0);
-    // 각 기간별 데이터 누적 처리
+
     for (int day = 0; day < period; day++) {
-      final dailyRecords = await repository.getStudyRecordsByDate(
-          formatDate(startDate.add(Duration(days: day))));
+      final studyRecordsMap = await repository.getStudyRecord();
+      final dailyRecords =
+          studyRecordsMap[formatDate(startDate.add(Duration(days: day)))] ?? [];
 
       for (var record in dailyRecords) {
         dailyTotalDuration[day] += record.elapsedTime + record.breakTime;
 
         final subjectIndex =
-            studyRecords.indexWhere((rec) => rec.subject == record.subject);
+            studyRecords.indexWhere((rec) => rec.order == record.order);
         if (subjectIndex != -1) {
           studyRecords[subjectIndex] = studyRecords[subjectIndex].copyWith(
             elapsedTime:

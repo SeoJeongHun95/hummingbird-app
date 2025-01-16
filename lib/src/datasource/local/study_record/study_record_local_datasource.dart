@@ -1,60 +1,69 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
+import '../../../../core/utils/get_formatted_today.dart';
 import '../../../models/study_record/study_record.dart';
 
 class StudyRecordDataSource {
-  StudyRecordDataSource(this._box);
+  StudyRecordDataSource();
 
-  final Box<List<StudyRecord>> _box;
-
-  Future<void> addStudyRecord(String date, StudyRecord studyRecord) async {
-    final existingData = await getStudyRecordsByDate(date);
-    existingData.add(studyRecord);
-
-    await _box.put(date, existingData);
+  Future<Box<StudyRecord>> _getBoxForDate(String date) async {
+    return await Hive.openBox<StudyRecord>(date);
   }
 
-  Future<List<StudyRecord>> getStudyRecordsByDate(String date) async {
-    try {
-      final existingData =
-          _box.get(date, defaultValue: <StudyRecord>[])?.cast<StudyRecord>() ??
-              [];
-      return existingData;
-    } catch (e) {
-      return [];
-    }
+  Future<void> addStudyRecord(StudyRecord studyRecord) async {
+    final today = formattedToday;
+    var box = await _getBoxForDate(today);
+    await box.add(studyRecord);
   }
 
-  Future<void> updateStudyRecord(
-      String date, StudyRecord updatedStudyRecord) async {
-    final existingData = await getStudyRecordsByDate(date);
+  Future<Map<String, List<StudyRecord>>> getStudyRecord() async {
+    Map<String, List<StudyRecord>> studyRecordMap = {};
+    final today = formattedToday;
+    var box = await _getBoxForDate(today);
 
-    if (existingData.isNotEmpty) {
-      final lastIndex = existingData.length - 1;
-      final old = existingData[lastIndex];
+    studyRecordMap[today] = box.values.toList();
+
+    return studyRecordMap;
+  }
+
+  Future<void> updateStudyRecord(StudyRecord updatedStudyRecord) async {
+    final today = formattedToday;
+
+    var box = await _getBoxForDate(today);
+    var studyRecords = box.values.toList();
+
+    final lastIndex = studyRecords.length - 1;
+
+    if (lastIndex >= 0) {
+      final old = studyRecords[lastIndex];
+
       final newStudyRecord = StudyRecord(
-        subject: old.subject,
+        title: old.title,
+        color: old.color,
+        order: old.order,
         startAt: old.startAt,
         endAt: updatedStudyRecord.endAt,
         elapsedTime: updatedStudyRecord.elapsedTime,
         breakTime: updatedStudyRecord.breakTime,
       );
-      existingData[lastIndex] = newStudyRecord;
 
-      await _box.put(date, existingData);
-    } else {
-      throw Exception('No study records to update.');
+      await box.putAt(lastIndex, newStudyRecord);
     }
   }
 
-  Future<void> deleteStudyRecord(String date) async {
-    final existingData = await getStudyRecordsByDate(date);
+  Future<void> deleteStudyRecord() async {
+    final today = formattedToday;
 
-    if (existingData.isNotEmpty) {
-      existingData.removeLast();
-      await _box.put(date, existingData);
-    } else {
-      throw Exception('No study records to delete.');
+    var box = await _getBoxForDate(today);
+    var studyRecords = box.values.toList();
+
+    if (studyRecords.isNotEmpty) {
+      final lastIndex = studyRecords.length - 1;
+      await box.deleteAt(lastIndex);
     }
+  }
+
+  Future<void> closeAllBoxes() async {
+    await Hive.close();
   }
 }

@@ -1,8 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hive/hive.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../core/const/box_keys.dart';
 import '../../datasource/local/study_record/study_record_local_datasource.dart';
 import '../../models/study_record/study_record.dart';
 
@@ -10,8 +8,7 @@ part 'study_record_repository.g.dart';
 
 @riverpod
 StudyRecordRepository studyRecordRepository(Ref ref) {
-  final box = Hive.box<List<StudyRecord>>(BoxKeys.studyRecordBoxkey);
-  final studyRecordLocalDataSource = StudyRecordDataSource(box);
+  final studyRecordLocalDataSource = StudyRecordDataSource();
   return StudyRecordRepository(studyRecordLocalDataSource);
 }
 
@@ -20,20 +17,19 @@ class StudyRecordRepository {
 
   final StudyRecordDataSource localDataSource;
 
-  Future<void> addStudyRecord(String date, StudyRecord studyRecord) async {
-    await localDataSource.addStudyRecord(date, studyRecord);
+  Future<void> addStudyRecord(StudyRecord studyRecord) async {
+    await localDataSource.addStudyRecord(studyRecord);
   }
 
-  Future<List<StudyRecord>> getStudyRecordsByDate(String date) async {
-    return localDataSource.getStudyRecordsByDate(date);
+  Future<Map<String, List<StudyRecord>>> getStudyRecord() async {
+    return localDataSource.getStudyRecord();
   }
 
-  Future<void> updateStudyRecord(
-      String date, StudyRecord updatedStudyRecord) async {
-    await localDataSource.updateStudyRecord(date, updatedStudyRecord);
+  Future<void> updateStudyRecord(StudyRecord studyRecord) async {
+    await localDataSource.updateStudyRecord(studyRecord);
   }
 
-  Future<void> deleteStudyRecord(String date) async {
-    await localDataSource.deleteStudyRecord(date);
+  Future<void> deleteStudyRecord() async {
+    await localDataSource.deleteStudyRecord();
   }
 }

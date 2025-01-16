@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
@@ -29,10 +28,6 @@ class SubjectListWidget extends ConsumerWidget {
     final subjects = ref.watch(subjectViewModelProvider);
     final studyRecord = ref.watch(studyRecordViewModelProvider);
 
-    ref
-        .read(studyRecordViewModelProvider.notifier)
-        .loadStudyRecordsByDate(_today);
-
     return studyRecord.when(
       data: (recordData) {
         final studyRecord = ref
@@ -53,11 +48,13 @@ class SubjectListWidget extends ConsumerWidget {
                         itemBuilder: (context, index) {
                           if (index == data.length) {
                             return IconButton(
-                              onPressed: () => _showAddSubjectDialog(
-                                context,
-                                ref,
-                                data.length,
-                              ),
+                              onPressed: () {
+                                _showAddSubjectDialog(
+                                  context,
+                                  ref,
+                                  data.length,
+                                );
+                              },
                               icon: Icon(Icons.add),
                             );
                           }
@@ -65,7 +62,7 @@ class SubjectListWidget extends ConsumerWidget {
                           final subject = data[index];
 
                           final matchedSubject = studyRecord
-                              .where((e) => e.subject == subject)
+                              .where((e) => e.order == subject.order)
                               .toList()
                               .firstOrNull;
 
@@ -268,10 +265,5 @@ class SubjectListWidget extends ConsumerWidget {
       },
     );
     return selectedColor;
-  }
-
-  String get _today {
-    final today = DateTime.now();
-    return DateFormat('yyyy-MM-dd').format(today);
   }
 }
