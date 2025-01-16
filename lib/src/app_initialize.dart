@@ -39,6 +39,4 @@ Future<void> appInitialize() async {
   await Hive.openBox<Subject>(BoxKeys.subjectBoxKey);
 
   Hive.registerAdapter(StudyRecordAdapter());
-  // await Hive.deleteBoxFromDisk(BoxKeys.studyRecordBoxkey);
-  await Hive.openBox<List<StudyRecord>>(BoxKeys.studyRecordBoxkey);
 }

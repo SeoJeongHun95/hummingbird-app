@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../datasource/suduck_timer_state.dart';
@@ -53,8 +52,6 @@ class SuDuckTimer extends _$SuDuckTimer {
     suduckLocalState = SuduckTimerState(box);
     suduckRepo = SuduckTimerRepositories(suduckLocalState);
 
-    // _restoreTimerState();
-
     return TimerState(
       elapsedTime: 0,
       breakTime: 0,
@@ -80,15 +77,16 @@ class SuDuckTimer extends _$SuDuckTimer {
     final startTime = DateTime.now().millisecondsSinceEpoch;
     await suduckRepo.addSuDuckTimerState([startTime, state.breakTime]);
 
-    final todayDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
     final newRecord = StudyRecord(
-      subject: subject,
+      title: subject.title,
+      color: subject.color,
+      order: subject.order,
       startAt: startTime,
     );
 
     await ref
         .read(studyRecordViewModelProvider.notifier)
-        .addStudyRecord(todayDate, newRecord);
+        .addStudyRecord(newRecord);
 
     _startTimerLoop();
 
@@ -107,13 +105,10 @@ class SuDuckTimer extends _$SuDuckTimer {
     _elapsedtimer?.cancel();
     _breaktimer?.cancel();
 
-    final todayDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
     final currentState = state;
 
     if (currentState.currSubject != null) {
-      await ref
-          .read(studyRecordViewModelProvider.notifier)
-          .deleteStudyRecord(todayDate);
+      await ref.read(studyRecordViewModelProvider.notifier).deleteStudyRecord();
     }
 
     await suduckRepo.deleteSuDuckTimerState();
@@ -130,14 +125,14 @@ class SuDuckTimer extends _$SuDuckTimer {
     _elapsedtimer?.cancel();
     _breaktimer?.cancel();
 
-    final todayDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
     final currentState = state;
     final endTime = DateTime.now().millisecondsSinceEpoch;
 
-    //TODO 과목이 없다면 체크해서 과목 선택 로직 추가
     if (currentState.currSubject != null) {
       final updatedRecord = StudyRecord(
-        subject: currentState.currSubject!,
+        title: state.currSubject!.title,
+        color: state.currSubject!.color,
+        order: state.currSubject!.order,
         endAt: endTime,
         elapsedTime: currentState.elapsedTime,
         breakTime: currentState.breakTime,
@@ -145,7 +140,7 @@ class SuDuckTimer extends _$SuDuckTimer {
 
       await ref
           .read(studyRecordViewModelProvider.notifier)
-          .updateStudyRecord(todayDate, updatedRecord);
+          .updateStudyRecord(updatedRecord);
     }
 
     await suduckRepo.deleteSuDuckTimerState();
@@ -164,7 +159,6 @@ class SuDuckTimer extends _$SuDuckTimer {
     }
   }
 
-  //TODO 타이머 복구 선택지 기능 어떻게할지
   Future<void> _restoreTimerState() async {
     final storedTime = await suduckLocalState.getSuDuckTimerStates();
 

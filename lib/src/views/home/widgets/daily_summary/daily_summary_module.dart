@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
@@ -17,7 +16,7 @@ class DailySummaryModule extends ConsumerWidget {
     final studyRecordsState = ref.watch(studyRecordViewModelProvider);
     final studyRecordViewModel =
         ref.read(studyRecordViewModelProvider.notifier);
-    studyRecordViewModel.loadStudyRecordsByDate(_today);
+
     return studyRecordsState.when(
       data: (data) {
         final studyRecords =
@@ -46,7 +45,6 @@ class DailySummaryModule extends ConsumerWidget {
         final (subjectTitleList, studyDurationList, subjectColorList) =
             studyRecordViewModel.getStudyRecordsInfo(studyRecords);
 
-        // 파이 차트에서 사용할 때 내림차 순으로 정렬
         final (sortedTitleList, sortedDurationList, sortedColorList) =
             studyRecordViewModel.getStudyRecordsInfo(
                 studyRecordViewModel.sortStudyRecords(studyRecords));
@@ -81,10 +79,5 @@ class DailySummaryModule extends ConsumerWidget {
         child: const CircularProgressIndicator(),
       ),
     );
-  }
-
-  String get _today {
-    final today = DateTime.now();
-    return DateFormat('yyyy-MM-dd').format(today);
   }
 }
