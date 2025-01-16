@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+<<<<<<< HEAD
+=======
+import 'package:hummingbird/src/viewmodels/study_setting/study_setting_view_model.dart';
+import 'package:intl/intl.dart';
+>>>>>>> aec3702 (Feat: implement app settings and study settings)
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
@@ -21,7 +26,8 @@ class DailySummaryModule extends ConsumerWidget {
       data: (data) {
         final studyRecords =
             studyRecordViewModel.loadMergedStudyRecordsByDate(data);
-        final goalDuration = 8 * 60 * 60;
+        final goalDuration =
+            ref.watch(studySettingViewModelProvider).goalDuration;
         if (studyRecords.isEmpty) {
           return SingleChildScrollView(
             child: Column(
