@@ -6,9 +6,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hummingbird/core/utils/show_snack_bar.dart';
 import 'package:hummingbird/src/app_initialize.dart';
-import 'package:hummingbird/src/viewmodels/app_setting/app_setting_view_model.dart';
 
 import 'core/router/router.dart';
+import 'src/viewmodels/app_setting/app_setting_view_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
