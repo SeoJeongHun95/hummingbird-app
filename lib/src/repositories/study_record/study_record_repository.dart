@@ -25,6 +25,11 @@ class StudyRecordRepository {
     return localDataSource.getStudyRecord();
   }
 
+  Future<Map<String, List<StudyRecord>>> getStudyRecordByDate(
+      String date) async {
+    return localDataSource.getStudyRecordByDate(date);
+  }
+
   Future<void> updateStudyRecord(StudyRecord studyRecord) async {
     await localDataSource.updateStudyRecord(studyRecord);
   }

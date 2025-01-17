@@ -26,6 +26,16 @@ class StudyRecordDataSource {
     return studyRecordMap;
   }
 
+  Future<Map<String, List<StudyRecord>>> getStudyRecordByDate(
+      String date) async {
+    Map<String, List<StudyRecord>> studyRecordMap = {};
+    var box = await _getBoxForDate(date);
+
+    studyRecordMap[date] = box.values.toList();
+
+    return studyRecordMap;
+  }
+
   Future<void> updateStudyRecord(StudyRecord updatedStudyRecord) async {
     final today = formattedToday;
 
