@@ -34,13 +34,13 @@ class DDayRepository {
   }
 
   Future<void> updateDDay(DDay updateDDay) async {
-    await _localDataSource.updateDDay(updateDDay);
     await _remoteDatasource.updateDday(localToUpdateDto(updateDDay));
+    await _localDataSource.updateDDay(updateDDay);
   }
 
   Future<void> deleteDDay(String dDayId) async {
-    await _localDataSource.deleteDDay(dDayId);
     await _remoteDatasource.deleteDday(dDayId);
+    await _localDataSource.deleteDDay(dDayId);
   }
 
   Future<void> initializeDDay(bool isConnected) async {
