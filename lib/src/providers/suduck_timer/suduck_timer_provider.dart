@@ -8,6 +8,7 @@ import '../../models/study_record/study_record.dart';
 import '../../models/subject/subject.dart';
 import '../../repositories/suduck_timer_repositories.dart';
 import '../../viewmodels/study_record/study_record_viewmodel.dart';
+import '../../viewmodels/timer/timer_bg_color_provider.dart';
 
 part 'suduck_timer_provider.g.dart';
 
@@ -87,6 +88,12 @@ class SuDuckTimer extends _$SuDuckTimer {
         .read(studyRecordViewModelProvider.notifier)
         .addStudyRecord(newRecord);
 
+    if (subject != null) {
+      ref.read(timerBgColorProvider.notifier).changeColor(color: subject.color);
+    } else {
+      ref.read(timerBgColorProvider.notifier).changeColor();
+    }
+
     _startTimerLoop();
 
     state = state.copyWith(isRunning: true, currSubject: subject);
@@ -111,6 +118,8 @@ class SuDuckTimer extends _$SuDuckTimer {
     }
 
     await suduckRepo.deleteSuDuckTimerState();
+
+    ref.read(timerBgColorProvider.notifier).changeColor();
 
     state = TimerState(
       elapsedTime: 0,
@@ -141,6 +150,8 @@ class SuDuckTimer extends _$SuDuckTimer {
 
     await suduckRepo.deleteSuDuckTimerState();
 
+    ref.read(timerBgColorProvider.notifier).changeColor();
+
     state = TimerState(
       elapsedTime: 0,
       breakTime: 0,
@@ -151,11 +162,15 @@ class SuDuckTimer extends _$SuDuckTimer {
 
   void setSubject(Subject subject) {
     if (!state.isRunning) {
+      ref.read(timerBgColorProvider.notifier).changeColor(color: subject.color);
+
       state = state.copyWith(currSubject: subject);
     }
   }
 
   void resetSubject() {
+    ref.read(timerBgColorProvider.notifier).changeColor();
+
     state = TimerState(
       elapsedTime: 0,
       breakTime: 0,

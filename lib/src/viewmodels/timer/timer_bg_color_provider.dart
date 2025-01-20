@@ -14,6 +14,6 @@ class TimerBgColor extends _$TimerBgColor {
   }
 
   void changeColor({String? color}) {
-    state = color == null ? Color(int.parse("0xff$color")) : _initColor;
+    state = color != null ? Color(int.parse("0xff$color")) : _initColor;
   }
 }

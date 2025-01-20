@@ -6,6 +6,7 @@ import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/utils/get_formatted_time.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../providers/suduck_timer/suduck_timer_provider.dart';
+import '../../../../viewmodels/timer/timer_bg_color_provider.dart';
 
 class SuDuckTimerWidget extends ConsumerStatefulWidget {
   const SuDuckTimerWidget({super.key});
@@ -20,8 +21,6 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
   late AnimationController _colorController;
   late Animation<Color?> _colorAnimation;
 
-  Color _currentColor = const Color(0xffba4849);
-
   @override
   void initState() {
     super.initState();
@@ -29,31 +28,27 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
       vsync: this,
       duration: const Duration(seconds: 1),
     );
-    _colorAnimation = ColorTween(begin: _currentColor, end: _currentColor)
-        .animate(_colorController);
+    _colorAnimation = ColorTween(
+      begin: ref.read(timerBgColorProvider),
+      end: ref.read(timerBgColorProvider),
+    ).animate(_colorController);
   }
 
-  void changeColor(Color newColor) {
-    if (_currentColor != newColor) {
-      setState(() {
-        _colorAnimation = ColorTween(begin: _currentColor, end: newColor)
-            .animate(_colorController);
-        _currentColor = newColor;
-      });
-      _colorController.forward(from: 0);
-    }
+  void updateAnimation(Color newColor) {
+    _colorAnimation = ColorTween(
+      begin: _colorAnimation.value,
+      end: newColor,
+    ).animate(_colorController);
+    _colorController.forward(from: 0);
   }
 
   @override
   Widget build(BuildContext context) {
     final suduckTimer = ref.watch(suDuckTimerProvider);
-    final sudeckTimerNotifier = ref.read(suDuckTimerProvider.notifier);
+    final suduckTimerNotifier = ref.read(suDuckTimerProvider.notifier);
+    final bgColor = ref.watch(timerBgColorProvider);
 
-    if (suduckTimer.currSubject != null) {
-      changeColor(Color(int.parse("0xff${suduckTimer.currSubject!.color}")));
-    } else {
-      changeColor(const Color(0xffba4849));
-    }
+    updateAnimation(bgColor);
 
     final bool isRunning = suduckTimer.isRunning;
 
@@ -83,7 +78,7 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
                         child: suduckTimer.currSubject != null && !isRunning
                             ? IconButton(
                                 onPressed: () =>
-                                    sudeckTimerNotifier.resetSubject(),
+                                    suduckTimerNotifier.resetSubject(),
                                 icon: Icon(Icons.delete_forever_rounded),
                                 color: Colors.white,
                               )
@@ -138,7 +133,7 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
                     children: [
                       if (isRunning || suduckTimer.elapsedTime > 0)
                         GestureDetector(
-                          onTap: sudeckTimerNotifier.resetTimer,
+                          onTap: suduckTimerNotifier.resetTimer,
                           child: Container(
                             width: 48.w,
                             height: 44.h,
@@ -165,11 +160,11 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
                           onTap: () {
                             if (!isRunning) {
                               suduckTimer.currSubject == null
-                                  ? sudeckTimerNotifier.startTimer()
-                                  : sudeckTimerNotifier.startTimer(
+                                  ? suduckTimerNotifier.startTimer()
+                                  : suduckTimerNotifier.startTimer(
                                       subject: suduckTimer.currSubject!);
                             } else {
-                              sudeckTimerNotifier.stopTimer();
+                              suduckTimerNotifier.stopTimer();
                             }
                           },
                           child: Container(
@@ -200,7 +195,7 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
                       ),
                       if (isRunning || suduckTimer.elapsedTime > 0)
                         GestureDetector(
-                          onTap: sudeckTimerNotifier.saveTimer,
+                          onTap: suduckTimerNotifier.saveTimer,
                           child: Container(
                             width: 48.w,
                             height: 44.h,
