@@ -10,6 +10,7 @@
     <application
         android:label="hummingbird"
         android:name="${applicationName}"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/launcher_icon"
         android:requestLegacyExternalStorage = "true"> <!-- ImagePicker외부 저장소 사용시 필요 -->
         <!-- Image Cropper 사용시 필요 -->

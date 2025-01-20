@@ -65,7 +65,9 @@ class OptionsContainerModule extends StatelessWidget {
               dense: true,
               contentPadding: EdgeInsets.zero,
               visualDensity: VisualDensity(vertical: -4),
-              onTap: () {},
+              onTap: () {
+                context.push('/more/settings/termAndCondition');
+              },
               leading: Icon(
                 Icons.privacy_tip_outlined,
                 size: leadingIconSize,
