@@ -44,8 +44,8 @@ class TimerState {
 
 @Riverpod(keepAlive: true)
 class SuDuckTimer extends _$SuDuckTimer {
-  Timer? _elapsedtimer;
-  Timer? _breaktimer;
+  Timer? _elapsedTimer;
+  Timer? _breakTimer;
   late final SuduckTimerState suduckLocalState;
   late final SuduckTimerRepositories suduckRepo;
 
@@ -65,61 +65,42 @@ class SuDuckTimer extends _$SuDuckTimer {
 
   Future<void> startTimer({Subject? subject}) async {
     if (state.isRunning) return;
-    _breaktimer?.cancel();
+    _cancelBreakTimer();
 
     final startTime = DateTime.now().millisecondsSinceEpoch;
     await suduckRepo.addSuDuckTimerState([startTime, state.breakTime]);
 
-    final newRecord = subject != null
-        ? StudyRecord(
-            title: subject.title,
-            color: subject.color,
-            order: subject.order,
-            startAt: startTime,
-          )
-        : StudyRecord(
-            title: noSubject.title,
-            color: noSubject.color,
-            order: noSubject.order,
-            startAt: startTime,
-          );
+    final newRecord = StudyRecord(
+      title: subject?.title ?? noSubject.title,
+      color: subject?.color ?? noSubject.color,
+      order: subject?.order ?? noSubject.order,
+      startAt: startTime,
+    );
 
     await ref
         .read(studyRecordViewModelProvider.notifier)
         .addStudyRecord(newRecord);
 
-    if (subject != null) {
-      ref.read(timerBgColorProvider.notifier).changeColor(color: subject.color);
-    } else {
-      ref.read(timerBgColorProvider.notifier).changeColor();
-    }
-
+    _updateBgColor(subject?.color);
     _startTimerLoop();
 
     state = state.copyWith(isRunning: true, currSubject: subject);
   }
 
-  void stopTimer() async {
-    _elapsedtimer?.cancel();
-    _breaktimer?.cancel();
-
+  void stopTimer() {
+    _cancelElapsedTimer();
     _startBreakLoop();
     state = state.copyWith(isRunning: false);
   }
 
   Future<void> resetTimer() async {
-    _elapsedtimer?.cancel();
-    _breaktimer?.cancel();
-
-    final currentState = state;
-
-    if (currentState.currSubject != null) {
+    _cancelAllTimers();
+    if (state.currSubject != null) {
       await ref.read(studyRecordViewModelProvider.notifier).deleteStudyRecord();
     }
-
     await suduckRepo.deleteSuDuckTimerState();
 
-    ref.read(timerBgColorProvider.notifier).changeColor();
+    _updateBgColor(null);
 
     state = TimerState(
       elapsedTime: 0,
@@ -130,8 +111,7 @@ class SuDuckTimer extends _$SuDuckTimer {
   }
 
   Future<void> saveTimer() async {
-    _elapsedtimer?.cancel();
-    _breaktimer?.cancel();
+    _cancelAllTimers();
 
     final endTime = DateTime.now().millisecondsSinceEpoch;
 
@@ -150,7 +130,7 @@ class SuDuckTimer extends _$SuDuckTimer {
 
     await suduckRepo.deleteSuDuckTimerState();
 
-    ref.read(timerBgColorProvider.notifier).changeColor();
+    _updateBgColor(null);
 
     state = TimerState(
       elapsedTime: 0,
@@ -162,14 +142,13 @@ class SuDuckTimer extends _$SuDuckTimer {
 
   void setSubject(Subject subject) {
     if (!state.isRunning) {
-      ref.read(timerBgColorProvider.notifier).changeColor(color: subject.color);
-
+      _updateBgColor(subject.color);
       state = state.copyWith(currSubject: subject);
     }
   }
 
   void resetSubject() {
-    ref.read(timerBgColorProvider.notifier).changeColor();
+    _updateBgColor(null);
 
     state = TimerState(
       elapsedTime: 0,
@@ -201,17 +180,34 @@ class SuDuckTimer extends _$SuDuckTimer {
   }
 
   void _startTimerLoop() {
-    _elapsedtimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+    _elapsedTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       state = state.copyWith(elapsedTime: state.elapsedTime + 1);
     });
   }
 
   void _startBreakLoop() {
-    _breaktimer = Timer.periodic(const Duration(seconds: 1), (timer) async {
+    _breakTimer = Timer.periodic(const Duration(seconds: 1), (timer) async {
       state = state.copyWith(breakTime: state.breakTime + 1);
       if (state.breakTime % 10 == 0) {
         await suduckLocalState.updateSuDuckTimerState(state.breakTime);
       }
     });
+  }
+
+  void _updateBgColor(String? color) {
+    ref.read(timerBgColorProvider.notifier).changeColor(color: color);
+  }
+
+  void _cancelElapsedTimer() {
+    _elapsedTimer?.cancel();
+  }
+
+  void _cancelBreakTimer() {
+    _breakTimer?.cancel();
+  }
+
+  void _cancelAllTimers() {
+    _cancelElapsedTimer();
+    _cancelBreakTimer();
   }
 }
