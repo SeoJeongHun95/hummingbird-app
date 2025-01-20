@@ -1,24 +1,12 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hive/hive.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import '../../../core/const/box_keys.dart';
 import '../../datasource/local/subject/subject_local_datasource.dart';
+import '../../datasource/remote/subject_record/subject_remote_datasource.dart';
 import '../../models/subject/subject.dart';
 
-part 'subject_repository.g.dart';
-
-@riverpod
-SubjectRepository subjectRepository(Ref ref) {
-  final box = Hive.box<Subject>(BoxKeys.subjectBoxKey);
-  final subjectLocalDataSource = SubjectDataSource(box);
-  return SubjectRepository(subjectLocalDataSource);
-}
-
 class SubjectRepository {
-  SubjectRepository(this.localDataSource);
-
   final SubjectDataSource localDataSource;
+  final SubjectRemoteDatasource remoteDatasource;
+
+  SubjectRepository(this.localDataSource, this.remoteDatasource);
 
   Future<List<Subject>> addSubject(Subject subject) async {
     await localDataSource.addSubject(subject);
