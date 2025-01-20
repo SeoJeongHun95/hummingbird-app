@@ -11,6 +11,8 @@ import '../../viewmodels/study_record/study_record_viewmodel.dart';
 
 part 'suduck_timer_provider.g.dart';
 
+final Subject noSubject = Subject(title: "미분류", color: "ba4849", order: -1);
+
 class TimerState {
   final int elapsedTime;
   final int breakTime;
@@ -60,29 +62,26 @@ class SuDuckTimer extends _$SuDuckTimer {
     );
   }
 
-  void startTimer() async {
+  Future<void> startTimer({Subject? subject}) async {
     if (state.isRunning) return;
     _breaktimer?.cancel();
 
     final startTime = DateTime.now().millisecondsSinceEpoch;
     await suduckRepo.addSuDuckTimerState([startTime, state.breakTime]);
 
-    _startTimerLoop();
-    state = state.copyWith(isRunning: true);
-  }
-
-  Future<void> startTimerWithSubject({required Subject subject}) async {
-    if (state.isRunning) return;
-
-    final startTime = DateTime.now().millisecondsSinceEpoch;
-    await suduckRepo.addSuDuckTimerState([startTime, state.breakTime]);
-
-    final newRecord = StudyRecord(
-      title: subject.title,
-      color: subject.color,
-      order: subject.order,
-      startAt: startTime,
-    );
+    final newRecord = subject != null
+        ? StudyRecord(
+            title: subject.title,
+            color: subject.color,
+            order: subject.order,
+            startAt: startTime,
+          )
+        : StudyRecord(
+            title: noSubject.title,
+            color: noSubject.color,
+            order: noSubject.order,
+            startAt: startTime,
+          );
 
     await ref
         .read(studyRecordViewModelProvider.notifier)
@@ -125,23 +124,20 @@ class SuDuckTimer extends _$SuDuckTimer {
     _elapsedtimer?.cancel();
     _breaktimer?.cancel();
 
-    final currentState = state;
     final endTime = DateTime.now().millisecondsSinceEpoch;
 
-    if (currentState.currSubject != null) {
-      final updatedRecord = StudyRecord(
-        title: state.currSubject!.title,
-        color: state.currSubject!.color,
-        order: state.currSubject!.order,
-        endAt: endTime,
-        elapsedTime: currentState.elapsedTime,
-        breakTime: currentState.breakTime,
-      );
-
-      await ref
-          .read(studyRecordViewModelProvider.notifier)
-          .updateStudyRecord(updatedRecord);
-    }
+    final currentSubject = state.currSubject ?? noSubject;
+    final updatedRecord = StudyRecord(
+      title: currentSubject.title,
+      color: currentSubject.color,
+      order: currentSubject.order,
+      endAt: endTime,
+      elapsedTime: state.elapsedTime,
+      breakTime: state.breakTime,
+    );
+    await ref
+        .read(studyRecordViewModelProvider.notifier)
+        .updateStudyRecord(updatedRecord);
 
     await suduckRepo.deleteSuDuckTimerState();
 
