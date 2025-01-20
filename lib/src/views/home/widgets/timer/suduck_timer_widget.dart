@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
+import '../../../../../core/utils/get_formatted_time.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../providers/suduck_timer/suduck_timer_provider.dart';
 
@@ -41,16 +42,6 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
       });
       _colorController.forward(from: 0);
     }
-  }
-
-  String _formatTime(int seconds) {
-    final int hours = seconds ~/ 3600;
-    final int minutes = (seconds % 3600) ~/ 60;
-    final int secs = seconds % 60;
-
-    return '${hours.toString().padLeft(2, '0')}:'
-        '${minutes.toString().padLeft(2, '0')}:'
-        '${secs.toString().padLeft(2, '0')}';
   }
 
   @override
@@ -100,7 +91,7 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
                   color: _colorAnimation.value,
                   child: Center(
                     child: Text(
-                      _formatTime(suduckTimer.elapsedTime),
+                      getFormatTime(suduckTimer.elapsedTime),
                       style: TextStyle(
                         fontSize: 52.sp,
                         fontWeight: FontWeight.w600,
@@ -149,7 +140,7 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
                             if (!isRunning) {
                               suduckTimer.currSubject == null
                                   ? sudeckTimerNotifier.startTimer()
-                                  : sudeckTimerNotifier.startTimerWithSubject(
+                                  : sudeckTimerNotifier.startTimer(
                                       subject: suduckTimer.currSubject!);
                             } else {
                               sudeckTimerNotifier.stopTimer();

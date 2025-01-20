@@ -70,7 +70,7 @@ class SubjectListWidget extends ConsumerWidget {
                             leading: GestureDetector(
                               onTap: () => ref
                                   .read(suDuckTimerProvider.notifier)
-                                  .startTimerWithSubject(subject: subject),
+                                  .startTimer(subject: subject),
                               child: CircleAvatar(
                                 backgroundColor: Color(
                                   int.parse('0xff${subject.color}'),

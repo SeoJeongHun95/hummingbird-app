@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../src/views/home/widgets/timer/suduck_timer_modal_widget.dart';
+
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
 
@@ -23,12 +25,9 @@ class BottomNavBar extends StatelessWidget {
             break;
           case 2:
             showModalBottomSheet(
-              showDragHandle: true,
+              // showDragHandle: true,
               context: context,
-              builder: (context) => SizedBox(
-                width: double.maxFinite,
-                height: 400,
-              ),
+              builder: (context) => SuduckTimerModalWidget(),
             );
             break;
           case 3:
