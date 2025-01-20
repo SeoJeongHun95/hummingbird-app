@@ -2,16 +2,24 @@ import 'dart:ui';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hummingbird/core/utils/show_snack_bar.dart';
-import 'package:hummingbird/src/app_initialize.dart';
 
 import 'core/router/router.dart';
+import 'core/utils/show_snack_bar.dart';
+import 'src/app_initialize.dart';
 import 'src/viewmodels/app_setting/app_setting_view_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // 어플리케이션 세로모드
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
   await EasyLocalization.ensureInitialized(); //다국어 지원을 위한 초기화
   await appInitialize();
 
