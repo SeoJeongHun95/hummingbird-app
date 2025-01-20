@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hummingbird/src/views/more/widgets/settings/terms_and_conditions.dart';
 
 import '../../src/providers/auth/auth_provider.dart';
 import '../../src/views/home/home_screen.dart';
@@ -115,6 +116,15 @@ final goRouterProvider = Provider<GoRouter>((ref) {
                     context: context,
                     state: state,
                     child: const SelectGroupScreen(),
+                  ),
+                ),
+                GoRoute(
+                  path: 'termAndCondition',
+                  pageBuilder: (context, state) =>
+                      buildPageWithDefaultTransition(
+                    context: context,
+                    state: state,
+                    child: const TermsAndPrivacyScreen(),
                   ),
                 ),
               ])
