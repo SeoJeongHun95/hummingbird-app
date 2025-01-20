@@ -31,10 +31,9 @@ class OptionsContainerModule extends StatelessWidget {
               ),
               title: Text(
                 '설정',
-                style: TextStyle(
-                  fontSize: fontSize,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
               ),
               trailing: Icon(
                 Icons.arrow_forward_ios,
@@ -52,10 +51,9 @@ class OptionsContainerModule extends StatelessWidget {
               ),
               title: Text(
                 '알람',
-                style: TextStyle(
-                  fontSize: fontSize,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
               ),
               trailing: Icon(
                 Icons.arrow_forward_ios,
@@ -74,10 +72,9 @@ class OptionsContainerModule extends StatelessWidget {
               ),
               title: Text(
                 '개인정보 처리방침',
-                style: TextStyle(
-                  fontSize: fontSize,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
               ),
               trailing: Icon(
                 Icons.arrow_forward_ios,
@@ -90,7 +87,6 @@ class OptionsContainerModule extends StatelessWidget {
     );
   }
 
-  double get fontSize => 12.sp;
   double get trailingIconSize => 16.w;
   double get leadingIconSize => 20.w;
 }

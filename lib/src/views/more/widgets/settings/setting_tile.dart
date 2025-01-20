@@ -20,8 +20,8 @@ class SettingTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+    return SizedBox(
+      height: 40.w,
       child: Row(
         children: [
           Text(

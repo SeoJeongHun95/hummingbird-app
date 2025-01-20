@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 
+import '../../../core/utils/show_snack_bar.dart';
 import '../../models/token_model.dart';
 import '../token_provider.dart';
 import 'refresh_token_dio_client_provider.dart';
@@ -22,7 +23,9 @@ class DioInterceptor extends Interceptor {
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
-    //   TODO: Global error handling
+    //   TODO: Update Global error handling
+    print(err);
+    showSnackBar(message: err.message ?? '로그 확인 필요');
   }
 
   @override
@@ -83,7 +86,7 @@ class DioInterceptor extends Interceptor {
     try {
       final res = await refreshTokenDioClient.dio.get('/auth/refresh');
       final newAccessToken = res.data['accessToken'];
-      final newExpiresAt = res.data['tokenExpiresAtInSeconds'];
+      final newExpiresAt = res.data['expiresAt'];
 
       tokensProvider.updateToken(TokenModel(
         accessToken: newAccessToken,

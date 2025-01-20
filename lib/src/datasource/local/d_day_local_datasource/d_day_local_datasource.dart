@@ -8,22 +8,28 @@ class DDayLocalDatasource {
   DDayLocalDatasource(this._box);
 
   Future<void> addDDay(DDay dDay) async {
-    await _box.add(dDay);
+    await _box.put(dDay.ddayId, dDay);
   }
 
   Future<List<DDay>> getAllDDay() async {
     return _box.values.toList();
   }
 
-  Future<void> updateDDay(int index, DDay updateDDay) async {
-    if (index >= 0 && index < _box.length) {
-      await _box.putAt(index, updateDDay);
-    } else {
-      throw Exception('Invalid index $index');
+  Future<void> updateDDay(DDay updatedDDay) async {
+    await _box.put(updatedDDay.ddayId, updatedDDay);
+  }
+
+  Future<void> deleteDDay(String dDayId) async {
+    await _box.delete(dDayId);
+  }
+
+  Future<void> addAllDDay(List<DDay> dDayList) async {
+    for (int i = 0; i < dDayList.length; i++) {
+      addDDay(dDayList[i]);
     }
   }
 
-  Future<void> deleteDDay(int index) async {
-    await _box.deleteAt(index);
+  Future<void> clearBox() async {
+    _box.clear();
   }
 }
