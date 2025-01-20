@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../models/grass/grass_data_model.dart';
+
+import '../../../../models/grass/grass_data_model.dart';
 
 class GrassGrid extends StatefulWidget {
   /// studyData 매개변수를 통해 학습 데이터 리스트를 전달받음
@@ -218,15 +219,15 @@ class _GrassGridState extends State<GrassGrid> {
       }
       return const Color(0xFF242424); // 다른 월은 어두운 회색입니다
     }
-    if (studyCount == 1) 
+    if (studyCount == 1)
       return isFirstDayOfMonth
           ? const Color(0xFF0F5539)
           : const Color(0xFF0E4429); // 어두운 녹색
-    if (studyCount >= 2 && studyCount <= 3) 
+    if (studyCount >= 2 && studyCount <= 3)
       return isFirstDayOfMonth
           ? const Color(0xFF007D42)
           : const Color(0xFF006D32); // 중간 녹색
-    if (studyCount >= 4 && studyCount <= 5) 
+    if (studyCount >= 4 && studyCount <= 5)
       return isFirstDayOfMonth
           ? const Color(0xFF2AB651)
           : const Color(0xFF26A641); // 밝은 녹색
