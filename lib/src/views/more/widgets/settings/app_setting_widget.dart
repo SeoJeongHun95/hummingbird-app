@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../../core/enum/font_size.dart';
-import '../../../../../../core/enum/mxnRate.dart';
-import '../../../../../viewmodels/app_setting/app_setting_view_model.dart';
-import '../setting_container_widget.dart';
-import '../setting_tile_widget.dart';
-import '../setting_tile_with_seg_widget.dart';
+import '../../../../../core/enum/font_size.dart';
+import '../../../../../core/enum/mxnRate.dart';
+import '../../../../viewmodels/app_setting/app_setting_view_model.dart';
+import 'setting_container_widget.dart';
+import 'setting_tile_widget.dart';
+import 'setting_tile_with_seg_widget.dart';
 
 class AppSettingWidget extends ConsumerStatefulWidget {
   const AppSettingWidget({super.key});

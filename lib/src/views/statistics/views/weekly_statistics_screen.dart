@@ -6,10 +6,10 @@ import '../../../../core/enum/period_option.dart';
 import '../../../../core/widgets/mxnContainer.dart';
 import '../../../providers/study_record/weekly_statistic_data_provider.dart';
 import '../../../viewmodels/study_record/study_record_viewmodel.dart';
-import '../widgets/bar_charts/study_bar_chart_module.dart';
-import '../widgets/line_charts/total_duratinos_line_chart_module.dart';
-import '../widgets/pie_charts/study_pie_chart_module.dart';
-import '../widgets/summary_module.dart';
+import '../widgets/bar_charts/study_bar_chart_widget.dart';
+import '../widgets/line_charts/total_duratinos_line_chart_widget.dart';
+import '../widgets/pie_charts/study_pie_chart_widget.dart';
+import '../widgets/summary_widget.dart';
 
 class WeeklyStatisticsScreen extends ConsumerWidget {
   const WeeklyStatisticsScreen({super.key});
