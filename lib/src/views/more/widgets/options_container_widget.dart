@@ -5,8 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/enum/mxnRate.dart';
 import '../../../../core/widgets/mxnContainer.dart';
 
-class OptionsContainerWidget extends StatelessWidget {
-  const OptionsContainerWidget({super.key});
+class OptionsContainerModule extends StatelessWidget {
+  const OptionsContainerModule({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,9 @@ class OptionsContainerWidget extends StatelessWidget {
               dense: true,
               contentPadding: EdgeInsets.zero,
               visualDensity: VisualDensity(vertical: -4),
-              onTap: () {},
+              onTap: () {
+                context.push('/more/settings/termAndCondition');
+              },
               leading: Icon(
                 Icons.privacy_tip_outlined,
                 size: leadingIconSize,
