@@ -64,23 +64,49 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
         builder: (context, child) {
           return Column(
             children: [
-              Expanded(child: Container(color: _colorAnimation.value)),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  color: _colorAnimation.value,
+                ),
+              ),
               Expanded(
                 flex: 2,
                 child: Container(
                   width: double.infinity,
                   color: _colorAnimation.value,
-                  child: Center(
-                    child: Text(
-                      suduckTimer.currSubject == null
-                          ? "미분류"
-                          : suduckTimer.currSubject!.title,
-                      style: TextStyle(
-                        fontSize: 22.sp,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: suduckTimer.currSubject != null && !isRunning
+                            ? IconButton(
+                                onPressed: () =>
+                                    sudeckTimerNotifier.resetSubject(),
+                                icon: Icon(Icons.delete_forever_rounded),
+                                color: Colors.white,
+                              )
+                            : Container(),
                       ),
-                    ),
+                      Expanded(
+                        flex: 2,
+                        child: Center(
+                          child: Text(
+                            suduckTimer.currSubject == null
+                                ? "미분류"
+                                : suduckTimer.currSubject!.title,
+                            style: TextStyle(
+                              fontSize: 22.sp,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white,
+                              fontFeatures: [FontFeature.tabularFigures()],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(child: Container()),
+                    ],
                   ),
                 ),
               ),

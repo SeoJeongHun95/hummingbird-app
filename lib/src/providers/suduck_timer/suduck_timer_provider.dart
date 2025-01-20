@@ -155,6 +155,15 @@ class SuDuckTimer extends _$SuDuckTimer {
     }
   }
 
+  void resetSubject() {
+    state = TimerState(
+      elapsedTime: 0,
+      breakTime: 0,
+      isRunning: false,
+      currSubject: null,
+    );
+  }
+
   Future<void> _restoreTimerState() async {
     final storedTime = await suduckLocalState.getSuDuckTimerStates();
 
