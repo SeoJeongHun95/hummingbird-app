@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hummingbird/src/viewmodels/study_setting/study_setting_view_model.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../viewmodels/study_record/study_record_viewmodel.dart';
+import '../../../../viewmodels/study_setting/study_setting_view_model.dart';
 import '../../../statistics/widgets/bar_charts/study_bar_chart_module.dart';
 import '../../../statistics/widgets/pie_charts/study_pie_chart_module.dart';
 import 'goal_progress_module.dart';

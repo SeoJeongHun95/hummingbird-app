@@ -43,7 +43,7 @@ class SelectCountryScreen extends StatelessWidget {
                       height: 36.w,
                     ),
                     Text(
-                      '향후 추가할 계획 입니다',
+                      '향후 추가할 계획입니다',
                       style: TextStyle(
                         color: Colors.grey[700],
                       ),

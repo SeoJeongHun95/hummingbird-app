@@ -38,7 +38,7 @@ class GetMyDdaysApi {
   Future<GetMyDdaysApiResDto> execute() async {
     final response = await dio.get('/dday');
 
-    return GetMyDdaysApiResDto(ddays: response.data);
+    return GetMyDdaysApiResDto.fromJson(response.data);
   }
 }
 

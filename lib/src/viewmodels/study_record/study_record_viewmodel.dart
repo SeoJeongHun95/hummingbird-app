@@ -104,7 +104,8 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
     final dailyTotalDuration = List.generate(period, (index) => 0);
 
     for (int day = 0; day < period; day++) {
-      final studyRecordsMap = await repository.getStudyRecord();
+      final studyRecordsMap = await repository
+          .getStudyRecordByDate(formatDate(startDate.add(Duration(days: day))));
       final dailyRecords =
           studyRecordsMap[formatDate(startDate.add(Duration(days: day)))] ?? [];
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/widgets/circle_color_container.dart';
 import '../../../../models/d_day/d_day.dart';
 import '../../../../viewmodels/d_day/d_day_view_model.dart';
-import '../../../../../core/widgets/circle_color_container.dart';
 import 'color_picker_dialog.dart';
 
 class AddDDayDialog extends StatefulWidget {
@@ -150,7 +150,8 @@ class _AddDDayDialogState extends State<AddDDayDialog> {
               ).toUtc();
               final newDDay = DDay(
                   title: _textController.text,
-                  targetDatetime: goalDateTimeByUtc.millisecondsSinceEpoch,
+                  targetDatetime:
+                      (goalDateTimeByUtc.millisecondsSinceEpoch) ~/ 1000,
                   color: color);
               widget.viewModel.addDDay(newDDay);
               Navigator.pop(context);

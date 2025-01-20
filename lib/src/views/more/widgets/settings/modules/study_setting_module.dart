@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hummingbird/src/viewmodels/study_setting/study_setting_view_model.dart';
 
 import '../../../../../../core/enum/mxnRate.dart';
+import '../../../../../viewmodels/study_setting/study_setting_view_model.dart';
 import '../setting_container.dart';
 import '../setting_tile.dart';
 
@@ -27,10 +27,9 @@ class StudySettingModule extends ConsumerWidget {
             title: '국가',
             selected: Text(
               '대한민국',
-              style: TextStyle(
-                color: Colors.grey[700],
-                fontSize: 12.sp,
-              ),
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: Colors.grey[700],
+                  ),
             ),
           ),
         ),
@@ -40,11 +39,10 @@ class StudySettingModule extends ConsumerWidget {
           child: SettingTile(
             title: '그룹',
             selected: Text(
-              studySetting.group ?? '',
-              style: TextStyle(
-                fontSize: 12.sp,
-                color: Colors.grey[700],
-              ),
+              studySetting.group ?? '그룹을 선택하세요',
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: Colors.grey[700],
+                  ),
             ),
           ),
         ),
@@ -62,10 +60,9 @@ class StudySettingModule extends ConsumerWidget {
             title: '목표 공부시간',
             selected: Text(
               formatDuration(studySetting.goalDuration),
-              style: TextStyle(
-                fontSize: 12.sp,
-                color: Colors.grey[700],
-              ),
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: Colors.grey[700],
+                  ),
             ),
             trailing: Icon(
               Icons.keyboard_arrow_down,

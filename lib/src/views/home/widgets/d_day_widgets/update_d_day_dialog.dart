@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/widgets/circle_color_container.dart';
 import '../../../../models/d_day/d_day.dart';
 import '../../../../viewmodels/d_day/d_day_view_model.dart';
-import '../../../../../core/widgets/circle_color_container.dart';
 import 'color_picker_dialog.dart';
 
 class UpdateDDayDialog extends StatefulWidget {
   const UpdateDDayDialog(
       {super.key,
       required this.index,
+      required this.dDayId,
       required this.goalTitle,
       required this.goalDate,
       required this.color,
       required this.viewModel});
 
   final int index;
+  final String dDayId;
   final String goalTitle;
   final int goalDate;
   final String color;
@@ -36,8 +38,8 @@ class _UpdateDDayDialogState extends State<UpdateDDayDialog> {
   @override
   void initState() {
     final DateTime goalDateTimeByUtc =
-        DateTime.fromMillisecondsSinceEpoch(widget.goalDate).toLocal();
-    goalDate = goalDateTimeByUtc;
+        DateTime.fromMillisecondsSinceEpoch(widget.goalDate * 1000);
+    goalDate = goalDateTimeByUtc.toLocal();
     goalTime = TimeOfDay.fromDateTime(goalDateTimeByUtc);
     color = widget.color;
     _textController.text = widget.goalTitle;
@@ -157,8 +159,10 @@ class _UpdateDDayDialogState extends State<UpdateDDayDialog> {
                 goalTime.minute,
               ).toUtc();
               final updateDDay = DDay(
+                  ddayId: widget.dDayId,
                   title: _textController.text,
-                  targetDatetime: goalDateTimeByUtc.millisecondsSinceEpoch,
+                  targetDatetime:
+                      goalDateTimeByUtc.millisecondsSinceEpoch ~/ 1000,
                   color: color);
               widget.viewModel.updateDDay(widget.index, updateDDay);
               Navigator.pop(context);
@@ -178,7 +182,8 @@ class _UpdateDDayDialogState extends State<UpdateDDayDialog> {
       BuildContext context, int oldGoalDate) async {
     return await showDatePicker(
       context: context,
-      initialDate: DateTime.fromMillisecondsSinceEpoch(oldGoalDate).toLocal(),
+      initialDate:
+          DateTime.fromMillisecondsSinceEpoch(oldGoalDate * 1000).toLocal(),
       firstDate: DateTime(2024),
       lastDate: DateTime(2100),
     );

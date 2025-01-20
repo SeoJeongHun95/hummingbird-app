@@ -11,8 +11,10 @@ environment:
 dependencies:
   animated_segmented_tab_control: ^2.0.0
   carousel_slider: ^5.0.0
+  connectivity_plus: ^6.1.2
   cupertino_icons: ^1.0.8
   dio: ^5.7.0
+  easy_localization: ^3.0.7
   envied: ^1.0.0
   fl_chart: 0.70.0
   flutter:
@@ -26,16 +28,15 @@ dependencies:
   google_sign_in: ^6.2.2
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  image_cropper: ^8.1.0
+  image_picker: ^1.1.2
   intl: ^0.19.0
   json_annotation: ^4.9.0
+  just_audio: ^0.9.42
+  just_audio_background: ^0.0.1-beta.14
   path_provider: ^2.1.5
   riverpod_annotation: ^2.6.1
   stylish_bottom_bar: ^1.1.0
-  just_audio_background: ^0.0.1-beta.14
-  just_audio: ^0.9.42
-  image_picker: ^1.1.2
-  image_cropper: ^8.1.0
-  easy_localization: ^3.0.7
 
 dev_dependencies:
   build_runner: ^2.4.13

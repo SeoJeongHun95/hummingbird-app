@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hummingbird/core/enum/mxnRate.dart';
 import 'package:hummingbird/src/viewmodels/app_setting/app_setting_view_model.dart';
@@ -64,12 +63,11 @@ class _AppSettingModuleState extends ConsumerState<AppSettingModule> {
     return [
       SettingTile(
         title: '테마 색상',
-        trailing: Text(
-          '향후 추가할 계획 입니다',
-          style: TextStyle(
-            color: Colors.grey[700],
-            fontSize: 12.sp,
-          ),
+        selected: Text(
+          '향후 추가할 계획입니다',
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: Colors.grey[700],
+              ),
         ),
       ),
       GestureDetector(
@@ -79,10 +77,9 @@ class _AppSettingModuleState extends ConsumerState<AppSettingModule> {
           title: '언어',
           selected: Text(
             '한국어',
-            style: TextStyle(
-              fontSize: 12.sp,
-              color: Colors.grey[700],
-            ),
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Colors.grey[700],
+                ),
           ),
         ),
       ),

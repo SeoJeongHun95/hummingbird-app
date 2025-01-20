@@ -3,10 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
+import '../../../../../core/widgets/color_container_with_opacity.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
+import '../../../../providers/d_day/d_day_screen_state_provider.dart';
 import '../../../../viewmodels/d_day/d_day_view_model.dart';
 import 'add_d_day_dialog.dart';
-import '../../../../../core/widgets/color_container_with_opacity.dart';
 import 'update_d_day_dialog.dart';
 
 class DDayListTileModule extends ConsumerWidget {
@@ -14,10 +15,12 @@ class DDayListTileModule extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final dDaysState = ref.watch(dDayViewModelProvider);
+    final dDayScreenState = ref.watch(dDayScreenStateProvider);
     final viewModel = ref.read(dDayViewModelProvider.notifier);
-    return dDaysState.when(
-      data: (dDays) {
+
+    return dDayScreenState.when(
+      data: (state) {
+        final (dDays, isConnected) = state;
         return MxNcontainer(
           MxN_rate: MxNRate.TWOBYTWO,
           MxN_child: Container(
@@ -35,14 +38,15 @@ class DDayListTileModule extends ConsumerWidget {
                           contentPadding: EdgeInsets.only(left: 16.0),
                           dense: true,
                           leading: ColorContainerWithOpacity(
+                            color: color,
+                            width: 30.w,
+                            alphaOfColor: 70,
+                            child: Icon(
+                              Icons.calendar_month,
                               color: color,
-                              width: 30.w,
-                              alphaOfColor: 70,
-                              child: Icon(
-                                Icons.calendar_month,
-                                color: color,
-                                size: 20.w,
-                              )),
+                              size: 20.w,
+                            ),
+                          ),
                           title: Text(
                             goalTitle,
                             style: TextStyle(
@@ -62,80 +66,108 @@ class DDayListTileModule extends ConsumerWidget {
                                 style: TextStyle(
                                   color:
                                       Theme.of(context).colorScheme.onSurface,
-                                  fontSize: 13.sp,
+                                  fontSize: 14.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              MenuAnchor(
-                                alignmentOffset: Offset(-17.w, 0),
-                                menuChildren: [
-                                  MenuItemButton(
-                                    onPressed: () => _showUpdateDialog(
-                                        context: context,
-                                        index: index,
-                                        goalTitle: goalTitle,
-                                        goalDate: goalDate,
-                                        color: dDays[index].color,
-                                        viewModel: viewModel),
-                                    child: Text("편집"),
-                                  ),
-                                  MenuItemButton(
-                                    onPressed: () => _showDeleteDDayDialog(
-                                        context: context,
-                                        index: index,
-                                        goalTitle: goalTitle,
-                                        deleteDDay: viewModel.deleteDDay),
-                                    child: Text("제거"),
-                                  )
-                                ],
-                                builder: (context, controller, child) {
-                                  return IconButton(
-                                    onPressed: () {
-                                      if (controller.isOpen) {
-                                        controller.close();
-                                      } else {
-                                        controller.open();
-                                      }
-                                    },
-                                    icon: Icon(
-                                      Icons.more_vert,
-                                      size: 15.sp,
+                              isConnected
+                                  ? MenuAnchor(
+                                      alignmentOffset: Offset(-17.w, 0),
+                                      menuChildren: [
+                                        MenuItemButton(
+                                          onPressed: () => _showUpdateDialog(
+                                              context: context,
+                                              index: index,
+                                              dDayId: dDays[index].ddayId!,
+                                              goalTitle: goalTitle,
+                                              goalDate: goalDate,
+                                              color: dDays[index].color,
+                                              viewModel: viewModel),
+                                          child: Text("편집"),
+                                        ),
+                                        MenuItemButton(
+                                          onPressed: () =>
+                                              _showDeleteDDayDialog(
+                                            context: context,
+                                            index: index,
+                                            goalTitle: goalTitle,
+                                            dDayId: dDays[index].ddayId ?? '',
+                                            deleteDDay: viewModel.deleteDDay,
+                                          ),
+                                          child: Text("제거"),
+                                        )
+                                      ],
+                                      builder: (context, controller, child) {
+                                        return IconButton(
+                                          onPressed: () {
+                                            if (controller.isOpen) {
+                                              controller.close();
+                                            } else {
+                                              controller.open();
+                                            }
+                                          },
+                                          icon: Icon(
+                                            Icons.more_vert,
+                                            size: 16.sp,
+                                          ),
+                                        );
+                                      },
+                                    )
+                                  : IconButton(
+                                      onPressed: () =>
+                                          showOnOfflineDialog(context),
+                                      icon: Icon(
+                                        Icons.more_vert,
+                                        size: 16.sp,
+                                      ),
                                     ),
-                                  );
-                                },
-                              ),
                             ],
                           ),
                         );
                       } else {
                         return Padding(
                           padding: EdgeInsets.symmetric(
-                              vertical: 15.h, horizontal: 20.w),
-                          child: OutlinedButton(
-                            style: OutlinedButton.styleFrom(
-                              fixedSize: Size(300.w, 20.w),
-                            ),
-                            onPressed: () => _showAddDialog(context, viewModel),
-                            child: Icon(Icons.add),
-                          ),
+                              vertical: 16.h, horizontal: 20.w),
+                          child: isConnected
+                              ? OutlinedButton(
+                                  style: OutlinedButton.styleFrom(
+                                    fixedSize: Size(300.w, 20.w),
+                                  ),
+                                  onPressed: () =>
+                                      _showAddDialog(context, viewModel),
+                                  child: Icon(Icons.add),
+                                )
+                              : onOfflineContainer,
                         );
                       }
                     },
                   )
                 : Center(
-                    child: OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        fixedSize: Size(300.w, 20.w),
-                      ),
-                      onPressed: () => _showAddDialog(context, viewModel),
-                      child: Icon(Icons.add),
-                    ),
+                    child: isConnected
+                        ? OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                              fixedSize: Size(300.w, 20.w),
+                            ),
+                            onPressed: () => _showAddDialog(context, viewModel),
+                            child: Icon(Icons.add),
+                          )
+                        : onOfflineContainer,
                   ),
           ),
         );
       },
-      loading: () => const CircularProgressIndicator(),
-      error: (error, stackTrace) => Text('Error: $error'),
+      error: (error, stackTrace) => MxNcontainer(
+        MxN_rate: MxNRate.TWOBYTWO,
+        MxN_child: Center(
+          child: Text('$error'),
+        ),
+      ),
+      loading: () => MxNcontainer(
+        MxN_rate: MxNRate.TWOBYTWO,
+        MxN_child: Center(
+          child: CircularProgressIndicator(),
+        ),
+      ),
     );
   }
 
@@ -152,6 +184,7 @@ class DDayListTileModule extends ConsumerWidget {
       {required BuildContext context,
       required String goalTitle,
       required int index,
+      required String dDayId,
       required int goalDate,
       required String color,
       required DDayViewModel viewModel}) {
@@ -161,6 +194,7 @@ class DDayListTileModule extends ConsumerWidget {
         return UpdateDDayDialog(
             goalTitle: goalTitle,
             index: index,
+            dDayId: dDayId,
             goalDate: goalDate,
             color: color,
             viewModel: viewModel);
@@ -172,7 +206,8 @@ class DDayListTileModule extends ConsumerWidget {
       {required BuildContext context,
       required int index,
       required String goalTitle,
-      required void Function(int) deleteDDay}) {
+      required String dDayId,
+      required void Function(int, String) deleteDDay}) {
     showDialog(
       context: context,
       builder: (context) {
@@ -186,7 +221,7 @@ class DDayListTileModule extends ConsumerWidget {
             ),
             TextButton(
                 onPressed: () {
-                  deleteDDay(index);
+                  deleteDDay(index, dDayId);
                   Navigator.pop(context);
                 },
                 child: Text("확인"))
@@ -195,4 +230,56 @@ class DDayListTileModule extends ConsumerWidget {
       },
     );
   }
+
+  void showOnOfflineDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          content: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              '오프라인 상태에서는 편집, 제거 기능을 사용할 수 없습니다.',
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text('확인'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget get onOfflineContainer => Container(
+        decoration: BoxDecoration(
+          color: Colors.grey,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        padding: EdgeInsets.all(8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: 60.w,
+            ),
+            Icon(
+              Icons.refresh,
+              color: Colors.white,
+            ),
+            SizedBox(
+              width: 12.w,
+            ),
+            Text(
+              '오프라인 상태입니다',
+              style: TextStyle(color: Colors.white),
+            ),
+          ],
+        ),
+      );
 }
