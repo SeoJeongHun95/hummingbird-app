@@ -6,10 +6,10 @@ import '../../../../core/enum/period_option.dart';
 import '../../../../core/widgets/mxnContainer.dart';
 import '../../../providers/study_record/monthly_statistic_data.dart';
 import '../../../viewmodels/study_record/study_record_viewmodel.dart';
-import '../widgets/bar_charts/study_bar_chart_module.dart';
-import '../widgets/line_charts/total_duratinos_line_chart_module.dart';
-import '../widgets/pie_charts/study_pie_chart_module.dart';
-import '../widgets/summary_module.dart';
+import '../widgets/bar_charts/study_bar_chart_widget.dart';
+import '../widgets/line_charts/total_duratinos_line_chart_widget.dart';
+import '../widgets/pie_charts/study_pie_chart_widget.dart';
+import '../widgets/summary_widget.dart';
 
 class MonthlyStatisticsScreen extends ConsumerWidget {
   const MonthlyStatisticsScreen({super.key});
@@ -34,7 +34,7 @@ class MonthlyStatisticsScreen extends ConsumerWidget {
           if (studyRecords.isEmpty || totalStudyDuration == 0) {
             return Column(
               children: [
-                SummaryModule(
+                SummaryWidget(
                   totalStudyDuration:
                       dailyTotalDuration.fold(0, (a, b) => a + b),
                   selectedPeriod: PeriodOption.MONTHLY,
@@ -57,24 +57,24 @@ class MonthlyStatisticsScreen extends ConsumerWidget {
           return SingleChildScrollView(
             child: Column(
               children: [
-                SummaryModule(
+                SummaryWidget(
                   totalStudyDuration:
                       dailyTotalDuration.fold(0, (a, b) => a + b),
                   selectedPeriod: PeriodOption.MONTHLY,
                   targetMonth: targetMonth,
                   targetWeekStartDate: targetWeekStartDate,
                 ),
-                TotalDuratinosLineChartModule(
+                TotalDuratinosLineChartWidget(
                   period: PeriodOption.MONTHLY,
                   dailyTotalDuration: dailyTotalDuration,
                 ),
-                StudyPieChartModule(
+                StudyPieChartWidget(
                   subjectTitleList: sortedTitle,
                   studyDurationList: sortedDurations,
                   subjectColorList: sortedColors,
                   totalStudyDuration: totalStudyDuration,
                 ),
-                StudyBarChartModule(
+                StudyBarChartWidget(
                   subjectTitleList: subjectTitleList,
                   studyDurationList: studyDurationList,
                   subjectColorList: subjectColorList,

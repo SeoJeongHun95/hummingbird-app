@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../models/grass/grass_data_model.dart';
+
+import '../../../../models/grass/grass_data_model.dart';
 
 class GrassGrid extends StatefulWidget {
   /// studyData 매개변수를 통해 학습 데이터 리스트를 전달받음

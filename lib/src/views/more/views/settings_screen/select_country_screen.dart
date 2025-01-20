@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
-import '../../widgets/settings/setting_tile.dart';
+import '../../widgets/settings/setting_tile_widget.dart';
 
 class SelectCountryScreen extends StatelessWidget {
   const SelectCountryScreen({super.key});
@@ -34,7 +34,7 @@ class SelectCountryScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                 child: Column(
                   children: [
-                    SettingTile(
+                    SettingTileWidget(
                       title: '대한민국',
                       trailing: Icon(Icons.check),
                     ),

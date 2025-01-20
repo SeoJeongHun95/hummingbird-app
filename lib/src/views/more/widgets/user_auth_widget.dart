@@ -17,7 +17,7 @@ class UserAuthWidget extends StatelessWidget {
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            LogoutButton(),
+            LogoutButtonWidget(),
             Divider(),
             // LogoutButton(),
             // Divider(),

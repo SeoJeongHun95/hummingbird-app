@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SettingTileWithSeg<T> extends StatelessWidget {
-  const SettingTileWithSeg(
+class SettingTileWithSegWidget<T> extends StatelessWidget {
+  const SettingTileWithSegWidget(
       {super.key,
       required this.title,
       required this.selected,
