@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hummingbird/src/providers/dio_providers/dio_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+import '../../../providers/dio_providers/dio_provider.dart';
 
 part 'get_study_record_by_date_api.freezed.dart';
 part 'get_study_record_by_date_api.g.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/router/bottom_nav_bar.dart';
-import '../widgets/options_container_module.dart';
+import '../widgets/options_container_widget..dart';
 import '../widgets/user_auth_widget.dart';
 
 class MoreScreen extends ConsumerWidget {
@@ -16,7 +16,7 @@ class MoreScreen extends ConsumerWidget {
         child: Center(
           child: Column(
             children: [
-              OptionsContainerModule(),
+              OptionsContainerWidget(),
               UserAuthWidget(),
             ],
           ),

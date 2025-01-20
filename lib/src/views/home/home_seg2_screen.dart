@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/d_day_widgets/d_day_list_tile_module.dart';
+import 'widgets/d_day_widget/d_day_list_tile_module.dart';
 
 //Dday
 class Seg2Screen extends StatelessWidget {
@@ -10,7 +10,7 @@ class Seg2Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        DDayListTileModule(),
+        DDayListTileWidget(),
       ],
     );
   }

@@ -8,6 +8,6 @@ class Seg3Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DailySummaryModule();
+    return DailySummaryWidget();
   }
 }

@@ -5,8 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/enum/mxnRate.dart';
 import '../../../../core/widgets/mxnContainer.dart';
 
-class OptionsContainerModule extends StatelessWidget {
-  const OptionsContainerModule({super.key});
+class OptionsContainerWidget extends StatelessWidget {
+  const OptionsContainerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

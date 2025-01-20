@@ -9,8 +9,8 @@ import '../../../statistics/widgets/bar_charts/study_bar_chart_module.dart';
 import '../../../statistics/widgets/pie_charts/study_pie_chart_module.dart';
 import 'goal_progress_module.dart';
 
-class DailySummaryModule extends ConsumerWidget {
-  const DailySummaryModule({super.key});
+class DailySummaryWidget extends ConsumerWidget {
+  const DailySummaryWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,7 +28,7 @@ class DailySummaryModule extends ConsumerWidget {
           return SingleChildScrollView(
             child: Column(
               children: [
-                GoalProgressModule(
+                GoalProgressWidget(
                     totalStudyDuration: 0, goalDuration: goalDuration),
                 MxNcontainer(
                   MxN_rate: MxNRate.TWOBYONE,
@@ -56,17 +56,17 @@ class DailySummaryModule extends ConsumerWidget {
         return SingleChildScrollView(
           child: Column(
             children: [
-              GoalProgressModule(
+              GoalProgressWidget(
                 totalStudyDuration: totalStudyDuration,
                 goalDuration: goalDuration,
               ),
-              StudyPieChartModule(
+              StudyPieChartWidget(
                 subjectTitleList: sortedTitleList,
                 studyDurationList: sortedDurationList,
                 subjectColorList: sortedColorList,
                 totalStudyDuration: totalStudyDuration,
               ),
-              StudyBarChartModule(
+              StudyBarChartWidget(
                   subjectTitleList: subjectTitleList,
                   studyDurationList: studyDurationList,
                   subjectColorList: subjectColorList)

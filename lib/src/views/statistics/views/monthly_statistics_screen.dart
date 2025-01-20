@@ -34,7 +34,7 @@ class MonthlyStatisticsScreen extends ConsumerWidget {
           if (studyRecords.isEmpty || totalStudyDuration == 0) {
             return Column(
               children: [
-                SummaryModule(
+                SummaryWidget(
                   totalStudyDuration:
                       dailyTotalDuration.fold(0, (a, b) => a + b),
                   selectedPeriod: PeriodOption.MONTHLY,
@@ -57,24 +57,24 @@ class MonthlyStatisticsScreen extends ConsumerWidget {
           return SingleChildScrollView(
             child: Column(
               children: [
-                SummaryModule(
+                SummaryWidget(
                   totalStudyDuration:
                       dailyTotalDuration.fold(0, (a, b) => a + b),
                   selectedPeriod: PeriodOption.MONTHLY,
                   targetMonth: targetMonth,
                   targetWeekStartDate: targetWeekStartDate,
                 ),
-                TotalDuratinosLineChartModule(
+                TotalDuratinosLineChartWidget(
                   period: PeriodOption.MONTHLY,
                   dailyTotalDuration: dailyTotalDuration,
                 ),
-                StudyPieChartModule(
+                StudyPieChartWidget(
                   subjectTitleList: sortedTitle,
                   studyDurationList: sortedDurations,
                   subjectColorList: sortedColors,
                   totalStudyDuration: totalStudyDuration,
                 ),
-                StudyBarChartModule(
+                StudyBarChartWidget(
                   subjectTitleList: subjectTitleList,
                   studyDurationList: studyDurationList,
                   subjectColorList: subjectColorList,

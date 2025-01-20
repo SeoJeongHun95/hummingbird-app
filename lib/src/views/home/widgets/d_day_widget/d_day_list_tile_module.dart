@@ -10,8 +10,8 @@ import '../../../../viewmodels/d_day/d_day_view_model.dart';
 import 'add_d_day_dialog.dart';
 import 'update_d_day_dialog.dart';
 
-class DDayListTileModule extends ConsumerWidget {
-  const DDayListTileModule({super.key});
+class DDayListTileWidget extends ConsumerWidget {
+  const DDayListTileWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
