@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/router/bottom_nav_bar.dart';
-import '../../../providers/auth/auth_provider.dart';
 import '../widgets/options_container_module.dart';
+import '../widgets/user_auth_widget.dart';
 
 class MoreScreen extends ConsumerWidget {
   const MoreScreen({super.key});
@@ -17,13 +17,7 @@ class MoreScreen extends ConsumerWidget {
           child: Column(
             children: [
               OptionsContainerModule(),
-              ListTile(
-                leading: const Icon(Icons.logout),
-                title: const Text('Logout'),
-                onTap: () async {
-                  ref.read(authProvider.notifier).logout();
-                },
-              ),
+              UserAuthWidget(),
             ],
           ),
         ),

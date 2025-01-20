@@ -21,26 +21,26 @@ final goRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     navigatorKey: navigatorKey,
     initialLocation: '/splash',
-    redirect: (context, state) {
-      if (firstRun && state.fullPath == '/splash') {
-        firstRun = false;
-        return null;
-      }
+    // redirect: (context, state) {
+    //   if (firstRun && state.fullPath == '/splash') {
+    //     firstRun = false;
+    //     return null;
+    //   }
 
-      if (state.fullPath == '/login' && isLoggedIn) {
-        return '/';
-      }
+    //   if (state.fullPath == '/login' && isLoggedIn) {
+    //     return '/';
+    //   }
 
-      if (!isLoggedIn) {
-        return '/splash';
-      }
+    //   if (!isLoggedIn) {
+    //     return '/splash';
+    //   }
 
-      if (!firstRun && state.fullPath == '/splash') {
-        return '/';
-      }
+    //   if (!firstRun && state.fullPath == '/splash') {
+    //     return '/';
+    //   }
 
-      return null;
-    },
+    //   return null;
+    // },
     routes: [
       GoRoute(
         path: '/',
