@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/enum/mxnRate.dart';
+import '../../../core/widgets/mxnContainer.dart';
 import 'widgets/subject/subject_list_widget.dart';
+import 'widgets/timer/suduck_timer_controll_bar_widget.dart';
 import 'widgets/timer/suduck_timer_widget.dart';
 //Timer
 
@@ -13,16 +16,12 @@ class Seg1Screen extends StatelessWidget {
       child: Column(
         children: [
           SuDuckTimerWidget(),
+          SuduckTimerControllBarWidget(),
           SubjectListWidget(),
-          // 임시 광고
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
-            child: Container(
-              height: 60,
-              color: Colors.yellow,
-              child: Center(
-                child: Text("ads"),
-              ),
+          MxNcontainer(
+            MxN_rate: MxNRate.TWOBYQUARTER,
+            MxN_child: Center(
+              child: Text("ads"),
             ),
           ),
         ],
