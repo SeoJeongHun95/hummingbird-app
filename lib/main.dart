@@ -58,7 +58,8 @@ class MyApp extends ConsumerWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           textTheme: TextTheme(
-              bodyMedium: TextStyle(fontSize: (8 + appSetting.fontSize).sp)),
+              bodyMedium:
+                  TextStyle(fontSize: (12 + appSetting.fontSize.toDouble()))),
           splashFactory: NoSplash.splashFactory,
           useMaterial3: true,
         ),
