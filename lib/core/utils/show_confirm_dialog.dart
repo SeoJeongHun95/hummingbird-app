@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hummingbird/core/router/router.dart';
+
+import '../router/router.dart';
 
 Future<bool> showConfirmDialog(String title, String content) async {
   final globalContext = navigatorKey.currentState?.overlay?.context;

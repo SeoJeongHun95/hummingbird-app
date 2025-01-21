@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
-import '../../widgets/settings/setting_tile.dart';
+import '../../widgets/settings/setting_tile_widget.dart';
 
 class SelectLanguageScreen extends StatelessWidget {
   const SelectLanguageScreen({super.key});
@@ -34,7 +34,7 @@ class SelectLanguageScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                 child: Column(
                   children: [
-                    SettingTile(
+                    SettingTileWidget(
                       title: '한국어',
                       trailing: Icon(Icons.check),
                     ),

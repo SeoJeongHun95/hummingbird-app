@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 
-class SettingContainer extends StatelessWidget {
-  const SettingContainer(
+class SettingContainerWidget extends StatelessWidget {
+  const SettingContainerWidget(
       {super.key, required this.settingTiles, required this.rate});
 
   final List<Widget> settingTiles;

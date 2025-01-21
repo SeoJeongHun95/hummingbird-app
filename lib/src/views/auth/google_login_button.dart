@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:hummingbird/core/utils/is_android.dart';
-import 'package:hummingbird/src/models/env.dart';
 
+import '../../../core/utils/is_android.dart';
+import '../../models/env.dart';
 import '../../providers/auth/google_login_provider.dart';
 
 class GoogleLoginButton extends ConsumerWidget {

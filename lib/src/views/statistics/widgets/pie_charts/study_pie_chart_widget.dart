@@ -5,8 +5,8 @@ import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import 'study_pie_chart.dart';
 
-class StudyPieChartModule extends StatelessWidget {
-  const StudyPieChartModule(
+class StudyPieChartWidget extends StatelessWidget {
+  const StudyPieChartWidget(
       {super.key,
       required this.subjectTitleList,
       required this.studyDurationList,

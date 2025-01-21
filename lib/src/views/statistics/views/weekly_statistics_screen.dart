@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hummingbird/src/providers/study_record/weekly_statistic_data_provider.dart';
 
 import '../../../../core/enum/mxnRate.dart';
 import '../../../../core/enum/period_option.dart';
 import '../../../../core/widgets/mxnContainer.dart';
+import '../../../providers/study_record/weekly_statistic_data_provider.dart';
 import '../../../viewmodels/study_record/study_record_viewmodel.dart';
-import '../widgets/bar_charts/study_bar_chart_module.dart';
-import '../widgets/line_charts/total_duratinos_line_chart_module.dart';
-import '../widgets/pie_charts/study_pie_chart_module.dart';
-import '../widgets/summary_module.dart';
+import '../widgets/bar_charts/study_bar_chart_widget.dart';
+import '../widgets/line_charts/total_duratinos_line_chart_widget.dart';
+import '../widgets/pie_charts/study_pie_chart_widget.dart';
+import '../widgets/summary_widget.dart';
 
 class WeeklyStatisticsScreen extends ConsumerWidget {
   const WeeklyStatisticsScreen({super.key});
@@ -34,7 +34,7 @@ class WeeklyStatisticsScreen extends ConsumerWidget {
           if (studyRecords.isEmpty || totalStudyDuration == 0) {
             return Column(
               children: [
-                SummaryModule(
+                SummaryWidget(
                   totalStudyDuration:
                       dailyTotalDuration.fold(0, (a, b) => a + b),
                   selectedPeriod: PeriodOption.WEEKLY,
@@ -57,24 +57,24 @@ class WeeklyStatisticsScreen extends ConsumerWidget {
           return SingleChildScrollView(
             child: Column(
               children: [
-                SummaryModule(
+                SummaryWidget(
                   totalStudyDuration:
                       dailyTotalDuration.fold(0, (a, b) => a + b),
                   selectedPeriod: PeriodOption.WEEKLY,
                   targetMonth: targetMonth,
                   targetWeekStartDate: targetWeekStartDate,
                 ),
-                TotalDuratinosLineChartModule(
+                TotalDuratinosLineChartWidget(
                   period: PeriodOption.WEEKLY,
                   dailyTotalDuration: dailyTotalDuration,
                 ),
-                StudyPieChartModule(
+                StudyPieChartWidget(
                   subjectTitleList: sortedTitle,
                   studyDurationList: sortedDurations,
                   subjectColorList: sortedColors,
                   totalStudyDuration: totalStudyDuration,
                 ),
-                StudyBarChartModule(
+                StudyBarChartWidget(
                   subjectTitleList: subjectTitleList,
                   studyDurationList: studyDurationList,
                   subjectColorList: subjectColorList,

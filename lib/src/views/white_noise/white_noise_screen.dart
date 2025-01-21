@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../viewmodels/background_play_controller.dart';
 
 class WhiteNoiseScreen extends StatefulWidget {

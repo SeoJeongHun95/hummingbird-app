@@ -4,13 +4,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../../core/enum/mxnRate.dart';
-import '../../../../../viewmodels/study_setting/study_setting_view_model.dart';
-import '../setting_container.dart';
-import '../setting_tile.dart';
+import '../../../../../core/enum/mxnRate.dart';
+import '../../../../viewmodels/study_setting/study_setting_view_model.dart';
+import 'setting_container_widget.dart';
+import 'setting_tile_widget.dart';
 
-class StudySettingModule extends ConsumerWidget {
-  const StudySettingModule({super.key});
+class StudySettingWidget extends ConsumerWidget {
+  const StudySettingWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -18,12 +18,12 @@ class StudySettingModule extends ConsumerWidget {
     final studySetting = ref.watch(studySettingViewModelProvider);
     final studySettingViewModel =
         ref.read(studySettingViewModelProvider.notifier);
-    return SettingContainer(
+    return SettingContainerWidget(
       settingTiles: [
         GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTap: () => context.go('$currentPath/country'),
-          child: SettingTile(
+          child: SettingTileWidget(
             title: '국가',
             selected: Text(
               '대한민국',
@@ -36,7 +36,7 @@ class StudySettingModule extends ConsumerWidget {
         GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTap: () => context.go('$currentPath/group'),
-          child: SettingTile(
+          child: SettingTileWidget(
             title: '그룹',
             selected: Text(
               studySetting.group ?? '그룹을 선택하세요',
@@ -56,7 +56,7 @@ class StudySettingModule extends ConsumerWidget {
                   updatedGoalDuration: selectedDuration.inSeconds);
             }
           },
-          child: SettingTile(
+          child: SettingTileWidget(
             title: '목표 공부시간',
             selected: Text(
               formatDuration(studySetting.goalDuration),

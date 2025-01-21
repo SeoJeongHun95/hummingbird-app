@@ -5,8 +5,8 @@ import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import 'goal_progress_indicator.dart';
 
-class GoalProgressModule extends StatelessWidget {
-  const GoalProgressModule(
+class GoalProgressWidget extends StatelessWidget {
+  const GoalProgressWidget(
       {super.key,
       required this.totalStudyDuration,
       required this.goalDuration});
