@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
-import 'package:hummingbird/src/datasource/remote/subject_record/subject_remote_datasource.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/const/box_keys.dart';
@@ -9,12 +8,13 @@ import '../../datasource/remote/subject/create_subject_api.dart';
 import '../../datasource/remote/subject/delete_subject_api.dart';
 import '../../datasource/remote/subject/get_subjects_api.dart';
 import '../../datasource/remote/subject/update_subject_api.dart';
+import '../../datasource/remote/subject_record/subject_remote_datasource.dart';
 import '../../models/subject/subject.dart';
 import '../../repositories/subject/subject_repository.dart';
 
 part 'subject_repository_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 SubjectRepository subjectRepository(Ref ref) {
   final box = Hive.box<Subject>(BoxKeys.subjectBoxKey);
   final subjectLocalDatasource = SubjectDataSource(box);

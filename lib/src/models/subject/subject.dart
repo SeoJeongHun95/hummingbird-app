@@ -8,7 +8,7 @@ part 'subject.g.dart';
 @HiveType(typeId: 22)
 class Subject with _$Subject {
   factory Subject({
-    @HiveField(0) String? subjectId,
+    @HiveField(0, defaultValue: null) String? subjectId,
     @HiveField(1) required String title,
     @HiveField(2) required String color,
     @HiveField(3) required int order,

@@ -113,9 +113,13 @@ class SubjectListWidget extends ConsumerWidget {
                                 ),
                                 MenuItemButton(
                                   onPressed: () {
+                                    if (subject.subjectId == null) {
+                                      return;
+                                    }
                                     ref
                                         .read(subjectViewModelProvider.notifier)
-                                        .deleteSubject(index);
+                                        .deleteSubject(
+                                            subject.subjectId!, index);
                                   },
                                   child: Text("제거"),
                                 )
@@ -244,6 +248,7 @@ class SubjectListWidget extends ConsumerWidget {
       initialColor: subject.color,
       onConfirm: (title, color) {
         final updatedSubject = Subject(
+          subjectId: subject.subjectId,
           title: title,
           color: color,
           order: subject.order,
