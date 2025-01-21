@@ -19,6 +19,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   AnimationController? _controller;
   Animation<double>? _fadeAnimation;
   Animation<double>? _dropAnimation;
+  Timer? _typeTimer;
+  Timer? _progressTimer;
   final String message = "오늘도 최선을 다해서 Study Duck과 함께...";
   String displayText = "";
   int currentCharIndex = 1;
@@ -60,7 +62,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
     _controller!.forward();
 
     // 글자 타이핑 애니메이션
-    Timer.periodic(const Duration(milliseconds: 40), (timer) {
+    _typeTimer = Timer.periodic(const Duration(milliseconds: 40), (timer) {
       setState(() {
         if (currentCharIndex < message.length) {
           displayText = message.substring(0, currentCharIndex + 1);
@@ -72,7 +74,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
     });
 
     // 프로그레스 바 애니메이션
-    Timer.periodic(const Duration(milliseconds: 10), (timer) {
+    _progressTimer = Timer.periodic(const Duration(milliseconds: 10), (timer) {
       setState(() {
         if (_progress < 1.0) {
           _progress += 0.01;
@@ -89,6 +91,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
 
   @override
   void dispose() {
+    _progressTimer?.cancel();
+    _typeTimer?.cancel();
     _controller?.dispose();
     super.dispose();
   }
