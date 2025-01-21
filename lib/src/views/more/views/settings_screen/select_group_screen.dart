@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../viewmodels/study_setting/study_setting_view_model.dart';
-import '../../widgets/settings/setting_tile.dart';
+import '../../widgets/settings/setting_tile_widget.dart';
 
 class SelectGroupScreen extends ConsumerWidget {
   const SelectGroupScreen({super.key});
@@ -47,7 +47,7 @@ class SelectGroupScreen extends ConsumerWidget {
                           behavior: HitTestBehavior.opaque,
                           onTap: () => studySettingViewModel.updateStudySetting(
                               updatedGroup: groups[index]),
-                          child: SettingTile(
+                          child: SettingTileWidget(
                             title: groups[index],
                             trailing: studySetting.group == groups[index]
                                 ? Icon(

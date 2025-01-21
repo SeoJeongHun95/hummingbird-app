@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SettingTile extends StatelessWidget {
-  const SettingTile(
+class SettingTileWidget extends StatelessWidget {
+  const SettingTileWidget(
       {super.key,
       required this.title,
       this.selected,

@@ -8,7 +8,7 @@ import '../../../../models/subject/subject.dart';
 import '../../../../providers/suduck_timer/suduck_timer_provider.dart';
 import '../../../../viewmodels/study_record/study_record_viewmodel.dart';
 import '../../../../viewmodels/subject/subject_viewmodel.dart';
-import '../d_day_widgets/color_picker_dialog.dart';
+import '../d_day_widget/color_picker_dialog.dart';
 
 class SubjectListWidget extends ConsumerWidget {
   const SubjectListWidget({super.key});

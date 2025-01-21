@@ -7,8 +7,8 @@ import '../../../../core/enum/mxnRate.dart';
 import '../../../../core/enum/period_option.dart';
 import '../../../../core/widgets/mxnContainer.dart';
 
-class SummaryModule extends StatelessWidget {
-  const SummaryModule({
+class SummaryWidget extends StatelessWidget {
+  const SummaryWidget({
     super.key,
     required this.totalStudyDuration,
     required this.selectedPeriod,

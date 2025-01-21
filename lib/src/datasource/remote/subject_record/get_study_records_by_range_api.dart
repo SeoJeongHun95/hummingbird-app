@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hummingbird/src/datasource/remote/subject_record/get_study_record_by_date_api.dart';
-import 'package:hummingbird/src/providers/dio_providers/dio_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+import '../../../providers/dio_providers/dio_provider.dart';
+import 'get_study_record_by_date_api.dart';
 
 part 'get_study_records_by_range_api.freezed.dart';
 part 'get_study_records_by_range_api.g.dart';

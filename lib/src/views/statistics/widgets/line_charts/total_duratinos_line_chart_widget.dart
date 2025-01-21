@@ -6,8 +6,8 @@ import '../../../../../core/enum/period_option.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import 'total_durations_line_chart.dart';
 
-class TotalDuratinosLineChartModule extends StatelessWidget {
-  const TotalDuratinosLineChartModule(
+class TotalDuratinosLineChartWidget extends StatelessWidget {
+  const TotalDuratinosLineChartWidget(
       {super.key, required this.period, required this.dailyTotalDuration});
 
   final PeriodOption period;

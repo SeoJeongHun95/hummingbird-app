@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hummingbird/src/viewmodels/d_day/d_day_view_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../models/d_day/d_day.dart';
+import '../../viewmodels/d_day/d_day_view_model.dart';
 import '../network_status/network_state_provider.dart';
 
 part 'd_day_screen_state_provider.g.dart';

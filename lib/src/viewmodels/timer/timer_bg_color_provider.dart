@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'timer_bg_color_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class TimerBgColor extends _$TimerBgColor {
   final Color _initColor = Color(0xffba4849);
 
@@ -14,6 +14,6 @@ class TimerBgColor extends _$TimerBgColor {
   }
 
   void changeColor({String? color}) {
-    state = color == null ? Color(int.parse("0xff$color")) : _initColor;
+    state = color != null ? Color(int.parse("0xff$color")) : _initColor;
   }
 }
