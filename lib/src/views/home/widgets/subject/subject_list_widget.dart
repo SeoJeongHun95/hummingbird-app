@@ -26,17 +26,51 @@ class SubjectListWidget extends ConsumerWidget {
             .loadMergedStudyRecordsByDate(recordData);
 
         return MxNcontainer(
-          MxN_rate: MxNRate.FOURBYTHREE,
+          MxN_rate: MxNRate.TWOBYTHREEQUARTERS,
           MxN_child: Container(
-            color: Colors.orange,
+            color: Colors.white,
             child: Column(
               children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 12),
+                  child: Text(
+                    "과목",
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                ),
                 subjects.when(
                   data: (data) {
                     return Expanded(
                       child: ListView.builder(
                         itemCount: data.length + 1,
                         itemBuilder: (context, index) {
+                          if (index == 0) {
+                            return ListTile(
+                              onTap: () => ref
+                                  .read(suDuckTimerProvider.notifier)
+                                  .resetSubject(),
+                              leading: GestureDetector(
+                                onTap: () => ref
+                                    .read(suDuckTimerProvider.notifier)
+                                    .startTimer(),
+                                child: CircleAvatar(
+                                  backgroundColor: Color(
+                                    int.parse('0xffba4849'),
+                                  ),
+                                  child: Icon(
+                                    Icons.play_arrow_rounded,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              title: Text(
+                                "자율 학습",
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            );
+                          }
+
                           if (index == data.length) {
                             return IconButton(
                               onPressed: () {

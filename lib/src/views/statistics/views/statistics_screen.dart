@@ -3,12 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/router/bottom_nav_bar.dart';
+import '../../../../core/theme/colors/app_color.dart';
 import 'monthly_statistics_screen.dart';
 import 'weekly_statistics_screen.dart';
 
 final List<SegmentTab> _tabs = [
-  const SegmentTab(label: "주간", backgroundColor: Colors.red),
-  const SegmentTab(label: "월간", backgroundColor: Colors.orange),
+  SegmentTab(
+    label: "주간",
+    textColor: Colors.black,
+    color: Colors.white,
+    backgroundColor: AppColor.themeGrey,
+  ),
+  SegmentTab(
+    label: "월간",
+    textColor: Colors.black,
+    color: Colors.white,
+    backgroundColor: AppColor.themeGrey,
+  ),
 ];
 
 class StatisticsScreen extends StatelessWidget {
@@ -24,10 +35,10 @@ class StatisticsScreen extends StatelessWidget {
           title: Container(
             decoration: BoxDecoration(
               border: Border.all(
-                color: Colors.lightGreen,
-                width: 2,
+                color: AppColor.themeGrey,
+                width: 1.w,
               ),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(8),
             ),
             child: SegmentedTabControl(
               selectedTabTextColor: Colors.black,

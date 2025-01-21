@@ -53,175 +53,160 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
     final bool isRunning = suduckTimer.isRunning;
 
     return MxNcontainer(
-      MxN_rate: MxNRate.FOURBYTHREE,
+      MxN_rate: MxNRate.TWOBYTHREEQUARTERS,
+      color: Colors.transparent,
       MxN_child: AnimatedBuilder(
         animation: _colorAnimation,
         builder: (context, child) {
-          return Column(
-            children: [
-              Expanded(
-                flex: 1,
-                child: Container(
-                  color: _colorAnimation.value,
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: Container(
-                  width: double.infinity,
-                  color: _colorAnimation.value,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: suduckTimer.currSubject != null && !isRunning
-                            ? IconButton(
-                                onPressed: () =>
-                                    suduckTimerNotifier.resetSubject(),
-                                icon: Icon(Icons.delete_forever_rounded),
-                                color: Colors.white,
-                              )
-                            : Container(),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Center(
-                          child: Text(
-                            suduckTimer.currSubject == null
-                                ? "미분류"
-                                : suduckTimer.currSubject!.title,
-                            style: TextStyle(
-                              fontSize: 22.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
-                              fontFeatures: [FontFeature.tabularFigures()],
-                            ),
-                          ),
+          return Container(
+            color: _colorAnimation.value,
+            child: Column(
+              children: [
+                Spacer(flex: 1),
+                //과목표시
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    width: double.infinity,
+                    color: _colorAnimation.value,
+                    child: Center(
+                      child: Text(
+                        suduckTimer.currSubject == null
+                            ? "자율 학습"
+                            : suduckTimer.currSubject!.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 22.sp,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                          fontFeatures: [FontFeature.tabularFigures()],
                         ),
-                      ),
-                      Expanded(child: Container()),
-                    ],
-                  ),
-                ),
-              ),
-              Expanded(
-                flex: 4,
-                child: Container(
-                  width: double.infinity,
-                  color: _colorAnimation.value,
-                  child: Center(
-                    child: Text(
-                      getFormatTime(suduckTimer.elapsedTime),
-                      style: TextStyle(
-                        fontSize: 52.sp,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                        fontFeatures: [FontFeature.tabularFigures()],
                       ),
                     ),
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 3,
-                child: Container(
-                  width: double.maxFinite,
-                  color: _colorAnimation.value,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      if (isRunning || suduckTimer.elapsedTime > 0)
-                        GestureDetector(
-                          onTap: suduckTimerNotifier.resetTimer,
-                          child: Container(
-                            width: 48.w,
-                            height: 44.h,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border(
-                                bottom: BorderSide(
-                                  width: 4.h,
-                                  color: const Color(0xffEBEBEB),
-                                ),
-                              ),
-                            ),
-                            child: Icon(
-                              Icons.delete_rounded,
-                              size: 24.w,
-                              color: _colorAnimation.value,
-                            ),
-                          ),
-                        ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: GestureDetector(
-                          onTap: () {
-                            if (!isRunning) {
-                              suduckTimer.currSubject == null
-                                  ? suduckTimerNotifier.startTimer()
-                                  : suduckTimerNotifier.startTimer(
-                                      subject: suduckTimer.currSubject!);
-                            } else {
-                              suduckTimerNotifier.stopTimer();
-                            }
-                          },
-                          child: Container(
-                            width: 120.w,
-                            height: 44.h,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border(
-                                bottom: BorderSide(
-                                  width: 4.h,
-                                  color: const Color(0xffEBEBEB),
-                                ),
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                (!isRunning) ? "START" : "PAUSE",
-                                style: TextStyle(
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.w500,
-                                  color: _colorAnimation.value,
-                                ),
-                              ),
-                            ),
-                          ),
+                //시간
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    width: double.infinity,
+                    color: _colorAnimation.value,
+                    child: Center(
+                      child: Text(
+                        getFormatTime(suduckTimer.elapsedTime),
+                        style: TextStyle(
+                          fontSize: 64.sp,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                          fontFeatures: [FontFeature.tabularFigures()],
                         ),
                       ),
-                      if (isRunning || suduckTimer.elapsedTime > 0)
-                        GestureDetector(
-                          onTap: suduckTimerNotifier.saveTimer,
-                          child: Container(
-                            width: 48.w,
-                            height: 44.h,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border(
-                                bottom: BorderSide(
-                                  width: 4.h,
-                                  color: const Color(0xffEBEBEB),
+                    ),
+                  ),
+                ),
+                //타이머 버튼
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    width: double.maxFinite,
+                    color: _colorAnimation.value,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        if (isRunning || suduckTimer.elapsedTime > 0)
+                          GestureDetector(
+                            onTap: suduckTimerNotifier.resetTimer,
+                            child: Container(
+                              width: 48.w,
+                              height: 44.h,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border(
+                                  bottom: BorderSide(
+                                    width: 4.h,
+                                    color: const Color(0xffEBEBEB),
+                                  ),
+                                ),
+                              ),
+                              child: Icon(
+                                Icons.delete_rounded,
+                                size: 24.w,
+                                color: _colorAnimation.value,
+                              ),
+                            ),
+                          ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: GestureDetector(
+                            onTap: () {
+                              if (!isRunning) {
+                                suduckTimer.currSubject == null
+                                    ? suduckTimerNotifier.startTimer()
+                                    : suduckTimerNotifier.startTimer(
+                                        subject: suduckTimer.currSubject!);
+                              } else {
+                                suduckTimerNotifier.stopTimer();
+                              }
+                            },
+                            child: Container(
+                              width: 120.w,
+                              height: 44.h,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border(
+                                  bottom: BorderSide(
+                                    width: 4.h,
+                                    color: const Color(0xffEBEBEB),
+                                  ),
+                                ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  (!isRunning) ? "START" : "PAUSE",
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.w500,
+                                    color: _colorAnimation.value,
+                                  ),
                                 ),
                               ),
                             ),
-                            child: Icon(
-                              Icons.save_rounded,
-                              size: 24.w,
-                              color: _colorAnimation.value,
-                            ),
                           ),
                         ),
-                    ],
+                        if (isRunning || suduckTimer.elapsedTime > 0)
+                          GestureDetector(
+                            onTap: suduckTimerNotifier.saveTimer,
+                            child: Container(
+                              width: 48.w,
+                              height: 44.h,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border(
+                                  bottom: BorderSide(
+                                    width: 4.h,
+                                    color: const Color(0xffEBEBEB),
+                                  ),
+                                ),
+                              ),
+                              child: Icon(
+                                Icons.save_rounded,
+                                size: 24.w,
+                                color: _colorAnimation.value,
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Expanded(child: Container(color: _colorAnimation.value)),
-            ],
+                //컨트롤 보드
+                Spacer(flex: 1)
+              ],
+            ),
           );
         },
       ),

@@ -19,7 +19,7 @@ class StudyBarChartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MxNcontainer(
-      MxN_rate: MxNRate.FOURBYTHREE,
+      MxN_rate: MxNRate.TWOBYTHREEQUARTERS,
       MxN_child: LayoutBuilder(builder: (context, constraints) {
         return Container(
           color: Colors.white,
