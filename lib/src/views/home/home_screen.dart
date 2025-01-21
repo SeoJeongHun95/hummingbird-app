@@ -3,14 +3,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/router/bottom_nav_bar.dart';
+import '../../../core/theme/colors/app_color.dart';
 import 'home_seg1_screen.dart';
 import 'home_seg2_screen.dart';
 import 'home_seg3_screen.dart';
 
 final List<SegmentTab> _tabs = [
-  const SegmentTab(label: "타이머", backgroundColor: Colors.red),
-  const SegmentTab(label: "디데이", backgroundColor: Colors.orange),
-  const SegmentTab(label: "요약", backgroundColor: Colors.yellow),
+  SegmentTab(
+    label: "타이머",
+    textColor: Colors.black,
+    color: Colors.white,
+    backgroundColor: AppColor.themeGrey,
+  ),
+  SegmentTab(
+    label: "디데이",
+    textColor: Colors.black,
+    color: Colors.white,
+    backgroundColor: AppColor.themeGrey,
+  ),
+  SegmentTab(
+    label: "요약",
+    textColor: Colors.black,
+    color: Colors.white,
+    backgroundColor: AppColor.themeGrey,
+  ),
 ];
 
 class HomeScreen extends StatefulWidget {
@@ -31,10 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
           title: Container(
             decoration: BoxDecoration(
               border: Border.all(
-                color: Colors.lightGreen,
-                width: 2,
+                color: AppColor.themeGrey,
+                width: 1.w,
               ),
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(8),
             ),
             child: SegmentedTabControl(
               selectedTabTextColor: Colors.black,

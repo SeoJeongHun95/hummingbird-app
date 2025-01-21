@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hummingbird/src/views/more/widgets/settings/terms_and_conditions.dart';
 
 import '../../src/providers/auth/auth_provider.dart';
 import '../../src/views/home/home_screen.dart';
+import '../../src/views/home/widgets/timer/suduck_timer_focus_mode_screen.dart';
 import '../../src/views/more/views/more_screen.dart';
 import '../../src/views/more/views/settings_screen/settings_export.dart';
+import '../../src/views/more/widgets/settings/terms_and_conditions.dart';
 import '../../src/views/social/views/social_screen.dart';
 import '../../src/views/splash/splash_screen.dart';
 import '../../src/views/statistics/views/statistics_screen.dart';
@@ -49,6 +50,16 @@ final goRouterProvider = Provider<GoRouter>((ref) {
           state: state,
           child: const HomeScreen(),
         ),
+        routes: [
+          GoRoute(
+            path: 'focusMode',
+            pageBuilder: (context, state) => buildPageWithDefaultTransition(
+              context: context,
+              state: state,
+              child: const SuduckTimerFocusModeWidget(),
+            ),
+          ),
+        ],
       ),
       GoRoute(
         path: '/splash',

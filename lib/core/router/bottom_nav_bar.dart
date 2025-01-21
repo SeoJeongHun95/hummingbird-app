@@ -25,7 +25,9 @@ class BottomNavBar extends StatelessWidget {
             break;
           case 2:
             showModalBottomSheet(
-              // showDragHandle: true,
+              shape: ContinuousRectangleBorder(
+                borderRadius: BorderRadius.circular(28),
+              ),
               context: context,
               builder: (context) => SuduckTimerModalWidget(),
             );

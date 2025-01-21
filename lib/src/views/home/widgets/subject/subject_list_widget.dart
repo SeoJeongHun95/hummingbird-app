@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
+import '../../../../../core/utils/get_formatted_time.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../models/subject/subject.dart';
 import '../../../../providers/suduck_timer/suduck_timer_provider.dart';
@@ -12,16 +13,6 @@ import '../d_day_widget/color_picker_dialog.dart';
 
 class SubjectListWidget extends ConsumerWidget {
   const SubjectListWidget({super.key});
-
-  String _formatTime(int seconds) {
-    final int hours = seconds ~/ 3600;
-    final int minutes = (seconds % 3600) ~/ 60;
-    final int secs = seconds % 60;
-
-    return '${hours.toString().padLeft(2, '0')}:'
-        '${minutes.toString().padLeft(2, '0')}:'
-        '${secs.toString().padLeft(2, '0')}';
-  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -35,17 +26,51 @@ class SubjectListWidget extends ConsumerWidget {
             .loadMergedStudyRecordsByDate(recordData);
 
         return MxNcontainer(
-          MxN_rate: MxNRate.FOURBYTHREE,
+          MxN_rate: MxNRate.TWOBYTHREEQUARTERS,
           MxN_child: Container(
-            color: Colors.orange,
+            color: Colors.white,
             child: Column(
               children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 12),
+                  child: Text(
+                    "과목",
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                ),
                 subjects.when(
                   data: (data) {
                     return Expanded(
                       child: ListView.builder(
                         itemCount: data.length + 1,
                         itemBuilder: (context, index) {
+                          if (index == 0) {
+                            return ListTile(
+                              onTap: () => ref
+                                  .read(suDuckTimerProvider.notifier)
+                                  .resetSubject(),
+                              leading: GestureDetector(
+                                onTap: () => ref
+                                    .read(suDuckTimerProvider.notifier)
+                                    .startTimer(),
+                                child: CircleAvatar(
+                                  backgroundColor: Color(
+                                    int.parse('0xffba4849'),
+                                  ),
+                                  child: Icon(
+                                    Icons.play_arrow_rounded,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              title: Text(
+                                "자율 학습",
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            );
+                          }
+
                           if (index == data.length) {
                             return IconButton(
                               onPressed: () {
@@ -62,7 +87,11 @@ class SubjectListWidget extends ConsumerWidget {
                           final subject = data[index];
 
                           final matchedSubject = studyRecord
-                              .where((e) => e.order == subject.order)
+                              .where(
+                                (e) =>
+                                    e.order == subject.order &&
+                                    e.title == subject.title,
+                              )
                               .toList()
                               .firstOrNull;
 
@@ -85,20 +114,29 @@ class SubjectListWidget extends ConsumerWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text(subject.title),
-                                matchedSubject != null
-                                    ? matchedSubject.elapsedTime != 0
-                                        ? Text(
-                                            _formatTime(
-                                                matchedSubject.elapsedTime),
-                                            style: TextStyle(
-                                              fontFeatures: [
-                                                FontFeature.tabularFigures()
-                                              ],
-                                            ),
-                                          )
-                                        : Text("")
-                                    : Text("")
+                                Expanded(
+                                  child: Text(
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    subject.title,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 64.w,
+                                  child: matchedSubject != null
+                                      ? matchedSubject.elapsedTime != 0
+                                          ? Text(
+                                              getFormatTime(
+                                                  matchedSubject.elapsedTime),
+                                              style: TextStyle(
+                                                fontFeatures: [
+                                                  FontFeature.tabularFigures()
+                                                ],
+                                              ),
+                                            )
+                                          : Text("")
+                                      : Text(""),
+                                )
                               ],
                             ),
                             trailing: MenuAnchor(
