@@ -164,8 +164,11 @@ class DDayListTileWidget extends ConsumerWidget {
       ),
       loading: () => MxNcontainer(
         MxN_rate: MxNRate.TWOBYTWO,
-        MxN_child: Center(
-          child: CircularProgressIndicator(),
+        MxN_child: Container(
+          color: Colors.white,
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
         ),
       ),
     );

@@ -7,8 +7,8 @@ import '../../src/viewmodels/app_setting/app_setting_view_model.dart';
 import '../../src/views/home/home_screen.dart';
 import '../../src/views/home/widgets/timer/suduck_timer_focus_mode_screen.dart';
 import '../../src/views/more/views/more_screen.dart';
+import '../../src/views/more/views/profile_screen/profile_screen.dart';
 import '../../src/views/more/views/settings_screen/settings_export.dart';
-import '../../src/views/more/widgets/settings/terms_and_conditions.dart';
 import '../../src/views/social/views/social_screen.dart';
 import '../../src/views/splash/splash_screen.dart';
 import '../../src/views/statistics/views/statistics_screen.dart';
@@ -103,6 +103,14 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         ),
         routes: [
           GoRoute(
+            path: 'profile',
+            pageBuilder: (context, state) => buildPageWithDefaultTransition(
+              context: context,
+              state: state,
+              child: const ProfileScreen(),
+            ),
+          ),
+          GoRoute(
               path: 'settings',
               pageBuilder: (context, state) => buildPageWithDefaultTransition(
                     context: context,
@@ -135,15 +143,6 @@ final goRouterProvider = Provider<GoRouter>((ref) {
                     context: context,
                     state: state,
                     child: const SelectGroupScreen(),
-                  ),
-                ),
-                GoRoute(
-                  path: 'termAndCondition',
-                  pageBuilder: (context, state) =>
-                      buildPageWithDefaultTransition(
-                    context: context,
-                    state: state,
-                    child: const TermsAndPrivacyScreen(),
                   ),
                 ),
               ])

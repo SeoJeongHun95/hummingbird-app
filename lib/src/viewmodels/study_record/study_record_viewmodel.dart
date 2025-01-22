@@ -1,3 +1,4 @@
+import 'package:StudyDuck/src/providers/token_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -5,6 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../../core/enum/period_option.dart';
 import '../../../core/utils/get_formatted_today.dart';
 import '../../models/study_record/study_record.dart';
+import '../../providers/network_status/network_state_provider.dart';
 import '../../repositories/study_record/study_record_repository.dart';
 
 part 'study_record_viewmodel.g.dart';
@@ -22,8 +24,11 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
   }
 
   Future<void> loadStudyRecords() async {
+    final isConnected = await ref.watch(networkStateProvider.future);
+    final userId = ref.read(tokenProvider).getToken()?.userId;
     state = await AsyncValue.guard(() async {
-      final studyRecordsMap = await repository.getStudyRecord();
+      final studyRecordsMap =
+          await repository.getStudyRecord(userId!, isConnected);
       return studyRecordsMap[formattedToday] ?? [];
     });
   }

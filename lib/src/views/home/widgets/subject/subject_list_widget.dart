@@ -1,3 +1,4 @@
+import 'package:StudyDuck/core/utils/show_confirm_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -139,14 +140,23 @@ class SubjectListWidget extends ConsumerWidget {
                                   child: Text("편집"),
                                 ),
                                 MenuItemButton(
-                                  onPressed: () {
+                                  onPressed: () async {
                                     if (subject.subjectId == null) {
                                       return;
                                     }
+
+                                    final confirm = await showConfirmDialog(
+                                        '${subject.title} 과목을 삭제하시겠습니까?',
+                                        '해당 작업은 복구할 수 없습니다.');
+
+                                    if (!confirm) {
+                                      return;
+                                    }
+
                                     ref
                                         .read(subjectViewModelProvider.notifier)
                                         .deleteSubject(
-                                            subject.subjectId!, index);
+                                            subject.subjectId!, index - 1);
                                   },
                                   child: Text("제거"),
                                 ),

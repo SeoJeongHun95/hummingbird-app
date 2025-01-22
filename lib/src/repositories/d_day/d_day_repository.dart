@@ -18,15 +18,16 @@ class DDayRepository {
 
   Future<List<DDay>> getAllDDay(bool isConnected) async {
     final localDDayList = await _localDataSource.getAllDDay();
-    if (localDDayList.isNotEmpty) {
-      return localDDayList;
-    }
+
     if (isConnected) {
       final dDaysInfo = await _remoteDatasource.getMyDdays();
       if (dDaysInfo.isNotEmpty) {
         final dDayList =
             dDaysInfo.map((dDayInfo) => dDayInfoToDDay(dDayInfo)).toList();
+
+        await _localDataSource.clearBox();
         await _localDataSource.addAllDDay(dDayList);
+
         return dDayList;
       }
     }

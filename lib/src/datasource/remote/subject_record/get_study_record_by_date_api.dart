@@ -22,7 +22,6 @@ class GetStudyRecordByDateReqDto with _$GetStudyRecordByDateReqDto {
 @freezed
 class GetStudyRecordByDateResDto with _$GetStudyRecordByDateResDto {
   const factory GetStudyRecordByDateResDto({
-    required int goalDuration,
     required int totalDuration,
     required List<StudyInfo> studies,
   }) = _GetStudyRecordByDateResDto;
@@ -50,10 +49,14 @@ class GetStudyRecordByDateApi {
 
   GetStudyRecordByDateApi({required this.dio});
 
-  Future<GetStudyRecordByDateResDto> execute(
+  Future<GetStudyRecordByDateResDto?> execute(
       GetStudyRecordByDateReqDto dto) async {
     final response =
         await dio.get('/study-records?userId=${dto.userId}&date=${dto.date}');
+
+    if (response.data == null) {
+      return null;
+    }
 
     return GetStudyRecordByDateResDto.fromJson(response.data);
   }

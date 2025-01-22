@@ -27,11 +27,14 @@ class Auth extends _$Auth {
     required String accessToken,
     required String refreshToken,
     required int expiresAt,
+    required int userId,
   }) {
     ref.read(tokenProvider).updateToken(TokenModel(
-        accessToken: accessToken,
-        refreshToken: refreshToken,
-        expiresAt: expiresAt));
+          accessToken: accessToken,
+          refreshToken: refreshToken,
+          expiresAt: expiresAt,
+          userId: userId,
+        ));
     state = true;
   }
 
