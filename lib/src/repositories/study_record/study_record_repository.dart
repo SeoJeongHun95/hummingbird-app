@@ -46,6 +46,10 @@ class StudyRecordRepository {
           .execute(
               GetStudyRecordByDateReqDto(userId: userId, date: formattedToday));
 
+      if (studyRecord == null) {
+        return _localDataSource.getStudyRecord();
+      }
+
       return {
         formattedToday: studyRecord.studies.map((study) {
           return StudyRecord(
@@ -82,6 +86,8 @@ class StudyRecordRepository {
       // TODO: 스타트앳 전달해주기
       endAt: studyRecord.endAt! ~/ 1000,
       totalBreak: studyRecord.breakTime,
+      color: studyRecord.color,
+      order: studyRecord.order,
     ));
     await _localDataSource.updateStudyRecord(studyRecord);
   }

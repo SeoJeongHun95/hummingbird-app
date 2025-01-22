@@ -18,6 +18,8 @@ class AddStudyRecordApiReqDto with _$AddStudyRecordApiReqDto {
     required int startAt,
     required int endAt,
     required int totalBreak,
+    required String color,
+    required int order,
   }) = _AddStudyRecordApiReqDto;
 
   factory AddStudyRecordApiReqDto.fromJson(Map<String, dynamic> json) =>
