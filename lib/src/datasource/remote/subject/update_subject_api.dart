@@ -14,7 +14,7 @@ class UpdateSubjectApiReqDto with _$UpdateSubjectApiReqDto {
     required String subjectId,
     String? title,
     String? color,
-    String? order,
+    int? order,
   }) = _UpdateSubjectApiReqDto;
 
   factory UpdateSubjectApiReqDto.fromJson(Map<String, dynamic> json) =>

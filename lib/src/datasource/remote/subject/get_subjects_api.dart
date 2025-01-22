@@ -14,7 +14,7 @@ class SubjectInfo with _$SubjectInfo {
     required String subjectId,
     required String title,
     required String color,
-    required int number,
+    required int order,
     required DateTime updatedAt,
   }) = _SubjectInfo;
 

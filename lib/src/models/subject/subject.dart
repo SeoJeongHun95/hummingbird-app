@@ -8,9 +8,10 @@ part 'subject.g.dart';
 @HiveType(typeId: 22)
 class Subject with _$Subject {
   factory Subject({
-    @HiveField(0) required String title,
-    @HiveField(1) required String color,
-    @HiveField(2) required int order,
+    @HiveField(0, defaultValue: null) String? subjectId,
+    @HiveField(1) required String title,
+    @HiveField(2) required String color,
+    @HiveField(3) required int order,
   }) = _Subject;
 
   factory Subject.fromJson(Map<String, dynamic> json) =>
