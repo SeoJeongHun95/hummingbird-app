@@ -29,6 +29,7 @@ class GoogleLogin extends _$GoogleLogin {
           accessToken: res.accessToken,
           refreshToken: res.refreshToken,
           expiresAt: res.expiresAt,
+          userId: res.userId,
         );
     ref.read(userSettingViewModelProvider.notifier).addUserId(res.userId);
     showSnackBar(message: '로그인에 성공했습니다!');

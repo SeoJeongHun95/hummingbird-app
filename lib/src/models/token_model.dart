@@ -11,5 +11,6 @@ class TokenModel with _$TokenModel {
     @HiveField(0, defaultValue: null) String? accessToken,
     @HiveField(1, defaultValue: null) String? refreshToken,
     @HiveField(2, defaultValue: null) int? expiresAt,
+    @HiveField(3, defaultValue: null) int? userId,
   }) = _TokenModel;
 }

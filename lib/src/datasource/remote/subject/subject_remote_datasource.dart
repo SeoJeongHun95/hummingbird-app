@@ -1,7 +1,7 @@
-import '../subject/create_subject_api.dart';
-import '../subject/delete_subject_api.dart';
-import '../subject/get_subjects_api.dart';
-import '../subject/update_subject_api.dart';
+import 'create_subject_api.dart';
+import 'delete_subject_api.dart';
+import 'get_subjects_api.dart';
+import 'update_subject_api.dart';
 
 class SubjectRemoteDatasource {
   CreateSubjectApi createSubjectApi;

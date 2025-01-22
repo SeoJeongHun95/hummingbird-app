@@ -7,8 +7,8 @@ import '../../datasource/local/subject/subject_local_datasource.dart';
 import '../../datasource/remote/subject/create_subject_api.dart';
 import '../../datasource/remote/subject/delete_subject_api.dart';
 import '../../datasource/remote/subject/get_subjects_api.dart';
+import '../../datasource/remote/subject/subject_remote_datasource.dart';
 import '../../datasource/remote/subject/update_subject_api.dart';
-import '../../datasource/remote/subject_record/subject_remote_datasource.dart';
 import '../../models/subject/subject.dart';
 import '../../repositories/subject/subject_repository.dart';
 
