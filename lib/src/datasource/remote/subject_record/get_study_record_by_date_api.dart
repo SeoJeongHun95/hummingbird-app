@@ -34,6 +34,8 @@ class GetStudyRecordByDateResDto with _$GetStudyRecordByDateResDto {
 class StudyInfo with _$StudyInfo {
   const factory StudyInfo({
     required String title,
+    required String color,
+    required int order,
     required int duration,
     required int totalBreak,
     required int startAt,
