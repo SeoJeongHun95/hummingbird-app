@@ -1,7 +1,6 @@
-import 'package:hummingbird/src/datasource/remote/subject/update_subject_api.dart';
-
 import '../../datasource/local/subject/subject_local_datasource.dart';
 import '../../datasource/remote/subject/create_subject_api.dart';
+import '../../datasource/remote/subject/update_subject_api.dart';
 import '../../datasource/remote/subject_record/subject_remote_datasource.dart';
 import '../../models/subject/subject.dart';
 
@@ -31,7 +30,7 @@ class SubjectRepository {
 
     if (isConnected) {
       final subjectsInfo =
-          await _remoteDatasource.getSubjectsApi.execute(userId: 25);
+          await _remoteDatasource.getSubjectsApi.execute(userId: 1);
       if (subjectsInfo.subjects.isNotEmpty) {
         final subjectsList = subjectsInfo.subjects
             .map((subjectInfo) => Subject(
