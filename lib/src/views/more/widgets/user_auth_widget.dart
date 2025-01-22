@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/enum/mxnRate.dart';
 import '../../../../core/widgets/mxnContainer.dart';
-import 'logout_btn_widget.dart';
 
 class UserAuthWidget extends StatelessWidget {
   const UserAuthWidget({super.key});
@@ -17,7 +16,7 @@ class UserAuthWidget extends StatelessWidget {
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            LogoutButtonWidget(),
+            //LogoutButtonWidget(),
             Divider(),
             // LogoutButton(),
             // Divider(),
