@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -11,9 +13,9 @@ part 'update_profile_api.g.dart';
 @freezed
 class UpdateProfileApiReqDto with _$UpdateProfileApiReqDto {
   const factory UpdateProfileApiReqDto({
-    String? nickname,
-    String? birthDate,
-    String? countryCode,
+    @JsonKey(includeIfNull: false) String? nickname,
+    @JsonKey(includeIfNull: false) String? birthDate,
+    @JsonKey(includeIfNull: false) String? countryCode,
   }) = _UpdateProfileApiReqDto;
 
   factory UpdateProfileApiReqDto.fromJson(Map<String, dynamic> json) =>

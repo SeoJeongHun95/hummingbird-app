@@ -28,6 +28,7 @@ class GoogleLoginApiResponse with _$GoogleLoginApiResponse {
     required String refreshToken,
     required int expiresAt,
     required bool isNewUser,
+    required int userId,
   }) = _GoogleLoginApiResponse;
 
   factory GoogleLoginApiResponse.fromJson(Map<String, dynamic> json) =>

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../src/providers/auth/auth_provider.dart';
+import '../../src/viewmodels/app_setting/app_setting_view_model.dart';
 import '../../src/views/home/home_screen.dart';
 import '../../src/views/home/widgets/timer/suduck_timer_focus_mode_screen.dart';
 import '../../src/views/more/views/more_screen.dart';
@@ -11,6 +12,8 @@ import '../../src/views/more/widgets/settings/terms_and_conditions.dart';
 import '../../src/views/social/views/social_screen.dart';
 import '../../src/views/splash/splash_screen.dart';
 import '../../src/views/statistics/views/statistics_screen.dart';
+import '../../src/views/tutorial/profile_setting_screen.dart';
+import '../../src/views/tutorial/study_setting_screen.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 bool firstRun = true;
@@ -18,6 +21,12 @@ bool firstRun = true;
 // GoRouter 설정
 final goRouterProvider = Provider<GoRouter>((ref) {
   final isLoggedIn = ref.watch(authProvider);
+  bool isFirstInstalled = true;
+
+  if (isLoggedIn) {
+    isFirstInstalled =
+        ref.read(appSettingViewModelProvider.notifier).isFirstInstalled;
+  }
 
   return GoRouter(
     navigatorKey: navigatorKey,
@@ -37,7 +46,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       }
 
       if (!firstRun && state.fullPath == '/splash') {
-        return '/';
+        return isFirstInstalled ? '/tutorial' : '/';
       }
 
       return null;
@@ -140,6 +149,23 @@ final goRouterProvider = Provider<GoRouter>((ref) {
               ])
         ],
       ),
+      GoRoute(
+          path: '/tutorial',
+          pageBuilder: (context, state) => buildPageWithDefaultTransition(
+                context: context,
+                state: state,
+                child: const ProfileSettingScreen(),
+              ),
+          routes: [
+            GoRoute(
+              path: 'studySetting',
+              pageBuilder: (context, state) => buildPageWithDefaultTransition(
+                context: context,
+                state: state,
+                child: const StudySettingScreen(),
+              ),
+            )
+          ])
     ],
 
     // errorBuilder: (context, state) => PageNotFound(

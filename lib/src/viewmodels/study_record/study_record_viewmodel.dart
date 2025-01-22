@@ -75,7 +75,7 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
     for (int i = 0; i < studyRecords.length; i++) {
       subjectTitleList.add(studyRecords[i].title);
       studyDurationList
-          .add(studyRecords[i].elapsedTime + studyRecords[i].breakTime);
+          .add(studyRecords[i].elapsedTime); // + studyRecords[i].breakTime);
       subjectColorList.add(Color(int.parse('0xff${studyRecords[i].color}')));
     }
 
@@ -110,7 +110,7 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
           studyRecordsMap[formatDate(startDate.add(Duration(days: day)))] ?? [];
 
       for (var record in dailyRecords) {
-        dailyTotalDuration[day] += record.elapsedTime + record.breakTime;
+        dailyTotalDuration[day] += record.elapsedTime; //+ record.breakTime;
 
         final subjectIndex =
             studyRecords.indexWhere((rec) => rec.order == record.order);

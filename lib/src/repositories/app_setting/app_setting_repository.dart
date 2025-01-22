@@ -16,15 +16,19 @@ AppSettingRepository appSettingRepository(Ref ref) {
 }
 
 class AppSettingRepository {
-  AppSettingRepository(this.localDataSource);
+  AppSettingRepository(this._localDataSource);
 
-  AppSettingLocalDatasource localDataSource;
+  final AppSettingLocalDatasource _localDataSource;
 
   AppSetting getAppSetting() {
-    return localDataSource.getAppSetting();
+    return _localDataSource.getAppSetting();
   }
 
   Future<void> updateAppSetting(AppSetting updatedAppSetting) async {
-    await localDataSource.updateAppSetting(updatedAppSetting);
+    await _localDataSource.updateAppSetting(updatedAppSetting);
+  }
+
+  bool checkIsFirstInstalled() {
+    return _localDataSource.checkIsFirstInstalled();
   }
 }

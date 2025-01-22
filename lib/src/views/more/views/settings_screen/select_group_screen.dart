@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../core/const/study_group.dart';
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../viewmodels/study_setting/study_setting_view_model.dart';
@@ -42,24 +43,25 @@ class SelectGroupScreen extends ConsumerWidget {
                   padding: const EdgeInsets.symmetric(
                       vertical: 8.0, horizontal: 16.0),
                   child: ListView.separated(
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          behavior: HitTestBehavior.opaque,
-                          onTap: () => studySettingViewModel.updateStudySetting(
-                              updatedGroup: groups[index]),
-                          child: SettingTileWidget(
-                            title: groups[index],
-                            trailing: studySetting.group == groups[index]
-                                ? Icon(
-                                    Icons.check,
-                                    size: 16.w,
-                                  )
-                                : Text(''),
-                          ),
-                        );
-                      },
-                      separatorBuilder: (context, index) => const Divider(),
-                      itemCount: groups.length),
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: () => studySettingViewModel.updateStudySetting(
+                            updatedGroup: groups[index]),
+                        child: SettingTileWidget(
+                          title: groups[index],
+                          trailing: studySetting.group == groups[index]
+                              ? Icon(
+                                  Icons.check,
+                                  size: 16.w,
+                                )
+                              : Text(''),
+                        ),
+                      );
+                    },
+                    separatorBuilder: (context, index) => const Divider(),
+                    itemCount: groups.length,
+                  ),
                 ),
               ),
             ],
@@ -69,13 +71,5 @@ class SelectGroupScreen extends ConsumerWidget {
     );
   }
 
-  List<String> get groups => [
-        '직장인',
-        '대학생',
-        '고등학교 3학년/수험생',
-        '고등학교 2학년',
-        '고등학교 1학년',
-        '중학생',
-        '초등학생',
-      ];
+  List<String> get groups => StudyGroup.studyGroup[0]!;
 }
