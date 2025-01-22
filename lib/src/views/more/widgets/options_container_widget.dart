@@ -5,8 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/enum/mxnRate.dart';
 import '../../../../core/widgets/mxnContainer.dart';
 
-class OptionsContainerModule extends StatelessWidget {
-  const OptionsContainerModule({super.key});
+class OptionsContainerWidget extends StatelessWidget {
+  const OptionsContainerWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,6 @@ class OptionsContainerModule extends StatelessWidget {
         color: Colors.white,
         padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             ListTile(
               dense: true,
@@ -51,29 +50,6 @@ class OptionsContainerModule extends StatelessWidget {
               ),
               title: Text(
                 '알람',
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      fontWeight: FontWeight.w500,
-                    ),
-              ),
-              trailing: Icon(
-                Icons.arrow_forward_ios,
-                size: trailingIconSize,
-              ),
-            ),
-            const Divider(),
-            ListTile(
-              dense: true,
-              contentPadding: EdgeInsets.zero,
-              visualDensity: VisualDensity(vertical: -4),
-              onTap: () {
-                context.push('/more/settings/termAndCondition');
-              },
-              leading: Icon(
-                Icons.privacy_tip_outlined,
-                size: leadingIconSize,
-              ),
-              title: Text(
-                '개인정보 처리방침',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       fontWeight: FontWeight.w500,
                     ),
