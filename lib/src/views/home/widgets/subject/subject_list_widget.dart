@@ -42,7 +42,7 @@ class SubjectListWidget extends ConsumerWidget {
                   data: (data) {
                     return Expanded(
                       child: ListView.builder(
-                        itemCount: data.length + 1,
+                        itemCount: data.length + 2,
                         itemBuilder: (context, index) {
                           if (index == 0) {
                             return ListTile(
@@ -54,13 +54,10 @@ class SubjectListWidget extends ConsumerWidget {
                                     .read(suDuckTimerProvider.notifier)
                                     .startTimer(),
                                 child: CircleAvatar(
-                                  backgroundColor: Color(
-                                    int.parse('0xffba4849'),
-                                  ),
-                                  child: Icon(
-                                    Icons.play_arrow_rounded,
-                                    color: Colors.white,
-                                  ),
+                                  backgroundColor:
+                                      Color(int.parse('0xffba4849')),
+                                  child: Icon(Icons.play_arrow_rounded,
+                                      color: Colors.white),
                                 ),
                               ),
                               title: Text(
@@ -71,27 +68,26 @@ class SubjectListWidget extends ConsumerWidget {
                             );
                           }
 
-                          if (index == data.length) {
-                            return IconButton(
-                              onPressed: () {
-                                _showAddSubjectDialog(
-                                  context,
-                                  ref,
-                                  data.length,
-                                );
-                              },
-                              icon: Icon(Icons.add),
+                          if (index == data.length + 1) {
+                            return Center(
+                              child: IconButton(
+                                onPressed: () {
+                                  _showAddSubjectDialog(
+                                    context,
+                                    ref,
+                                    data.length,
+                                  );
+                                },
+                                icon: Icon(Icons.add),
+                              ),
                             );
                           }
 
-                          final subject = data[index];
-
+                          final subject = data[index - 1];
                           final matchedSubject = studyRecord
-                              .where(
-                                (e) =>
-                                    e.order == subject.order &&
-                                    e.title == subject.title,
-                              )
+                              .where((e) =>
+                                  e.order == subject.order &&
+                                  e.title == subject.title)
                               .toList()
                               .firstOrNull;
 
@@ -101,41 +97,34 @@ class SubjectListWidget extends ConsumerWidget {
                                   .read(suDuckTimerProvider.notifier)
                                   .startTimer(subject: subject),
                               child: CircleAvatar(
-                                backgroundColor: Color(
-                                  int.parse('0xff${subject.color}'),
-                                ),
-                                child: Icon(
-                                  Icons.play_arrow_rounded,
-                                  color: Colors.white,
-                                ),
+                                backgroundColor:
+                                    Color(int.parse('0xff${subject.color}')),
+                                child: Icon(Icons.play_arrow_rounded,
+                                    color: Colors.white),
                               ),
                             ),
                             title: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Expanded(
                                   child: Text(
+                                    subject.title,
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
-                                    subject.title,
                                   ),
                                 ),
                                 SizedBox(
                                   width: 64.w,
-                                  child: matchedSubject != null
-                                      ? matchedSubject.elapsedTime != 0
-                                          ? Text(
-                                              getFormatTime(
-                                                  matchedSubject.elapsedTime),
-                                              style: TextStyle(
-                                                fontFeatures: [
-                                                  FontFeature.tabularFigures()
-                                                ],
-                                              ),
-                                            )
-                                          : Text("")
-                                      : Text(""),
+                                  child: matchedSubject != null &&
+                                          matchedSubject.elapsedTime != 0
+                                      ? Text(
+                                          getFormatTime(
+                                              matchedSubject.elapsedTime),
+                                          style: TextStyle(fontFeatures: [
+                                            FontFeature.tabularFigures()
+                                          ]),
+                                        )
+                                      : const Text(""),
                                 )
                               ],
                             ),
@@ -145,7 +134,7 @@ class SubjectListWidget extends ConsumerWidget {
                                 MenuItemButton(
                                   onPressed: () {
                                     _showEditDialog(
-                                        context, ref, subject, index);
+                                        context, ref, subject, index - 1);
                                   },
                                   child: Text("편집"),
                                 ),
@@ -160,7 +149,7 @@ class SubjectListWidget extends ConsumerWidget {
                                             subject.subjectId!, index);
                                   },
                                   child: Text("제거"),
-                                )
+                                ),
                               ],
                               builder: (context, controller, child) {
                                 return IconButton(
@@ -171,10 +160,7 @@ class SubjectListWidget extends ConsumerWidget {
                                       controller.open();
                                     }
                                   },
-                                  icon: Icon(
-                                    Icons.more_vert,
-                                    size: 15.sp,
-                                  ),
+                                  icon: Icon(Icons.more_vert, size: 15.sp),
                                 );
                               },
                             ),
