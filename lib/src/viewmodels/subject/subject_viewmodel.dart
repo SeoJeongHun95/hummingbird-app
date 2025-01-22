@@ -3,8 +3,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../models/subject/subject.dart';
 import '../../providers/network_status/network_state_provider.dart';
 import '../../providers/subject/subject_repository_provider.dart';
+import '../../providers/token_provider.dart';
 import '../../repositories/subject/subject_repository.dart';
-import '../user_setting/user_setting_view_model.dart';
 
 part 'subject_viewmodel.g.dart';
 
@@ -14,7 +14,7 @@ class SubjectViewModel extends _$SubjectViewModel {
 
   @override
   Future<List<Subject>> build() async {
-    final userId = ref.read(userSettingViewModelProvider).userId;
+    final userId = ref.read(tokenProvider).getToken()?.userId;
     if (userId == null) {
       return [];
     }
@@ -25,7 +25,7 @@ class SubjectViewModel extends _$SubjectViewModel {
   }
 
   Future<void> getAllSubjects(bool isConnected) async {
-    final userId = ref.read(userSettingViewModelProvider).userId;
+    final userId = ref.read(tokenProvider).getToken()?.userId;
     if (userId == null) {
       return;
     }
@@ -35,7 +35,7 @@ class SubjectViewModel extends _$SubjectViewModel {
   }
 
   Future<void> addSubject(Subject subject) async {
-    final userId = ref.read(userSettingViewModelProvider).userId;
+    final userId = ref.read(tokenProvider).getToken()?.userId;
     if (userId == null) {
       return;
     }
@@ -46,7 +46,7 @@ class SubjectViewModel extends _$SubjectViewModel {
   }
 
   Future<void> updateSubject(int index, Subject subject) async {
-    final userId = ref.read(userSettingViewModelProvider).userId;
+    final userId = ref.read(tokenProvider).getToken()?.userId;
     if (userId == null) {
       return;
     }

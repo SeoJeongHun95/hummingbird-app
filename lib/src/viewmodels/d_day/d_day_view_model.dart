@@ -8,7 +8,7 @@ import '../../repositories/d_day/d_day_repository.dart';
 
 part 'd_day_view_model.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class DDayViewModel extends _$DDayViewModel {
   late final DDayRepository repository;
 

@@ -34,7 +34,19 @@ class UserSettingRepository {
     await _localDatasource.addUserSetting(userSetting);
   }
 
-  UserSetting getUserSetting() {
+  Future<UserSetting> getUserSetting(bool isConnected) async {
+    if (isConnected) {
+      final dto = await _remoteDatasource.getUserSetting();
+      final fetchedUserSetting = profileDtoToUserSetting(dto);
+      if (fetchedUserSetting.nickname == null &&
+          fetchedUserSetting.birthDate == null) {
+        return _localDatasource.getUserSetting();
+      }
+      await _localDatasource.addUserSetting(fetchedUserSetting);
+
+      return fetchedUserSetting;
+    }
+
     return _localDatasource.getUserSetting();
   }
 
