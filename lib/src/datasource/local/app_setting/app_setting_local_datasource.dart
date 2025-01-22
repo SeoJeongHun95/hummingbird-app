@@ -21,4 +21,12 @@ class AppSettingLocalDatasource {
   Future<void> updateAppSetting(AppSetting updatedAppSetting) async {
     await _box.put(_key, updatedAppSetting);
   }
+
+  bool checkIsFirstInstalled() {
+    final isFirstInstalled = getAppSetting().isFirstInstalled;
+    if (isFirstInstalled) {
+      updateAppSetting(AppSetting(isFirstInstalled: false));
+    }
+    return isFirstInstalled;
+  }
 }

@@ -2,6 +2,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/utils/show_snack_bar.dart';
 import '../../datasource/remote/auth/google_login_api.dart';
+import '../../viewmodels/user_setting/user_setting_view_model.dart';
 import 'auth_provider.dart';
 
 part 'google_login_provider.g.dart';
@@ -29,6 +30,7 @@ class GoogleLogin extends _$GoogleLogin {
           refreshToken: res.refreshToken,
           expiresAt: res.expiresAt,
         );
+    ref.read(userSettingViewModelProvider.notifier).addUserId(res.userId);
     showSnackBar(message: '로그인에 성공했습니다!');
   }
 }

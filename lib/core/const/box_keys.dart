@@ -8,4 +8,5 @@ class BoxKeys {
   static const subjectBoxKey = 'subjectBox';
   static const studySettingBoxKey = 'studySetting';
   static const appSettingBoxKey = 'appSetting';
+  static const userSettingBoxKey = 'userSetting';
 }

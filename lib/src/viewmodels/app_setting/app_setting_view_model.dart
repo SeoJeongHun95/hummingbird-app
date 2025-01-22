@@ -26,4 +26,6 @@ class AppSettingViewModel extends _$AppSettingViewModel {
     await repository.updateAppSetting(updatedAppSetting);
     state = updatedAppSetting;
   }
+
+  bool get isFirstInstalled => repository.checkIsFirstInstalled();
 }
