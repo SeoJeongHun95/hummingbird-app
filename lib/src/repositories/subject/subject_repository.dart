@@ -1,8 +1,7 @@
-import 'package:hummingbird/src/datasource/remote/subject/update_subject_api.dart';
-
 import '../../datasource/local/subject/subject_local_datasource.dart';
 import '../../datasource/remote/subject/create_subject_api.dart';
-import '../../datasource/remote/subject_record/subject_remote_datasource.dart';
+import '../../datasource/remote/subject/subject_remote_datasource.dart';
+import '../../datasource/remote/subject/update_subject_api.dart';
 import '../../models/subject/subject.dart';
 
 class SubjectRepository {
@@ -11,7 +10,8 @@ class SubjectRepository {
 
   SubjectRepository(this._localDataSource, this._remoteDatasource);
 
-  Future<List<Subject>> addSubject(Subject subject, bool isConnected) async {
+  Future<List<Subject>> addSubject(
+      int userId, Subject subject, bool isConnected) async {
     final res = await _remoteDatasource.createSubjectApi.execute(
         CreateSubjectApiReqDto(
             title: subject.title, color: subject.color, order: subject.order));
@@ -19,10 +19,10 @@ class SubjectRepository {
     await _localDataSource
         .addSubject(subject.copyWith(subjectId: res.subjectId));
 
-    return await getAllSubjects(isConnected);
+    return await getAllSubjects(userId, isConnected);
   }
 
-  Future<List<Subject>> getAllSubjects(bool isConnected) async {
+  Future<List<Subject>> getAllSubjects(int userId, bool isConnected) async {
     final localSubjectList = await _localDataSource.getAllSubjects();
 
     if (localSubjectList.isNotEmpty) {
@@ -31,7 +31,7 @@ class SubjectRepository {
 
     if (isConnected) {
       final subjectsInfo =
-          await _remoteDatasource.getSubjectsApi.execute(userId: 25);
+          await _remoteDatasource.getSubjectsApi.execute(userId: userId);
       if (subjectsInfo.subjects.isNotEmpty) {
         final subjectsList = subjectsInfo.subjects
             .map((subjectInfo) => Subject(
@@ -49,9 +49,9 @@ class SubjectRepository {
   }
 
   Future<List<Subject>> updateSubject(
-      int index, Subject updatedSubject, bool isConnected) async {
+      int index, Subject updatedSubject, bool isConnected, int userId) async {
     if (updatedSubject.subjectId == null) {
-      return await getAllSubjects(isConnected);
+      return await getAllSubjects(userId, isConnected);
     }
 
     await _remoteDatasource.updateSubjectApi.execute(
@@ -64,7 +64,7 @@ class SubjectRepository {
     );
     _localDataSource.updateSubject(index, updatedSubject);
 
-    return await getAllSubjects(isConnected);
+    return await getAllSubjects(userId, isConnected);
   }
 
   Future<void> deleteSubject(String subjectId, int index) async {

@@ -22,7 +22,6 @@ class GetStudyRecordByDateReqDto with _$GetStudyRecordByDateReqDto {
 @freezed
 class GetStudyRecordByDateResDto with _$GetStudyRecordByDateResDto {
   const factory GetStudyRecordByDateResDto({
-    required int goalDuration,
     required int totalDuration,
     required List<StudyInfo> studies,
   }) = _GetStudyRecordByDateResDto;

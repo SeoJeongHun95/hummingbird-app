@@ -1,7 +1,7 @@
-import 'package:hummingbird/src/datasource/remote/subject/create_subject_api.dart';
-import 'package:hummingbird/src/datasource/remote/subject/delete_subject_api.dart';
-import 'package:hummingbird/src/datasource/remote/subject/get_subjects_api.dart';
-import 'package:hummingbird/src/datasource/remote/subject/update_subject_api.dart';
+import 'create_subject_api.dart';
+import 'delete_subject_api.dart';
+import 'get_subjects_api.dart';
+import 'update_subject_api.dart';
 
 class SubjectRemoteDatasource {
   CreateSubjectApi createSubjectApi;

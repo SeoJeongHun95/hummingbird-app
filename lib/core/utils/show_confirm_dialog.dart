@@ -21,13 +21,13 @@ Future<bool> showConfirmDialog(String title, String content) async {
             onPressed: () {
               Navigator.of(context).pop(false);
             },
-            child: const Text('Cancel'),
+            child: const Text('취소'),
           ),
           TextButton(
             onPressed: () {
               Navigator.of(context).pop(true);
             },
-            child: const Text('Confirm'),
+            child: const Text('확인'),
           ),
         ],
       );

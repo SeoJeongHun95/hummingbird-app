@@ -5,7 +5,9 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../../core/enum/period_option.dart';
 import '../../../core/utils/get_formatted_today.dart';
 import '../../models/study_record/study_record.dart';
+import '../../providers/network_status/network_state_provider.dart';
 import '../../repositories/study_record/study_record_repository.dart';
+import '../user_setting/user_setting_view_model.dart';
 
 part 'study_record_viewmodel.g.dart';
 
@@ -22,8 +24,11 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
   }
 
   Future<void> loadStudyRecords() async {
+    final isConnected = await ref.watch(networkStateProvider.future);
+    final userId = ref.watch(userSettingViewModelProvider).userId;
     state = await AsyncValue.guard(() async {
-      final studyRecordsMap = await repository.getStudyRecord();
+      final studyRecordsMap =
+          await repository.getStudyRecord(userId!, isConnected);
       return studyRecordsMap[formattedToday] ?? [];
     });
   }
