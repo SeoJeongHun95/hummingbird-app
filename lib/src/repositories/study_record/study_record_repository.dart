@@ -1,3 +1,4 @@
+import 'package:StudyDuck/core/utils/format_date.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -83,6 +84,50 @@ class StudyRecordRepository {
   Future<Map<String, List<StudyRecord>>> getStudyRecordByDate(
       String date) async {
     return _localDataSource.getStudyRecordByDate(date);
+  }
+
+  Future<Map<String, List<StudyRecord>>> getStudyRecordByRange(
+      int userId,
+      DateTime startDate,
+      DateTime endDate,
+      int period,
+      bool isConnected) async {
+    if (isConnected) {
+      final res = await _remoteDatasource.getStudyRecordsByRangeApi.execute(
+          GetStudyRecordsByRangeApiReqDto(
+              userId: userId,
+              startDate: formatDate(startDate),
+              endDate: formatDate(endDate)));
+
+      Map<String, List<StudyRecord>> studyRecordMap = {};
+
+      for (var studyRecord in res.studyRecords) {
+        studyRecordMap[studyRecord.date] = studyRecord.studies.map((study) {
+          return StudyRecord(
+            title: study.title,
+            color: study.color,
+            order: study.order,
+            startAt: study.startAt,
+            endAt: study.endAt,
+            elapsedTime: study.duration,
+            breakTime: study.totalBreak,
+          );
+        }).toList();
+      }
+
+      return studyRecordMap;
+    } else {
+      Map<String, List<StudyRecord>> studyRecordMap = {};
+      for (int i = 0; i < period; i++) {
+        final date = formatDate(startDate.add(Duration(days: i)));
+        final studyRecord = await getStudyRecordByDate(
+            formatDate(startDate.add(Duration(days: i))));
+
+        studyRecordMap[date] = studyRecord[date] ?? [];
+      }
+
+      return studyRecordMap;
+    }
   }
 
   Future<void> updateStudyRecord(StudyRecord studyRecord) async {
