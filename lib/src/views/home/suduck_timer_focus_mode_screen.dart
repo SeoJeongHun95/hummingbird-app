@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/utils/get_formatted_time.dart';
-import '../../providers/suduck_timer/suduck_timer_provider.dart';
+import '../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
 import '../../viewmodels/timer/timer_bg_color_provider.dart';
 
 class SuduckTimerFocusModeWidget extends ConsumerStatefulWidget {

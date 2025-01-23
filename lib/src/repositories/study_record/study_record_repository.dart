@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/utils/get_formatted_today.dart';
@@ -36,6 +35,19 @@ class StudyRecordRepository {
   StudyRecordRepository(this._localDataSource, this._remoteDatasource);
 
   Future<void> addStudyRecord(StudyRecord studyRecord) async {
+    await _remoteDatasource.addStudyRecordApi.execute(AddStudyRecordApiReqDto(
+      date: formattedToday,
+      totalDuration: 300,
+      // TODO: 총계 시간 전달해주기
+      title: studyRecord.title,
+      duration: studyRecord.elapsedTime,
+      startAt: 123123123,
+      // TODO: 스타트앳 전달해주기
+      endAt: studyRecord.endAt! ~/ 1000,
+      totalBreak: studyRecord.breakTime,
+      color: studyRecord.color,
+      order: studyRecord.order,
+    ));
     await _localDataSource.addStudyRecord(studyRecord);
   }
 
@@ -74,21 +86,21 @@ class StudyRecordRepository {
   }
 
   Future<void> updateStudyRecord(StudyRecord studyRecord) async {
-    final dateString = DateFormat('yyyy-MM-dd').format(DateTime.now());
+    // final dateString = DateFormat('yyyy-MM-dd').format(DateTime.now());
 
-    await _remoteDatasource.addStudyRecordApi.execute(AddStudyRecordApiReqDto(
-      date: dateString,
-      totalDuration: 300,
-      // TODO: 총계 시간 전달해주기
-      title: studyRecord.title,
-      duration: studyRecord.elapsedTime,
-      startAt: 123123123,
-      // TODO: 스타트앳 전달해주기
-      endAt: studyRecord.endAt! ~/ 1000,
-      totalBreak: studyRecord.breakTime,
-      color: studyRecord.color,
-      order: studyRecord.order,
-    ));
+    // await _remoteDatasource.addStudyRecordApi.execute(AddStudyRecordApiReqDto(
+    //   date: dateString,
+    //   totalDuration: 300,
+    //   // TODO: 총계 시간 전달해주기
+    //   title: studyRecord.title,
+    //   duration: studyRecord.elapsedTime,
+    //   startAt: 123123123,
+    //   // TODO: 스타트앳 전달해주기
+    //   endAt: studyRecord.endAt! ~/ 1000,
+    //   totalBreak: studyRecord.breakTime,
+    //   color: studyRecord.color,
+    //   order: studyRecord.order,
+    // ));
     await _localDataSource.updateStudyRecord(studyRecord);
   }
 
