@@ -54,8 +54,8 @@ class StudyRecordRepository {
         formattedToday: studyRecord.studies.map((study) {
           return StudyRecord(
             title: study.title,
-            color: '000000',
-            order: 1,
+            color: study.color,
+            order: study.order,
             startAt: study.startAt,
             endAt: study.endAt,
             elapsedTime: study.duration,
