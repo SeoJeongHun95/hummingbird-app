@@ -1,10 +1,10 @@
-import 'package:StudyDuck/src/views/more/widgets/profile_and_btn_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../viewmodels/user_setting/user_setting_view_model.dart';
+import '../../widgets/profile_and_btn_widget.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
@@ -22,6 +22,8 @@ class ProfileScreen extends ConsumerWidget {
               onPressed: context.pop,
               icon: Icon(Icons.arrow_back_ios),
             ),
+            backgroundColor: Theme.of(context).colorScheme.surface,
+            scrolledUnderElevation: 0,
           ),
           body: SafeArea(
             child: Padding(
@@ -29,9 +31,10 @@ class ProfileScreen extends ConsumerWidget {
               child: GestureDetector(
                 behavior: HitTestBehavior.opaque,
                 onTap: () => FocusScope.of(context).unfocus(),
-                child: Center(
+                child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       SizedBox(height: 32.w),
                       ClipOval(

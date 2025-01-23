@@ -53,7 +53,7 @@ class _StudySettingScreenState extends ConsumerState<StudySettingScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('목표 공부시간'),
-                      SizedBox(height: 12.w),
+                      SizedBox(height: 32.w),
                       GestureDetector(
                         behavior: HitTestBehavior.opaque,
                         onTap: () async {
@@ -75,9 +75,9 @@ class _StudySettingScreenState extends ConsumerState<StudySettingScreen> {
                         ),
                       ),
                       divder,
-                      SizedBox(height: 20.w),
+                      SizedBox(height: 36.w),
                       Text('그룹'),
-                      SizedBox(height: 12.w),
+                      SizedBox(height: 32.w),
                       GestureDetector(
                         behavior: HitTestBehavior.opaque,
                         onTap: () async {

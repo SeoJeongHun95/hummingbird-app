@@ -25,7 +25,6 @@ class DDayRepository {
         final dDayList =
             dDaysInfo.map((dDayInfo) => dDayInfoToDDay(dDayInfo)).toList();
 
-        await _localDataSource.clearBox();
         await _localDataSource.addAllDDay(dDayList);
 
         return dDayList;
