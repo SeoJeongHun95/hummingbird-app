@@ -10,7 +10,7 @@ part 'd_day_view_model.g.dart';
 
 @Riverpod(keepAlive: true)
 class DDayViewModel extends _$DDayViewModel {
-  late final DDayRepository repository;
+  late DDayRepository repository;
 
   @override
   Future<List<DDay>> build() async {
