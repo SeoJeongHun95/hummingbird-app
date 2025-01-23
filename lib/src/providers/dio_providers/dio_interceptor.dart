@@ -35,8 +35,12 @@ class DioInterceptor extends Interceptor {
     final accessToken = tokens?.accessToken;
     final refreshToken = tokens?.refreshToken;
     final expiresAt = tokens?.expiresAt;
+    final userId = tokens?.userId;
 
-    if (accessToken == null || expiresAt == null || refreshToken == null) {
+    if (accessToken == null ||
+        expiresAt == null ||
+        refreshToken == null ||
+        userId == null) {
       return handler.reject(
         DioException(
           requestOptions: options,
@@ -54,6 +58,7 @@ class DioInterceptor extends Interceptor {
         await _refreshToken(
           accessToken: accessToken,
           refreshToken: refreshToken,
+          userId: userId,
         );
       } catch (e) {
         return handler.reject(
@@ -74,6 +79,7 @@ class DioInterceptor extends Interceptor {
   Future<void> _refreshToken({
     required String accessToken,
     required String refreshToken,
+    required int userId,
   }) async {
     if (_isRefreshing) {
       await _refreshCompleter?.future;
@@ -92,6 +98,7 @@ class DioInterceptor extends Interceptor {
         accessToken: newAccessToken,
         refreshToken: refreshToken,
         expiresAt: newExpiresAt,
+        userId: userId,
       ));
       _refreshCompleter?.complete();
     } catch (e) {
