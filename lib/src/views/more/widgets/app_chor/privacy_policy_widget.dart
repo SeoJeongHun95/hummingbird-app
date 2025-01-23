@@ -7,7 +7,7 @@ class PrivacyPolicyWidget extends StatelessWidget {
 
   Future<void> _launchURL(BuildContext context) async {
     final Uri url = Uri.parse(
-        'https://plip.kr/pcc/16703898-5dde-4455-a4b2-48b4cd47a11c/privacy/1.html'); // URL 수정
+        'https://hazel-wallaby-265.notion.site/Study-Duck-183954afbc8480ed96c2dac4049616df');
 
     try {
       final canLaunchResult = await canLaunchUrl(url);
