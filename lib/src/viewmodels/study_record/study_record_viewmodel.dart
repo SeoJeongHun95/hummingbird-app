@@ -1,4 +1,3 @@
-import 'package:StudyDuck/src/providers/token_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -7,6 +6,7 @@ import '../../../core/enum/period_option.dart';
 import '../../../core/utils/get_formatted_today.dart';
 import '../../models/study_record/study_record.dart';
 import '../../providers/network_status/network_state_provider.dart';
+import '../../providers/token_provider.dart';
 import '../../repositories/study_record/study_record_repository.dart';
 
 part 'study_record_viewmodel.g.dart';
@@ -34,8 +34,21 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
   }
 
   Future<void> addStudyRecord(StudyRecord studyRecord) async {
-    await repository.addStudyRecord(studyRecord);
-    loadStudyRecords();
+    final currentState = state.value;
+    int totalDuration = 0;
+
+    if (currentState != null) {
+      for (final record in currentState) {
+        totalDuration += record.elapsedTime;
+      }
+    }
+
+    await repository.addStudyRecord(
+      studyRecord,
+      totalDuration + studyRecord.elapsedTime,
+    );
+
+    await loadStudyRecords();
   }
 
   Future<void> updateStudyRecord(StudyRecord studyRecord) async {
