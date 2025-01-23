@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/utils/get_formatted_time.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
-import '../../../../providers/suduck_timer/suduck_timer_provider.dart';
+import '../../../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
 import '../../../../viewmodels/timer/timer_bg_color_provider.dart';
 
 class SuDuckTimerWidget extends ConsumerStatefulWidget {

@@ -1,13 +1,13 @@
-import 'package:StudyDuck/core/utils/show_confirm_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/utils/get_formatted_time.dart';
+import '../../../../../core/utils/show_confirm_dialog.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../models/subject/subject.dart';
-import '../../../../providers/suduck_timer/suduck_timer_provider.dart';
+import '../../../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
 import '../../../../viewmodels/study_record/study_record_viewmodel.dart';
 import '../../../../viewmodels/subject/subject_viewmodel.dart';
 import '../d_day_widget/color_picker_dialog.dart';
@@ -17,6 +17,7 @@ class SubjectListWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final suduckTimerNotifier = ref.read(suDuckTimerProvider.notifier);
     final subjects = ref.watch(subjectViewModelProvider);
     final studyRecord = ref.watch(studyRecordViewModelProvider);
 
@@ -47,13 +48,9 @@ class SubjectListWidget extends ConsumerWidget {
                         itemBuilder: (context, index) {
                           if (index == 0) {
                             return ListTile(
-                              onTap: () => ref
-                                  .read(suDuckTimerProvider.notifier)
-                                  .resetSubject(),
+                              onTap: () => suduckTimerNotifier.resetSubject(),
                               leading: GestureDetector(
-                                onTap: () => ref
-                                    .read(suDuckTimerProvider.notifier)
-                                    .startTimer(),
+                                onTap: () => suduckTimerNotifier.startTimer(),
                                 child: CircleAvatar(
                                   backgroundColor:
                                       Color(int.parse('0xffba4849')),
@@ -94,9 +91,8 @@ class SubjectListWidget extends ConsumerWidget {
 
                           return ListTile(
                             leading: GestureDetector(
-                              onTap: () => ref
-                                  .read(suDuckTimerProvider.notifier)
-                                  .startTimer(subject: subject),
+                              onTap: () => suduckTimerNotifier.startTimer(
+                                  subject: subject),
                               child: CircleAvatar(
                                 backgroundColor:
                                     Color(int.parse('0xff${subject.color}')),
@@ -174,9 +170,8 @@ class SubjectListWidget extends ConsumerWidget {
                                 );
                               },
                             ),
-                            onTap: () => ref
-                                .read(suDuckTimerProvider.notifier)
-                                .setSubject(subject),
+                            onTap: () =>
+                                suduckTimerNotifier.setSubject(subject),
                           );
                         },
                       ),

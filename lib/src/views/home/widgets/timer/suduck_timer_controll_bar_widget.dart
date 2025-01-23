@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
-import '../../../../providers/suduck_timer/suduck_timer_provider.dart';
+import '../../../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
 
 class SuduckTimerControllBarWidget extends ConsumerStatefulWidget {
   const SuduckTimerControllBarWidget({super.key});
