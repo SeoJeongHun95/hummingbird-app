@@ -10,7 +10,16 @@ String getFormatTime(int seconds) {
   final int minutes = (seconds % 3600) ~/ 60;
   final int secs = seconds % 60;
 
-  return '${hours.toString().padLeft(2, '0')}:'
-      '${minutes.toString().padLeft(2, '0')}:'
-      '${secs.toString().padLeft(2, '0')}';
+  // return '${hours.toString().padLeft(2, '0')}:'
+  //     '${minutes.toString().padLeft(2, '0')}:'
+  //     '${secs.toString().padLeft(2, '0')}';
+
+  if (hours > 0) {
+    return '${hours.toString().padLeft(2, '0')}:'
+        '${minutes.toString().padLeft(2, '0')}:'
+        '${secs.toString().padLeft(2, '0')}';
+  } else {
+    return '${minutes.toString().padLeft(2, '0')}:'
+        '${secs.toString().padLeft(2, '0')}';
+  }
 }

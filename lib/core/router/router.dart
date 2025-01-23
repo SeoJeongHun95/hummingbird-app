@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../src/providers/auth/auth_provider.dart';
 import '../../src/viewmodels/app_setting/app_setting_view_model.dart';
 import '../../src/views/home/home_screen.dart';
-import '../../src/views/home/widgets/timer/suduck_timer_focus_mode_screen.dart';
+import '../../src/views/home/suduck_timer_focus_mode_screen.dart';
 import '../../src/views/more/views/more_screen.dart';
 import '../../src/views/more/views/profile_screen/profile_screen.dart';
 import '../../src/views/more/views/settings_screen/settings_export.dart';
