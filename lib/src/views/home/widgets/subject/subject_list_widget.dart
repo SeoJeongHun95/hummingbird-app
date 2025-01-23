@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/utils/get_formatted_time.dart';
 import '../../../../../core/utils/show_confirm_dialog.dart';
+import '../../../../../core/utils/show_snack_bar.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../models/subject/subject.dart';
 import '../../../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
@@ -17,8 +18,9 @@ class SubjectListWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final suduckTimerNotifier = ref.read(suDuckTimerProvider.notifier);
     final subjects = ref.watch(subjectViewModelProvider);
+    final subjectsNotifier = ref.read(subjectViewModelProvider.notifier);
+    final suduckTimerNotifier = ref.read(suDuckTimerProvider.notifier);
     final studyRecord = ref.watch(studyRecordViewModelProvider);
 
     return studyRecord.when(
@@ -74,6 +76,7 @@ class SubjectListWidget extends ConsumerWidget {
                                     context,
                                     ref,
                                     data.length,
+                                    data,
                                   );
                                 },
                                 icon: Icon(Icons.add),
@@ -83,9 +86,11 @@ class SubjectListWidget extends ConsumerWidget {
 
                           final subject = data[index - 1];
                           final matchedSubject = studyRecord
-                              .where((e) =>
-                                  e.order == subject.order &&
-                                  e.title == subject.title)
+                              .where(
+                                (e) =>
+                                    e.order == subject.order &&
+                                    e.title == subject.title,
+                              )
                               .toList()
                               .firstOrNull;
 
@@ -149,10 +154,8 @@ class SubjectListWidget extends ConsumerWidget {
                                       return;
                                     }
 
-                                    ref
-                                        .read(subjectViewModelProvider.notifier)
-                                        .deleteSubject(
-                                            subject.subjectId!, index - 1);
+                                    subjectsNotifier.deleteSubject(
+                                        subject.subjectId!, index - 1);
                                   },
                                   child: Text("제거"),
                                 ),
@@ -253,7 +256,8 @@ class SubjectListWidget extends ConsumerWidget {
     );
   }
 
-  void _showAddSubjectDialog(BuildContext context, WidgetRef ref, int order) {
+  void _showAddSubjectDialog(
+      BuildContext context, WidgetRef ref, int order, List<Subject> subjects) {
     _showSubjectDialog(
       context,
       ref,
@@ -261,8 +265,15 @@ class SubjectListWidget extends ConsumerWidget {
       '',
       initialColor: "227C9D",
       onConfirm: (title, color) {
-        final newSubject = Subject(title: title, color: color, order: order);
-        ref.read(subjectViewModelProvider.notifier).addSubject(newSubject);
+        if (subjects
+            .where((element) => element.title == title)
+            .toList()
+            .isNotEmpty) {
+          showSnackBar(message: "같은 과목이 이미 존재합니다.");
+        } else {
+          final newSubject = Subject(title: title, color: color, order: order);
+          ref.read(subjectViewModelProvider.notifier).addSubject(newSubject);
+        }
       },
     );
   }
