@@ -18,7 +18,7 @@ class MoreScreen extends ConsumerWidget {
           child: Column(
             children: [
               UserProfileWidget(),
-              OptionsContainerModule(),
+              OptionsContainerWidget(),
               UserAuthWidget(),
             ],
           ),
