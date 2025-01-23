@@ -23,29 +23,22 @@ class SubjectRepository {
   }
 
   Future<List<Subject>> getAllSubjects(int userId, bool isConnected) async {
-    final localSubjectList = await _localDataSource.getAllSubjects();
-
-    if (localSubjectList.isNotEmpty) {
-      return localSubjectList;
-    }
-
     if (isConnected) {
       final subjectsInfo =
           await _remoteDatasource.getSubjectsApi.execute(userId: userId);
-      if (subjectsInfo.subjects.isNotEmpty) {
-        final subjectsList = subjectsInfo.subjects
-            .map((subjectInfo) => Subject(
-                  subjectId: subjectInfo.subjectId,
-                  title: subjectInfo.title,
-                  color: subjectInfo.color,
-                  order: subjectInfo.order,
-                ))
-            .toList();
-        return subjectsList;
-      }
+      return subjectsInfo.subjects.isNotEmpty
+          ? subjectsInfo.subjects
+              .map((subjectInfo) => Subject(
+                    subjectId: subjectInfo.subjectId,
+                    title: subjectInfo.title,
+                    color: subjectInfo.color,
+                    order: subjectInfo.order,
+                  ))
+              .toList()
+          : [];
+    } else {
+      return await _localDataSource.getAllSubjects();
     }
-
-    return localSubjectList;
   }
 
   Future<List<Subject>> updateSubject(
