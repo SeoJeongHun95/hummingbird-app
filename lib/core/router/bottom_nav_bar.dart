@@ -20,10 +20,10 @@ class BottomNavBar extends StatelessWidget {
           case 0:
             context.go('/');
             break;
+          // case 1:
+          //   context.go('/social');
+          //   break;
           case 1:
-            context.go('/social');
-            break;
-          case 2:
             showModalBottomSheet(
               shape: ContinuousRectangleBorder(
                 borderRadius: BorderRadius.circular(28),
@@ -32,10 +32,10 @@ class BottomNavBar extends StatelessWidget {
               builder: (context) => SuduckTimerModalWidget(),
             );
             break;
-          case 3:
+          case 2:
             context.go('/statistics');
             break;
-          case 4:
+          case 3:
             context.go('/more');
             break;
         }
@@ -45,10 +45,10 @@ class BottomNavBar extends StatelessWidget {
           icon: Icon(Icons.home_filled),
           label: tr('홈'),
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.groups),
-          label: tr('소셜'),
-        ),
+        // BottomNavigationBarItem(
+        //   icon: Icon(Icons.groups),
+        //   label: tr('소셜'),
+        // ),
         BottomNavigationBarItem(
           icon: Icon(Icons.timer),
           label: tr('타이머'),
@@ -70,14 +70,14 @@ class BottomNavBar extends StatelessWidget {
     switch (currentPath) {
       case '/':
         return 0;
-      case '/social':
-        return 1;
+      // case '/social':
+      //   return 1;
       case '/timer':
-        return 2;
+        return 1;
       case '/statistics':
-        return 3;
+        return 2;
       case '/more':
-        return 4;
+        return 3;
       default:
         return 0;
     }
