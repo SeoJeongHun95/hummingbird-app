@@ -35,7 +35,6 @@ class GetStudyRecordsByRangeApiResDto with _$GetStudyRecordsByRangeApiResDto {
 class StudyRecordInfo with _$StudyRecordInfo {
   const factory StudyRecordInfo({
     required String date,
-    required int goalDuration,
     required int totalDuration,
     required List<StudyInfo> studies,
   }) = _StudyRecordInfo;
@@ -53,6 +52,8 @@ class GetStudyRecordsByRangeApi {
       GetStudyRecordsByRangeApiReqDto dto) async {
     final response = await dio.get(
         '/study-records/range?userId=${dto.userId}&startDate=${dto.startDate}&endDate=${dto.endDate}');
+
+    print(response.data);
 
     return GetStudyRecordsByRangeApiResDto.fromJson(response.data);
   }
