@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/enum/period_option.dart';
+import '../../../../../core/utils/get_formatted_time.dart';
 
 class TotalDurationsLineChart extends StatelessWidget {
   const TotalDurationsLineChart(
@@ -16,7 +17,7 @@ class TotalDurationsLineChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 8.w, right: 16.w, bottom: 8.w),
+      padding: EdgeInsets.only(top: 8.0, right: 16.0),
       child: LineChart(
         duration: Duration.zero,
         LineChartData(
@@ -31,7 +32,7 @@ class TotalDurationsLineChart extends StatelessWidget {
               getTooltipItems: (touchedSpots) {
                 return touchedSpots.map((barSpot) {
                   return LineTooltipItem(
-                      formatTime(barSpot.y * 3600),
+                      getFormatTime((barSpot.y * 3600).toInt()),
                       TextStyle(
                           color: Colors.black, fontWeight: FontWeight.w500));
                 }).toList();
@@ -57,11 +58,11 @@ class TotalDurationsLineChart extends StatelessWidget {
             rightTitles: AxisTitles(sideTitles: SideTitles()),
             bottomTitles: AxisTitles(
               sideTitles: SideTitles(
-                  showTitles: true,
-                  reservedSize: 25.w,
-                  //maxIncluded: selectedPeriod == PeriodOption.WEEKLY,
-                  interval: selectedPeriod == PeriodOption.WEEKLY ? 1 : 7,
-                  getTitlesWidget: bottomTitleWidgets),
+                showTitles: true,
+                reservedSize: 28,
+                interval: selectedPeriod == PeriodOption.WEEKLY ? 1 : 7,
+                getTitlesWidget: bottomTitleWidgets,
+              ),
             ),
             leftTitles: AxisTitles(
               sideTitles: SideTitles(
