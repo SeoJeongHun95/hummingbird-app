@@ -34,8 +34,21 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
   }
 
   Future<void> addStudyRecord(StudyRecord studyRecord) async {
-    await repository.addStudyRecord(studyRecord);
-    loadStudyRecords();
+    final currentState = state.value;
+    int totalDuration = 0;
+
+    if (currentState != null) {
+      for (final record in currentState) {
+        totalDuration += record.elapsedTime;
+      }
+    }
+
+    await repository.addStudyRecord(
+      studyRecord,
+      totalDuration + studyRecord.elapsedTime,
+    );
+
+    await loadStudyRecords();
   }
 
   Future<void> updateStudyRecord(StudyRecord studyRecord) async {

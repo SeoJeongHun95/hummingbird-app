@@ -35,16 +35,14 @@ class StudyRecordRepository {
 
   StudyRecordRepository(this._localDataSource, this._remoteDatasource);
 
-  Future<void> addStudyRecord(StudyRecord studyRecord) async {
+  Future<void> addStudyRecord(StudyRecord studyRecord, int totduration) async {
     await _remoteDatasource.addStudyRecordApi.execute(AddStudyRecordApiReqDto(
       date: formattedToday,
-      totalDuration: 300,
-      // TODO: 총계 시간 전달해주기
+      totalDuration: totduration,
       title: studyRecord.title,
       duration: studyRecord.elapsedTime,
-      startAt: 123123123,
-      // TODO: 스타트앳 전달해주기
-      endAt: studyRecord.endAt! ~/ 1000,
+      startAt: studyRecord.startAt!,
+      endAt: studyRecord.endAt!,
       totalBreak: studyRecord.breakTime,
       color: studyRecord.color,
       order: studyRecord.order,
