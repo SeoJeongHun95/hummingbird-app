@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/enum/mxnRate.dart';
-import '../../../core/widgets/mxnContainer.dart';
 import 'widgets/subject/subject_list_widget.dart';
 import 'widgets/timer/suduck_timer_controll_bar_widget.dart';
 import 'widgets/timer/suduck_timer_widget.dart';
@@ -18,12 +16,6 @@ class Seg1Screen extends StatelessWidget {
           SuDuckTimerWidget(),
           SuduckTimerControllBarWidget(),
           SubjectListWidget(),
-          MxNcontainer(
-            MxN_rate: MxNRate.TWOBYQUARTER,
-            MxN_child: Center(
-              child: Text("ads"),
-            ),
-          ),
         ],
       ),
     );

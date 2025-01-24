@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -55,7 +56,7 @@ class DDayListTileWidget extends ConsumerWidget {
                             ),
                           ),
                           subtitle: Text(
-                            '목표 날짜: ${viewModel.getFormattedDate(goalDate)}',
+                            '${tr("DDayListTile.GoalDate")}${viewModel.getFormattedDate(goalDate)}',
                             style: TextStyle(fontSize: 10.sp),
                           ),
                           trailing: Row(
@@ -83,7 +84,7 @@ class DDayListTileWidget extends ConsumerWidget {
                                               goalDate: goalDate,
                                               color: dDays[index].color,
                                               viewModel: viewModel),
-                                          child: Text("편집"),
+                                          child: Text("DDayListTile.Edit"),
                                         ),
                                         MenuItemButton(
                                           onPressed: () =>
@@ -94,7 +95,8 @@ class DDayListTileWidget extends ConsumerWidget {
                                             dDayId: dDays[index].ddayId ?? '',
                                             deleteDDay: viewModel.deleteDDay,
                                           ),
-                                          child: Text("제거"),
+                                          child:
+                                              Text(tr("DDayListTile.Delete")),
                                         )
                                       ],
                                       builder: (context, controller, child) {
@@ -215,19 +217,20 @@ class DDayListTileWidget extends ConsumerWidget {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("제거"),
-          content: Text("정말로 '$goalTitle'을 삭제하시겠습니까?"),
+          title: Text(tr("DDayListTile.Delete")),
+          content: Text(
+              "${tr("DDayListTile.AreYouSure")}$goalTitle'${tr("DDayListTile.DeleteConfirmationSuffix")}"),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: Text("취소"),
+              child: Text("DDayListTile.Cancel"),
             ),
             TextButton(
                 onPressed: () {
                   deleteDDay(index, dDayId);
                   Navigator.pop(context);
                 },
-                child: Text("확인"))
+                child: Text("DDayListTile.Confirm"))
           ],
         );
       },
@@ -242,7 +245,7 @@ class DDayListTileWidget extends ConsumerWidget {
           content: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              '오프라인 상태에서는 편집, 제거 기능을 사용할 수 없습니다.',
+              tr("DDayListTile.OfflineEditDeleteError"),
               style: TextStyle(
                 fontWeight: FontWeight.w500,
               ),
@@ -251,7 +254,7 @@ class DDayListTileWidget extends ConsumerWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: Text('확인'),
+              child: Text("DDayListTile.Confirm"),
             ),
           ],
         );
@@ -279,7 +282,7 @@ class DDayListTileWidget extends ConsumerWidget {
               width: 12.w,
             ),
             Text(
-              '오프라인 상태입니다',
+              tr("DDayListTile.OfflineStatus"),
               style: TextStyle(color: Colors.white),
             ),
           ],

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../router/router.dart';
@@ -21,13 +22,13 @@ Future<bool> showConfirmDialog(String title, String content) async {
             onPressed: () {
               Navigator.of(context).pop(false);
             },
-            child: const Text('취소'),
+            child: Text(tr("Dialog.Cancel")),
           ),
           TextButton(
             onPressed: () {
               Navigator.of(context).pop(true);
             },
-            child: const Text('확인'),
+            child: Text(tr("Dialog.Confirm")),
           ),
         ],
       );

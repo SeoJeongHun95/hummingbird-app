@@ -43,23 +43,23 @@ class BottomNavBar extends StatelessWidget {
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.home_filled),
-          label: tr('홈'),
+          label: tr('NavigationBar.Home'),
         ),
         // BottomNavigationBarItem(
         //   icon: Icon(Icons.groups),
-        //   label: tr('소셜'),
+        //   label: tr('NavigationBar.Social'),
         // ),
         BottomNavigationBarItem(
           icon: Icon(Icons.timer),
-          label: tr('타이머'),
+          label: tr('NavigationBar.Timer'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.pie_chart_rounded),
-          label: tr('통계'),
+          label: tr('NavigationBar.Statistics'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.more_horiz_rounded),
-          label: tr('더보기'),
+          label: tr('NavigationBar.More'),
         ),
       ],
     );

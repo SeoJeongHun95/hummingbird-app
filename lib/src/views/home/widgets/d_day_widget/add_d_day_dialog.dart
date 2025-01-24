@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,7 +35,7 @@ class _AddDDayDialogState extends State<AddDDayDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('추가'),
+      title: Text(tr("DDayDialog.Add")),
       content: SizedBox(
         height: 250.h,
         child: Column(
@@ -44,7 +45,7 @@ class _AddDDayDialogState extends State<AddDDayDialog> {
               style: TextStyle(fontSize: 15.sp),
               maxLength: 30,
               decoration: InputDecoration(
-                hintText: "목표 제목을 입력하시오",
+                hintText: tr("DDayDialog.EnterGoalTitle"),
                 hintStyle: TextStyle(color: tilteValidationColor),
                 counterText: '',
                 border: InputBorder.none,
@@ -66,12 +67,12 @@ class _AddDDayDialogState extends State<AddDDayDialog> {
                 }
               },
               title: Text(
-                '목표 날짜:',
+                tr("DDayDialog.GoalDate"),
                 style: TextStyle(fontSize: 15.sp),
               ),
               trailing: Text(
                 goalDate == null
-                    ? '날짜를 선택하시오'
+                    ? tr("DDayDialog.SelectDate")
                     : '${goalDate!.year}-${goalDate!.month}-${goalDate!.day}',
                 style: TextStyle(fontSize: 13.sp, color: dateValidationColor),
               ),
@@ -89,18 +90,14 @@ class _AddDDayDialogState extends State<AddDDayDialog> {
                     timeValidationColor = Colors.black;
                   });
                 }
-                // else {
-                //   goalTime = null;
-                //   timeValidationColor = Theme.of(context).colorScheme.error;
-                // }
               },
               title: Text(
-                '목표 시간:',
+                tr("DDayDialog.GoalTime"),
                 style: TextStyle(fontSize: 15.sp),
               ),
               trailing: Text(
                 goalTime == null
-                    ? '시간을 선택하시오'
+                    ? tr("DDayDialog.SelectTime")
                     : '${(goalTime!.hour).toString().padLeft(2, '0')}:${goalTime!.minute.toString().padLeft(2, '0')}',
                 style: TextStyle(fontSize: 13.sp, color: timeValidationColor),
               ),
@@ -119,7 +116,7 @@ class _AddDDayDialogState extends State<AddDDayDialog> {
                 }
               },
               title: Text(
-                '색상:',
+                tr("DDayDialog.Color"),
                 style: TextStyle(fontSize: 15.sp),
               ),
               trailing: CircleColorContainer(
@@ -134,7 +131,7 @@ class _AddDDayDialogState extends State<AddDDayDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: Text('취소'),
+          child: Text(tr("DDayDialog.Cancel")),
         ),
         TextButton(
           onPressed: () {
@@ -169,7 +166,7 @@ class _AddDDayDialogState extends State<AddDDayDialog> {
               });
             }
           },
-          child: Text('확인'),
+          child: Text(tr("DDayDialog.Confirm")),
         )
       ],
     );
