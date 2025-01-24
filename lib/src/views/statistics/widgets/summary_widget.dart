@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../core/enum/mxnRate.dart';
 import '../../../../core/enum/period_option.dart';
+import '../../../../core/utils/get_formatted_time.dart';
 import '../../../../core/widgets/mxnContainer.dart';
 
 class SummaryWidget extends StatelessWidget {
@@ -29,16 +28,10 @@ class SummaryWidget extends StatelessWidget {
         color: Colors.white,
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              targetPeriod,
-              style: TextStyle(
-                fontSize: 20.sp,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            Gap(20.w),
+            Text(targetPeriod),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -57,28 +50,19 @@ class SummaryWidget extends StatelessWidget {
     final totalDays = PeriodOption.WEEKLY == selectedPeriod
         ? DateTime.now().weekday
         : DateTime.now().day;
-    final dur =
+    final seconds =
         isAverage ? (totalStudyDuration) ~/ totalDays : totalStudyDuration;
-    final hour = dur ~/ 3600;
-    final min = (dur % 3600) ~/ 60;
-    final sec = dur % 60;
 
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
         text: '$title\n\n',
-        style: TextStyle(
-            color: Theme.of(context).colorScheme.primary,
-            fontSize: 16.sp,
-            fontWeight: FontWeight.bold),
+        style: TextStyle(color: Theme.of(context).colorScheme.primary),
         children: [
           TextSpan(
-            text:
-                '${hour.toString().padLeft(2, '0')}:${min.toString().padLeft(2, '0')}:${sec.toStringAsFixed(0).padLeft(2, '0')}',
+            text: getFormatTime(seconds),
             style: TextStyle(
               color: Colors.black,
-              fontSize: 24.sp,
-              fontWeight: FontWeight.bold,
             ),
           )
         ],
