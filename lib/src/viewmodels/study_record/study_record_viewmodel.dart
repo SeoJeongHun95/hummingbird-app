@@ -128,10 +128,10 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
     List<StudyRecord> studyRecords = [];
 
     final dailyTotalDuration = List.generate(period, (index) => 0);
+    final studyRecordsMap = await repository.getStudyRecordByRange(
+        userId, startDate, currentDate, period, isConnected);
 
     for (int day = 0; day < period; day++) {
-      final studyRecordsMap = await repository.getStudyRecordByRange(
-          userId, startDate, currentDate, period, isConnected);
       final dailyRecords =
           studyRecordsMap[formatDate(startDate.add(Duration(days: day)))] ?? [];
 
