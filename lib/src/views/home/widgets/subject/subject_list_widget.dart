@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,7 +37,7 @@ class SubjectListWidget extends ConsumerWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 12),
                   child: Text(
-                    "과목",
+                    tr("SubjectList.Subject"),
                     style: TextStyle(fontWeight: FontWeight.w600),
                   ),
                 ),
@@ -59,7 +60,7 @@ class SubjectListWidget extends ConsumerWidget {
                                 ),
                               ),
                               title: Text(
-                                "자율 학습",
+                                tr("SubjectList.SelfStudy"),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
@@ -133,7 +134,7 @@ class SubjectListWidget extends ConsumerWidget {
                                     _showEditDialog(
                                         context, ref, subject, index - 1);
                                   },
-                                  child: Text("편집"),
+                                  child: Text(tr("SubjectList.Edit")),
                                 ),
                                 MenuItemButton(
                                   onPressed: () async {
@@ -142,8 +143,10 @@ class SubjectListWidget extends ConsumerWidget {
                                     }
 
                                     final confirm = await showConfirmDialog(
-                                        '${subject.title} 과목을 삭제하시겠습니까?',
-                                        '해당 작업은 복구할 수 없습니다.');
+                                      subject.title +
+                                          tr('SubjectList.DeleteSubjectPrompt'),
+                                      tr("CannotUndoWarning"),
+                                    );
 
                                     if (!confirm) {
                                       return;
@@ -154,7 +157,7 @@ class SubjectListWidget extends ConsumerWidget {
                                         .deleteSubject(
                                             subject.subjectId!, index - 1);
                                   },
-                                  child: Text("제거"),
+                                  child: Text(tr("SubjectList.Delete")),
                                 ),
                               ],
                               builder: (context, controller, child) {
@@ -217,13 +220,14 @@ class SubjectListWidget extends ConsumerWidget {
             children: [
               TextField(
                 controller: titleController,
-                decoration: InputDecoration(labelText: '과목 이름'),
+                decoration:
+                    InputDecoration(labelText: tr("SubjectList.SubjectName")),
               ),
               TextButton(
                 onPressed: () async {
                   selectedColor = await _showColorPickerDialog(context);
                 },
-                child: Text('색상 선택'),
+                child: Text(tr("SubjectList.SelectColor")),
               ),
             ],
           ),
@@ -232,7 +236,7 @@ class SubjectListWidget extends ConsumerWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('취소'),
+              child: Text(tr("SubjectList.Cancel")),
             ),
             TextButton(
               onPressed: () {
@@ -241,11 +245,11 @@ class SubjectListWidget extends ConsumerWidget {
                   Navigator.of(context).pop();
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('과목이름을 입력해주세요')),
+                    SnackBar(content: Text(tr("SubjectList.EnterSubjectName"))),
                   );
                 }
               },
-              child: Text('확인'),
+              child: Text(tr("SubjectList.Confirm")),
             ),
           ],
         );
@@ -257,7 +261,7 @@ class SubjectListWidget extends ConsumerWidget {
     _showSubjectDialog(
       context,
       ref,
-      '과목 추가',
+      tr("SubjectList.AddSubject"),
       '',
       initialColor: "227C9D",
       onConfirm: (title, color) {
@@ -272,7 +276,7 @@ class SubjectListWidget extends ConsumerWidget {
     _showSubjectDialog(
       context,
       ref,
-      '과목 편집',
+      tr("SubjectList.EditSubject"),
       subject.title,
       initialColor: subject.color,
       onConfirm: (title, color) {

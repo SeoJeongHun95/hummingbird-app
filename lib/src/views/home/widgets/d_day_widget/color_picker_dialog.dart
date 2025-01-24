@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -45,11 +46,11 @@ class _ColorPickerDialogState extends State<ColorPickerDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: Text("취소"),
+          child: Text(tr("Dialog.Cancel")),
         ),
         TextButton(
           onPressed: () => Navigator.pop(context, selectedColor),
-          child: Text("확인"),
+          child: Text(tr("Dialog.Confirm")),
         ),
       ],
     );

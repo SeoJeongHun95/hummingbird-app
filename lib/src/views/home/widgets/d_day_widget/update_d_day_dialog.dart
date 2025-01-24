@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -55,7 +56,7 @@ class _UpdateDDayDialogState extends State<UpdateDDayDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('편집'),
+      title: Text(tr("DDayDialog.Edit")),
       content: SizedBox(
         height: 250.h,
         child: Column(
@@ -65,7 +66,7 @@ class _UpdateDDayDialogState extends State<UpdateDDayDialog> {
               maxLength: 30,
               style: TextStyle(fontSize: 15.sp),
               decoration: InputDecoration(
-                hintText: "목표 제목을 입력하시오",
+                hintText: tr("DDayDialog.EnterGoalTitle"),
                 hintStyle: TextStyle(color: tilteValidationColor),
                 counterText: '',
                 border: InputBorder.none,
@@ -87,7 +88,7 @@ class _UpdateDDayDialogState extends State<UpdateDDayDialog> {
                 }
               },
               title: Text(
-                '목표 날짜:',
+                tr("DDayDialog.GoalDate"),
                 style: TextStyle(fontSize: 15.sp),
               ),
               trailing: Text(
@@ -109,7 +110,7 @@ class _UpdateDDayDialogState extends State<UpdateDDayDialog> {
                 }
               },
               title: Text(
-                '목표 시간:',
+                tr("DDayDialog.GoalTime"),
                 style: TextStyle(fontSize: 15.sp),
               ),
               trailing: Text(
@@ -131,7 +132,7 @@ class _UpdateDDayDialogState extends State<UpdateDDayDialog> {
                 }
               },
               title: Text(
-                '색상:',
+                tr("DDayDialog.Color"),
                 style: TextStyle(fontSize: 15.sp),
               ),
               trailing: CircleColorContainer(
@@ -146,7 +147,7 @@ class _UpdateDDayDialogState extends State<UpdateDDayDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: Text('취소'),
+          child: Text(tr("DDayDialog.Cancel")),
         ),
         TextButton(
           onPressed: () {
@@ -172,7 +173,7 @@ class _UpdateDDayDialogState extends State<UpdateDDayDialog> {
               });
             }
           },
-          child: Text('확인'),
+          child: Text(tr("DDayDialog.Confirm")),
         )
       ],
     );

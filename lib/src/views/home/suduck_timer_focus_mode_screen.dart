@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -137,7 +138,7 @@ class TimerCenter extends StatelessWidget {
             child: Center(
               child: Text(
                 suduckTimer.currSubject == null
-                    ? "자율 학습"
+                    ? tr("Timer.SelfStudy")
                     : suduckTimer.currSubject!.title,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -231,7 +232,7 @@ class TimerCenter extends StatelessWidget {
                       ),
                       child: Center(
                         child: Text(
-                          (!isRunning) ? "START" : "PAUSE",
+                          (!isRunning) ? tr("Timer.Start") : tr("Timer.Pause"),
                           style: TextStyle(
                             fontSize: 9.sp,
                             fontWeight: FontWeight.w500,
