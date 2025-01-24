@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/const/study_group.dart';
-import '../../more/widgets/settings/setting_tile_widget.dart';
+import '../../../../../core/const/study_group.dart';
+import '../../../more/widgets/settings/setting_tile_widget.dart';
 
 class SelectGroupBottomSheet extends StatefulWidget {
   const SelectGroupBottomSheet({super.key, required this.selectedGroup});
@@ -40,22 +40,11 @@ class _SelectGroupBottomSheetState extends State<SelectGroupBottomSheet> {
             SizedBox(height: 10.h),
             Row(
               children: [
-                Text(
-                  '그룹 선택',
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
+                Text('그룹 선택'),
                 const Spacer(),
                 TextButton(
                   onPressed: () => Navigator.pop(context, selectedGroup),
-                  child: Text(
-                    '완료',
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                    ),
-                  ),
+                  child: Text('완료'),
                 ),
               ],
             ),
