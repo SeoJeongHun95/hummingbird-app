@@ -33,7 +33,7 @@ void main() async {
         Locale('th', 'TH'),
       ],
       path: 'lib/core/translations',
-      fallbackLocale: const Locale('en', 'US'),
+      fallbackLocale: const Locale('ko', 'KR'),
       startLocale: PlatformDispatcher.instance.locale,
       child: const ProviderScope(child: MyApp()),
     ),
