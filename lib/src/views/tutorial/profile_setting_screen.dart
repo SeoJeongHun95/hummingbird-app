@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 
 import '../../viewmodels/user_setting/user_setting_view_model.dart';
-import 'widgets/profile_container_widget.dart';
+import '../more/widgets/user_profile/profile_image_widget.dart';
+import 'widgets/profile/set_profile_widget.dart';
 
 class ProfileSettingScreen extends ConsumerWidget {
   const ProfileSettingScreen({super.key});
@@ -17,33 +19,22 @@ class ProfileSettingScreen extends ConsumerWidget {
       data: (userSetting) {
         return Scaffold(
           body: SafeArea(
-            child: Padding(
-              padding:
-                  EdgeInsets.only(top: bottomPadding, bottom: bottomPadding),
-              child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => FocusScope.of(context).unfocus(),
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(height: 32.w),
-                      ClipOval(
-                        child: Image.asset(
-                          'lib/core/imgs/images/StudyDuck.png',
-                          height: 150.w,
-                          width: 150.w,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      SizedBox(height: 40.w),
-                      ProfileContainerWidget(
-                        userSetting.nickname,
-                        userSetting.birthDate,
-                        userSettingViewModel,
-                      ),
-                    ],
-                  ),
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () => FocusScope.of(context).unfocus(),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Gap(32.w),
+                    ProfileImageWidget(radius: 88.w),
+                    Gap(40.w),
+                    SetProfileWidget(
+                      userSetting.nickname,
+                      userSetting.birthDate,
+                      userSettingViewModel,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -96,6 +87,4 @@ class ProfileSettingScreen extends ConsumerWidget {
       },
     );
   }
-
-  double get bottomPadding => 48.0;
 }
