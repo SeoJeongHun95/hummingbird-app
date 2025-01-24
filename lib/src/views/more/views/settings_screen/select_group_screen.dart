@@ -1,23 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/const/study_group.dart';
-import '../../../../../core/enum/mxnRate.dart';
-import '../../../../../core/widgets/mxnContainer.dart';
-import '../../../../viewmodels/study_setting/study_setting_view_model.dart';
-import '../../widgets/settings/setting_tile_widget.dart';
+import '../../widgets/settings/study_setting/select_group_container_widget.dart';
 
-class SelectGroupScreen extends ConsumerWidget {
+class SelectGroupScreen extends StatelessWidget {
   const SelectGroupScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final studySetting = ref.watch(studySettingViewModelProvider);
-    final studySettingViewModel =
-        ref.read(studySettingViewModelProvider.notifier);
-
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
@@ -36,40 +26,11 @@ class SelectGroupScreen extends ConsumerWidget {
         child: Center(
           child: Column(
             children: [
-              MxNcontainer(
-                MxN_rate: MxNRate.TWOBYTWO,
-                MxN_child: Container(
-                  color: Colors.white,
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 8.0, horizontal: 16.0),
-                  child: ListView.separated(
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        behavior: HitTestBehavior.opaque,
-                        onTap: () => studySettingViewModel.updateStudySetting(
-                            updatedGroup: groups[index]),
-                        child: SettingTileWidget(
-                          title: groups[index],
-                          trailing: studySetting.group == groups[index]
-                              ? Icon(
-                                  Icons.check,
-                                  size: 16.w,
-                                )
-                              : Text(''),
-                        ),
-                      );
-                    },
-                    separatorBuilder: (context, index) => const Divider(),
-                    itemCount: groups.length,
-                  ),
-                ),
-              ),
+              SelectGroupContainerWidget(),
             ],
           ),
         ),
       ),
     );
   }
-
-  List<String> get groups => StudyGroup.studyGroup[0]!;
 }

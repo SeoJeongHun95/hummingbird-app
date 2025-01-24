@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../viewmodels/user_setting/user_setting_view_model.dart';
-import '../../widgets/profile_and_btn_widget.dart';
+import '../../widgets/user_profile/edit_profile_widget.dart';
+import '../../widgets/user_profile/profile_image_widget.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
@@ -27,7 +29,7 @@ class ProfileScreen extends ConsumerWidget {
           ),
           body: SafeArea(
             child: Padding(
-              padding: EdgeInsets.only(bottom: bottomPadding),
+              padding: EdgeInsets.only(bottom: 48.0),
               child: GestureDetector(
                 behavior: HitTestBehavior.opaque,
                 onTap: () => FocusScope.of(context).unfocus(),
@@ -36,20 +38,14 @@ class ProfileScreen extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SizedBox(height: 32.w),
-                      ClipOval(
-                        child: Image.asset(
-                          'lib/core/imgs/images/StudyDuck.png',
-                          height: 150.w,
-                          width: 150.w,
-                          fit: BoxFit.cover,
-                        ),
+                      Gap(32.w),
+                      ProfileImageWidget(radius: 88.w),
+                      Gap(40.w),
+                      EditProfileWidget(
+                        nickName: userSetting.nickname,
+                        birthDate: userSetting.birthDate,
+                        userSettingViewModel: userSettingViewModel,
                       ),
-                      SizedBox(height: 40.w),
-                      ProfileAndBtnWidget(
-                          nickName: userSetting.nickname,
-                          birthDate: userSetting.birthDate,
-                          userSettingViewModel: userSettingViewModel)
                     ],
                   ),
                 ),
@@ -62,6 +58,4 @@ class ProfileScreen extends ConsumerWidget {
       loading: () => Center(child: CircularProgressIndicator()),
     );
   }
-
-  double get bottomPadding => 48.0;
 }

@@ -3,10 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/enum/mxnRate.dart';
-import '../../../../core/theme/colors/app_color.dart';
-import '../../../../core/widgets/mxnContainer.dart';
-import '../../../viewmodels/user_setting/user_setting_view_model.dart';
+import '../../../../../core/enum/mxnRate.dart';
+import '../../../../../core/theme/colors/app_color.dart';
+import '../../../../../core/widgets/mxnContainer.dart';
+import '../../../../viewmodels/user_setting/user_setting_view_model.dart';
+import 'profile_image_widget.dart';
 
 class UserProfileWidget extends ConsumerWidget {
   const UserProfileWidget({super.key});
@@ -26,11 +27,7 @@ class UserProfileWidget extends ConsumerWidget {
               children: [
                 Row(
                   children: [
-                    CircleAvatar(
-                      radius: 40.w,
-                      backgroundImage:
-                          AssetImage('lib/core/imgs/images/StudyDuck.png'),
-                    ),
+                    ProfileImageWidget(radius: 40.w),
                     SizedBox(
                       width: 40.w,
                     ),
