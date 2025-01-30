@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -52,14 +53,16 @@ class _StudySettingScreenState extends ConsumerState<StudySettingScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('목표 공부시간'),
+                      Text(tr('StudySettingScreen.goalDuration')),
                       SizedBox(height: 32.w),
                       GestureDetector(
                         behavior: HitTestBehavior.opaque,
                         onTap: () async {
                           final selectedDuration =
                               await showTimePickerBottomModal(
-                                  context, '시간 선택', goalDuration);
+                                  context,
+                                  tr('StudySettingScreen.timePickerTitle'),
+                                  goalDuration);
                           if (selectedDuration != null) {
                             setState(() {
                               goalDuration = selectedDuration.inSeconds;
@@ -76,7 +79,7 @@ class _StudySettingScreenState extends ConsumerState<StudySettingScreen> {
                       ),
                       divder,
                       SizedBox(height: 36.w),
-                      Text('그룹'),
+                      Text(tr('StudySettingScreen.group')),
                       SizedBox(height: 32.w),
                       GestureDetector(
                         behavior: HitTestBehavior.opaque,
@@ -104,7 +107,7 @@ class _StudySettingScreenState extends ConsumerState<StudySettingScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   PageTransitionButtonWidget(
-                    title: '이전',
+                    title: tr('StudySettingScreen.previous'),
                     backgroundColor: Colors.white,
                     foregroudColor: Theme.of(context).colorScheme.primary,
                     changePage: () {
@@ -112,7 +115,7 @@ class _StudySettingScreenState extends ConsumerState<StudySettingScreen> {
                     },
                   ),
                   PageTransitionButtonWidget(
-                    title: '완료',
+                    title: tr('StudySettingScreen.complete'),
                     backgroundColor: Theme.of(context).colorScheme.primary,
                     foregroudColor: Colors.white,
                     changePage: () async {
@@ -171,7 +174,7 @@ class _StudySettingScreenState extends ConsumerState<StudySettingScreen> {
                       child: TextButton(
                         onPressed: () => Navigator.pop(context, selected),
                         child: Text(
-                          '완료',
+                          tr('StudySettingScreen.done'),
                           style: TextStyle(
                             fontSize: 16.sp,
                           ),

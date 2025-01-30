@@ -1,10 +1,11 @@
-import 'package:StudyDuck/src/viewmodels/study_setting/study_setting_view_model.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
+import '../../../../../viewmodels/study_setting/study_setting_view_model.dart';
 import '../setting_tile_widget.dart';
 
 class SelectGoalDurationButtonWidget extends ConsumerWidget {
@@ -19,14 +20,16 @@ class SelectGoalDurationButtonWidget extends ConsumerWidget {
       behavior: HitTestBehavior.opaque,
       onTap: () async {
         final selectedDuration = await showTimePickerBottomModal(
-            context, '시간 선택', studySetting.goalDuration);
+            context,
+            tr('SelectGoalDurationButtonWidget.TimeSelection'),
+            studySetting.goalDuration);
         if (selectedDuration != null) {
           studySettingViewModel.updateStudySetting(
               updatedGoalDuration: selectedDuration.inSeconds);
         }
       },
       child: SettingTileWidget(
-        title: '목표 공부시간',
+        title: tr('SelectGoalDurationButtonWidget.GoalStudyTime'),
         selected: Text(
           formatDuration(studySetting.goalDuration),
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
@@ -68,7 +71,8 @@ class SelectGoalDurationButtonWidget extends ConsumerWidget {
                       padding: const EdgeInsets.only(right: 16.0),
                       child: TextButton(
                         onPressed: () => Navigator.pop(context, selected),
-                        child: Text('완료'),
+                        child:
+                            Text(tr('SelectGoalDurationButtonWidget.Complete')),
                       ),
                     ),
                   ],

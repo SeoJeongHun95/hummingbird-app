@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,13 +21,13 @@ class SelectLanguangeContainerWidget extends ConsumerWidget {
         child: Column(
           children: [
             SettingTileWidget(
-              title: '한국어',
+              title: tr('SelectLanguageContainerWidget.Korean'), // 로컬라이징된 텍스트
               trailing: Icon(Icons.check),
             ),
             const Divider(),
             Gap(36.w),
             Text(
-              '향후 추가할 계획입니다',
+              tr('SelectLanguageContainerWidget.FuturePlan'), // 로컬라이징된 텍스트
               style: TextStyle(
                 color: Colors.grey[700],
               ),

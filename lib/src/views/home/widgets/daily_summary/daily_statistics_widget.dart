@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -35,7 +36,7 @@ class DailyStatisticsWidget extends ConsumerWidget {
                   MxN_child: Container(
                     color: Colors.white,
                     child: Center(
-                      child: Text('오늘 기록된 데이터가 없습니다'),
+                      child: Text(tr("DailyStatistics.NoData")),
                     ),
                   ),
                 )
@@ -76,7 +77,7 @@ class DailyStatisticsWidget extends ConsumerWidget {
         );
       },
       error: (error, stackTrace) => Center(
-        child: Text('Error: $error'),
+        child: Text(tr("DailyStatistics.Error", args: [error.toString()])),
       ),
       loading: () => Center(
         child: const CircularProgressIndicator(),

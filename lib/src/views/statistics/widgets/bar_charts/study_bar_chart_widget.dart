@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,7 +29,7 @@ class StudyBarChartWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("과목별 공부시간"),
+              Text(tr("StudyBarChartWidget.subjectStudyTime")),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: SizedBox(

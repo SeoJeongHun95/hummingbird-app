@@ -1,7 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../core/enum/mxnRate.dart';
 import '../../../../core/widgets/mxnContainer.dart';
@@ -74,7 +74,7 @@ class _ProfileContainerWidgetState extends State<ProfileContainerWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('닉네임'),
+                    Text(tr('ProfileContainerWidget.nickname')),
                     SizedBox(height: 8.w),
                     TextField(
                       focusNode: _focusNode,
@@ -87,7 +87,7 @@ class _ProfileContainerWidgetState extends State<ProfileContainerWidget> {
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.grey),
                         ),
-                        hintText: "닉네임을 입력하세요",
+                        hintText: tr('ProfileContainerWidget.nicknameHint'),
                       ),
                       onChanged: (value) {
                         if (value.isEmpty) {
@@ -96,7 +96,7 @@ class _ProfileContainerWidgetState extends State<ProfileContainerWidget> {
                       },
                     ),
                     SizedBox(height: 24.w),
-                    Text('생년월일'),
+                    Text(tr('ProfileContainerWidget.birthDate')),
                     SizedBox(height: 8.w),
                     TextField(
                       controller: _birthDateController,
@@ -132,7 +132,7 @@ class _ProfileContainerWidgetState extends State<ProfileContainerWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 PageTransitionButtonWidget(
-                  title: '건너뛰기',
+                  title: tr('ProfileContainerWidget.skip'),
                   backgroundColor: Colors.white,
                   foregroudColor: Theme.of(context).colorScheme.primary,
                   changePage: () {
@@ -144,7 +144,7 @@ class _ProfileContainerWidgetState extends State<ProfileContainerWidget> {
                   },
                 ),
                 PageTransitionButtonWidget(
-                  title: '다음',
+                  title: tr('ProfileContainerWidget.next'),
                   backgroundColor: Theme.of(context).colorScheme.primary,
                   foregroudColor: Colors.white,
                   changePage: () => context.go('/tutorial/studySetting'),
@@ -170,7 +170,7 @@ class _ProfileContainerWidgetState extends State<ProfileContainerWidget> {
 
   String formatBirthDate(DateTime? date) {
     return date == null
-        ? '생년월일을 선택해 보세요'
+        ? tr('ProfileContainerWidget.selectBirthDate')
         : DateFormat('yyyy-MM-dd').format(date);
   }
 

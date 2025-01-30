@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,7 +21,7 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
         ),
-        title: Text('설정'),
+        title: Text(tr("SettingsScreen.Settings")),
         centerTitle: true,
       ),
       body: SafeArea(

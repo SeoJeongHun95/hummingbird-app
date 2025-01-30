@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
@@ -29,7 +30,7 @@ class StudyPieChartWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("과목별 비율"),
+              Text(tr("StudyPieChartWidget.subjectPercentage")),
               SizedBox(
                 width: constraints.maxWidth,
                 height: constraints.maxHeight * 0.7,

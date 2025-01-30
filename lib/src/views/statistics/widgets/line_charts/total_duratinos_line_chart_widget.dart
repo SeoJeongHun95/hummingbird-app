@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
@@ -23,7 +24,7 @@ class TotalDuratinosLineChartWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("하루 총 공부시간"),
+            Text(tr("TotalDuratinosLineChartWidget.totalStudyTime")),
             Expanded(
               child: TotalDurationsLineChart(
                 selectedPeriod: period,

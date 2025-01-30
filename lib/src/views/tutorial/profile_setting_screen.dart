@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -79,7 +80,7 @@ class ProfileSettingScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 30),
                 Text(
-                  "오늘도 최선을 다해서 Study Duck과 함께...",
+                  tr("ProfileSettingScreen.loadingText"),
                   style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,

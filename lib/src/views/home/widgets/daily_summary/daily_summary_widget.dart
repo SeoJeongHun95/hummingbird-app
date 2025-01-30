@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,7 +26,7 @@ class DailySummaryWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('금일 공부 요약'),
+            Text(tr("DailySummary.TodaySummary")),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -36,11 +37,11 @@ class DailySummaryWidget extends StatelessWidget {
                 Column(
                   children: [
                     getSummaryLabel(
-                      '금일 공부시간',
+                      tr("DailySummary.StudyTimeToday"),
                       getFormatTime(totalStudyDuration),
                     ),
                     getSummaryLabel(
-                      '목표 공부시간',
+                      tr("DailySummary.GoalStudyTime"),
                       getFormatTime(goalDuration),
                     ),
                   ],
@@ -57,7 +58,7 @@ class DailySummaryWidget extends StatelessWidget {
     return RichText(
       textAlign: TextAlign.start,
       text: TextSpan(
-        text: '$title\n',
+        text: "$title\n",
         style: TextStyle(
           color: Colors.grey[700],
         ),

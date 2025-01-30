@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../viewmodels/background_play_controller.dart';
@@ -25,8 +26,8 @@ class _WhiteNoiseScreenState extends State<WhiteNoiseScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: const Text(
-          'White Noise',
+        title: Text(
+          tr('WhiteNoiseScreen.whiteNoise'),
           style: TextStyle(
             color: Colors.black87,
             fontWeight: FontWeight.w600,
@@ -39,11 +40,10 @@ class _WhiteNoiseScreenState extends State<WhiteNoiseScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(
-                    left: 16, bottom: 8), // Reduced bottom padding
+              Padding(
+                padding: const EdgeInsets.only(left: 16, bottom: 8),
                 child: Text(
-                  'Choose Your White Noise',
+                  tr('WhiteNoiseScreen.chooseYourWhiteNoise'),
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -62,18 +62,16 @@ class _WhiteNoiseScreenState extends State<WhiteNoiseScreen> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      // soundControlButton(
-                      //     '카페소리', 'assets/cafe-noise-32940.mp3', 'cafe'),
+                      soundControlButton(tr('WhiteNoiseScreen.cafeNoise'),
+                          'lib/core/mp3/cafe-noise-32940.mp3', 'cafe'),
                       soundControlButton(
-                          '카페소리', 'lib/core/mp3/cafe-noise-32940.mp3', 'cafe'),
-                      soundControlButton(
-                          '비소리',
+                          tr('WhiteNoiseScreen.rainNoise'),
                           'lib/core/mp3/sound-of-falling-rain-145473.mp3',
                           'rain'),
-                      soundControlButton('바람소리',
+                      soundControlButton(tr('WhiteNoiseScreen.windNoise'),
                           'lib/core/mp3/wind__artic__cold-6195.mp3', 'wind'),
                       soundControlButton(
-                          '장작소리',
+                          tr('WhiteNoiseScreen.fireNoise'),
                           'lib/core/mp3/fireplace-with-crackling-sounds.mp3',
                           'fire'),
                     ],
@@ -214,7 +212,6 @@ class _WhiteNoiseScreenState extends State<WhiteNoiseScreen> {
     );
   }
 
-  //음량 컨트롤러
   Widget volumeController(String key) {
     return ValueListenableBuilder<double>(
       valueListenable: controllers[key]!.volumeNotifier,
@@ -260,8 +257,8 @@ class _WhiteNoiseScreenState extends State<WhiteNoiseScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Text(
-                      'Volume Control',
+                    Text(
+                      tr('WhiteNoiseScreen.volumeControl'),
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -281,8 +278,8 @@ class _WhiteNoiseScreenState extends State<WhiteNoiseScreen> {
                           vertical: 12,
                         ),
                       ),
-                      child: const Text(
-                        'Close',
+                      child: Text(
+                        tr('WhiteNoiseScreen.close'),
                         style: TextStyle(fontSize: 16),
                       ),
                     ),

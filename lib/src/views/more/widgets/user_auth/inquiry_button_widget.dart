@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,7 +21,7 @@ class InquiryButtonWidget extends StatelessWidget {
         size: leadingIconSize,
       ),
       title: Text(
-        '문의하기',
+        tr('InquiryButtonWidget.ContactUs'),
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w500,
             ),

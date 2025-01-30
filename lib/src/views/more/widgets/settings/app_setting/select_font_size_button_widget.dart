@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -18,9 +19,15 @@ class _SelectFontSizeWidgetState
   FontSize selectedFontSize = FontSize.MEDIUM;
 
   final List<ButtonSegment<FontSize>> _segments = [
-    ButtonSegment(value: FontSize.SMALL, label: Text('소')),
-    ButtonSegment(value: FontSize.MEDIUM, label: Text('중')),
-    ButtonSegment(value: FontSize.LARGE, label: Text('대')),
+    ButtonSegment(
+        value: FontSize.SMALL,
+        label: Text(tr('SelectFontSizeButtonWidget.Small'))),
+    ButtonSegment(
+        value: FontSize.MEDIUM,
+        label: Text(tr('SelectFontSizeButtonWidget.Medium'))),
+    ButtonSegment(
+        value: FontSize.LARGE,
+        label: Text(tr('SelectFontSizeButtonWidget.Large'))),
   ];
 
   @override
@@ -51,7 +58,7 @@ class _SelectFontSizeWidgetState
   @override
   Widget build(BuildContext context) {
     return SettingTileWithSegWidget<FontSize>(
-      title: '글자 크기',
+      title: tr("SelectFontSizeButtonWidget.FontSize"),
       selected: selectedFontSize,
       segments: _segments,
       selectButton: selectFontSize,
