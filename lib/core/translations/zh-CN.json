@@ -1,7 +1,207 @@
 {
-  "홈": "首页",
-  "소셜": "社交",
-  "타이머": "计时器",
-  "통계": "统计",
-  "더보기": "更多"
+  "NavigationBar": {
+    "Home": "首页",
+    "Social": "社交",
+    "Timer": "计时器",
+    "Statistics": "统计",
+    "More": "更多"
+  },
+  "Dialog": {
+    "Confirm": "确认",
+    "Cancel": "取消"
+  },
+  "HomeSegmentBar": {
+    "Timer": "计时器",
+    "Dday": "D天",
+    "Summary": "总结"
+  },
+  "Timer": {
+    "SelfStudy": "自学",
+    "Start": "开始",
+    "Pause": "暂停"
+  },
+  "TimerControlBar": {
+    "WhiteNoise": "白噪音",
+    "FocusMode": "专注模式"
+  },
+  "SubjectList": {
+    "Edit": "编辑",
+    "Delete": "删除",
+    "Confirm": "确认",
+    "Cancel": "取消",
+    "Subject": "学科",
+    "SubjectName": "学科名称",
+    "AddSubject": "添加学科",
+    "EditSubject": "编辑学科",
+    "SelfStudy": "自学",
+    "SelectColor": "选择颜色",
+    "DeleteSubjectPrompt": "您确定要删除这个学科吗？",
+    "CannotUndoWarning": "此操作无法撤销。",
+    "EnterSubjectName": "请输入学科名称"
+  },
+  "DDayListTile": {
+    "Edit": "编辑",
+    "Delete": "删除",
+    "Confirm": "确认",
+    "Cancel": "取消",
+    "GoalDate": "目标日期：",
+    "AreYouSure": "您确定要",
+    "DeleteConfirmationSuffix": "删除吗？",
+    "OfflineEditDeleteError": "离线时无法进行编辑或删除。",
+    "OfflineStatus": "您当前处于离线状态。"
+  },
+  "DDayDialog": {
+    "Edit": "编辑",
+    "Add": "添加",
+    "EnterGoalTitle": "请输入目标标题",
+    "GoalDate": "目标日期：",
+    "SelectDate": "选择日期",
+    "GoalTime": "目标时间：",
+    "SelectTime": "选择时间",
+    "Color": "颜色：",
+    "Cancel": "取消",
+    "Confirm": "确认"
+  },
+  "DailyStatistics": {
+    "NoData": "今天没有记录数据",
+    "Error": "获取数据时出错：{0}"
+  },
+  "DailySummary": {
+    "TodaySummary": "今天的学习总结",
+    "StudyTimeToday": "今天的学习时间",
+    "GoalStudyTime": "目标学习时间"
+  },
+  "getBrithDateText": {
+    "birthDate": "出生日期",
+    "birthDateHint": "请注册您的出生日期"
+  },
+  "SelectCountryScreen": {
+    "Country": "国家"
+  },
+  "SelectGroupScreen": {
+    "Group": "小组"
+  },
+  "SelectLanguageScreen": {
+    "Language": "语言"
+  },
+  "SettingsScreen": {
+    "Settings": "设置"
+  },
+  "PrivacyPolicyWidget": {
+    "PrivacyPolicy": "隐私政策",
+    "URLCannotBeOpened": "无法打开此网址",
+    "URLFailedToOpen": "打开网址失败",
+    "URLLaunchError": "发生错误"
+  },
+  "NotificationButton": {
+    "Alarm": "闹钟"
+  },
+  "SettingButton": {
+    "Setting": "设置"
+  },
+  "SelectFontSizeButtonWidget": {
+    "FontSize": "字体大小",
+    "Small": "小",
+    "Medium": "中",
+    "Large": "大"
+  },
+  "SelectLanguageButtonWidget": {
+    "Language": "语言",
+    "Korean": "韩语"
+  },
+  "SelectLanguageContainerWidget": {
+    "Korean": "韩语",
+    "FuturePlan": "未来更新计划"
+  },
+  "SelectThemeButtonWidget": {
+    "ThemeColor": "主题颜色",
+    "FuturePlan": "未来更新计划"
+  },
+  "SelectCountryButtonWidget": {
+    "Country": "国家",
+    "SouthKorea": "韩国"
+  },
+  "SelectCountryContainerWidget": {
+    "SouthKorea": "韩国",
+    "FuturePlan": "未来更新计划"
+  },
+  "SelectGoalDurationButtonWidget": {
+    "TimeSelection": "时间选择",
+    "GoalStudyTime": "目标学习时间",
+    "Complete": "完成"
+  },
+  "SelectGroupButtonWidget": {
+    "Group": "小组",
+    "SelectGroupPrompt": "请选择小组"
+  },
+  "InquiryButtonWidget": {
+    "ContactUs": "联系我们"
+  },
+  "LogoutButtonWidget": {
+    "Logout": "注销"
+  },
+  "ProfileInfoWidget": {
+    "nickName": "昵称",
+    "nickNameHint": "请输入您的昵称",
+    "birthDate": "出生日期"
+  },
+  "SocialScreen": "社交屏幕",
+  "SplashScreen": {
+    "message": "今天与Study Duck一起加油吧..."
+  },
+  "MonthlyStatisticsScreen": {
+    "noData": "没有记录的数据"
+  },
+  "WeeklyStatisticsScreen": {
+    "noData": "没有记录的数据"
+  },
+  "StudyBarChartWidget": {
+    "subjectStudyTime": "学科学习时间"
+  },
+  "TotalDuratinosLineChartWidget": {
+    "totalStudyTime": "今天的总学习时间"
+  },
+  "StudyPieChartWidget": {
+    "subjectPercentage": "学科占比"
+  },
+  "ProfileSettingScreen": {
+    "loadingText": "今天与Study Duck一起加油吧..."
+  },
+  "StudySettingScreen": {
+    "goalDuration": "目标学习时间",
+    "timePickerTitle": "时间选择",
+    "group": "小组",
+    "previous": "上一步",
+    "complete": "完成",
+    "done": "完成"
+  },
+  "ProfileContainerWidget": {
+    "nickname": "昵称",
+    "nicknameHint": "请输入您的昵称",
+    "birthDate": "出生日期",
+    "skip": "跳过",
+    "next": "下一步",
+    "selectBirthDate": "请选择您的出生日期"
+  },
+  "SelectGroupBottomSheet": {
+    "selectGroup": "选择小组",
+    "complete": "完成"
+  },
+  "WhiteNoiseScreen": {
+    "whiteNoise": "白噪音",
+    "chooseYourWhiteNoise": "选择您的白噪音",
+    "cafeNoise": "咖啡噪音",
+    "rainNoise": "雨声噪音",
+    "windNoise": "风声噪音",
+    "fireNoise": "火炉噪音",
+    "volumeControl": "音量控制",
+    "close": "关闭"
+  },
+  "StatisticsScreen": {
+    "weekly": "每周",
+    "monthly": "每月"
+  },
+  "UserProfileWidget": {
+    "profileEdit": "编辑个人资料"
+  }
 }

@@ -1,7 +1,207 @@
 {
-  "홈": "โฮม",
-  "소셜": "โซเชียล",
-  "타이머": "ไทม์เมอร์",
-  "통계": "สถิติ",
-  "더보기": "ดูเพิ่มเติม"
+  "NavigationBar": {
+    "Home": "หน้าหลัก",
+    "Social": "โซเชียล",
+    "Timer": "ตัวจับเวลา",
+    "Statistics": "สถิติ",
+    "More": "เพิ่มเติม"
+  },
+  "Dialog": {
+    "Confirm": "ยืนยัน",
+    "Cancel": "ยกเลิก"
+  },
+  "HomeSegmentBar": {
+    "Timer": "ตัวจับเวลา",
+    "Dday": "ดีเดย์",
+    "Summary": "สรุป"
+  },
+  "Timer": {
+    "SelfStudy": "การศึกษาด้วยตัวเอง",
+    "Start": "เริ่มต้น",
+    "Pause": "หยุดชั่วคราว"
+  },
+  "TimerControlBar": {
+    "WhiteNoise": "เสียงรบกวนขาว",
+    "FocusMode": "โหมดการมุ่งเน้น"
+  },
+  "SubjectList": {
+    "Edit": "แก้ไข",
+    "Delete": "ลบ",
+    "Confirm": "ยืนยัน",
+    "Cancel": "ยกเลิก",
+    "Subject": "วิชา",
+    "SubjectName": "ชื่อวิชา",
+    "AddSubject": "เพิ่มวิชา",
+    "EditSubject": "แก้ไขวิชา",
+    "SelfStudy": "การศึกษาด้วยตัวเอง",
+    "SelectColor": "เลือกสี",
+    "DeleteSubjectPrompt": "คุณต้องการลบวิชานี้หรือไม่?",
+    "CannotUndoWarning": "การกระทำนี้ไม่สามารถกู้คืนได้",
+    "EnterSubjectName": "กรุณากรอกชื่อวิชา"
+  },
+  "DDayListTile": {
+    "Edit": "แก้ไข",
+    "Delete": "ลบ",
+    "Confirm": "ยืนยัน",
+    "Cancel": "ยกเลิก",
+    "GoalDate": "วันที่เป้าหมาย:",
+    "AreYouSure": "คุณแน่ใจหรือไม่ว่า",
+    "DeleteConfirmationSuffix": "จะลบออก?",
+    "OfflineEditDeleteError": "ไม่สามารถแก้ไขหรือลบได้ในโหมดออฟไลน์",
+    "OfflineStatus": "คุณอยู่ในสถานะออฟไลน์"
+  },
+  "DDayDialog": {
+    "Edit": "แก้ไข",
+    "Add": "เพิ่ม",
+    "EnterGoalTitle": "กรุณากรอกชื่อเป้าหมาย",
+    "GoalDate": "วันที่เป้าหมาย:",
+    "SelectDate": "เลือกวันที่",
+    "GoalTime": "เวลาที่ตั้งเป้าหมาย:",
+    "SelectTime": "เลือกเวลา",
+    "Color": "สี:",
+    "Cancel": "ยกเลิก",
+    "Confirm": "ยืนยัน"
+  },
+  "DailyStatistics": {
+    "NoData": "วันนี้ไม่มีข้อมูลการบันทึก",
+    "Error": "เกิดข้อผิดพลาดขณะโหลดข้อมูล: {0}"
+  },
+  "DailySummary": {
+    "TodaySummary": "สรุปการเรียนวันนี้",
+    "StudyTimeToday": "เวลาการเรียนวันนี้",
+    "GoalStudyTime": "เวลาเรียนที่ตั้งเป้าหมาย"
+  },
+  "getBrithDateText": {
+    "birthDate": "วันเกิด",
+    "birthDateHint": "กรุณาลงทะเบียนวันเกิด"
+  },
+  "SelectCountryScreen": {
+    "Country": "ประเทศ"
+  },
+  "SelectGroupScreen": {
+    "Group": "กลุ่ม"
+  },
+  "SelectLanguageScreen": {
+    "Language": "ภาษา"
+  },
+  "SettingsScreen": {
+    "Settings": "การตั้งค่า"
+  },
+  "PrivacyPolicyWidget": {
+    "PrivacyPolicy": "นโยบายความเป็นส่วนตัว",
+    "URLCannotBeOpened": "ไม่สามารถเปิด URL นี้ได้",
+    "URLFailedToOpen": "ไม่สามารถเปิด URL",
+    "URLLaunchError": "เกิดข้อผิดพลาด"
+  },
+  "NotificationButton": {
+    "Alarm": "ปลุก"
+  },
+  "SettingButton": {
+    "Setting": "การตั้งค่า"
+  },
+  "SelectFontSizeButtonWidget": {
+    "FontSize": "ขนาดตัวอักษร",
+    "Small": "เล็ก",
+    "Medium": "กลาง",
+    "Large": "ใหญ่"
+  },
+  "SelectLanguageButtonWidget": {
+    "Language": "ภาษา",
+    "Korean": "เกาหลี"
+  },
+  "SelectLanguageContainerWidget": {
+    "Korean": "เกาหลี",
+    "FuturePlan": "แผนการเพิ่มในอนาคต"
+  },
+  "SelectThemeButtonWidget": {
+    "ThemeColor": "สีธีม",
+    "FuturePlan": "แผนการเพิ่มในอนาคต"
+  },
+  "SelectCountryButtonWidget": {
+    "Country": "ประเทศ",
+    "SouthKorea": "เกาหลีใต้"
+  },
+  "SelectCountryContainerWidget": {
+    "SouthKorea": "เกาหลีใต้",
+    "FuturePlan": "แผนการเพิ่มในอนาคต"
+  },
+  "SelectGoalDurationButtonWidget": {
+    "TimeSelection": "เลือกเวลา",
+    "GoalStudyTime": "เวลาเรียนที่ตั้งเป้าหมาย",
+    "Complete": "เสร็จสิ้น"
+  },
+  "SelectGroupButtonWidget": {
+    "Group": "กลุ่ม",
+    "SelectGroupPrompt": "กรุณาเลือกกลุ่ม"
+  },
+  "InquiryButtonWidget": {
+    "ContactUs": "ติดต่อเรา"
+  },
+  "LogoutButtonWidget": {
+    "Logout": "ออกจากระบบ"
+  },
+  "ProfileInfoWidget": {
+    "nickName": "ชื่อเล่น",
+    "nickNameHint": "กรุณากรอกชื่อเล่นของคุณ",
+    "birthDate": "วันเกิด"
+  },
+  "SocialScreen": "หน้าจอของโซเชียล",
+  "SplashScreen": {
+    "message": "วันนี้ก็ทำให้ดีที่สุดกับ Study Duck..."
+  },
+  "MonthlyStatisticsScreen": {
+    "noData": "ไม่มีข้อมูลการบันทึก"
+  },
+  "WeeklyStatisticsScreen": {
+    "noData": "ไม่มีข้อมูลการบันทึก"
+  },
+  "StudyBarChartWidget": {
+    "subjectStudyTime": "เวลาการเรียนแต่ละวิชา"
+  },
+  "TotalDuratinosLineChartWidget": {
+    "totalStudyTime": "เวลาการเรียนรวมทั้งวัน"
+  },
+  "StudyPieChartWidget": {
+    "subjectPercentage": "เปอร์เซ็นต์ของวิชาต่างๆ"
+  },
+  "ProfileSettingScreen": {
+    "loadingText": "วันนี้ก็ทำให้ดีที่สุดกับ Study Duck..."
+  },
+  "StudySettingScreen": {
+    "goalDuration": "เวลาเรียนที่ตั้งเป้าหมาย",
+    "timePickerTitle": "เลือกเวลา",
+    "group": "กลุ่ม",
+    "previous": "ก่อนหน้า",
+    "complete": "เสร็จสิ้น",
+    "done": "เสร็จสิ้น"
+  },
+  "ProfileContainerWidget": {
+    "nickname": "ชื่อเล่น",
+    "nicknameHint": "กรุณากรอกชื่อเล่นของคุณ",
+    "birthDate": "วันเกิด",
+    "skip": "ข้าม",
+    "next": "ถัดไป",
+    "selectBirthDate": "กรุณาเลือกวันเกิด"
+  },
+  "SelectGroupBottomSheet": {
+    "selectGroup": "เลือกกลุ่ม",
+    "complete": "เสร็จสิ้น"
+  },
+  "WhiteNoiseScreen": {
+    "whiteNoise": "เสียงรบกวนขาว",
+    "chooseYourWhiteNoise": "เลือกเสียงรบกวนขาวที่คุณชื่นชอบ",
+    "cafeNoise": "เสียงคาเฟ่",
+    "rainNoise": "เสียงฝน",
+    "windNoise": "เสียงลม",
+    "fireNoise": "เสียงไฟ",
+    "volumeControl": "ปรับระดับเสียง",
+    "close": "ปิด"
+  },
+  "StatisticsScreen": {
+    "weekly": "รายสัปดาห์",
+    "monthly": "รายเดือน"
+  },
+  "UserProfileWidget": {
+    "profileEdit": "แก้ไขโปรไฟล์"
+  }
 }
