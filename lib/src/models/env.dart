@@ -10,4 +10,7 @@ abstract class Env {
 
   @EnviedField(varName: 'SERVER_BASE_URL', obfuscate: true)
   static String serverBaseUrl = _Env.serverBaseUrl;
+
+  @EnviedField(varName: 'AppStoreAPI_KEY', obfuscate: true)
+  static final String appStoreApiKey = _Env.appStoreApiKey;
 }
