@@ -25,7 +25,7 @@ class DioInterceptor extends Interceptor {
   void onError(DioException err, ErrorInterceptorHandler handler) {
     //   TODO: Update Global error handling
     print(err);
-    showSnackBar(message: err.message ?? '로그 확인 필요');
+    showSnackBar(message: 'Unexpected error occurred. Please try again later.');
   }
 
   @override
