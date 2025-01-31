@@ -98,7 +98,8 @@ class SubjectListWidget extends ConsumerWidget {
                           return ListTile(
                             leading: GestureDetector(
                               onTap: () => suduckTimerNotifier.startTimer(
-                                  subject: subject),
+                                subject: subject,
+                              ),
                               child: CircleAvatar(
                                 backgroundColor:
                                     Color(int.parse('0xff${subject.color}')),
