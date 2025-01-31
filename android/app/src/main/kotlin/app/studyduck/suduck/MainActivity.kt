@@ -1,4 +1,4 @@
-package com.example.hummingbird
+package app.studyduck.suduck
 
 import io.flutter.embedding.android.FlutterActivity
 
