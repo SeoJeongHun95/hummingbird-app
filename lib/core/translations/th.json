@@ -39,6 +39,10 @@
     "CannotUndoWarning": "การกระทำนี้ไม่สามารถกู้คืนได้",
     "EnterSubjectName": "กรุณากรอกชื่อวิชา"
   },
+  "SummaryWidget": {
+    "totalStudyTime": "เวลาศึกษารวม",
+    "averageStudyTime": "เวลาเรียนเฉลี่ย"
+  },
   "DDayListTile": {
     "Edit": "แก้ไข",
     "Delete": "ลบ",

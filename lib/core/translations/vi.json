@@ -39,6 +39,10 @@
     "CannotUndoWarning": "Hành động này không thể phục hồi.",
     "EnterSubjectName": "Vui lòng nhập tên môn học"
   },
+  "SummaryWidget": {
+    "totalStudyTime": "Tổng thời gian học",
+    "averageStudyTime": "Thời gian học trung bình"
+  },
   "DDayListTile": {
     "Edit": "Chỉnh sửa",
     "Delete": "Xóa",

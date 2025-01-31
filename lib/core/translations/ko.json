@@ -39,6 +39,10 @@
     "CannotUndoWarning": "해당 작업은 복구할 수 없습니다.",
     "EnterSubjectName": "과목이름을 입력해주세요"
   },
+  "SummaryWidget": {
+    "totalStudyTime": "총 공부시간",
+    "averageStudyTime": "평균 공부시간"
+  },
   "DDayListTile": {
     "Edit": "편집",
     "Delete": "제거",
