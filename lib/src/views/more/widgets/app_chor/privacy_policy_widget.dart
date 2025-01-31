@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -14,9 +15,9 @@ class PrivacyPolicyWidget extends StatelessWidget {
       if (!canLaunchResult) {
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('이 URL을 실행할 수 없습니다'),
-              duration: Duration(seconds: 2),
+            SnackBar(
+              content: Text(tr("PrivacyPolicyWidget.URLCannotBeOpened")),
+              duration: const Duration(seconds: 2),
             ),
           );
         }
@@ -31,7 +32,8 @@ class PrivacyPolicyWidget extends StatelessWidget {
       if (!launched && context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('URL을 열 수 없습니다: ${url.toString()}'),
+            content: Text(tr("PrivacyPolicyWidget.URLFailedToOpen",
+                args: [url.toString()])),
             duration: const Duration(seconds: 2),
           ),
         );
@@ -40,7 +42,8 @@ class PrivacyPolicyWidget extends StatelessWidget {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('오류가 발생했습니다: ${e.toString()}'),
+            content: Text(
+                tr("PrivacyPolicyWidget.URLLaunchError", args: [e.toString()])),
             duration: const Duration(seconds: 2),
           ),
         );
@@ -63,7 +66,7 @@ class PrivacyPolicyWidget extends StatelessWidget {
         size: leadingIconSize,
       ),
       title: Text(
-        '개인정보 처리방침',
+        tr("PrivacyPolicyWidget.PrivacyPolicy"),
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w500,
             ),

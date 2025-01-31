@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -46,7 +47,7 @@ class MonthlyStatisticsScreen extends ConsumerWidget {
                   MxN_child: Container(
                     color: Colors.white,
                     child: Center(
-                      child: Text('기록된 데이터가 없습니다'),
+                      child: Text(tr("MonthlyStatisticsScreen.noData")),
                     ),
                   ),
                 )

@@ -1,7 +1,207 @@
 {
-  "홈": "ホーム",
-  "소셜": "ソーシャル",
-  "타이머": "タイマー",
-  "통계": "統計",
-  "더보기": "もっと見る"
+  "NavigationBar": {
+    "Home": "ホーム",
+    "Social": "ソーシャル",
+    "Timer": "タイマー",
+    "Statistics": "統計",
+    "More": "もっと"
+  },
+  "Dialog": {
+    "Confirm": "確認",
+    "Cancel": "キャンセル"
+  },
+  "HomeSegmentBar": {
+    "Timer": "タイマー",
+    "Dday": "Dデイ",
+    "Summary": "要約"
+  },
+  "Timer": {
+    "SelfStudy": "自主学習",
+    "Start": "スタート",
+    "Pause": "一時停止"
+  },
+  "TimerControlBar": {
+    "WhiteNoise": "ホワイトノイズ",
+    "FocusMode": "集中モード"
+  },
+  "SubjectList": {
+    "Edit": "編集",
+    "Delete": "削除",
+    "Confirm": "確認",
+    "Cancel": "キャンセル",
+    "Subject": "科目",
+    "SubjectName": "科目名",
+    "AddSubject": "科目を追加",
+    "EditSubject": "科目を編集",
+    "SelfStudy": "自主学習",
+    "SelectColor": "色を選択",
+    "DeleteSubjectPrompt": "この科目を削除しますか？",
+    "CannotUndoWarning": "この操作は元に戻せません。",
+    "EnterSubjectName": "科目名を入力してください"
+  },
+  "DDayListTile": {
+    "Edit": "編集",
+    "Delete": "削除",
+    "Confirm": "確認",
+    "Cancel": "キャンセル",
+    "GoalDate": "目標日:",
+    "AreYouSure": "本当に",
+    "DeleteConfirmationSuffix": "を削除しますか？",
+    "OfflineEditDeleteError": "オフラインでは編集や削除はできません。",
+    "OfflineStatus": "オフラインです"
+  },
+  "DDayDialog": {
+    "Edit": "編集",
+    "Add": "追加",
+    "EnterGoalTitle": "目標タイトルを入力",
+    "GoalDate": "目標日:",
+    "SelectDate": "日付を選択",
+    "GoalTime": "目標時間:",
+    "SelectTime": "時間を選択",
+    "Color": "色:",
+    "Cancel": "キャンセル",
+    "Confirm": "確認"
+  },
+  "DailyStatistics": {
+    "NoData": "今日のデータは記録されていません",
+    "Error": "データの取得中にエラーが発生しました: {0}"
+  },
+  "DailySummary": {
+    "TodaySummary": "今日の学習サマリー",
+    "StudyTimeToday": "今日の学習時間",
+    "GoalStudyTime": "目標学習時間"
+  },
+  "getBrithDateText": {
+    "birthDate": "生年月日",
+    "birthDateHint": "生年月日を登録してください"
+  },
+  "SelectCountryScreen": {
+    "Country": "国"
+  },
+  "SelectGroupScreen": {
+    "Group": "グループ"
+  },
+  "SelectLanguageScreen": {
+    "Language": "言語"
+  },
+  "SettingsScreen": {
+    "Settings": "設定"
+  },
+  "PrivacyPolicyWidget": {
+    "PrivacyPolicy": "プライバシーポリシー",
+    "URLCannotBeOpened": "このURLは開けません",
+    "URLFailedToOpen": "URLのオープンに失敗しました",
+    "URLLaunchError": "エラーが発生しました"
+  },
+  "NotificationButton": {
+    "Alarm": "アラーム"
+  },
+  "SettingButton": {
+    "Setting": "設定"
+  },
+  "SelectFontSizeButtonWidget": {
+    "FontSize": "フォントサイズ",
+    "Small": "小",
+    "Medium": "中",
+    "Large": "大"
+  },
+  "SelectLanguageButtonWidget": {
+    "Language": "言語",
+    "Korean": "韓国語"
+  },
+  "SelectLanguageContainerWidget": {
+    "Korean": "韓国語",
+    "FuturePlan": "今後追加予定"
+  },
+  "SelectThemeButtonWidget": {
+    "ThemeColor": "テーマカラー",
+    "FuturePlan": "今後追加予定"
+  },
+  "SelectCountryButtonWidget": {
+    "Country": "国",
+    "SouthKorea": "韓国"
+  },
+  "SelectCountryContainerWidget": {
+    "SouthKorea": "韓国",
+    "FuturePlan": "今後追加予定"
+  },
+  "SelectGoalDurationButtonWidget": {
+    "TimeSelection": "時間選択",
+    "GoalStudyTime": "目標学習時間",
+    "Complete": "完了"
+  },
+  "SelectGroupButtonWidget": {
+    "Group": "グループ",
+    "SelectGroupPrompt": "グループを選択してください"
+  },
+  "InquiryButtonWidget": {
+    "ContactUs": "お問い合わせ"
+  },
+  "LogoutButtonWidget": {
+    "Logout": "ログアウト"
+  },
+  "ProfileInfoWidget": {
+    "nickName": "ニックネーム",
+    "nickNameHint": "ニックネームを入力してください",
+    "birthDate": "生年月日"
+  },
+  "SocialScreen": "ソーシャル画面",
+  "SplashScreen": {
+    "message": "Study Duckと共に今日も最善を尽くして..."
+  },
+  "MonthlyStatisticsScreen": {
+    "noData": "記録されたデータはありません"
+  },
+  "WeeklyStatisticsScreen": {
+    "noData": "記録されたデータはありません"
+  },
+  "StudyBarChartWidget": {
+    "subjectStudyTime": "科目別学習時間"
+  },
+  "TotalDuratinosLineChartWidget": {
+    "totalStudyTime": "今日の学習時間"
+  },
+  "StudyPieChartWidget": {
+    "subjectPercentage": "科目別割合"
+  },
+  "ProfileSettingScreen": {
+    "loadingText": "Study Duckと共に今日も最善を尽くして..."
+  },
+  "StudySettingScreen": {
+    "goalDuration": "目標学習時間",
+    "timePickerTitle": "時間選択",
+    "group": "グループ",
+    "previous": "前へ",
+    "complete": "完了",
+    "done": "完了"
+  },
+  "ProfileContainerWidget": {
+    "nickname": "ニックネーム",
+    "nicknameHint": "ニックネームを入力してください",
+    "birthDate": "生年月日",
+    "skip": "スキップ",
+    "next": "次へ",
+    "selectBirthDate": "生年月日を選択してください"
+  },
+  "SelectGroupBottomSheet": {
+    "selectGroup": "グループを選択",
+    "complete": "完了"
+  },
+  "WhiteNoiseScreen": {
+    "whiteNoise": "ホワイトノイズ",
+    "chooseYourWhiteNoise": "お好きなホワイトノイズを選択",
+    "cafeNoise": "カフェノイズ",
+    "rainNoise": "雨音",
+    "windNoise": "風音",
+    "fireNoise": "火の音",
+    "volumeControl": "音量調整",
+    "close": "閉じる"
+  },
+  "StatisticsScreen": {
+    "weekly": "週間",
+    "monthly": "月間"
+  },
+  "UserProfileWidget": {
+    "profileEdit": "プロフィール編集"
+  }
 }

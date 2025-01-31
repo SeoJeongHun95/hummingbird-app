@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class NotificationButton extends StatelessWidget {
@@ -11,7 +12,7 @@ class NotificationButton extends StatelessWidget {
       visualDensity: VisualDensity(vertical: -4),
       leading: Icon(Icons.notifications_outlined),
       title: Text(
-        '알람',
+        tr("NotificationButton.Alarm"),
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w500,
             ),

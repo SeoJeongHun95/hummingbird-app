@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,7 +37,8 @@ class UserProfileWidget extends ConsumerWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('닉네임: ${userSetting.nickname}'),
+                          Text(tr(
+                              "ProfileInfoWidget.nickName: ${userSetting.nickname}")),
                           SizedBox(height: 12.w),
                           getBrithDateText(userSetting.birthDate),
                         ],
@@ -58,7 +60,7 @@ class UserProfileWidget extends ConsumerWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
-                    child: Text('프로필 편집'),
+                    child: Text(tr("ProfileInfoWidget.nickNameHint")),
                   ),
                 ),
               ],
@@ -101,7 +103,7 @@ class UserProfileWidget extends ConsumerWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: Text('프로필 편집'),
+                  child: Text(tr("ProfileInfoWidget.nickNameHint")),
                 ),
               ),
             ],
@@ -117,13 +119,13 @@ class UserProfileWidget extends ConsumerWidget {
   Widget getBrithDateText(String? birthDate) {
     return RichText(
       text: TextSpan(
-        text: '생년월일: ',
+        text: tr("ProfileInfoWidget.birthDate"),
         style: TextStyle(
           color: Colors.black,
         ),
         children: [
           TextSpan(
-            text: birthDate ?? '생년월일을 등록해 보세요',
+            text: birthDate ?? tr("ProfileInfoWidget.nickNameHint"),
             style: TextStyle(
               color: birthDate == null ? Colors.grey : Colors.black,
             ),

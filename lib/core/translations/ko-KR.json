@@ -61,5 +61,147 @@
     "Color": "색상:",
     "Cancel": "취소",
     "Confirm": "확인"
+  },
+  "DailyStatistics": {
+    "NoData": "오늘 기록된 데이터가 없습니다",
+    "Error": "데이터를 불러오는 중 오류 발생: {0}"
+  },
+  "DailySummary": {
+    "TodaySummary": "금일 공부 요약",
+    "StudyTimeToday": "금일 공부시간",
+    "GoalStudyTime": "목표 공부시간"
+  },
+  "getBrithDateText": {
+    "birthDate": "생년월일",
+    "birthDateHint": "생년월일을 등록해 보세요"
+  },
+  "SelectCountryScreen": {
+    "Country": "국가"
+  },
+  "SelectGroupScreen": {
+    "Group": "그룹"
+  },
+  "SelectLanguageScreen": {
+    "Language": "언어"
+  },
+  "SettingsScreen": {
+    "Settings": "설정"
+  },
+  "PrivacyPolicyWidget": {
+    "PrivacyPolicy": "개인정보 처리방침",
+    "URLCannotBeOpened": "이 URL을 실행할 수 없습니다",
+    "URLFailedToOpen": "URL을 열 수 없습니다",
+    "URLLaunchError": "오류가 발생했습니다"
+  },
+  "NotificationButton": {
+    "Alarm": "알람"
+  },
+  "SettingButton": {
+    "Setting": "설정"
+  },
+  "SelectFontSizeButtonWidget": {
+    "FontSize": "글자 크기",
+    "Small": "소",
+    "Medium": "중",
+    "Large": "대"
+  },
+  "SelectLanguageButtonWidget": {
+    "Language": "언어",
+    "Korean": "한국어"
+  },
+  "SelectLanguageContainerWidget": {
+    "Korean": "한국어",
+    "FuturePlan": "향후 추가할 계획입니다"
+  },
+  "SelectThemeButtonWidget": {
+    "ThemeColor": "테마 색상",
+    "FuturePlan": "향후 추가할 계획입니다"
+  },
+  "SelectCountryButtonWidget": {
+    "Country": "국가",
+    "SouthKorea": "대한민국"
+  },
+  "SelectCountryContainerWidget": {
+    "SouthKorea": "대한민국",
+    "FuturePlan": "향후 추가할 계획입니다"
+  },
+  "SelectGoalDurationButtonWidget": {
+    "TimeSelection": "시간 선택",
+    "GoalStudyTime": "목표 공부시간",
+    "Complete": "완료"
+  },
+  "SelectGroupButtonWidget": {
+    "Group": "그룹",
+    "SelectGroupPrompt": "그룹을 선택하세요"
+  },
+  "InquiryButtonWidget": {
+    "ContactUs": "문의하기"
+  },
+  "LogoutButtonWidget": {
+    "Logout": "로그아웃"
+  },
+  "ProfileInfoWidget": {
+    "nickName": "닉네임",
+    "nickNameHint": "닉네임을 입력하세요",
+    "birthDate": "생년월일"
+  },
+  "SocialScreen": "소셜 화면",
+  "SplashScreen": {
+    "message": "오늘도 최선을 다해서 Study Duck과 함께..."
+  },
+  "MonthlyStatisticsScreen": {
+    "noData": "기록된 데이터가 없습니다"
+  },
+  "WeeklyStatisticsScreen": {
+    "noData": "기록된 데이터가 없습니다"
+  },
+  "StudyBarChartWidget": {
+    "subjectStudyTime": "과목별 공부시간"
+  },
+  "TotalDuratinosLineChartWidget": {
+    "totalStudyTime": "하루 총 공부시간"
+  },
+  "StudyPieChartWidget": {
+    "subjectPercentage": "과목별 비율"
+  },
+  "ProfileSettingScreen": {
+    "loadingText": "오늘도 최선을 다해서 Study Duck과 함께..."
+  },
+  "StudySettingScreen": {
+    "goalDuration": "목표 공부시간",
+    "timePickerTitle": "시간 선택",
+    "group": "그룹",
+    "previous": "이전",
+    "complete": "완료",
+    "done": "완료"
+  },
+  "ProfileContainerWidget": {
+    "nickname": "닉네임",
+    "nicknameHint": "닉네임을 입력하세요",
+    "birthDate": "생년월일",
+    "skip": "건너뛰기",
+    "next": "다음",
+    "selectBirthDate": "생년월일을 선택해 보세요"
+  },
+  "SelectGroupBottomSheet": {
+    "selectGroup": "그룹 선택",
+    "complete": "완료"
+  },
+  "WhiteNoiseScreen": {
+    "whiteNoise": "화이트 노이즈",
+    "chooseYourWhiteNoise": "원하는 화이트 노이즈를 선택하세요",
+    "cafeNoise": "카페소리",
+    "rainNoise": "비소리",
+    "windNoise": "바람소리",
+    "fireNoise": "장작소리",
+    "volumeControl": "음량 조절",
+    "close": "닫기"
+  },
+  "StatisticsScreen": {
+    "weekly": "주간",
+    "monthly": "월간"
+  },
+  "UserProfileWidget": {
+    "profileEdit": "프로필 편집"
   }
 }

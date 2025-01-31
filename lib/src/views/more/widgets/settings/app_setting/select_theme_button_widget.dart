@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -9,9 +10,9 @@ class SelectThemeButtonWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return SettingTileWidget(
-      title: '테마 색상',
+      title: tr('SelectThemeButtonWidget.ThemeColor'),
       selected: Text(
-        '향후 추가할 계획입니다',
+        tr('SelectThemeButtonWidget.FuturePlan'),
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: Colors.grey[700],
             ),

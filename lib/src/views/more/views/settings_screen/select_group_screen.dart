@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,7 +18,7 @@ class SelectGroupScreen extends StatelessWidget {
             icon: Icon(Icons.arrow_back_ios),
           ),
         ),
-        title: Text('그룹'),
+        title: Text(tr("SelectGroupScreen.Group")),
         centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.surface,
         scrolledUnderElevation: 0,

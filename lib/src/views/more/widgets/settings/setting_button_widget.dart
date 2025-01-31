@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,7 +16,7 @@ class SettingButtonWidget extends StatelessWidget {
       },
       leading: Icon(Icons.settings_outlined),
       title: Text(
-        '설정',
+        tr("SettingButton.Setting"),
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w500,
             ),

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -40,11 +41,15 @@ class _SelectGroupBottomSheetState extends State<SelectGroupBottomSheet> {
             SizedBox(height: 10.h),
             Row(
               children: [
-                Text('그룹 선택'),
+                Text(
+                  tr('SelectGroupBottomSheet.selectGroup'),
+                ),
                 const Spacer(),
                 TextButton(
                   onPressed: () => Navigator.pop(context, selectedGroup),
-                  child: Text('완료'),
+                  child: Text(
+                    tr('SelectGroupBottomSheet.complete'),
+                  ),
                 ),
               ],
             ),

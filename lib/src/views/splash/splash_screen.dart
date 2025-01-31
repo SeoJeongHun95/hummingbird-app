@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -21,7 +22,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   Animation<double>? _dropAnimation;
   Timer? _typeTimer;
   Timer? _progressTimer;
-  final String message = "오늘도 최선을 다해서 Study Duck과 함께...";
+  final String message = tr("SplashScreen.message");
   String displayText = "";
   int currentCharIndex = 1;
   double _progress = 0.0;
@@ -30,13 +31,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   void initState() {
     super.initState();
 
-    // 애니메이션 컨트롤러 설정
     _controller = AnimationController(
       duration: const Duration(milliseconds: 1500),
       vsync: this,
     );
 
-    // 페이드 애니메이션
     _fadeAnimation = Tween<double>(
       begin: 0.0,
       end: 1.0,
@@ -45,7 +44,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
       curve: const Interval(0.0, 0.5),
     ));
 
-    // 드롭 & 바운스 애니메이션
     _dropAnimation = TweenSequence<double>([
       TweenSequenceItem(
         tween: Tween<double>(begin: -300.0, end: 20.0)
@@ -61,7 +59,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
 
     _controller!.forward();
 
-    // 글자 타이핑 애니메이션
     _typeTimer = Timer.periodic(const Duration(milliseconds: 40), (timer) {
       setState(() {
         if (currentCharIndex < message.length) {
@@ -73,7 +70,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
       });
     });
 
-    // 프로그레스 바 애니메이션
     _progressTimer = Timer.periodic(const Duration(milliseconds: 10), (timer) {
       setState(() {
         if (_progress < 1.0) {
@@ -81,7 +77,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
         } else {
           timer.cancel();
           Future.delayed(const Duration(seconds: 1), () {
-            //todo: 홈 화면으로 이동
             context.pushReplacement('/');
           });
         }
@@ -97,7 +92,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
     super.dispose();
   }
 
-  @override
   @override
   Widget build(BuildContext context) {
     final isLoggedIn = ref.watch(authProvider);

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
@@ -30,7 +31,7 @@ class ProfileInfoWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('닉네임'),
+            Text(tr('ProfileInfoWidget.nickName')),
             TextField(
               focusNode: focusNode,
               controller: nickNameController,
@@ -42,7 +43,7 @@ class ProfileInfoWidget extends StatelessWidget {
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.grey),
                 ),
-                hintText: "닉네임을 입력하세요",
+                hintText: tr('ProfileInfoWidget.nickNameHint'),
               ),
               onChanged: (value) {
                 if (value.isEmpty) {
@@ -50,7 +51,7 @@ class ProfileInfoWidget extends StatelessWidget {
                 }
               },
             ),
-            Text('생년월일'),
+            Text(tr('ProfileInfoWidget.birthDate')),
             TextField(
               controller: birthDateController,
               readOnly: true,

@@ -1,4 +1,5 @@
 import 'package:animated_segmented_tab_control/animated_segmented_tab_control.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,13 +10,13 @@ import 'weekly_statistics_screen.dart';
 
 final List<SegmentTab> _tabs = [
   SegmentTab(
-    label: "주간",
+    label: tr('StatisticsScreen.weekly'),
     textColor: Colors.black,
     color: Colors.white,
     backgroundColor: AppColor.themeGrey,
   ),
   SegmentTab(
-    label: "월간",
+    label: tr('StatisticsScreen.monthly'),
     textColor: Colors.black,
     color: Colors.white,
     backgroundColor: AppColor.themeGrey,

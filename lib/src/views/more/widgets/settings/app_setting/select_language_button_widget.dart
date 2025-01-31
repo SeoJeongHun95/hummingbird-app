@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -14,9 +15,9 @@ class SelectLanguageButtonWidget extends ConsumerWidget {
       behavior: HitTestBehavior.opaque,
       onTap: () => context.go('$currentRouterPath/language'),
       child: SettingTileWidget(
-        title: '언어',
+        title: tr('SelectLanguageButtonWidget.Language'),
         selected: Text(
-          '한국어',
+          tr('SelectLanguageButtonWidget.Korean'),
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: Colors.grey[700],
               ),
