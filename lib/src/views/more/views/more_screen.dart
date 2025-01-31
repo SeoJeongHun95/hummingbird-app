@@ -12,7 +12,6 @@ class MoreScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final reviewService = ref.read(reviewProvider.notifier);
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
@@ -22,10 +21,6 @@ class MoreScreen extends ConsumerWidget {
               UserProfileWidget(),
               OptionsContainerModule(),
               UserAuthWidget(),
-              TextButton(
-                onPressed: () => reviewService.requestReview(context),
-                child: const Text('리뷰 하기'),
-              ),
             ],
           ),
         ),
