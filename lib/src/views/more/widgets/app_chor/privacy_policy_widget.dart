@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class TermsAndPrivacyScreen extends StatelessWidget {
-  const TermsAndPrivacyScreen({super.key});
+class PrivacyPolicyWidget extends StatelessWidget {
+  const PrivacyPolicyWidget({super.key});
 
   Future<void> _launchURL(BuildContext context) async {
     final Uri url = Uri.parse(
-        'https://plip.kr/pcc/16703898-5dde-4455-a4b2-48b4cd47a11c/privacy/1.html'); // URL 수정
+        'https://hazel-wallaby-265.notion.site/Study-Duck-183954afbc8480ed96c2dac4049616df');
 
     try {
       final canLaunchResult = await canLaunchUrl(url);
@@ -50,16 +51,30 @@ class TermsAndPrivacyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("URL Launcher Example"),
+    return ListTile(
+      dense: true,
+      contentPadding: EdgeInsets.zero,
+      visualDensity: VisualDensity(vertical: -4),
+      onTap: () {
+        _launchURL(context);
+      },
+      leading: Icon(
+        Icons.privacy_tip_outlined,
+        size: leadingIconSize,
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () => _launchURL(context),
-          child: const Text('Open URL'),
-        ),
+      title: Text(
+        '개인정보 처리방침',
+        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontWeight: FontWeight.w500,
+            ),
+      ),
+      trailing: Icon(
+        Icons.arrow_forward_ios,
+        size: trailingIconSize,
       ),
     );
   }
+
+  double get trailingIconSize => 16.w;
+  double get leadingIconSize => 20.w;
 }

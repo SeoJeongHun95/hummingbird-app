@@ -1,10 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
-import '../../../../providers/suduck_timer/suduck_timer_provider.dart';
+import '../../../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
 
 class SuduckTimerControllBarWidget extends ConsumerStatefulWidget {
   const SuduckTimerControllBarWidget({super.key});
@@ -31,7 +32,7 @@ class _SuduckTimerControllBarWidgetState
               onTap: suduckTimerNotifier.resetSubject,
               child: Center(
                 child: Text(
-                  "화이트 노이즈",
+                  tr("TimerControlBar.WhiteNoise"),
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                   ),
@@ -42,7 +43,7 @@ class _SuduckTimerControllBarWidgetState
               onTap: () => context.push("/focusMode"),
               child: Center(
                 child: Text(
-                  "집중모드",
+                  tr("TimerControlBar.FocusMode"),
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                   ),

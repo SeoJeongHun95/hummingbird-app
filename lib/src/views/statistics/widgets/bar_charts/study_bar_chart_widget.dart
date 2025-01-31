@@ -23,28 +23,20 @@ class StudyBarChartWidget extends StatelessWidget {
       MxN_child: LayoutBuilder(builder: (context, constraints) {
         return Container(
           color: Colors.white,
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 13.w),
-                child: Text(
-                  "과목별 공부시간",
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+              Text("과목별 공부시간"),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: SizedBox(
-                  height: constraints.maxHeight * 0.7,
-                  width: subjectTitleList.length <= 7
+                  height: constraints.maxHeight * 0.8,
+                  width: subjectTitleList.length <= 4
                       ? constraints.maxWidth
                       : constraints.maxWidth +
-                          30.w * (subjectTitleList.length - 7),
+                          48.w * (subjectTitleList.length - 4),
                   child: StudyBarChart(
                       subjectTitleList: subjectTitleList,
                       studyDurationList: studyDurationList,

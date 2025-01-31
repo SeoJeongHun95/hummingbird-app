@@ -1,84 +1,74 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
+import '../../../../../core/utils/get_formatted_time.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
-import '../../../../viewmodels/study_record/study_record_viewmodel.dart';
-import '../../../../viewmodels/study_setting/study_setting_view_model.dart';
-import '../../../statistics/widgets/bar_charts/study_bar_chart_widget.dart';
-import '../../../statistics/widgets/pie_charts/study_pie_chart_widget.dart';
-import 'goal_progress_widget.dart';
+import 'goal_progress_indicator_widget.dart';
 
-class DailySummaryWidget extends ConsumerWidget {
-  const DailySummaryWidget({super.key});
+class DailySummaryWidget extends StatelessWidget {
+  const DailySummaryWidget(
+      {super.key,
+      required this.totalStudyDuration,
+      required this.goalDuration});
+
+  final int totalStudyDuration;
+  final int goalDuration;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final studyRecordsState = ref.watch(studyRecordViewModelProvider);
-    final studyRecordViewModel =
-        ref.read(studyRecordViewModelProvider.notifier);
-
-    return studyRecordsState.when(
-      data: (data) {
-        final studyRecords =
-            studyRecordViewModel.loadMergedStudyRecordsByDate(data);
-        final goalDuration =
-            ref.watch(studySettingViewModelProvider).goalDuration;
-        if (studyRecords.isEmpty) {
-          return SingleChildScrollView(
-            child: Column(
+  Widget build(BuildContext context) {
+    return MxNcontainer(
+      MxN_rate: MxNRate.TWOBYTHREEQUARTERS,
+      MxN_child: Container(
+        color: Colors.white,
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('금일 공부 요약'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                GoalProgressWidget(
-                    totalStudyDuration: 0, goalDuration: goalDuration),
-                MxNcontainer(
-                  MxN_rate: MxNRate.TWOBYONE,
-                  MxN_child: Container(
-                    color: Colors.white,
-                    child: Center(
-                      child: Text('오늘 기록된 데이터가 없습니다'),
+                GoalProgressIndicatorWidget(
+                  width: 160.w,
+                  progress: totalStudyDuration / goalDuration,
+                ),
+                Column(
+                  children: [
+                    getSummaryLabel(
+                      '금일 공부시간',
+                      getFormatTime(totalStudyDuration),
                     ),
-                  ),
-                )
+                    getSummaryLabel(
+                      '목표 공부시간',
+                      getFormatTime(goalDuration),
+                    ),
+                  ],
+                ),
               ],
             ),
-          );
-        }
-
-        final (subjectTitleList, studyDurationList, subjectColorList) =
-            studyRecordViewModel.getStudyRecordsInfo(studyRecords);
-
-        final (sortedTitleList, sortedDurationList, sortedColorList) =
-            studyRecordViewModel.getStudyRecordsInfo(
-                studyRecordViewModel.sortStudyRecords(studyRecords));
-
-        final totalStudyDuration = studyDurationList.fold(0, (a, b) => a + b);
-
-        return SingleChildScrollView(
-          child: Column(
-            children: [
-              GoalProgressWidget(
-                totalStudyDuration: totalStudyDuration,
-                goalDuration: goalDuration,
-              ),
-              StudyPieChartWidget(
-                subjectTitleList: sortedTitleList,
-                studyDurationList: sortedDurationList,
-                subjectColorList: sortedColorList,
-                totalStudyDuration: totalStudyDuration,
-              ),
-              StudyBarChartWidget(
-                  subjectTitleList: subjectTitleList,
-                  studyDurationList: studyDurationList,
-                  subjectColorList: subjectColorList)
-            ],
-          ),
-        );
-      },
-      error: (error, stackTrace) => Center(
-        child: Text('Error: $error'),
+          ],
+        ),
       ),
-      loading: () => Center(
-        child: const CircularProgressIndicator(),
+    );
+  }
+
+  Widget getSummaryLabel(String title, String content) {
+    return RichText(
+      textAlign: TextAlign.start,
+      text: TextSpan(
+        text: '$title\n',
+        style: TextStyle(
+          color: Colors.grey[700],
+        ),
+        children: [
+          TextSpan(
+            text: content,
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          )
+        ],
       ),
     );
   }

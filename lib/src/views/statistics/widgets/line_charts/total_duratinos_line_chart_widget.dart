@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/enum/period_option.dart';
@@ -17,35 +16,23 @@ class TotalDuratinosLineChartWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MxNcontainer(
       MxN_rate: MxNRate.TWOBYTHREEQUARTERS,
-      MxN_child: LayoutBuilder(builder: (context, constraints) {
-        return Container(
-          color: Colors.white,
-          padding: const EdgeInsets.all(4),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 13.w),
-                child: Text(
-                  "하루 총 공부시간",
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+      MxN_child: Container(
+        color: Colors.white,
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("하루 총 공부시간"),
+            Expanded(
+              child: TotalDurationsLineChart(
+                selectedPeriod: period,
+                dailyTotalDuration: dailyTotalDuration,
               ),
-              SizedBox(
-                height: constraints.maxHeight * 0.7,
-                child: TotalDurationsLineChart(
-                  selectedPeriod: period,
-                  dailyTotalDuration: dailyTotalDuration,
-                ),
-              )
-            ],
-          ),
-        );
-      }),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

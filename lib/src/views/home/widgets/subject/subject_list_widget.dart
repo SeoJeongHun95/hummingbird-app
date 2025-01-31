@@ -1,13 +1,15 @@
-import 'package:StudyDuck/core/utils/show_confirm_dialog.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/utils/get_formatted_time.dart';
+import '../../../../../core/utils/show_confirm_dialog.dart';
+import '../../../../../core/utils/show_snack_bar.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../models/subject/subject.dart';
-import '../../../../providers/suduck_timer/suduck_timer_provider.dart';
+import '../../../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
 import '../../../../viewmodels/study_record/study_record_viewmodel.dart';
 import '../../../../viewmodels/subject/subject_viewmodel.dart';
 import '../d_day_widget/color_picker_dialog.dart';
@@ -18,6 +20,8 @@ class SubjectListWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final subjects = ref.watch(subjectViewModelProvider);
+    final subjectsNotifier = ref.read(subjectViewModelProvider.notifier);
+    final suduckTimerNotifier = ref.read(suDuckTimerProvider.notifier);
     final studyRecord = ref.watch(studyRecordViewModelProvider);
 
     return studyRecord.when(
@@ -35,7 +39,7 @@ class SubjectListWidget extends ConsumerWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 12),
                   child: Text(
-                    "과목",
+                    tr("SubjectList.Subject"),
                     style: TextStyle(fontWeight: FontWeight.w600),
                   ),
                 ),
@@ -47,13 +51,9 @@ class SubjectListWidget extends ConsumerWidget {
                         itemBuilder: (context, index) {
                           if (index == 0) {
                             return ListTile(
-                              onTap: () => ref
-                                  .read(suDuckTimerProvider.notifier)
-                                  .resetSubject(),
+                              onTap: () => suduckTimerNotifier.resetSubject(),
                               leading: GestureDetector(
-                                onTap: () => ref
-                                    .read(suDuckTimerProvider.notifier)
-                                    .startTimer(),
+                                onTap: () => suduckTimerNotifier.startTimer(),
                                 child: CircleAvatar(
                                   backgroundColor:
                                       Color(int.parse('0xffba4849')),
@@ -62,7 +62,7 @@ class SubjectListWidget extends ConsumerWidget {
                                 ),
                               ),
                               title: Text(
-                                "자율 학습",
+                                tr("SubjectList.SelfStudy"),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
@@ -77,6 +77,7 @@ class SubjectListWidget extends ConsumerWidget {
                                     context,
                                     ref,
                                     data.length,
+                                    data,
                                   );
                                 },
                                 icon: Icon(Icons.add),
@@ -86,17 +87,18 @@ class SubjectListWidget extends ConsumerWidget {
 
                           final subject = data[index - 1];
                           final matchedSubject = studyRecord
-                              .where((e) =>
-                                  e.order == subject.order &&
-                                  e.title == subject.title)
+                              .where(
+                                (e) =>
+                                    e.order == subject.order &&
+                                    e.title == subject.title,
+                              )
                               .toList()
                               .firstOrNull;
 
                           return ListTile(
                             leading: GestureDetector(
-                              onTap: () => ref
-                                  .read(suDuckTimerProvider.notifier)
-                                  .startTimer(subject: subject),
+                              onTap: () => suduckTimerNotifier.startTimer(
+                                  subject: subject),
                               child: CircleAvatar(
                                 backgroundColor:
                                     Color(int.parse('0xff${subject.color}')),
@@ -137,7 +139,7 @@ class SubjectListWidget extends ConsumerWidget {
                                     _showEditDialog(
                                         context, ref, subject, index - 1);
                                   },
-                                  child: Text("편집"),
+                                  child: Text(tr("SubjectList.Edit")),
                                 ),
                                 MenuItemButton(
                                   onPressed: () async {
@@ -146,19 +148,19 @@ class SubjectListWidget extends ConsumerWidget {
                                     }
 
                                     final confirm = await showConfirmDialog(
-                                        '${subject.title} 과목을 삭제하시겠습니까?',
-                                        '해당 작업은 복구할 수 없습니다.');
+                                      subject.title +
+                                          tr('SubjectList.DeleteSubjectPrompt'),
+                                      tr("CannotUndoWarning"),
+                                    );
 
                                     if (!confirm) {
                                       return;
                                     }
 
-                                    ref
-                                        .read(subjectViewModelProvider.notifier)
-                                        .deleteSubject(
-                                            subject.subjectId!, index - 1);
+                                    subjectsNotifier.deleteSubject(
+                                        subject.subjectId!, index - 1);
                                   },
-                                  child: Text("제거"),
+                                  child: Text(tr("SubjectList.Delete")),
                                 ),
                               ],
                               builder: (context, controller, child) {
@@ -174,9 +176,8 @@ class SubjectListWidget extends ConsumerWidget {
                                 );
                               },
                             ),
-                            onTap: () => ref
-                                .read(suDuckTimerProvider.notifier)
-                                .setSubject(subject),
+                            onTap: () =>
+                                suduckTimerNotifier.setSubject(subject),
                           );
                         },
                       ),
@@ -222,13 +223,14 @@ class SubjectListWidget extends ConsumerWidget {
             children: [
               TextField(
                 controller: titleController,
-                decoration: InputDecoration(labelText: '과목 이름'),
+                decoration:
+                    InputDecoration(labelText: tr("SubjectList.SubjectName")),
               ),
               TextButton(
                 onPressed: () async {
                   selectedColor = await _showColorPickerDialog(context);
                 },
-                child: Text('색상 선택'),
+                child: Text(tr("SubjectList.SelectColor")),
               ),
             ],
           ),
@@ -237,7 +239,7 @@ class SubjectListWidget extends ConsumerWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('취소'),
+              child: Text(tr("SubjectList.Cancel")),
             ),
             TextButton(
               onPressed: () {
@@ -246,11 +248,11 @@ class SubjectListWidget extends ConsumerWidget {
                   Navigator.of(context).pop();
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('과목이름을 입력해주세요')),
+                    SnackBar(content: Text(tr("SubjectList.EnterSubjectName"))),
                   );
                 }
               },
-              child: Text('확인'),
+              child: Text(tr("SubjectList.Confirm")),
             ),
           ],
         );
@@ -258,16 +260,24 @@ class SubjectListWidget extends ConsumerWidget {
     );
   }
 
-  void _showAddSubjectDialog(BuildContext context, WidgetRef ref, int order) {
+  void _showAddSubjectDialog(
+      BuildContext context, WidgetRef ref, int order, List<Subject> subjects) {
     _showSubjectDialog(
       context,
       ref,
-      '과목 추가',
+      tr("SubjectList.AddSubject"),
       '',
       initialColor: "227C9D",
       onConfirm: (title, color) {
-        final newSubject = Subject(title: title, color: color, order: order);
-        ref.read(subjectViewModelProvider.notifier).addSubject(newSubject);
+        if (subjects
+            .where((element) => element.title == title)
+            .toList()
+            .isNotEmpty) {
+          showSnackBar(message: "같은 과목이 이미 존재합니다.");
+        } else {
+          final newSubject = Subject(title: title, color: color, order: order);
+          ref.read(subjectViewModelProvider.notifier).addSubject(newSubject);
+        }
       },
     );
   }
@@ -277,7 +287,7 @@ class SubjectListWidget extends ConsumerWidget {
     _showSubjectDialog(
       context,
       ref,
-      '과목 편집',
+      tr("SubjectList.EditSubject"),
       subject.title,
       initialColor: subject.color,
       onConfirm: (title, color) {

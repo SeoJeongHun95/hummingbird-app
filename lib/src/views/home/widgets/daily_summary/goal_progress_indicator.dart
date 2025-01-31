@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 class GoalProgressIndicator extends StatelessWidget {
   final double progress; // 0.0 ~ 1.0
   final double size;
+  final Color progressColor;
 
   const GoalProgressIndicator({
     super.key,
     required this.progress,
     this.size = 160,
+    required this.progressColor,
   });
 
   @override
@@ -19,7 +21,7 @@ class GoalProgressIndicator extends StatelessWidget {
       painter: _GoalProgressIndicatorPainter(
         progress: progress,
         backgroundColor: Colors.grey,
-        progressColor: Colors.blue,
+        progressColor: progressColor,
       ),
     );
   }
@@ -38,7 +40,7 @@ class _GoalProgressIndicatorPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height);
+    final center = Offset(size.width / 2, size.height - (size.height / 2));
     final radius = min(size.width, size.height) / 2;
     final startAngle = pi * 3 / 4;
     final indicatorLength = pi * 3 / 2;

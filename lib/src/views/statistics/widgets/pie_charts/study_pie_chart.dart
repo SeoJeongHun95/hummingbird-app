@@ -20,7 +20,8 @@ class StudyPieChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
+        Flexible(
+          flex: 3,
           child: PieChart(
             duration: Duration.zero,
             PieChartData(
@@ -31,10 +32,9 @@ class StudyPieChart extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
-          width: 30.w,
-        ),
-        Expanded(
+        const Spacer(flex: 1),
+        Flexible(
+          flex: 3,
           child: SingleChildScrollView(
             child: Column(
               children: getLegend(subjectTitleList, studyDurationList,
@@ -56,12 +56,7 @@ class StudyPieChart extends StatelessWidget {
         title: index == 0
             ? '${(studyDurationList[index] * 100 / total).toStringAsFixed(1)}%'
             : '',
-        titleStyle: TextStyle(
-          color: Colors.black,
-          fontSize: 10.sp,
-          fontWeight: FontWeight.w500,
-        ),
-        //radius: 50.w,
+        titleStyle: TextStyle(fontSize: 12),
       );
     });
   }
@@ -70,34 +65,27 @@ class StudyPieChart extends StatelessWidget {
       List<int> studyDurationList, List<Color> subjectColorList, int total) {
     final percentageList = calculatePercentage(studyDurationList, total);
     return List.generate(subjectTitleList.length, (index) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 1),
-        child: Row(
-          children: [
-            Container(
-              width: 11.w,
-              height: 11.w,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
-                  color: subjectColorList[index]),
+      return Row(
+        children: [
+          Container(
+            width: 12.w,
+            height: 12.w,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(4),
+                color: subjectColorList[index]),
+          ),
+          Gap(10.w),
+          SizedBox(
+            width: 64.w,
+            child: Text(
+              subjectTitleList[index],
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
-            Gap(10.w),
-            SizedBox(
-              width: 80.w,
-              child: Text(
-                subjectTitleList[index],
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.w500),
-              ),
-            ),
-            const Spacer(),
-            Text(
-              percentageList[index],
-              style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.w500),
-            )
-          ],
-        ),
+          ),
+          const Spacer(),
+          Text(percentageList[index])
+        ],
       );
     });
   }

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/utils/get_formatted_time.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
-import '../../../../providers/suduck_timer/suduck_timer_provider.dart';
+import '../../../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
 import '../../../../viewmodels/timer/timer_bg_color_provider.dart';
 
 class SuDuckTimerWidget extends ConsumerStatefulWidget {
@@ -72,7 +73,7 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
                     child: Center(
                       child: Text(
                         suduckTimer.currSubject == null
-                            ? "자율 학습"
+                            ? tr("Timer.SelfStudy")
                             : suduckTimer.currSubject!.title,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -88,7 +89,7 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
                 ),
                 //시간
                 Expanded(
-                  flex: 4,
+                  flex: 5,
                   child: Container(
                     width: double.infinity,
                     color: _colorAnimation.value,
@@ -107,7 +108,7 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
                 ),
                 //타이머 버튼
                 Expanded(
-                  flex: 3,
+                  flex: 4,
                   child: Container(
                     width: double.maxFinite,
                     color: _colorAnimation.value,
@@ -165,7 +166,9 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
                               ),
                               child: Center(
                                 child: Text(
-                                  (!isRunning) ? "START" : "PAUSE",
+                                  (!isRunning)
+                                      ? tr("Timer.Start")
+                                      : tr("Timer.Pause"),
                                   style: TextStyle(
                                     fontSize: 18.sp,
                                     fontWeight: FontWeight.w500,

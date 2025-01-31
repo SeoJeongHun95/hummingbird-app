@@ -2,7 +2,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-//TODO: 현재 기존 subject 가 다 0:00:00 으로 나오는데, 이것을 00:00:00 으로 하고, 보여줄 지 말지 결정 필요.
+import '../../../../../core/utils/get_formatted_time.dart';
+
 class StudyBarChart extends StatelessWidget {
   const StudyBarChart(
       {super.key,
@@ -17,25 +18,22 @@ class StudyBarChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(top: 40.0, left: 24.0),
       child: BarChart(
         duration: Duration.zero,
         BarChartData(
           barGroups: getBarGroups(subjectTitleList, studyDurationList),
-          alignment: BarChartAlignment.spaceAround,
+          alignment: BarChartAlignment.start,
+          groupsSpace: 48.w,
           barTouchData: BarTouchData(
               enabled: false,
               touchTooltipData: BarTouchTooltipData(
                 getTooltipColor: (group) => Colors.transparent,
-                tooltipMargin: 0,
+                tooltipMargin: 2,
                 getTooltipItem: (group, groupIndex, rod, rodIndex) {
                   return BarTooltipItem(
-                    formatTime(rod.toY),
-                    TextStyle(
-                      color: Colors.black,
-                      fontSize: 10.sp,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    getFormatTime((rod.toY).toInt()),
+                    TextStyle(fontSize: 12),
                   );
                 },
               )),
@@ -62,9 +60,6 @@ class StudyBarChart extends StatelessWidget {
                   child: Center(
                     child: Text(
                       subjectTitleList[value.toInt()],
-                      style: TextStyle(
-                        fontSize: 10.sp,
-                      ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -91,16 +86,12 @@ class StudyBarChart extends StatelessWidget {
         barRods: [
           BarChartRodData(
             toY: studyDurationList[index].toDouble(),
-            width: 15.w,
+            width: 16.w,
             color: Colors.blue,
           ),
         ],
         showingTooltipIndicators: [0],
       );
     });
-  }
-
-  String formatTime(double seconds) {
-    return '${(seconds ~/ 3600).toString().padLeft(2, '0')}:${(seconds ~/ 60).toStringAsFixed(0).padLeft(2, '0')}:${(seconds % 60).toStringAsFixed(0).padLeft(2, '0')}';
   }
 }

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/enum/mxnRate.dart';
-import '../../../../../core/widgets/mxnContainer.dart';
-import '../../widgets/settings/setting_tile_widget.dart';
+import '../../widgets/settings/study_setting/select_country_container_widget.dart';
 
 class SelectCountryScreen extends StatelessWidget {
   const SelectCountryScreen({super.key});
@@ -27,31 +24,7 @@ class SelectCountryScreen extends StatelessWidget {
           child: Center(
         child: Column(
           children: [
-            MxNcontainer(
-              MxN_rate: MxNRate.TWOBYONE,
-              MxN_child: Container(
-                color: Colors.white,
-                padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                child: Column(
-                  children: [
-                    SettingTileWidget(
-                      title: '대한민국',
-                      trailing: Icon(Icons.check),
-                    ),
-                    const Divider(),
-                    SizedBox(
-                      height: 36.w,
-                    ),
-                    Text(
-                      '향후 추가할 계획입니다',
-                      style: TextStyle(
-                        color: Colors.grey[700],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            SelectCountryContainerWidget(),
           ],
         ),
       )),

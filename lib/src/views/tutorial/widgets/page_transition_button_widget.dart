@@ -21,7 +21,7 @@ class PageTransitionButtonWidget extends StatelessWidget {
       onTap: changePage,
       child: Container(
         width: 100.w,
-        height: 50,
+        height: 50.w,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: backgroundColor,

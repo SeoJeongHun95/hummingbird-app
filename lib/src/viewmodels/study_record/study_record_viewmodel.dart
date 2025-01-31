@@ -1,4 +1,3 @@
-import 'package:StudyDuck/src/providers/token_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -7,6 +6,7 @@ import '../../../core/enum/period_option.dart';
 import '../../../core/utils/get_formatted_today.dart';
 import '../../models/study_record/study_record.dart';
 import '../../providers/network_status/network_state_provider.dart';
+import '../../providers/token_provider.dart';
 import '../../repositories/study_record/study_record_repository.dart';
 
 part 'study_record_viewmodel.g.dart';
@@ -34,8 +34,21 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
   }
 
   Future<void> addStudyRecord(StudyRecord studyRecord) async {
-    await repository.addStudyRecord(studyRecord);
-    loadStudyRecords();
+    final currentState = state.value;
+    int totalDuration = 0;
+
+    if (currentState != null) {
+      for (final record in currentState) {
+        totalDuration += record.elapsedTime;
+      }
+    }
+
+    await repository.addStudyRecord(
+      studyRecord,
+      totalDuration + studyRecord.elapsedTime,
+    );
+
+    await loadStudyRecords();
   }
 
   Future<void> updateStudyRecord(StudyRecord studyRecord) async {
@@ -98,6 +111,14 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
 
   Future<(List<StudyRecord>, List<int>)> loadStudyRecordsByPeriod(
       DateTime currentDate, PeriodOption option) async {
+    final isConnected = await ref.watch(networkStateProvider.future);
+
+    final userId = ref.read(tokenProvider).getToken()?.userId;
+
+    if (userId == null) {
+      throw Error();
+    }
+
     final period = switch (option) {
       PeriodOption.WEEKLY => 7,
       _ => DateUtils.getDaysInMonth(currentDate.year, currentDate.month),
@@ -107,10 +128,10 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
     List<StudyRecord> studyRecords = [];
 
     final dailyTotalDuration = List.generate(period, (index) => 0);
+    final studyRecordsMap = await repository.getStudyRecordByRange(
+        userId, startDate, currentDate, period, isConnected);
 
     for (int day = 0; day < period; day++) {
-      final studyRecordsMap = await repository
-          .getStudyRecordByDate(formatDate(startDate.add(Duration(days: day))));
       final dailyRecords =
           studyRecordsMap[formatDate(startDate.add(Duration(days: day)))] ?? [];
 
