@@ -39,6 +39,10 @@
     "CannotUndoWarning": "This action cannot be undone.",
     "EnterSubjectName": "Please enter the subject name"
   },
+  "SummaryWidget": {
+    "totalStudyTime": "Total StudyTime",
+    "averageStudyTime": "Average StudyTime"
+  },
   "DDayListTile": {
     "Edit": "Edit",
     "Delete": "Delete",

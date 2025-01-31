@@ -39,6 +39,10 @@
     "CannotUndoWarning": "この操作は元に戻せません。",
     "EnterSubjectName": "科目名を入力してください"
   },
+  "SummaryWidget": {
+    "totalStudyTime": "合計学習時間",
+    "averageStudyTime": "平均学習時間"
+  },
   "DDayListTile": {
     "Edit": "編集",
     "Delete": "削除",

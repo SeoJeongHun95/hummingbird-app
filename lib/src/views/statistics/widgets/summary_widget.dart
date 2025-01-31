@@ -1,5 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../core/enum/mxnRate.dart';
 import '../../../../core/enum/period_option.dart';
@@ -35,8 +35,10 @@ class SummaryWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                getSummaryRichText(context, '총 공부시간', false),
-                getSummaryRichText(context, '평균 공부시간', true),
+                getSummaryRichText(
+                    context, tr("SummaryWidget.totalStudyTime"), false),
+                getSummaryRichText(
+                    context, tr("SummaryWidget.averageStudyTime"), true),
               ],
             ),
           ],

@@ -39,6 +39,10 @@
     "CannotUndoWarning": "此操作无法撤销。",
     "EnterSubjectName": "请输入学科名称"
   },
+  "SummaryWidget": {
+    "totalStudyTime": "总学习时间",
+    "averageStudyTime": "平均学习时间"
+  },
   "DDayListTile": {
     "Edit": "编辑",
     "Delete": "删除",
