@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,12 +32,14 @@ class SetStudySettingWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('목표 공부시간'),
+            Text(tr('StudySettingScreen.goalDuration')),
             GestureDetector(
               behavior: HitTestBehavior.opaque,
               onTap: () async {
                 final selectedDuration = await showTimePickerBottomModal(
-                    context, '시간 선택', goalDuration);
+                    context,
+                    tr('StudySettingScreen.timePickerTitle'),
+                    goalDuration);
                 if (selectedDuration != null) {
                   selectGoalDuration(selectedDuration.inSeconds);
                 }
@@ -50,7 +53,7 @@ class SetStudySettingWidget extends StatelessWidget {
               ),
             ),
             Divider(color: Colors.grey),
-            Text('그룹'),
+            Text(tr('StudySettingScreen.group')),
             GestureDetector(
               behavior: HitTestBehavior.opaque,
               onTap: () async {
@@ -95,7 +98,7 @@ class SetStudySettingWidget extends StatelessWidget {
                     const Spacer(),
                     TextButton(
                       onPressed: () => Navigator.pop(context, selected),
-                      child: Text('완료'),
+                      child: Text(tr('StudySettingScreen.done')),
                     ),
                   ],
                 ),

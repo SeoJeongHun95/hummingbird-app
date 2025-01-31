@@ -14,7 +14,8 @@ class RefreshTokenDioClient {
   RefreshTokenDioClient({required this.dio, required this.ref}) {
     dio.interceptors.add(InterceptorsWrapper(
       onError: (DioException error, ErrorInterceptorHandler handler) async {
-        if (error.response?.statusCode == 401) {
+        if (error.response?.statusCode == 401 ||
+            error.response?.statusCode == 403) {
           _handleLogout();
         }
 

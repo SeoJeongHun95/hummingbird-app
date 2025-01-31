@@ -175,10 +175,7 @@
     "complete": "Hoàn tất",
     "done": "Hoàn tất"
   },
-  "ProfileContainerWidget": {
-    "nickname": "Tên người dùng",
-    "nicknameHint": "Vui lòng nhập tên người dùng",
-    "birthDate": "Ngày sinh",
+  "SetProfileWidget": {
     "skip": "Bỏ qua",
     "next": "Tiếp theo",
     "selectBirthDate": "Vui lòng chọn ngày sinh"

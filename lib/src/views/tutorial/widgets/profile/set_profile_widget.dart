@@ -1,6 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../viewmodels/user_setting/user_setting_view_model.dart';
 import '../../../more/widgets/user_profile/profile_info_widget.dart';
@@ -77,7 +77,7 @@ class _ProfileContainerWidgetState extends State<SetProfileWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               PageTransitionButtonWidget(
-                title: '건너뛰기',
+                title: tr('SetProfileWidget.skip'),
                 backgroundColor: Colors.white,
                 foregroudColor: Theme.of(context).colorScheme.primary,
                 changePage: () {
@@ -89,7 +89,7 @@ class _ProfileContainerWidgetState extends State<SetProfileWidget> {
                 },
               ),
               PageTransitionButtonWidget(
-                title: '다음',
+                title: tr('SetProfileWidget.next'),
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 foregroudColor: Colors.white,
                 changePage: () => context.go('/tutorial/studySetting'),
@@ -112,7 +112,7 @@ class _ProfileContainerWidgetState extends State<SetProfileWidget> {
 
   String formatBirthDate(DateTime? date) {
     return date == null
-        ? '생년월일을 선택해 보세요'
+        ? tr('SetProfileWidget.selectBirthDate')
         : DateFormat('yyyy-MM-dd').format(date);
   }
 
