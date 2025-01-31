@@ -27,11 +27,11 @@ void main() async {
     EasyLocalization(
       supportedLocales: supportedLanguages.map((lang) => Locale(lang)).toList(),
       path: 'lib/core/translations',
-      fallbackLocale: const Locale('ko'),
+      fallbackLocale: const Locale('en'),
       startLocale: supportedLanguages
               .contains(PlatformDispatcher.instance.locale.languageCode)
           ? Locale(PlatformDispatcher.instance.locale.languageCode)
-          : const Locale('ko'),
+          : const Locale('en'),
       child: const ProviderScope(child: MyApp()),
     ),
   );
