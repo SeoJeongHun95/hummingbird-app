@@ -1,3 +1,4 @@
+import 'package:StudyDuck/core/utils/format_date.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -83,6 +84,9 @@ class ProfileInfoWidget extends StatelessWidget {
 
   Future<DateTime?> showSelectBirthPicker(
       BuildContext context, String birthDate) async {
+    if (birthDate == '') {
+      birthDate = formatDate(DateTime.now());
+    }
     return await showDatePicker(
       context: context,
       firstDate: DateTime(1900),
