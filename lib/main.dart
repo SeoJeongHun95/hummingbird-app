@@ -12,6 +12,7 @@ import 'src/app_initialize.dart';
 import 'src/viewmodels/app_setting/app_setting_view_model.dart';
 
 void main() async {
+  final List<String> supportedLanguages = ['ko', 'en', 'ja', 'zh', 'vi', 'th'];
   WidgetsFlutterBinding.ensureInitialized();
 
   await SystemChrome.setPreferredOrientations([
@@ -24,17 +25,13 @@ void main() async {
 
   runApp(
     EasyLocalization(
-      supportedLocales: const [
-        Locale('ko', 'KR'),
-        Locale('en', 'US'),
-        Locale('ja', 'JP'),
-        Locale('zh', 'CN'),
-        Locale('vi', 'VN'),
-        Locale('th', 'TH'),
-      ],
+      supportedLocales: supportedLanguages.map((lang) => Locale(lang)).toList(),
       path: 'lib/core/translations',
-      fallbackLocale: const Locale('ko', 'KR'),
-      startLocale: PlatformDispatcher.instance.locale,
+      fallbackLocale: const Locale('en'),
+      startLocale: supportedLanguages
+              .contains(PlatformDispatcher.instance.locale.languageCode)
+          ? Locale(PlatformDispatcher.instance.locale.languageCode)
+          : const Locale('en'),
       child: const ProviderScope(child: MyApp()),
     ),
   );
