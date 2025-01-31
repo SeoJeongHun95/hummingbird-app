@@ -54,5 +54,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data 
+            android:name="com.google.android.gms.ads.APPLICATION_ID" 
+            android:value="ca-app-pub-8846273708301271~2830969087" /> <!-- 본인의 AdMob 앱 ID로 교체하세요 -->
     </application>
 </manifest>
