@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -66,11 +67,7 @@ class SuDuckTimer extends _$SuDuckTimer {
 
   Future<void> startTimer({Subject? subject}) async {
     final isConnected = ref.watch(networkStateProvider);
-
-    if (isConnected.asData?.value != true) {
-      showConfirmDialog("오프라인 상태입니다.", "");
-      return;
-    }
+    if (isConnected.asData?.value != true) return;
 
     if (state.isRunning) return;
     _cancelBreakTimer();
@@ -129,6 +126,7 @@ class SuDuckTimer extends _$SuDuckTimer {
   }
 
   void setSubject(Subject subject) {
+    log("$subject 들어옴");
     if (!state.isRunning) {
       _updateBgColor(subject.color);
       state = state.copyWith(currSubject: subject);
@@ -136,14 +134,16 @@ class SuDuckTimer extends _$SuDuckTimer {
   }
 
   void resetSubject() {
-    _updateBgColor(null);
+    if (!state.isRunning) {
+      _updateBgColor(null);
 
-    state = TimerState(
-      elapsedTime: 0,
-      breakTime: 0,
-      isRunning: false,
-      currSubject: null,
-    );
+      state = TimerState(
+        elapsedTime: 0,
+        breakTime: 0,
+        isRunning: false,
+        currSubject: null,
+      );
+    }
   }
 
   void _startTimerLoop() {

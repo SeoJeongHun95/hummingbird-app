@@ -19,7 +19,7 @@ class NetworkState extends _$NetworkState {
     try {
       result = await connectivity.checkConnectivity();
     } on PlatformException catch (e) {
-      throw Exception("연결 상태를 확인할 수 없습니다: $e");
+      throw Exception();
     }
     updateConnectionStatus(result);
 
