@@ -175,10 +175,7 @@
     "complete": "완료",
     "done": "완료"
   },
-  "ProfileContainerWidget": {
-    "nickname": "닉네임",
-    "nicknameHint": "닉네임을 입력하세요",
-    "birthDate": "생년월일",
+  "SetProfileWidget": {
     "skip": "건너뛰기",
     "next": "다음",
     "selectBirthDate": "생년월일을 선택해 보세요"

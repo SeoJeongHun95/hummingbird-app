@@ -175,10 +175,7 @@
     "complete": "Complete",
     "done": "Done"
   },
-  "ProfileContainerWidget": {
-    "nickname": "Nickname",
-    "nicknameHint": "Please enter your nickname",
-    "birthDate": "Birth Date",
+  "SetProfileWidget": {
     "skip": "Skip",
     "next": "Next",
     "selectBirthDate": "Please select your birth date"

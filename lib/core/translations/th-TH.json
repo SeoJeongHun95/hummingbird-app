@@ -175,10 +175,7 @@
     "complete": "เสร็จสิ้น",
     "done": "เสร็จสิ้น"
   },
-  "ProfileContainerWidget": {
-    "nickname": "ชื่อเล่น",
-    "nicknameHint": "กรุณากรอกชื่อเล่นของคุณ",
-    "birthDate": "วันเกิด",
+  "SetProfileWidget": {
     "skip": "ข้าม",
     "next": "ถัดไป",
     "selectBirthDate": "กรุณาเลือกวันเกิด"

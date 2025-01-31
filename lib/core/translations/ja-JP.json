@@ -175,10 +175,7 @@
     "complete": "完了",
     "done": "完了"
   },
-  "ProfileContainerWidget": {
-    "nickname": "ニックネーム",
-    "nicknameHint": "ニックネームを入力してください",
-    "birthDate": "生年月日",
+  "SetProfileWidget": {
     "skip": "スキップ",
     "next": "次へ",
     "selectBirthDate": "生年月日を選択してください"
