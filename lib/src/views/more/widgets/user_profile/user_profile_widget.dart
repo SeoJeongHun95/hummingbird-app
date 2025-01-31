@@ -37,8 +37,12 @@ class UserProfileWidget extends ConsumerWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(tr(
-                              "ProfileInfoWidget.nickName: ${userSetting.nickname}")),
+                          Row(
+                            children: [
+                              Text(tr("ProfileInfoWidget.nickName")),
+                              Text(" : ${userSetting.nickname}"),
+                            ],
+                          ),
                           SizedBox(height: 12.w),
                           getBrithDateText(userSetting.birthDate),
                         ],
