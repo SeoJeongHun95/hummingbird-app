@@ -2,11 +2,12 @@ import 'dart:async';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../core/utils/get_epoch_time.dart';
+import '../../../core/utils/utils.dart';
 import '../../models/study_record/study_record.dart';
 import '../../models/subject/subject.dart';
 import '../../viewmodels/study_record/study_record_viewmodel.dart';
 import '../../viewmodels/timer/timer_bg_color_provider.dart';
+import '../network_status/network_state_provider.dart';
 
 part 'suduck_timer_provider_2_0.g.dart';
 
@@ -64,6 +65,13 @@ class SuDuckTimer extends _$SuDuckTimer {
   }
 
   Future<void> startTimer({Subject? subject}) async {
+    final isConnected = ref.watch(networkStateProvider);
+
+    if (isConnected.asData?.value != true) {
+      showConfirmDialog("오프라인 상태입니다.", "");
+      return;
+    }
+
     if (state.isRunning) return;
     _cancelBreakTimer();
 

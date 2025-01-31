@@ -10,4 +10,13 @@ abstract class Env {
 
   @EnviedField(varName: 'SERVER_BASE_URL', obfuscate: true)
   static String serverBaseUrl = _Env.serverBaseUrl;
+
+  @EnviedField(varName: 'APPSTORE_API_KEY', obfuscate: true)
+  static String appStoreApiKey = _Env.appStoreApiKey;
+
+  @EnviedField(varName: 'ANDROID_TEST_AD_ID', obfuscate: true)
+  static String androidTestAdId = _Env.androidTestAdId;
+
+  @EnviedField(varName: 'IOS_TEST_AD_ID', obfuscate: true)
+  static String iosTestAdId = _Env.iosTestAdId;
 }

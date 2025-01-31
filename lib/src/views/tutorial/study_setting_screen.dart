@@ -10,7 +10,7 @@ import '../../../core/widgets/mxnContainer.dart';
 import '../../viewmodels/study_setting/study_setting_view_model.dart';
 import '../../viewmodels/user_setting/user_setting_view_model.dart';
 import 'widgets/page_transition_button_widget.dart';
-import 'widgets/select_group_bottom_sheet.dart';
+import 'widgets/study_setting/select_group_bottom_sheet.dart';
 
 class StudySettingScreen extends ConsumerStatefulWidget {
   const StudySettingScreen({super.key});
@@ -28,6 +28,12 @@ class _StudySettingScreenState extends ConsumerState<StudySettingScreen> {
   void initState() {
     super.initState();
     goalDuration = ref.read(studySettingViewModelProvider).goalDuration;
+  }
+
+  void selectGoalDuration(int duration) {
+    setState(() {
+      goalDuration = duration;
+    });
   }
 
   void selectGroup(String group) {
@@ -78,9 +84,7 @@ class _StudySettingScreenState extends ConsumerState<StudySettingScreen> {
                         ),
                       ),
                       divder,
-                      SizedBox(height: 36.w),
                       Text(tr('StudySettingScreen.group')),
-                      SizedBox(height: 32.w),
                       GestureDetector(
                         behavior: HitTestBehavior.opaque,
                         onTap: () async {
@@ -162,10 +166,6 @@ class _StudySettingScreenState extends ConsumerState<StudySettingScreen> {
                       padding: const EdgeInsets.only(left: 16.0),
                       child: Text(
                         title,
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w600,
-                        ),
                       ),
                     ),
                     const Spacer(),
@@ -175,16 +175,10 @@ class _StudySettingScreenState extends ConsumerState<StudySettingScreen> {
                         onPressed: () => Navigator.pop(context, selected),
                         child: Text(
                           tr('StudySettingScreen.done'),
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                          ),
                         ),
                       ),
                     ),
                   ],
-                ),
-                SizedBox(
-                  height: 20.h,
                 ),
                 CupertinoTimerPicker(
                   mode: CupertinoTimerPickerMode.hm,

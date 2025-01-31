@@ -2,8 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/const/study_group.dart';
-import '../../more/widgets/settings/setting_tile_widget.dart';
+import '../../../../../core/const/study_group.dart';
+import '../../../more/widgets/settings/setting_tile_widget.dart';
 
 class SelectGroupBottomSheet extends StatefulWidget {
   const SelectGroupBottomSheet({super.key, required this.selectedGroup});
@@ -43,19 +43,12 @@ class _SelectGroupBottomSheetState extends State<SelectGroupBottomSheet> {
               children: [
                 Text(
                   tr('SelectGroupBottomSheet.selectGroup'),
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
                 ),
                 const Spacer(),
                 TextButton(
                   onPressed: () => Navigator.pop(context, selectedGroup),
                   child: Text(
                     tr('SelectGroupBottomSheet.complete'),
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                    ),
                   ),
                 ),
               ],
