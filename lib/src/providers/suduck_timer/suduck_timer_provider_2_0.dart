@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -126,15 +125,14 @@ class SuDuckTimer extends _$SuDuckTimer {
   }
 
   void setSubject(Subject subject) {
-    log("$subject 들어옴");
-    if (!state.isRunning) {
+    if (!state.isRunning && state.startAt == null) {
       _updateBgColor(subject.color);
       state = state.copyWith(currSubject: subject);
     }
   }
 
   void resetSubject() {
-    if (!state.isRunning) {
+    if (!state.isRunning && state.startAt == null) {
       _updateBgColor(null);
 
       state = TimerState(
