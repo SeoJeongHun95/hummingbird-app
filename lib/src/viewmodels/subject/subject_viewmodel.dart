@@ -8,7 +8,7 @@ import '../../repositories/subject/subject_repository.dart';
 
 part 'subject_viewmodel.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class SubjectViewModel extends _$SubjectViewModel {
   late SubjectRepository repository;
 
