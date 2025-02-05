@@ -46,11 +46,9 @@ class MxNcontainer extends StatelessWidget {
             border: Border.all(color: color ?? AppColor.themeGrey, width: 1.w),
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Center(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: MxN_child,
-            ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: MxN_child,
           ),
         ),
       ),
