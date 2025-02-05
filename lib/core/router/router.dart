@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../src/models/subject/subject.dart';
 import '../../src/providers/auth/auth_provider.dart';
 import '../../src/viewmodels/app_setting/app_setting_view_model.dart';
 import '../../src/views/home/home_screen.dart';
 import '../../src/views/home/suduck_timer_focus_mode_screen.dart';
+import '../../src/views/home/widgets/subject/subject_add_screen.dart';
+import '../../src/views/home/widgets/subject/subject_update_screen.dart';
 import '../../src/views/more/views/more_screen.dart';
 import '../../src/views/more/views/profile_screen/profile_screen.dart';
 import '../../src/views/more/views/settings_screen/settings_export.dart';
@@ -66,6 +69,32 @@ final goRouterProvider = Provider<GoRouter>((ref) {
               state: state,
               child: const SuduckTimerFocusModeWidget(),
             ),
+          ),
+          GoRoute(
+            path: 'subjectAdd',
+            pageBuilder: (context, state) {
+              return buildPageWithDefaultTransition(
+                context: context,
+                state: state,
+                child: SubjectAddScreen(
+                  subjects: (state.extra as List)[0] as List<Subject>,
+                  index: (state.extra as List)[1] as int,
+                ),
+              );
+            },
+          ),
+          GoRoute(
+            path: 'subjectUpdate',
+            pageBuilder: (context, state) {
+              return buildPageWithDefaultTransition(
+                context: context,
+                state: state,
+                child: SubjectUpdateScreen(
+                  subject: (state.extra as List)[0] as Subject,
+                  index: (state.extra as List)[1] as int,
+                ),
+              );
+            },
           ),
         ],
       ),

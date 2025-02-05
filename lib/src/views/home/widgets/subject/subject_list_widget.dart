@@ -2,17 +2,15 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/utils/get_formatted_time.dart';
 import '../../../../../core/utils/show_confirm_dialog.dart';
-import '../../../../../core/utils/show_snack_bar.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
-import '../../../../models/subject/subject.dart';
 import '../../../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
 import '../../../../viewmodels/study_record/study_record_viewmodel.dart';
 import '../../../../viewmodels/subject/subject_viewmodel.dart';
-import '../d_day_widget/color_picker_dialog.dart';
 
 class SubjectListWidget extends ConsumerWidget {
   const SubjectListWidget({super.key});
@@ -73,12 +71,16 @@ class SubjectListWidget extends ConsumerWidget {
                             return Center(
                               child: IconButton(
                                 onPressed: () {
-                                  _showAddSubjectDialog(
-                                    context,
-                                    ref,
-                                    data.length,
-                                    data,
+                                  context.push(
+                                    "/subjectAdd",
+                                    extra: [data, data.length],
                                   );
+                                  // _showAddSubjectDialog(
+                                  //   context,
+                                  //   ref,
+                                  //   data.length,
+                                  //   data,
+                                  // );
                                 },
                                 icon: Icon(Icons.add),
                               ),
@@ -137,8 +139,12 @@ class SubjectListWidget extends ConsumerWidget {
                               menuChildren: [
                                 MenuItemButton(
                                   onPressed: () {
-                                    _showEditDialog(
-                                        context, ref, subject, index - 1);
+                                    context.push(
+                                      "/subjectUpdate",
+                                      extra: [subject, index - 1],
+                                    );
+                                    // _showEditDialog(
+                                    //     context, ref, subject, index - 1);
                                   },
                                   child: Text(tr("SubjectList.Edit")),
                                 ),
@@ -199,121 +205,5 @@ class SubjectListWidget extends ConsumerWidget {
       error: (error, stackTrace) => Text('$error'),
       loading: () => CircularProgressIndicator.adaptive(),
     );
-  }
-
-  Future<void> _showSubjectDialog(
-    BuildContext context,
-    WidgetRef ref,
-    String title,
-    String initialTitle, {
-    String? initialColor,
-    required void Function(String title, String color) onConfirm,
-  }) async {
-    final TextEditingController titleController =
-        TextEditingController(text: initialTitle);
-    String? selectedColor = initialColor;
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(title),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextField(
-                controller: titleController,
-                decoration:
-                    InputDecoration(labelText: tr("SubjectList.SubjectName")),
-              ),
-              TextButton(
-                onPressed: () async {
-                  selectedColor = await _showColorPickerDialog(context);
-                },
-                child: Text(tr("SubjectList.SelectColor")),
-              ),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text(tr("SubjectList.Cancel")),
-            ),
-            TextButton(
-              onPressed: () {
-                if (titleController.text.isNotEmpty && selectedColor != null) {
-                  onConfirm(titleController.text, selectedColor!);
-                  Navigator.of(context).pop();
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(tr("SubjectList.EnterSubjectName"))),
-                  );
-                }
-              },
-              child: Text(tr("SubjectList.Confirm")),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  void _showAddSubjectDialog(
-      BuildContext context, WidgetRef ref, int order, List<Subject> subjects) {
-    _showSubjectDialog(
-      context,
-      ref,
-      tr("SubjectList.AddSubject"),
-      '',
-      initialColor: "227C9D",
-      onConfirm: (title, color) {
-        if (subjects
-            .where((element) => element.title == title)
-            .toList()
-            .isNotEmpty) {
-          showSnackBar(message: "같은 과목이 이미 존재합니다.");
-        } else {
-          final newSubject = Subject(title: title, color: color, order: order);
-          ref.read(subjectViewModelProvider.notifier).addSubject(newSubject);
-        }
-      },
-    );
-  }
-
-  void _showEditDialog(
-      BuildContext context, WidgetRef ref, Subject subject, int index) {
-    _showSubjectDialog(
-      context,
-      ref,
-      tr("SubjectList.EditSubject"),
-      subject.title,
-      initialColor: subject.color,
-      onConfirm: (title, color) {
-        final updatedSubject = Subject(
-          subjectId: subject.subjectId,
-          title: title,
-          color: color,
-          order: subject.order,
-        );
-        ref
-            .read(subjectViewModelProvider.notifier)
-            .updateSubject(index, updatedSubject);
-      },
-    );
-  }
-
-  Future<String?> _showColorPickerDialog(BuildContext context) async {
-    final selectedColor = await showDialog<String>(
-      context: context,
-      builder: (context) {
-        return ColorPickerDialog(
-          oldColor: "227C9D",
-        );
-      },
-    );
-    return selectedColor;
   }
 }
