@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../viewmodels/user_setting/user_setting_view_model.dart';
-import '../../../more/widgets/user_profile/profile_info_widget.dart';
+import '../../../more/widgets/profile/profile_info_widget.dart';
 import '../page_transition_button_widget.dart';
 
 class SetProfileWidget extends StatefulWidget {

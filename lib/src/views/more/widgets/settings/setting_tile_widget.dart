@@ -39,7 +39,7 @@ class SettingTileWidget extends StatelessWidget {
                 Icons.arrow_forward_ios,
                 size: iconSize,
                 color: Colors.grey[700],
-              )
+              ),
         ],
       ),
     );

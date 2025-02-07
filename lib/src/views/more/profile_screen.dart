@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../viewmodels/user_setting/user_setting_view_model.dart';
-import '../../widgets/user_profile/edit_profile_widget.dart';
-import '../../widgets/user_profile/profile_image_widget.dart';
+import '../../viewmodels/user_setting/user_setting_view_model.dart';
+import 'widgets/profile/edit_profile_widget.dart';
+import 'widgets/profile/profile_image_widget.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
