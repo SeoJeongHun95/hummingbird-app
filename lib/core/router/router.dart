@@ -16,6 +16,7 @@ import '../../src/views/splash/splash_screen.dart';
 import '../../src/views/statistics/views/statistics_screen.dart';
 import '../../src/views/tutorial/profile_setting_screen.dart';
 import '../../src/views/tutorial/study_setting_screen.dart';
+import '../../src/views/white_noise/white_noise_screen.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 bool firstRun = true;
@@ -68,6 +69,14 @@ final goRouterProvider = Provider<GoRouter>((ref) {
               context: context,
               state: state,
               child: const SuduckTimerFocusModeWidget(),
+            ),
+          ),
+          GoRoute(
+            path: '/whiteNoise',
+            pageBuilder: (context, state) => buildPageWithDefaultTransition(
+              context: context,
+              state: state,
+              child: const WhiteNoiseScreen(),
             ),
           ),
           GoRoute(
