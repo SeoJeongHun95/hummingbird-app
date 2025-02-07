@@ -1,7 +1,9 @@
+import 'package:StudyDuck/src/viewmodels/app_setting/app_setting_view_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/utils/get_formatted_time.dart';
@@ -48,6 +50,7 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
     final suduckTimer = ref.watch(suDuckTimerProvider);
     final suduckTimerNotifier = ref.read(suDuckTimerProvider.notifier);
     final bgColor = ref.watch(timerBgColorProvider);
+    final isAutoFocus = ref.read(appSettingViewModelProvider).autoFocusMode;
 
     updateAnimation(bgColor);
 
@@ -147,6 +150,7 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
                                     ? suduckTimerNotifier.startTimer()
                                     : suduckTimerNotifier.startTimer(
                                         subject: suduckTimer.currSubject!);
+                                if (isAutoFocus) context.go("/focusMode");
                               } else {
                                 suduckTimerNotifier.stopTimer();
                               }
