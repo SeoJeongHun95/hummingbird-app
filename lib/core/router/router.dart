@@ -1,3 +1,4 @@
+import 'package:StudyDuck/src/views/more/timer_setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -9,9 +10,9 @@ import '../../src/views/home/home_screen.dart';
 import '../../src/views/home/suduck_timer_focus_mode_screen.dart';
 import '../../src/views/home/widgets/subject/subject_add_screen.dart';
 import '../../src/views/home/widgets/subject/subject_update_screen.dart';
-import '../../src/views/more/views/more_screen.dart';
-import '../../src/views/more/views/profile_screen/profile_screen.dart';
-import '../../src/views/more/views/settings_screen/settings_export.dart';
+import '../../src/views/more/more_screen.dart';
+import '../../src/views/more/profile_screen.dart';
+import '../../src/views/more/settings_screen/settings_export.dart';
 import '../../src/views/splash/splash_screen.dart';
 import '../../src/views/statistics/views/statistics_screen.dart';
 import '../../src/views/tutorial/profile_setting_screen.dart';
@@ -139,60 +140,67 @@ final goRouterProvider = Provider<GoRouter>((ref) {
             ),
           ),
           GoRoute(
-              path: 'settings',
-              pageBuilder: (context, state) => buildPageWithDefaultTransition(
-                    context: context,
-                    state: state,
-                    child: const SettingsScreen(),
-                  ),
-              routes: [
-                GoRoute(
-                  path: 'language',
-                  pageBuilder: (context, state) =>
-                      buildPageWithDefaultTransition(
-                    context: context,
-                    state: state,
-                    child: const SelectLanguageScreen(),
-                  ),
+            path: 'timerSetting',
+            pageBuilder: (context, state) => buildPageWithDefaultTransition(
+              context: context,
+              state: state,
+              child: const TimerSettingScreen(),
+            ),
+          ),
+          GoRoute(
+            path: 'settings',
+            pageBuilder: (context, state) => buildPageWithDefaultTransition(
+              context: context,
+              state: state,
+              child: const SettingsScreen(),
+            ),
+            routes: [
+              GoRoute(
+                path: 'language',
+                pageBuilder: (context, state) => buildPageWithDefaultTransition(
+                  context: context,
+                  state: state,
+                  child: const SelectLanguageScreen(),
                 ),
-                GoRoute(
-                  path: 'country',
-                  pageBuilder: (context, state) =>
-                      buildPageWithDefaultTransition(
-                    context: context,
-                    state: state,
-                    child: const SelectCountryScreen(),
-                  ),
+              ),
+              GoRoute(
+                path: 'country',
+                pageBuilder: (context, state) => buildPageWithDefaultTransition(
+                  context: context,
+                  state: state,
+                  child: const SelectCountryScreen(),
                 ),
-                GoRoute(
-                  path: 'group',
-                  pageBuilder: (context, state) =>
-                      buildPageWithDefaultTransition(
-                    context: context,
-                    state: state,
-                    child: const SelectGroupScreen(),
-                  ),
+              ),
+              GoRoute(
+                path: 'group',
+                pageBuilder: (context, state) => buildPageWithDefaultTransition(
+                  context: context,
+                  state: state,
+                  child: const SelectGroupScreen(),
                 ),
-              ])
+              ),
+            ],
+          )
         ],
       ),
       GoRoute(
-          path: '/tutorial',
-          pageBuilder: (context, state) => buildPageWithDefaultTransition(
-                context: context,
-                state: state,
-                child: const ProfileSettingScreen(),
-              ),
-          routes: [
-            GoRoute(
-              path: 'studySetting',
-              pageBuilder: (context, state) => buildPageWithDefaultTransition(
-                context: context,
-                state: state,
-                child: const StudySettingScreen(),
-              ),
-            )
-          ])
+        path: '/tutorial',
+        pageBuilder: (context, state) => buildPageWithDefaultTransition(
+          context: context,
+          state: state,
+          child: const ProfileSettingScreen(),
+        ),
+        routes: [
+          GoRoute(
+            path: 'studySetting',
+            pageBuilder: (context, state) => buildPageWithDefaultTransition(
+              context: context,
+              state: state,
+              child: const StudySettingScreen(),
+            ),
+          )
+        ],
+      ),
     ],
 
     // errorBuilder: (context, state) => PageNotFound(
