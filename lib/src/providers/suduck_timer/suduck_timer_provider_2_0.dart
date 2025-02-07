@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:gaimon/gaimon.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/utils/utils.dart';
@@ -67,6 +68,8 @@ class SuDuckTimer extends _$SuDuckTimer {
   Future<void> startTimer({Subject? subject}) async {
     final isConnected = ref.watch(networkStateProvider);
     if (isConnected.asData?.value != true) return;
+
+    Gaimon.selection();
 
     if (state.isRunning) return;
     _cancelBreakTimer();
