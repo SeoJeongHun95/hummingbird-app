@@ -8,21 +8,26 @@ part 'app_setting_view_model.g.dart';
 @riverpod
 class AppSettingViewModel extends _$AppSettingViewModel {
   late final AppSettingRepository repository;
+
   @override
   AppSetting build() {
     repository = ref.watch(appSettingRepositoryProvider);
     return repository.getAppSetting();
   }
 
-  Future<void> updateAppSetting(
-      {String? updatedColor,
-      int? updatedFontSize,
-      String? updatedLanguate}) async {
+  Future<void> updateAppSetting({
+    String? updatedColor,
+    int? updatedFontSize,
+    String? updatedLanguage,
+    bool? updatedAutoFocusMode,
+  }) async {
     final currentAppSetting = repository.getAppSetting();
     final updatedAppSetting = currentAppSetting.copyWith(
-        color: updatedColor ?? currentAppSetting.color,
-        fontSize: updatedFontSize ?? currentAppSetting.fontSize,
-        language: updatedLanguate ?? currentAppSetting.language);
+      color: updatedColor ?? currentAppSetting.color,
+      fontSize: updatedFontSize ?? currentAppSetting.fontSize,
+      language: updatedLanguage ?? currentAppSetting.language,
+      autoFocusMode: updatedAutoFocusMode ?? currentAppSetting.autoFocusMode,
+    );
     await repository.updateAppSetting(updatedAppSetting);
     state = updatedAppSetting;
   }

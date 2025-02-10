@@ -9,6 +9,7 @@ import '../../../../../core/utils/get_formatted_time.dart';
 import '../../../../../core/utils/show_confirm_dialog.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
+import '../../../../viewmodels/app_setting/app_setting_view_model.dart';
 import '../../../../viewmodels/study_record/study_record_viewmodel.dart';
 import '../../../../viewmodels/subject/subject_viewmodel.dart';
 
@@ -21,6 +22,7 @@ class SubjectListWidget extends ConsumerWidget {
     final subjectsNotifier = ref.read(subjectViewModelProvider.notifier);
     final suduckTimerNotifier = ref.read(suDuckTimerProvider.notifier);
     final studyRecord = ref.watch(studyRecordViewModelProvider);
+    final isAutoFocus = ref.read(appSettingViewModelProvider).autoFocusMode;
 
     return studyRecord.when(
       data: (recordData) {
@@ -49,14 +51,22 @@ class SubjectListWidget extends ConsumerWidget {
                         itemBuilder: (context, index) {
                           if (index == 0) {
                             return ListTile(
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 8.w),
                               onTap: () => suduckTimerNotifier.resetSubject(),
                               leading: GestureDetector(
-                                onTap: () => suduckTimerNotifier.startTimer(),
+                                onTap: () {
+                                  suduckTimerNotifier.startTimer();
+                                  if (isAutoFocus) context.go("/focusMode");
+                                },
                                 child: CircleAvatar(
-                                  backgroundColor:
-                                      Color(int.parse('0xffba4849')),
-                                  child: Icon(Icons.play_arrow_rounded,
-                                      color: Colors.white),
+                                  backgroundColor: Color(
+                                    int.parse('0xffba4849'),
+                                  ),
+                                  child: Icon(
+                                    Icons.play_arrow_rounded,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                               title: Text(
@@ -75,12 +85,6 @@ class SubjectListWidget extends ConsumerWidget {
                                     "/subjectAdd",
                                     extra: [data, data.length],
                                   );
-                                  // _showAddSubjectDialog(
-                                  //   context,
-                                  //   ref,
-                                  //   data.length,
-                                  //   data,
-                                  // );
                                 },
                                 icon: Icon(Icons.add),
                               ),
@@ -98,10 +102,15 @@ class SubjectListWidget extends ConsumerWidget {
                               .firstOrNull;
 
                           return ListTile(
+                            contentPadding:
+                                EdgeInsets.symmetric(horizontal: 8.w),
                             leading: GestureDetector(
-                              onTap: () => suduckTimerNotifier.startTimer(
-                                subject: subject,
-                              ),
+                              onTap: () {
+                                suduckTimerNotifier.startTimer(
+                                  subject: subject,
+                                );
+                                if (isAutoFocus) context.go("/focusMode");
+                              },
                               child: CircleAvatar(
                                 backgroundColor:
                                     Color(int.parse('0xff${subject.color}')),
@@ -124,17 +133,24 @@ class SubjectListWidget extends ConsumerWidget {
                                   child: matchedSubject != null &&
                                           matchedSubject.elapsedTime != 0
                                       ? Text(
+                                          textAlign: TextAlign.right,
                                           getFormatTime(
                                               matchedSubject.elapsedTime),
-                                          style: TextStyle(fontFeatures: [
-                                            FontFeature.tabularFigures()
-                                          ]),
+                                          style: TextStyle(
+                                            fontFeatures: [
+                                              FontFeature.tabularFigures()
+                                            ],
+                                          ),
                                         )
                                       : const Text(""),
                                 )
                               ],
                             ),
                             trailing: MenuAnchor(
+                              style: MenuStyle(
+                                backgroundColor:
+                                    WidgetStateProperty.all(Colors.white),
+                              ),
                               alignmentOffset: Offset(-17.w, 0),
                               menuChildren: [
                                 MenuItemButton(
@@ -143,8 +159,6 @@ class SubjectListWidget extends ConsumerWidget {
                                       "/subjectUpdate",
                                       extra: [subject, index - 1],
                                     );
-                                    // _showEditDialog(
-                                    //     context, ref, subject, index - 1);
                                   },
                                   child: Text(tr("SubjectList.Edit")),
                                 ),

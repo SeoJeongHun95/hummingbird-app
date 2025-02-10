@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -43,7 +44,7 @@ class _SubjectUpdateScreenState extends ConsumerState<SubjectUpdateScreen> {
     log("Editing Subject Index: ${widget.index}");
 
     return Scaffold(
-      appBar: AppBar(title: Text("과목 수정")),
+      appBar: AppBar(title: Text(tr("SubjectUpdateScreen.EditSubject"))),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -57,8 +58,8 @@ class _SubjectUpdateScreenState extends ConsumerState<SubjectUpdateScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: Text(
-                      "과목 이름",
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                      tr("SubjectUpdateScreen.SubjectName"),
+                      style: const TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ),
                   MxNcontainer(
@@ -67,7 +68,7 @@ class _SubjectUpdateScreenState extends ConsumerState<SubjectUpdateScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
                         controller: titleController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                         ),
                       ),
@@ -76,8 +77,8 @@ class _SubjectUpdateScreenState extends ConsumerState<SubjectUpdateScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: Text(
-                      "색상 선택",
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                      tr("SubjectUpdateScreen.SelectColor"),
+                      style: const TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ),
                   ColorPickerWidget(
@@ -93,7 +94,8 @@ class _SubjectUpdateScreenState extends ConsumerState<SubjectUpdateScreen> {
               GestureDetector(
                 onTap: () {
                   if (titleController.text.isEmpty) {
-                    showSnackBar(message: "과목 이름을 입력해주세요.");
+                    showSnackBar(
+                        message: tr("SubjectUpdateScreen.EnterSubjectName"));
                     return;
                   }
 
@@ -115,7 +117,7 @@ class _SubjectUpdateScreenState extends ConsumerState<SubjectUpdateScreen> {
                   MxN_child: Container(
                     color: AppColor.themeGrey,
                     child: Center(
-                      child: Text("저장"),
+                      child: Text(tr("SubjectUpdateScreen.Save")),
                     ),
                   ),
                 ),

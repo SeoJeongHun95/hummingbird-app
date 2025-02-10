@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -31,10 +29,8 @@ class _SubjectEditScreenState extends ConsumerState<SubjectAddScreen> {
 
   @override
   Widget build(BuildContext context) {
-    log("${widget.index}");
-
     return Scaffold(
-      appBar: AppBar(title: Text("과목 추가")),
+      appBar: AppBar(title: Text(tr("SubjectAddScreen.AddSubject"))),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -48,8 +44,8 @@ class _SubjectEditScreenState extends ConsumerState<SubjectAddScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: Text(
-                      tr("SubjectList.SubjectName"),
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                      tr("SubjectAddScreen.SubjectName"),
+                      style: const TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ),
                   MxNcontainer(
@@ -58,7 +54,7 @@ class _SubjectEditScreenState extends ConsumerState<SubjectAddScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
                         controller: titleController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                         ),
                       ),
@@ -67,8 +63,8 @@ class _SubjectEditScreenState extends ConsumerState<SubjectAddScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: Text(
-                      "색상 선택",
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                      tr("SubjectAddScreen.SelectColor"),
+                      style: const TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ),
                   ColorPickerWidget(
@@ -88,7 +84,8 @@ class _SubjectEditScreenState extends ConsumerState<SubjectAddScreen> {
                           element.title == titleController.value.text)
                       .toList()
                       .isNotEmpty) {
-                    showSnackBar(message: "같은 과목이 이미 존재합니다.");
+                    showSnackBar(
+                        message: tr("SubjectAddScreen.DuplicateSubject"));
                   } else {
                     final newSubject = Subject(
                       title: titleController.value.text,
@@ -108,7 +105,7 @@ class _SubjectEditScreenState extends ConsumerState<SubjectAddScreen> {
                   MxN_child: Container(
                     color: AppColor.themeGrey,
                     child: Center(
-                      child: Text("저장"),
+                      child: Text(tr("SubjectAddScreen.Save")),
                     ),
                   ),
                 ),

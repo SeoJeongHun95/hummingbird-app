@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 import '../../viewmodels/user_setting/user_setting_view_model.dart';
-import '../more/widgets/user_profile/profile_image_widget.dart';
+import '../more/widgets/profile/profile_image_widget.dart';
 import 'widgets/profile/set_profile_widget.dart';
 
 class ProfileSettingScreen extends ConsumerWidget {

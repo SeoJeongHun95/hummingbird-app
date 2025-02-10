@@ -1,208 +1,227 @@
 {
-  "NavigationBar": {
-    "Home": "首页",
-    "Social": "社交",
-    "Timer": "计时器",
-    "Statistics": "统计",
-    "More": "更多"
+  "DailyStatistics": {
+    "Error": "加载数据时出错: {0}",
+    "NoData": "今天没有记录的数据"
   },
-  "Dialog": {
-    "Confirm": "确认",
-    "Cancel": "取消"
-  },
-  "HomeSegmentBar": {
-    "Timer": "计时器",
-    "Dday": "D天",
-    "Summary": "总结"
-  },
-  "Timer": {
-    "SelfStudy": "自学",
-    "Start": "开始",
-    "Pause": "暂停"
-  },
-  "TimerControlBar": {
-    "WhiteNoise": "白噪音",
-    "FocusMode": "专注模式"
-  },
-  "SubjectList": {
-    "Edit": "编辑",
-    "Delete": "删除",
-    "Confirm": "确认",
-    "Cancel": "取消",
-    "Subject": "学科",
-    "SubjectName": "学科名称",
-    "AddSubject": "添加学科",
-    "EditSubject": "编辑学科",
-    "SelfStudy": "自学",
-    "SelectColor": "选择颜色",
-    "DeleteSubjectPrompt": "您确定要删除这个学科吗？",
-    "CannotUndoWarning": "此操作无法撤销。",
-    "EnterSubjectName": "请输入学科名称"
-  },
-  "SummaryWidget": {
-    "totalStudyTime": "总学习时间",
-    "averageStudyTime": "平均学习时间"
-  },
-  "DDayListTile": {
-    "Edit": "编辑",
-    "Delete": "删除",
-    "Confirm": "确认",
-    "Cancel": "取消",
-    "GoalDate": "目标日期：",
-    "AreYouSure": "您确定要",
-    "DeleteConfirmationSuffix": "删除吗？",
-    "OfflineEditDeleteError": "离线时无法进行编辑或删除。",
-    "OfflineStatus": "您当前处于离线状态。"
+  "DailySummary": {
+    "GoalStudyTime": "目标学习时间",
+    "StudyTimeToday": "今日学习时间",
+    "TodaySummary": "今日学习总结"
   },
   "DDayDialog": {
-    "Edit": "编辑",
     "Add": "添加",
+    "Cancel": "取消",
+    "Color": "颜色:",
+    "Confirm": "确认",
+    "Edit": "编辑",
     "EnterGoalTitle": "请输入目标标题",
-    "GoalDate": "目标日期：",
-    "SelectDate": "选择日期",
-    "GoalTime": "目标时间：",
-    "SelectTime": "选择时间",
-    "Color": "颜色：",
+    "GoalDate": "目标日期:",
+    "GoalTime": "目标时间:",
+    "SelectDate": "请选择日期",
+    "SelectTime": "请选择时间"
+  },
+  "DDayListTile": {
+    "AreYouSure": "你确定要 ",
+    "Cancel": "取消",
+    "Confirm": "确认",
+    "Delete": "删除",
+    "DeleteConfirmationSuffix": " 吗？",
+    "Edit": "编辑",
+    "GoalDate": "目标日期:",
+    "OfflineEditDeleteError": "离线状态下无法编辑或删除。",
+    "OfflineStatus": "当前处于离线状态"
+  },
+  "Dialog": {
     "Cancel": "取消",
     "Confirm": "确认"
   },
-  "DailyStatistics": {
-    "NoData": "今天没有记录数据",
-    "Error": "获取数据时出错：{0}"
+  "HomeSegmentBar": {
+    "Dday": "倒计时",
+    "Summary": "总结",
+    "Timer": "计时器"
   },
-  "DailySummary": {
-    "TodaySummary": "今天的学习总结",
-    "StudyTimeToday": "今天的学习时间",
-    "GoalStudyTime": "目标学习时间"
+  "InquiryButtonWidget": {
+    "ContactUs": "联系我们"
   },
-  "getBrithDateText": {
-    "birthDate": "出生日期",
-    "birthDateHint": "请注册您的出生日期"
+  "LogoutButtonWidget": {
+    "Logout": "退出登录"
   },
-  "SelectCountryScreen": {
-    "Country": "国家"
+  "MonthlyStatisticsScreen": {
+    "noData": "没有记录的数据"
   },
-  "SelectGroupScreen": {
-    "Group": "小组"
+  "NavigationBar": {
+    "Home": "首页",
+    "More": "更多",
+    "Social": "社交",
+    "Statistics": "统计",
+    "Timer": "计时器"
   },
-  "SelectLanguageScreen": {
-    "Language": "语言"
-  },
-  "SettingsScreen": {
-    "Settings": "设置"
+  "NotificationButton": {
+    "Alarm": "通知"
   },
   "PrivacyPolicyWidget": {
     "PrivacyPolicy": "隐私政策",
-    "URLCannotBeOpened": "无法打开此网址",
-    "URLFailedToOpen": "打开网址失败",
+    "URLCannotBeOpened": "无法打开此URL",
+    "URLFailedToOpen": "无法打开URL",
     "URLLaunchError": "发生错误"
   },
-  "NotificationButton": {
-    "Alarm": "闹钟"
+  "ProfileInfoWidget": {
+    "birthDate": "生日",
+    "birthDateHint": "请输入您的生日",
+    "nickName": "昵称",
+    "nickNameHint": "请输入您的昵称"
   },
-  "SettingButton": {
-    "Setting": "设置"
-  },
-  "SelectFontSizeButtonWidget": {
-    "FontSize": "字体大小",
-    "Small": "小",
-    "Medium": "中",
-    "Large": "大"
-  },
-  "SelectLanguageButtonWidget": {
-    "Language": "语言",
-    "Korean": "韩语"
-  },
-  "SelectLanguageContainerWidget": {
-    "Korean": "韩语",
-    "FuturePlan": "未来更新计划"
-  },
-  "SelectThemeButtonWidget": {
-    "ThemeColor": "主题颜色",
-    "FuturePlan": "未来更新计划"
+  "ProfileSettingScreen": {
+    "loadingText": "今天也要全力以赴，与 Study Duck 一起学习..."
   },
   "SelectCountryButtonWidget": {
     "Country": "国家",
     "SouthKorea": "韩国"
   },
   "SelectCountryContainerWidget": {
-    "SouthKorea": "韩国",
-    "FuturePlan": "未来更新计划"
+    "FuturePlan": "未来将添加更多国家",
+    "SouthKorea": "韩国"
+  },
+  "SelectCountryScreen": {
+    "Country": "国家"
+  },
+  "SelectFontSizeButtonWidget": {
+    "FontSize": "字体大小",
+    "Large": "大",
+    "Medium": "中",
+    "Small": "小"
   },
   "SelectGoalDurationButtonWidget": {
-    "TimeSelection": "时间选择",
+    "Complete": "完成",
     "GoalStudyTime": "目标学习时间",
-    "Complete": "完成"
+    "TimeSelection": "时间选择"
+  },
+  "SelectGroupBottomSheet": {
+    "complete": "完成",
+    "selectGroup": "选择分组"
   },
   "SelectGroupButtonWidget": {
-    "Group": "小组",
-    "SelectGroupPrompt": "请选择小组"
+    "Group": "分组",
+    "SelectGroupPrompt": "请选择分组"
   },
-  "InquiryButtonWidget": {
-    "ContactUs": "联系我们"
+  "SelectGroupScreen": {
+    "Group": "分组"
   },
-  "LogoutButtonWidget": {
-    "Logout": "注销"
+  "SelectLanguageButtonWidget": {
+    "Korean": "韩语",
+    "Language": "语言"
   },
-  "ProfileInfoWidget": {
-    "nickName": "昵称",
-    "nickNameHint": "请输入您的昵称",
-    "birthDate": "出生日期"
+  "SelectLanguageContainerWidget": {
+    "FuturePlan": "未来将添加更多语言",
+    "Korean": "韩语"
   },
-  "SocialScreen": "社交屏幕",
+  "SelectLanguageScreen": {
+    "Language": "语言"
+  },
+  "SelectThemeButtonWidget": {
+    "FuturePlan": "未来将添加更多主题",
+    "ThemeColor": "主题颜色"
+  },
+  "SettingButton": {
+    "Setting": "设置"
+  },
+  "SettingsScreen": {
+    "Settings": "设置"
+  },
+  "SetProfileWidget": {
+    "next": "下一步",
+    "selectBirthDate": "请选择您的生日",
+    "skip": "跳过"
+  },
+  "SocialScreen": "社交界面",
   "SplashScreen": {
-    "message": "今天与Study Duck一起加油吧..."
+    "message": "今天也要全力以赴，与 Study Duck 一起学习..."
   },
-  "MonthlyStatisticsScreen": {
-    "noData": "没有记录的数据"
+  "StatisticsScreen": {
+    "monthly": "月度",
+    "weekly": "周度"
+  },
+  "StudyBarChartWidget": {
+    "subjectStudyTime": "各科目学习时间"
+  },
+  "StudyPieChartWidget": {
+    "subjectPercentage": "各科目占比"
+  },
+  "StudySettingScreen": {
+    "complete": "完成",
+    "done": "完成",
+    "goalDuration": "目标学习时间",
+    "group": "分组",
+    "previous": "上一步",
+    "timePickerTitle": "时间选择"
+  },
+  "SubjectAddScreen": {
+    "AddSubject": "添加科目",
+    "DuplicateSubject": "该科目已存在。",
+    "Save": "保存",
+    "SelectColor": "选择颜色",
+    "SubjectName": "科目名称"
+  },
+  "SubjectList": {
+    "AddSubject": "添加科目",
+    "Cancel": "取消",
+    "CannotUndoWarning": "此操作无法撤销。",
+    "Confirm": "确认",
+    "Delete": "删除",
+    "DeleteSubjectPrompt": "确定要删除此科目吗？",
+    "Edit": "编辑",
+    "EditSubject": "编辑科目",
+    "EnterSubjectName": "请输入科目名称",
+    "SelectColor": "选择颜色",
+    "SelfStudy": "自习",
+    "Subject": "科目",
+    "SubjectName": "科目名称"
+  },
+  "SubjectUpdateScreen": {
+    "EditSubject": "编辑科目",
+    "EnterSubjectName": "请输入科目名称。",
+    "Save": "保存",
+    "SelectColor": "选择颜色",
+    "SubjectName": "科目名称"
+  },
+  "SummaryWidget": {
+    "averageStudyTime": "平均学习时间",
+    "totalStudyTime": "总学习时间"
+  },
+  "Timer": {
+    "Pause": "暂停",
+    "SelfStudy": "自习",
+    "Start": "开始"
+  },
+  "TimerControlBar": {
+    "FocusMode": "专注模式",
+    "WhiteNoise": "白噪音"
+  },
+  "TimerSetting": {
+    "AutoFocusMode": "自动专注模式",
+    "TimeerSetting": "计时器设置"
+  },
+  "TotalDuratinosLineChartWidget": {
+    "totalStudyTime": "每日总学习时间"
+  },
+  "UserProfileWidget": {
+    "profileEdit": "编辑个人资料"
   },
   "WeeklyStatisticsScreen": {
     "noData": "没有记录的数据"
   },
-  "StudyBarChartWidget": {
-    "subjectStudyTime": "学科学习时间"
-  },
-  "TotalDuratinosLineChartWidget": {
-    "totalStudyTime": "今天的总学习时间"
-  },
-  "StudyPieChartWidget": {
-    "subjectPercentage": "学科占比"
-  },
-  "ProfileSettingScreen": {
-    "loadingText": "今天与Study Duck一起加油吧..."
-  },
-  "StudySettingScreen": {
-    "goalDuration": "目标学习时间",
-    "timePickerTitle": "时间选择",
-    "group": "小组",
-    "previous": "上一步",
-    "complete": "完成",
-    "done": "完成"
-  },
-  "SetProfileWidget": {
-    "skip": "跳过",
-    "next": "下一步",
-    "selectBirthDate": "请选择您的出生日期"
-  },
-  "SelectGroupBottomSheet": {
-    "selectGroup": "选择小组",
-    "complete": "完成"
-  },
   "WhiteNoiseScreen": {
-    "whiteNoise": "白噪音",
-    "chooseYourWhiteNoise": "选择您的白噪音",
-    "cafeNoise": "咖啡噪音",
-    "rainNoise": "雨声噪音",
-    "windNoise": "风声噪音",
-    "fireNoise": "火炉噪音",
+    "chooseYourWhiteNoise": "选择您喜欢的白噪音",
+    "cafeNoise": "咖啡馆声音",
+    "close": "关闭",
+    "fireNoise": "火焰声音",
+    "rainNoise": "雨声",
     "volumeControl": "音量控制",
-    "close": "关闭"
+    "whiteNoise": "白噪音",
+    "windNoise": "风声"
   },
-  "StatisticsScreen": {
-    "weekly": "每周",
-    "monthly": "每月"
-  },
-  "UserProfileWidget": {
-    "profileEdit": "编辑个人资料"
+  "getBrithDateText": {
+    "birthDate": "生日",
+    "birthDateHint": "请输入您的生日"
   }
 }

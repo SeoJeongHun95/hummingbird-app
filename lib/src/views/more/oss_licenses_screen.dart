@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-import '../../../../../oss_licenses.dart';
+import '../../../../oss_licenses.dart';
 
 // Todo : 배포 전에 라이센스 확인
 // Todo : 라이센스 가지오기

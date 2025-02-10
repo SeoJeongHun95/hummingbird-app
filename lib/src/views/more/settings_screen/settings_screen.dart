@@ -2,9 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/widgets/admob_widget.dart';
-import '../../widgets/settings/app_setting/app_setting_widget.dart';
-import '../../widgets/settings/study_setting/study_setting_widget.dart';
+import '../../../../core/widgets/admob_widget.dart';
+import '../widgets/settings/app_setting/app_setting_widget.dart';
+import '../widgets/settings/study_setting/study_setting_widget.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});

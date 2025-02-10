@@ -63,7 +63,7 @@ class PrivacyPolicyWidget extends StatelessWidget {
       },
       leading: Icon(
         Icons.privacy_tip_outlined,
-        size: leadingIconSize,
+        size: 20.w,
       ),
       title: Text(
         tr("PrivacyPolicyWidget.PrivacyPolicy"),
@@ -73,11 +73,8 @@ class PrivacyPolicyWidget extends StatelessWidget {
       ),
       trailing: Icon(
         Icons.arrow_forward_ios,
-        size: trailingIconSize,
+        size: 16.w,
       ),
     );
   }
-
-  double get trailingIconSize => 16.w;
-  double get leadingIconSize => 20.w;
 }
