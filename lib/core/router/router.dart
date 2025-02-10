@@ -1,10 +1,8 @@
-import 'package:StudyDuck/src/views/more/timer_setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../src/models/subject/subject.dart';
-import '../../src/providers/auth/auth_provider.dart';
 import '../../src/viewmodels/app_setting/app_setting_view_model.dart';
 import '../../src/views/home/home_screen.dart';
 import '../../src/views/home/suduck_timer_focus_mode_screen.dart';
@@ -13,6 +11,7 @@ import '../../src/views/home/widgets/subject/subject_update_screen.dart';
 import '../../src/views/more/more_screen.dart';
 import '../../src/views/more/profile_screen.dart';
 import '../../src/views/more/settings_screen/settings_export.dart';
+import '../../src/views/more/timer_setting_screen.dart';
 import '../../src/views/splash/splash_screen.dart';
 import '../../src/views/statistics/views/statistics_screen.dart';
 import '../../src/views/tutorial/profile_setting_screen.dart';
@@ -23,7 +22,7 @@ bool firstRun = true;
 
 // GoRouter 설정
 final goRouterProvider = Provider<GoRouter>((ref) {
-  final isLoggedIn = ref.watch(authProvider);
+  final isLoggedIn = true;
   bool isFirstInstalled = true;
 
   if (isLoggedIn) {

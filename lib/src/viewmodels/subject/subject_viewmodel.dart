@@ -20,7 +20,7 @@ class SubjectViewModel extends _$SubjectViewModel {
     }
     repository = ref.watch(subjectRepositoryProvider);
     final isConnected = await ref.watch(networkStateProvider.future);
-    final subjects = await repository.getAllSubjects(userId, isConnected);
+    final subjects = await repository.getAllSubjects();
     return subjects;
   }
 
@@ -30,7 +30,7 @@ class SubjectViewModel extends _$SubjectViewModel {
       return;
     }
     state = await AsyncValue.guard(() async {
-      return await repository.getAllSubjects(userId, isConnected);
+      return await repository.getAllSubjects();
     });
   }
 
@@ -41,7 +41,7 @@ class SubjectViewModel extends _$SubjectViewModel {
     }
     final bool isConnected = await ref.read(networkStateProvider.future);
     state = await AsyncValue.guard(() async {
-      return await repository.addSubject(userId, subject, isConnected);
+      return await repository.addSubject(subject);
     });
   }
 
@@ -52,7 +52,7 @@ class SubjectViewModel extends _$SubjectViewModel {
     }
     state = await AsyncValue.guard(() async {
       final bool isConnected = await ref.read(networkStateProvider.future);
-      await repository.updateSubject(index, subject, isConnected, userId);
+      await repository.updateSubject(index, subject);
 
       final currentSubjects = state.value ?? [];
       currentSubjects[index] = subject;
@@ -61,9 +61,9 @@ class SubjectViewModel extends _$SubjectViewModel {
     });
   }
 
-  Future<void> deleteSubject(String subjectId, int index) async {
+  Future<void> deleteSubject(int index) async {
     state = await AsyncValue.guard(() async {
-      await repository.deleteSubject(subjectId, index);
+      await repository.deleteSubject(index);
 
       final currentSubjects = state.value ?? [];
       currentSubjects.removeAt(index);
