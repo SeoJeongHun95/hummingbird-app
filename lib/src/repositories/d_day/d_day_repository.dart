@@ -1,3 +1,5 @@
+import 'package:uuid/uuid.dart';
+
 import '../../datasource/local/d_day_local_datasource/d_day_local_datasource.dart';
 import '../../models/d_day/d_day.dart';
 
@@ -7,7 +9,10 @@ class DDayRepository {
   DDayRepository(this._localDataSource);
 
   Future<void> addDDay(DDay dDay) async {
-    await _localDataSource.addDDay(dDay);
+    //TODO: Firestore 연결 전 임시 uuid
+    final dDayId = Uuid().v4();
+
+    await _localDataSource.addDDay(dDay.copyWith(ddayId: dDayId));
   }
 
   Future<List<DDay>> getAllDDay(bool isConnected) async {
