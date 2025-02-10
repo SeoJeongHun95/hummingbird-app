@@ -23,8 +23,7 @@ class StudyRecordRepository {
     await _localDataSource.addStudyRecord(studyRecord);
   }
 
-  Future<Map<String, List<StudyRecord>>> getStudyRecord(
-      int userId, bool isConnected) async {
+  Future<Map<String, List<StudyRecord>>> getStudyRecord() async {
     return _localDataSource.getStudyRecord();
   }
 
@@ -34,11 +33,10 @@ class StudyRecordRepository {
   }
 
   Future<Map<String, List<StudyRecord>>> getStudyRecordByRange(
-      int userId,
-      DateTime startDate,
-      DateTime endDate,
-      int period,
-      bool isConnected) async {
+    DateTime startDate,
+    DateTime endDate,
+    int period,
+  ) async {
     Map<String, List<StudyRecord>> studyRecordMap = {};
     for (int i = 0; i < period; i++) {
       final date = formatDate(startDate.add(Duration(days: i)));
