@@ -56,15 +56,15 @@ class DDayViewModel extends _$DDayViewModel {
     });
   }
 
-  Future<void> initializeDDay() async {
-    bool isConnected;
-    try {
-      isConnected = await ref.read(networkStateProvider.future);
-    } catch (e) {
-      isConnected = false;
-    }
-    await repository.initializeDDay(isConnected);
-  }
+  // Future<void> initializeDDay() async {
+  //   bool isConnected;
+  //   try {
+  //     isConnected = await ref.read(networkStateProvider.future);
+  //   } catch (e) {
+  //     isConnected = false;
+  //   }
+  //   await repository.initializeDDay(isConnected);
+  // }
 
   List<DDay> getSortedDDays(List<DDay> dDays) {
     dDays.sort((a, b) => a.targetDatetime.compareTo(b.targetDatetime));

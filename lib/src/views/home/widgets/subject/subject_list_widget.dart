@@ -178,8 +178,7 @@ class SubjectListWidget extends ConsumerWidget {
                                       return;
                                     }
 
-                                    subjectsNotifier.deleteSubject(
-                                        subject.subjectId!, index - 1);
+                                    subjectsNotifier.deleteSubject(index - 1);
                                   },
                                   child: Text(tr("SubjectList.Delete")),
                                 ),
