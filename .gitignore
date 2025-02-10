@@ -84,3 +84,8 @@ app.*.map.json
 
 # Hive adapter files
 *.g.dart
+
+# FireStroe files
+.firebase/
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
