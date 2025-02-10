@@ -19,7 +19,7 @@ class LogoutButtonWidget extends ConsumerWidget {
       },
       leading: Icon(
         Icons.logout_rounded,
-        size: leadingIconSize,
+        size: 20.w,
       ),
       title: Text(
         tr('LogoutButtonWidget.Logout'),
@@ -29,11 +29,8 @@ class LogoutButtonWidget extends ConsumerWidget {
       ),
       trailing: Icon(
         Icons.arrow_forward_ios,
-        size: trailingIconSize,
+        size: 16.w,
       ),
     );
   }
-
-  double get trailingIconSize => 16.w;
-  double get leadingIconSize => 20.w;
 }

@@ -1,142 +1,44 @@
 {
-  "NavigationBar": {
-    "Home": "Trang chủ",
-    "Social": "Mạng xã hội",
-    "Timer": "Bộ hẹn giờ",
-    "Statistics": "Thống kê",
-    "More": "Thêm"
+  "DailyStatistics": {
+    "Error": "Lỗi khi tải dữ liệu: {0}",
+    "NoData": "Không có dữ liệu nào được ghi nhận hôm nay"
   },
-  "Dialog": {
-    "Confirm": "Xác nhận",
-    "Cancel": "Hủy"
-  },
-  "HomeSegmentBar": {
-    "Timer": "Bộ hẹn giờ",
-    "Dday": "Ngày kết thúc",
-    "Summary": "Tóm tắt"
-  },
-  "Timer": {
-    "SelfStudy": "Học tự lực",
-    "Start": "BẮT ĐẦU",
-    "Pause": "TẠM DỪNG"
-  },
-  "TimerControlBar": {
-    "WhiteNoise": "Tiếng ồn trắng",
-    "FocusMode": "Chế độ tập trung"
-  },
-  "SubjectList": {
-    "Edit": "Chỉnh sửa",
-    "Delete": "Xóa",
-    "Confirm": "Xác nhận",
-    "Cancel": "Hủy",
-    "Subject": "Môn học",
-    "SubjectName": "Tên môn học",
-    "AddSubject": "Thêm môn học",
-    "EditSubject": "Chỉnh sửa môn học",
-    "SelfStudy": "Học tự lực",
-    "SelectColor": "Chọn màu",
-    "DeleteSubjectPrompt": "Bạn có muốn xóa môn học này không?",
-    "CannotUndoWarning": "Hành động này không thể phục hồi.",
-    "EnterSubjectName": "Vui lòng nhập tên môn học"
-  },
-  "SummaryWidget": {
-    "totalStudyTime": "Tổng thời gian học",
-    "averageStudyTime": "Thời gian học trung bình"
-  },
-  "DDayListTile": {
-    "Edit": "Chỉnh sửa",
-    "Delete": "Xóa",
-    "Confirm": "Xác nhận",
-    "Cancel": "Hủy",
-    "GoalDate": "Ngày mục tiêu:",
-    "AreYouSure": "Bạn có chắc chắn muốn",
-    "DeleteConfirmationSuffix": "xóa không?",
-    "OfflineEditDeleteError": "Không thể chỉnh sửa hoặc xóa trong chế độ ngoại tuyến.",
-    "OfflineStatus": "Bạn đang ở chế độ ngoại tuyến"
+  "DailySummary": {
+    "GoalStudyTime": "Thời gian học mục tiêu",
+    "StudyTimeToday": "Thời gian học hôm nay",
+    "TodaySummary": "Tóm tắt học tập hôm nay"
   },
   "DDayDialog": {
-    "Edit": "Chỉnh sửa",
     "Add": "Thêm",
+    "Cancel": "Hủy",
+    "Color": "Màu sắc:",
+    "Confirm": "Xác nhận",
+    "Edit": "Chỉnh sửa",
     "EnterGoalTitle": "Nhập tiêu đề mục tiêu",
     "GoalDate": "Ngày mục tiêu:",
-    "SelectDate": "Chọn ngày",
     "GoalTime": "Thời gian mục tiêu:",
-    "SelectTime": "Chọn thời gian",
-    "Color": "Màu sắc:",
+    "SelectDate": "Chọn ngày",
+    "SelectTime": "Chọn thời gian"
+  },
+  "DDayListTile": {
+    "AreYouSure": "Bạn có chắc chắn ",
+    "Cancel": "Hủy",
+    "Confirm": "Xác nhận",
+    "Delete": "Xóa",
+    "DeleteConfirmationSuffix": " muốn xóa không?",
+    "Edit": "Chỉnh sửa",
+    "GoalDate": "Ngày mục tiêu:",
+    "OfflineEditDeleteError": "Không thể chỉnh sửa hoặc xóa khi ngoại tuyến.",
+    "OfflineStatus": "Đang ngoại tuyến"
+  },
+  "Dialog": {
     "Cancel": "Hủy",
     "Confirm": "Xác nhận"
   },
-  "DailyStatistics": {
-    "NoData": "Không có dữ liệu được ghi nhận hôm nay",
-    "Error": "Lỗi khi tải dữ liệu: {0}"
-  },
-  "DailySummary": {
-    "TodaySummary": "Tóm tắt học tập hôm nay",
-    "StudyTimeToday": "Thời gian học hôm nay",
-    "GoalStudyTime": "Thời gian học mục tiêu"
-  },
-  "getBrithDateText": {
-    "birthDate": "Ngày sinh",
-    "birthDateHint": "Vui lòng đăng ký ngày sinh"
-  },
-  "SelectCountryScreen": {
-    "Country": "Quốc gia"
-  },
-  "SelectGroupScreen": {
-    "Group": "Nhóm"
-  },
-  "SelectLanguageScreen": {
-    "Language": "Ngôn ngữ"
-  },
-  "SettingsScreen": {
-    "Settings": "Cài đặt"
-  },
-  "PrivacyPolicyWidget": {
-    "PrivacyPolicy": "Chính sách bảo mật",
-    "URLCannotBeOpened": "Không thể mở URL này",
-    "URLFailedToOpen": "Không thể mở URL",
-    "URLLaunchError": "Lỗi xảy ra"
-  },
-  "NotificationButton": {
-    "Alarm": "Cảnh báo"
-  },
-  "SettingButton": {
-    "Setting": "Cài đặt"
-  },
-  "SelectFontSizeButtonWidget": {
-    "FontSize": "Kích thước chữ",
-    "Small": "Nhỏ",
-    "Medium": "Vừa",
-    "Large": "Lớn"
-  },
-  "SelectLanguageButtonWidget": {
-    "Language": "Ngôn ngữ",
-    "Korean": "Tiếng Hàn"
-  },
-  "SelectLanguageContainerWidget": {
-    "Korean": "Tiếng Hàn",
-    "FuturePlan": "Kế hoạch bổ sung trong tương lai"
-  },
-  "SelectThemeButtonWidget": {
-    "ThemeColor": "Màu sắc giao diện",
-    "FuturePlan": "Kế hoạch bổ sung trong tương lai"
-  },
-  "SelectCountryButtonWidget": {
-    "Country": "Quốc gia",
-    "SouthKorea": "Hàn Quốc"
-  },
-  "SelectCountryContainerWidget": {
-    "SouthKorea": "Hàn Quốc",
-    "FuturePlan": "Kế hoạch bổ sung trong tương lai"
-  },
-  "SelectGoalDurationButtonWidget": {
-    "TimeSelection": "Chọn thời gian",
-    "GoalStudyTime": "Thời gian học mục tiêu",
-    "Complete": "Hoàn tất"
-  },
-  "SelectGroupButtonWidget": {
-    "Group": "Nhóm",
-    "SelectGroupPrompt": "Vui lòng chọn nhóm"
+  "HomeSegmentBar": {
+    "Dday": "Ngày đặc biệt",
+    "Summary": "Tóm tắt",
+    "Timer": "Bộ đếm giờ"
   },
   "InquiryButtonWidget": {
     "ContactUs": "Liên hệ với chúng tôi"
@@ -144,65 +46,182 @@
   "LogoutButtonWidget": {
     "Logout": "Đăng xuất"
   },
-  "ProfileInfoWidget": {
-    "nickName": "Tên người dùng",
-    "nickNameHint": "Vui lòng nhập tên người dùng",
-    "birthDate": "Ngày sinh"
-  },
-  "SocialScreen": "Màn hình mạng xã hội",
-  "SplashScreen": {
-    "message": "Hãy luôn cố gắng hết mình cùng Study Duck hôm nay..."
-  },
   "MonthlyStatisticsScreen": {
     "noData": "Không có dữ liệu được ghi nhận"
   },
-  "WeeklyStatisticsScreen": {
-    "noData": "Không có dữ liệu được ghi nhận"
+  "NavigationBar": {
+    "Home": "Trang chủ",
+    "More": "Thêm",
+    "Social": "Xã hội",
+    "Statistics": "Thống kê",
+    "Timer": "Bộ đếm giờ"
+  },
+  "NotificationButton": {
+    "Alarm": "Thông báo"
+  },
+  "PrivacyPolicyWidget": {
+    "PrivacyPolicy": "Chính sách quyền riêng tư",
+    "URLCannotBeOpened": "Không thể mở URL này",
+    "URLFailedToOpen": "Không thể mở URL",
+    "URLLaunchError": "Đã xảy ra lỗi"
+  },
+  "ProfileInfoWidget": {
+    "birthDate": "Ngày sinh",
+    "birthDateHint": "Hãy nhập ngày sinh của bạn",
+    "nickName": "Biệt danh",
+    "nickNameHint": "Nhập biệt danh của bạn"
+  },
+  "ProfileSettingScreen": {
+    "loadingText": "Hãy cố gắng hết mình cùng với Study Duck..."
+  },
+  "SelectCountryButtonWidget": {
+    "Country": "Quốc gia",
+    "SouthKorea": "Hàn Quốc"
+  },
+  "SelectCountryContainerWidget": {
+    "FuturePlan": "Kế hoạch bổ sung trong tương lai",
+    "SouthKorea": "Hàn Quốc"
+  },
+  "SelectCountryScreen": {
+    "Country": "Quốc gia"
+  },
+  "SelectFontSizeButtonWidget": {
+    "FontSize": "Cỡ chữ",
+    "Large": "Lớn",
+    "Medium": "Trung bình",
+    "Small": "Nhỏ"
+  },
+  "SelectGoalDurationButtonWidget": {
+    "Complete": "Hoàn tất",
+    "GoalStudyTime": "Thời gian học mục tiêu",
+    "TimeSelection": "Chọn thời gian"
+  },
+  "SelectGroupBottomSheet": {
+    "complete": "Hoàn tất",
+    "selectGroup": "Chọn nhóm"
+  },
+  "SelectGroupButtonWidget": {
+    "Group": "Nhóm",
+    "SelectGroupPrompt": "Chọn nhóm"
+  },
+  "SelectGroupScreen": {
+    "Group": "Nhóm"
+  },
+  "SelectLanguageButtonWidget": {
+    "Korean": "Tiếng Hàn",
+    "Language": "Ngôn ngữ"
+  },
+  "SelectLanguageContainerWidget": {
+    "FuturePlan": "Kế hoạch bổ sung trong tương lai",
+    "Korean": "Tiếng Hàn"
+  },
+  "SelectLanguageScreen": {
+    "Language": "Ngôn ngữ"
+  },
+  "SelectThemeButtonWidget": {
+    "FuturePlan": "Kế hoạch bổ sung trong tương lai",
+    "ThemeColor": "Màu chủ đề"
+  },
+  "SettingButton": {
+    "Setting": "Cài đặt"
+  },
+  "SettingsScreen": {
+    "Settings": "Cài đặt"
+  },
+  "SetProfileWidget": {
+    "next": "Tiếp theo",
+    "selectBirthDate": "Chọn ngày sinh của bạn",
+    "skip": "Bỏ qua"
+  },
+  "SocialScreen": "Màn hình xã hội",
+  "SplashScreen": {
+    "message": "Hãy cố gắng hết mình cùng với Study Duck..."
+  },
+  "StatisticsScreen": {
+    "monthly": "Hàng tháng",
+    "weekly": "Hàng tuần"
   },
   "StudyBarChartWidget": {
     "subjectStudyTime": "Thời gian học theo môn"
   },
-  "TotalDuratinosLineChartWidget": {
-    "totalStudyTime": "Tổng thời gian học trong ngày"
-  },
   "StudyPieChartWidget": {
     "subjectPercentage": "Tỷ lệ môn học"
   },
-  "ProfileSettingScreen": {
-    "loadingText": "Hãy luôn cố gắng hết mình cùng Study Duck hôm nay..."
-  },
   "StudySettingScreen": {
+    "complete": "Hoàn tất",
+    "done": "Hoàn tất",
     "goalDuration": "Thời gian học mục tiêu",
-    "timePickerTitle": "Chọn thời gian",
     "group": "Nhóm",
     "previous": "Trước",
-    "complete": "Hoàn tất",
-    "done": "Hoàn tất"
+    "timePickerTitle": "Chọn thời gian"
   },
-  "SetProfileWidget": {
-    "skip": "Bỏ qua",
-    "next": "Tiếp theo",
-    "selectBirthDate": "Vui lòng chọn ngày sinh"
+  "SubjectAddScreen": {
+    "AddSubject": "Thêm môn học",
+    "DuplicateSubject": "Môn học này đã tồn tại.",
+    "Save": "Lưu",
+    "SelectColor": "Chọn màu",
+    "SubjectName": "Tên môn học"
   },
-  "SelectGroupBottomSheet": {
-    "selectGroup": "Chọn nhóm",
-    "complete": "Hoàn tất"
+  "SubjectList": {
+    "AddSubject": "Thêm môn học",
+    "Cancel": "Hủy",
+    "CannotUndoWarning": "Hành động này không thể hoàn tác.",
+    "Confirm": "Xác nhận",
+    "Delete": "Xóa",
+    "DeleteSubjectPrompt": "Bạn có muốn xóa môn học này không?",
+    "Edit": "Chỉnh sửa",
+    "EditSubject": "Chỉnh sửa môn học",
+    "EnterSubjectName": "Nhập tên môn học",
+    "SelectColor": "Chọn màu",
+    "SelfStudy": "Tự học",
+    "Subject": "Môn học",
+    "SubjectName": "Tên môn học"
   },
-  "WhiteNoiseScreen": {
-    "whiteNoise": "Tiếng ồn trắng",
-    "chooseYourWhiteNoise": "Chọn tiếng ồn trắng bạn yêu thích",
-    "cafeNoise": "Tiếng cà phê",
-    "rainNoise": "Tiếng mưa",
-    "windNoise": "Tiếng gió",
-    "fireNoise": "Tiếng lửa",
-    "volumeControl": "Điều chỉnh âm lượng",
-    "close": "Đóng"
+  "SubjectUpdateScreen": {
+    "EditSubject": "Chỉnh sửa môn học",
+    "EnterSubjectName": "Nhập tên môn học",
+    "Save": "Lưu",
+    "SelectColor": "Chọn màu",
+    "SubjectName": "Tên môn học"
   },
-  "StatisticsScreen": {
-    "weekly": "Hàng tuần",
-    "monthly": "Hàng tháng"
+  "SummaryWidget": {
+    "averageStudyTime": "Thời gian học trung bình",
+    "totalStudyTime": "Tổng thời gian học"
+  },
+  "Timer": {
+    "Pause": "Tạm dừng",
+    "SelfStudy": "Tự học",
+    "Start": "Bắt đầu"
+  },
+  "TimerControlBar": {
+    "FocusMode": "Chế độ tập trung",
+    "WhiteNoise": "Tiếng ồn trắng"
+  },
+  "TimerSetting": {
+    "AutoFocusMode": "Chế độ tập trung tự động",
+    "TimeerSetting": "Cài đặt hẹn giờ"
+  },
+  "TotalDuratinosLineChartWidget": {
+    "totalStudyTime": "Tổng thời gian học mỗi ngày"
   },
   "UserProfileWidget": {
     "profileEdit": "Chỉnh sửa hồ sơ"
+  },
+  "WeeklyStatisticsScreen": {
+    "noData": "Không có dữ liệu được ghi nhận"
+  },
+  "WhiteNoiseScreen": {
+    "chooseYourWhiteNoise": "Chọn tiếng ồn trắng của bạn",
+    "cafeNoise": "Tiếng quán cà phê",
+    "close": "Đóng",
+    "fireNoise": "Tiếng lửa cháy",
+    "rainNoise": "Tiếng mưa",
+    "volumeControl": "Điều chỉnh âm lượng",
+    "whiteNoise": "Tiếng ồn trắng",
+    "windNoise": "Tiếng gió"
+  },
+  "getBrithDateText": {
+    "birthDate": "Ngày sinh",
+    "birthDateHint": "Hãy nhập ngày sinh của bạn"
   }
 }

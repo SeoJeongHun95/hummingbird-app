@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/enum/mxnRate.dart';
 import '../../../../core/widgets/mxnContainer.dart';
-import 'app_chor/privacy_policy_widget.dart';
 import 'user_auth/inquiry_button_widget.dart';
 import 'user_auth/logout_button_widget.dart';
+import 'user_auth/privacy_policy_widget.dart';
 
 class UserAuthWidget extends StatelessWidget {
   const UserAuthWidget({super.key});

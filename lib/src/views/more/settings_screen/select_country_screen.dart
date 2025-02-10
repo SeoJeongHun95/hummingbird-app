@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../widgets/settings/study_setting/select_country_container_widget.dart';
+import '../widgets/settings/study_setting/select_country_container_widget.dart';
 
 class SelectCountryScreen extends StatelessWidget {
   const SelectCountryScreen({super.key});
