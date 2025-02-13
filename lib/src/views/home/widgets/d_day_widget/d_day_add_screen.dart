@@ -163,7 +163,8 @@ class _DDayAddScreenState extends ConsumerState<DDayAddScreen> {
                     if (_titleController.text.isEmpty ||
                         goalDate == null ||
                         goalTime == null) {
-                      showSnackBar(message: '모든 항목을 입력해 주세요');
+                      showSnackBar(
+                          message: tr('DDayAddScreen.FillInAllFields'));
                       return;
                     }
 
