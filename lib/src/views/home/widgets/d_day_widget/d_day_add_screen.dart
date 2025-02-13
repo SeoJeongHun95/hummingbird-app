@@ -203,45 +203,6 @@ class _DDayAddScreenState extends ConsumerState<DDayAddScreen> {
           ),
         ),
       ),
-      // bottomNavigationBar: GestureDetector(
-      //   onTap: () async {
-      //     if (_titleController.text.isEmpty ||
-      //         goalDate == null ||
-      //         goalTime == null) {
-      //       showSnackBar(message: '모든 항목을 입력해 주세요');
-      //       return;
-      //     }
-
-      //     final goalDateTimeByUtc = DateTime(
-      //       goalDate!.year,
-      //       goalDate!.month,
-      //       goalDate!.day,
-      //       goalTime!.hour,
-      //       goalTime!.minute,
-      //     ).toUtc();
-
-      //     final dDay = DDay(
-      //       title: _titleController.text,
-      //       color: selectedColor,
-      //       targetDatetime: (goalDateTimeByUtc.millisecondsSinceEpoch) ~/ 1000,
-      //     );
-
-      //     await dDayViewModel.addDDay(dDay);
-
-      //     if (context.mounted) {
-      //       context.pop();
-      //     }
-      //   },
-      //   child: MxNcontainer(
-      //     MxN_rate: MxNRate.TWOBYQUARTER,
-      //     MxN_child: Container(
-      //       color: AppColor.themeGrey,
-      //       child: Center(
-      //         child: Text(tr('DDayAddScreen.Save')),
-      //       ),
-      //     ),
-      //   ),
-      // ),
     );
   }
 
