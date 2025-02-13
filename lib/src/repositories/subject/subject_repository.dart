@@ -1,28 +1,39 @@
-import '../../datasource/local/subject/subject_local_datasource.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+import '../../datasource/remote/subject/subject_remote_datasource.dart';
 import '../../models/subject/subject.dart';
 
-class SubjectRepository {
-  final SubjectDataSource _localDataSource;
+final subjectRepositoryProvider = Provider<SubjectRepository>((ref) {
+  return SubjectRepository(SubjectRemoteDataSource());
+});
 
-  SubjectRepository(this._localDataSource);
+// @riverpod
+// SubjectRepository subjectRepository(Ref ref) {
+//   return SubjectRepository(SubjectRemoteDataSource());
+// }
+
+class SubjectRepository {
+  final SubjectRemoteDataSource _remoteDataSource;
+
+  SubjectRepository(this._remoteDataSource);
 
   Future<List<Subject>> addSubject(Subject subject) async {
-    await _localDataSource.addSubject(subject);
-
+    await _remoteDataSource.addSubject(subject);
     return await getAllSubjects();
   }
 
   Future<List<Subject>> getAllSubjects() async {
-    return await _localDataSource.getAllSubjects();
+    return await _remoteDataSource.getAllSubjects();
   }
 
-  Future<List<Subject>> updateSubject(int index, Subject updatedSubject) async {
-    _localDataSource.updateSubject(index, updatedSubject);
+  Future<List<Subject>> updateSubject(Subject updatedSubject) async {
+    await _remoteDataSource.updateSubject(updatedSubject);
 
     return await getAllSubjects();
   }
 
-  Future<void> deleteSubject(int index) async {
-    _localDataSource.deleteSubject(index);
+  Future<void> deleteSubject(String subjectId) async {
+    await _remoteDataSource.deleteSubject(subjectId);
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,6 +15,7 @@ import 'src/viewmodels/app_setting/app_setting_view_model.dart';
 void main() async {
   final List<String> supportedLanguages = ['ko', 'en', 'ja', 'zh', 'vi', 'th'];
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
