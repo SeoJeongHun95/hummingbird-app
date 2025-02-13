@@ -6,6 +6,8 @@ import '../../src/models/subject/subject.dart';
 import '../../src/viewmodels/app_setting/app_setting_view_model.dart';
 import '../../src/views/home/home_screen.dart';
 import '../../src/views/home/suduck_timer_focus_mode_screen.dart';
+import '../../src/views/home/widgets/d_day_widget/d_day_add_screen.dart';
+import '../../src/views/home/widgets/d_day_widget/d_day_update_screen.dart';
 import '../../src/views/home/widgets/subject/subject_add_screen.dart';
 import '../../src/views/home/widgets/subject/subject_update_screen.dart';
 import '../../src/views/more/more_screen.dart';
@@ -92,6 +94,35 @@ final goRouterProvider = Provider<GoRouter>((ref) {
                 child: SubjectUpdateScreen(
                   subject: (state.extra as List)[0] as Subject,
                   index: (state.extra as List)[1] as int,
+                ),
+              );
+            },
+          ),
+          GoRoute(
+            path: 'dDayAdd',
+            pageBuilder: (context, state) {
+              return buildPageWithDefaultTransition(
+                context: context,
+                state: state,
+                child: DDayAddScreen(),
+              );
+            },
+          ),
+          GoRoute(
+            path: 'dDayUpdate',
+            pageBuilder: (context, state) {
+              final Map<String, dynamic> extra =
+                  state.extra as Map<String, dynamic>;
+
+              return buildPageWithDefaultTransition(
+                context: context,
+                state: state,
+                child: DDayUpdateScreen(
+                  dDayId: extra['dDayId'] as String,
+                  index: extra['index'] as int,
+                  title: extra['title'] as String,
+                  targetDatetime: extra['targetDatetime'] as int,
+                  color: extra['color'] as String,
                 ),
               );
             },

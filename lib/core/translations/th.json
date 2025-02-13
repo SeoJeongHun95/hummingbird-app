@@ -8,15 +8,17 @@
     "StudyTimeToday": "เวลาเรียนวันนี้",
     "TodaySummary": "สรุปการเรียนวันนี้"
   },
-  "DDayDialog": {
+  "DDayAddScreen": {
     "Add": "เพิ่ม",
     "Cancel": "ยกเลิก",
     "Color": "สี:",
     "Confirm": "ยืนยัน",
+    "DDayAdd": "เพิ่ม D-Day",
     "Edit": "แก้ไข",
-    "EnterGoalTitle": "กรุณาใส่ชื่อเป้าหมาย",
     "GoalDate": "วันที่เป้าหมาย:",
-    "GoalTime": "เวลาเป้าหมาย:",
+    "GoalTime": "เวลาที่เป้าหมาย:",
+    "GoalTitle": "ชื่อเป้าหมาย",
+    "Save": "บันทึก",
     "SelectDate": "เลือกวันที่",
     "SelectTime": "เลือกเวลา"
   },
@@ -30,6 +32,15 @@
     "GoalDate": "วันที่เป้าหมาย:",
     "OfflineEditDeleteError": "ไม่สามารถแก้ไขหรือลบขณะออฟไลน์",
     "OfflineStatus": "ออฟไลน์"
+  },
+  "DDayUpdateScreen": {
+    "Color": "สี:",
+    "DDayEdit": "แก้ไข D-Day",
+    "FillInAllFields": "กรุณากรอกข้อมูลให้ครบทุกช่อง",
+    "GoalDate": "วันที่เป้าหมาย:",
+    "GoalTime": "เวลาที่เป้าหมาย:",
+    "GoalTitle": "ชื่อเป้าหมาย",
+    "Save": "บันทึก"
   },
   "Dialog": {
     "Cancel": "ยกเลิก",
@@ -122,6 +133,12 @@
     "FuturePlan": "มีแผนจะเพิ่มในอนาคต",
     "ThemeColor": "สีธีม"
   },
+  "SetStudySettingWidget": {
+    "done": "เสร็จสิ้น",
+    "goalDuration": "ระยะเวลาศึกษาเป้าหมาย",
+    "group": "กลุ่ม",
+    "timePickerTitle": "เลือกเวลา"
+  },
   "SettingButton": {
     "Setting": "ตั้งค่า"
   },
@@ -149,11 +166,7 @@
   },
   "StudySettingScreen": {
     "complete": "เสร็จสิ้น",
-    "done": "เสร็จสิ้น",
-    "goalDuration": "เวลาเรียนเป้าหมาย",
-    "group": "กลุ่ม",
-    "previous": "ก่อนหน้า",
-    "timePickerTitle": "เลือกเวลา"
+    "previous": "ก่อนหน้า"
   },
   "SubjectAddScreen": {
     "AddSubject": "เพิ่มวิชา",

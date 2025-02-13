@@ -2,14 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/color_container_with_opacity.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../providers/d_day/d_day_screen_state_provider.dart';
 import '../../../../viewmodels/d_day/d_day_view_model.dart';
-import 'add_d_day_dialog.dart';
-import 'update_d_day_dialog.dart';
 
 class DDayListTileWidget extends ConsumerWidget {
   const DDayListTileWidget({super.key});
@@ -31,6 +30,7 @@ class DDayListTileWidget extends ConsumerWidget {
                     itemCount: dDays.length + 1,
                     itemBuilder: (context, index) {
                       if (index < dDays.length) {
+                        final String dDayId = dDays[index].ddayId!;
                         final String goalTitle = dDays[index].title;
                         final int goalDate = dDays[index].targetDatetime;
                         final Color color =
@@ -74,17 +74,26 @@ class DDayListTileWidget extends ConsumerWidget {
                               isConnected
                                   ? MenuAnchor(
                                       alignmentOffset: Offset(-17.w, 0),
+                                      style: MenuStyle(
+                                        backgroundColor:
+                                            WidgetStateProperty.all(
+                                                Colors.white),
+                                      ),
                                       menuChildren: [
                                         MenuItemButton(
-                                          onPressed: () => _showUpdateDialog(
-                                              context: context,
-                                              index: index,
-                                              dDayId: dDays[index].ddayId!,
-                                              goalTitle: goalTitle,
-                                              goalDate: goalDate,
-                                              color: dDays[index].color,
-                                              viewModel: viewModel),
-                                          child: Text("DDayListTile.Edit"),
+                                          onPressed: () {
+                                            context.push(
+                                              '/dDayUpdate',
+                                              extra: {
+                                                'index': index,
+                                                'dDayId': dDayId,
+                                                'title': goalTitle,
+                                                'color': dDays[index].color,
+                                                'targetDatetime': goalDate,
+                                              },
+                                            );
+                                          },
+                                          child: Text(tr("DDayListTile.Edit")),
                                         ),
                                         MenuItemButton(
                                           onPressed: () =>
@@ -135,8 +144,9 @@ class DDayListTileWidget extends ConsumerWidget {
                                   style: OutlinedButton.styleFrom(
                                     fixedSize: Size(300.w, 20.w),
                                   ),
-                                  onPressed: () =>
-                                      _showAddDialog(context, viewModel),
+                                  onPressed: () {
+                                    context.push('/dDayAdd');
+                                  },
                                   child: Icon(Icons.add),
                                 )
                               : onOfflineContainer,
@@ -150,7 +160,9 @@ class DDayListTileWidget extends ConsumerWidget {
                             style: OutlinedButton.styleFrom(
                               fixedSize: Size(300.w, 20.w),
                             ),
-                            onPressed: () => _showAddDialog(context, viewModel),
+                            onPressed: () {
+                              context.push('/dDayAdd');
+                            },
                             child: Icon(Icons.add),
                           )
                         : onOfflineContainer,
@@ -176,37 +188,6 @@ class DDayListTileWidget extends ConsumerWidget {
     );
   }
 
-  void _showAddDialog(context, DDayViewModel viewModel) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AddDDayDialog(viewModel: viewModel);
-      },
-    );
-  }
-
-  void _showUpdateDialog(
-      {required BuildContext context,
-      required String goalTitle,
-      required int index,
-      required String dDayId,
-      required int goalDate,
-      required String color,
-      required DDayViewModel viewModel}) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return UpdateDDayDialog(
-            goalTitle: goalTitle,
-            index: index,
-            dDayId: dDayId,
-            goalDate: goalDate,
-            color: color,
-            viewModel: viewModel);
-      },
-    );
-  }
-
   void _showDeleteDDayDialog(
       {required BuildContext context,
       required int index,
@@ -223,14 +204,14 @@ class DDayListTileWidget extends ConsumerWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: Text("DDayListTile.Cancel"),
+              child: Text(tr("DDayListTile.Cancel")),
             ),
             TextButton(
                 onPressed: () {
                   deleteDDay(index, dDayId);
                   Navigator.pop(context);
                 },
-                child: Text("DDayListTile.Confirm"))
+                child: Text(tr("DDayListTile.Confirm")))
           ],
         );
       },

@@ -8,17 +8,19 @@
     "StudyTimeToday": "Today's study time",
     "TodaySummary": "Today's study summary"
   },
-  "DDayDialog": {
+  "DDayAddScreen": {
     "Add": "Add",
     "Cancel": "Cancel",
     "Color": "Color:",
     "Confirm": "Confirm",
+    "DDayAdd": "Add D-Day",
     "Edit": "Edit",
-    "EnterGoalTitle": "Enter goal title",
-    "GoalDate": "Goal date:",
-    "GoalTime": "Goal time:",
-    "SelectDate": "Select date",
-    "SelectTime": "Select time"
+    "GoalDate": "Goal Date:",
+    "GoalTime": "Goal Time:",
+    "GoalTitle": "Goal Title",
+    "Save": "Save",
+    "SelectDate": "Select a date",
+    "SelectTime": "Select a time"
   },
   "DDayListTile": {
     "AreYouSure": "Are you sure you want to delete ",
@@ -30,6 +32,15 @@
     "GoalDate": "Goal date:",
     "OfflineEditDeleteError": "Editing and deleting are unavailable offline.",
     "OfflineStatus": "Offline status"
+  },
+  "DDayUpdateScreen": {
+    "Color": "Color:",
+    "DDayEdit": "Edit D-Day",
+    "FillInAllFields": "Please fill in all fields.",
+    "GoalDate": "Goal Date:",
+    "GoalTime": "Goal Time:",
+    "GoalTitle": "Goal Title",
+    "Save": "Save"
   },
   "Dialog": {
     "Cancel": "Cancel",
@@ -122,6 +133,12 @@
     "FuturePlan": "Planned for future updates",
     "ThemeColor": "Theme color"
   },
+  "SetStudySettingWidget": {
+    "done": "Done",
+    "goalDuration": "Goal Study Time",
+    "group": "Group",
+    "timePickerTitle": "Choose Time"
+  },
   "SettingButton": {
     "Setting": "Settings"
   },
@@ -149,11 +166,7 @@
   },
   "StudySettingScreen": {
     "complete": "Complete",
-    "done": "Done",
-    "goalDuration": "Target study time",
-    "group": "Group",
-    "previous": "Previous",
-    "timePickerTitle": "Select time"
+    "previous": "Previous"
   },
   "SubjectAddScreen": {
     "AddSubject": "Add subject",
