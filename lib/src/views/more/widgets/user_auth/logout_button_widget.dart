@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../providers/auth/auth_provider.dart';
-
 class LogoutButtonWidget extends ConsumerWidget {
   const LogoutButtonWidget({super.key});
 
@@ -14,9 +12,7 @@ class LogoutButtonWidget extends ConsumerWidget {
       dense: true,
       contentPadding: EdgeInsets.zero,
       visualDensity: VisualDensity(vertical: -4),
-      onTap: () {
-        ref.read(authProvider.notifier).logout();
-      },
+      onTap: () {},
       leading: Icon(
         Icons.logout_rounded,
         size: 20.w,

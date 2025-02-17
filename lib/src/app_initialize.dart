@@ -10,7 +10,6 @@ import 'models/setting/app_setting.dart';
 import 'models/setting/study_setting.dart';
 import 'models/setting/user_setting.dart';
 import 'models/study_record/study_record.dart';
-import 'models/subject/subject.dart';
 import 'models/token_model.dart';
 
 Future<void> appInitialize() async {
@@ -37,9 +36,6 @@ Future<void> appInitialize() async {
 
   await Hive.openBox<List<int>>(BoxKeys.suduckBoxKey);
   await Hive.openBox<DDay>(BoxKeys.dDayBoxKey);
-
-  Hive.registerAdapter(SubjectAdapter());
-  await Hive.openBox<Subject>(BoxKeys.subjectBoxKey);
 
   Hive.registerAdapter(StudyRecordAdapter());
 

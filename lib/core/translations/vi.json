@@ -8,15 +8,18 @@
     "StudyTimeToday": "Thời gian học hôm nay",
     "TodaySummary": "Tóm tắt học tập hôm nay"
   },
-  "DDayDialog": {
+  "DDayAddScreen": {
     "Add": "Thêm",
     "Cancel": "Hủy",
     "Color": "Màu sắc:",
     "Confirm": "Xác nhận",
+    "DDayAdd": "Thêm D-Day",
     "Edit": "Chỉnh sửa",
-    "EnterGoalTitle": "Nhập tiêu đề mục tiêu",
+    "FillInAllFields": "Vui lòng nhập đầy đủ tất cả các mục.",
     "GoalDate": "Ngày mục tiêu:",
     "GoalTime": "Thời gian mục tiêu:",
+    "GoalTitle": "Tiêu đề mục tiêu",
+    "Save": "Lưu",
     "SelectDate": "Chọn ngày",
     "SelectTime": "Chọn thời gian"
   },
@@ -30,6 +33,15 @@
     "GoalDate": "Ngày mục tiêu:",
     "OfflineEditDeleteError": "Không thể chỉnh sửa hoặc xóa khi ngoại tuyến.",
     "OfflineStatus": "Đang ngoại tuyến"
+  },
+  "DDayUpdateScreen": {
+    "Color": "Màu sắc:",
+    "DDayEdit": "Chỉnh sửa D-Day",
+    "FillInAllFields": "Vui lòng nhập đầy đủ tất cả các mục.",
+    "GoalDate": "Ngày mục tiêu:",
+    "GoalTime": "Thời gian mục tiêu:",
+    "GoalTitle": "Tiêu đề mục tiêu",
+    "Save": "Lưu"
   },
   "Dialog": {
     "Cancel": "Hủy",
@@ -122,6 +134,12 @@
     "FuturePlan": "Kế hoạch bổ sung trong tương lai",
     "ThemeColor": "Màu chủ đề"
   },
+  "SetStudySettingWidget": {
+    "done": "Hoàn thành",
+    "goalDuration": "Thời gian học mục tiêu",
+    "group": "Nhóm",
+    "timePickerTitle": "Chọn thời gian"
+  },
   "SettingButton": {
     "Setting": "Cài đặt"
   },
@@ -149,11 +167,7 @@
   },
   "StudySettingScreen": {
     "complete": "Hoàn tất",
-    "done": "Hoàn tất",
-    "goalDuration": "Thời gian học mục tiêu",
-    "group": "Nhóm",
-    "previous": "Trước",
-    "timePickerTitle": "Chọn thời gian"
+    "previous": "Trước"
   },
   "SubjectAddScreen": {
     "AddSubject": "Thêm môn học",

@@ -8,17 +8,20 @@
     "StudyTimeToday": "今日の学習時間",
     "TodaySummary": "今日の学習まとめ"
   },
-  "DDayDialog": {
+  "DDayAddScreen": {
     "Add": "追加",
     "Cancel": "キャンセル",
     "Color": "色:",
     "Confirm": "確認",
+    "DDayAdd": "D-Dayの追加",
     "Edit": "編集",
-    "EnterGoalTitle": "目標タイトルを入力してください",
+    "FillInAllFields": "すべての項目を入力してください。",
     "GoalDate": "目標日:",
     "GoalTime": "目標時間:",
-    "SelectDate": "日付を選択",
-    "SelectTime": "時間を選択"
+    "GoalTitle": "目標タイトル",
+    "Save": "保存",
+    "SelectDate": "日付を選択してください",
+    "SelectTime": "時間を選択してください"
   },
   "DDayListTile": {
     "AreYouSure": "本当に削除しますか ",
@@ -30,6 +33,15 @@
     "GoalDate": "目標日:",
     "OfflineEditDeleteError": "オフラインでは編集や削除ができません。",
     "OfflineStatus": "オフライン状態"
+  },
+  "DDayUpdateScreen": {
+    "Color": "色:",
+    "DDayEdit": "D-Dayの編集",
+    "FillInAllFields": "すべての項目を入力してください。",
+    "GoalDate": "目標日:",
+    "GoalTime": "目標時間:",
+    "GoalTitle": "目標タイトル",
+    "Save": "保存"
   },
   "Dialog": {
     "Cancel": "キャンセル",
@@ -122,6 +134,12 @@
     "FuturePlan": "今後追加予定",
     "ThemeColor": "テーマカラー"
   },
+  "SetStudySettingWidget": {
+    "done": "完了",
+    "goalDuration": "目標勉強時間",
+    "group": "グループ",
+    "timePickerTitle": "時間選択"
+  },
   "SettingButton": {
     "Setting": "設定"
   },
@@ -149,11 +167,7 @@
   },
   "StudySettingScreen": {
     "complete": "完了",
-    "done": "完了",
-    "goalDuration": "目標学習時間",
-    "group": "グループ",
-    "previous": "前へ",
-    "timePickerTitle": "時間選択"
+    "previous": "前へ"
   },
   "SubjectAddScreen": {
     "AddSubject": "科目追加",

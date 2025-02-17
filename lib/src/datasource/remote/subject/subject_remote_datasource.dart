@@ -1,18 +1,34 @@
-import 'create_subject_api.dart';
-import 'delete_subject_api.dart';
-import 'get_subjects_api.dart';
-import 'update_subject_api.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class SubjectRemoteDatasource {
-  CreateSubjectApi createSubjectApi;
-  GetSubjectsApi getSubjectsApi;
-  UpdateSubjectApi updateSubjectApi;
-  DeleteSubjectApi deleteSubjectApi;
+import '../../../models/subject/subject.dart';
 
-  SubjectRemoteDatasource({
-    required this.createSubjectApi,
-    required this.getSubjectsApi,
-    required this.updateSubjectApi,
-    required this.deleteSubjectApi,
-  });
+class SubjectRemoteDataSource {
+  final CollectionReference _subjectCollection =
+      FirebaseFirestore.instance.collection('subjects');
+
+  Future<String> addSubject(Subject subject) async {
+    var docRef = await _subjectCollection.add(subject.toJson());
+    await docRef.update({'id': docRef.id});
+    return docRef.id;
+  }
+
+  Future<List<Subject>> getAllSubjects() async {
+    var snapshot = await _subjectCollection.get();
+    return snapshot.docs
+        .map((doc) => Subject.fromJson(doc.data() as Map<String, dynamic>))
+        .toList();
+  }
+
+  Future<void> updateSubject(Subject updatedSubject) async {
+    if (updatedSubject.subjectId == null) {
+      throw Exception('Subject ID is null');
+    }
+    await _subjectCollection
+        .doc(updatedSubject.subjectId)
+        .update(updatedSubject.toJson());
+  }
+
+  Future<void> deleteSubject(String subjectId) async {
+    await _subjectCollection.doc(subjectId).delete();
+  }
 }

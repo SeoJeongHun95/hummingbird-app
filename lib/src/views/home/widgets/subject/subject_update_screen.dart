@@ -108,7 +108,7 @@ class _SubjectUpdateScreenState extends ConsumerState<SubjectUpdateScreen> {
 
                   ref
                       .read(subjectViewModelProvider.notifier)
-                      .updateSubject(widget.index, updatedSubject);
+                      .updateSubject(updatedSubject);
 
                   context.pop();
                 },
