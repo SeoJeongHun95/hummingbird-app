@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import '../../../core/services/whitenoise/audio_service.dart';
 import '../../../core/widgets/admob_widget.dart';
@@ -44,7 +45,7 @@ class WhiteNoiseScreen extends ConsumerWidget {
           child: Column(
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.68,
+                height: 470.h,
                 child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: (screenWidth ~/ 150).toInt(),
@@ -61,8 +62,8 @@ class WhiteNoiseScreen extends ConsumerWidget {
               ),
               Gap(16),
               Expanded(
-                  child: AdMobWidget.showBannerAd(
-                      MediaQuery.of(context).size.height * 0.2)),
+                child: AdMobWidget.showBannerAd(100.h),
+              )
             ],
           ),
         ),
@@ -76,10 +77,10 @@ class WhiteNoiseScreen extends ConsumerWidget {
       children: [
         // 배경 이미지
         Container(
-          width: 200,
-          height: 200,
+          width: 200.w,
+          height: 200.h,
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(8.r),
             child: Image.asset(
               audio.imagePath,
               fit: BoxFit.cover,
@@ -93,14 +94,14 @@ class WhiteNoiseScreen extends ConsumerWidget {
         Card(
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(8.r),
           ),
           color: Colors.black38,
           child: InkWell(
             onTap: () => ref
                 .read(multiAudioViewModelProvider.notifier)
                 .togglePlayback(audio.assetPath),
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(8.r),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -108,12 +109,12 @@ class WhiteNoiseScreen extends ConsumerWidget {
                 children: [
                   Icon(
                     _getPlaybackIcon(audio.playbackState),
-                    size: 40,
+                    size: 40.r,
                     color: Colors.white,
                   ),
-                  const SizedBox(height: 8),
+                  // const Gap(8),
                   SizedBox(
-                    width: 60,
+                    width: 60.w,
                     child: Text(
                       audio.name,
                       style: const TextStyle(
@@ -172,14 +173,14 @@ class WhiteNoiseScreen extends ConsumerWidget {
       BuildContext context, WidgetRef ref, AudioModel audio) {
     return Dialog(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
       ),
       child: Container(
         padding: const EdgeInsets.all(24),
-        width: 280,
+        width: 280.w,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(8),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.1),
@@ -198,7 +199,7 @@ class WhiteNoiseScreen extends ConsumerWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 20),
+            const Gap(20),
             Consumer(
               builder: (context, ref, child) {
                 final currentVolume = ref.watch(
@@ -218,7 +219,7 @@ class WhiteNoiseScreen extends ConsumerWidget {
                 );
               },
             ),
-            const SizedBox(height: 16),
+            const Gap(16),
             ElevatedButton(
               onPressed: () => Navigator.pop(context),
               style: ElevatedButton.styleFrom(

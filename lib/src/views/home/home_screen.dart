@@ -46,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
       length: _tabs.length,
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Container(
             decoration: BoxDecoration(
               border: Border.all(
