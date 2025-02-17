@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../providers/auth/auth_provider.dart';
+import '../auth/google_login_button.dart';
+
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
 
@@ -91,8 +94,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
-    // final isLoggedIn = ref.watch(authProvider);
-    final isLoggedIn = true;
+    final auth = ref.watch(authProvider);
+    final isLoggedIn = auth.asData?.value != null;
     return Scaffold(
       body: Center(
         child: Column(
@@ -138,7 +141,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
               ),
             ),
             const Spacer(flex: 2),
-            if (isLoggedIn == false) const SizedBox(height: 80),
+            if (isLoggedIn == false) const GoogleLoginButton(),
+            const Spacer(flex: 1),
           ],
         ),
       ),
