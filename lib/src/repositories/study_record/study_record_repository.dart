@@ -1,59 +1,29 @@
-import 'package:StudyDuck/core/utils/format_date.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../datasource/local/study_record/study_record_local_datasource.dart';
+import '../../datasource/remote/study_record/study_record_remote_datasource.dart';
 import '../../models/study_record/study_record.dart';
 
-part 'study_record_repository.g.dart';
-
-@riverpod
-StudyRecordRepository studyRecordRepository(Ref ref) {
-  final studyRecordLocalDataSource = StudyRecordDataSource();
-
-  return StudyRecordRepository(studyRecordLocalDataSource);
-}
+final studyRecordRepositoryProvider = Provider<StudyRecordRepository>((ref) {
+  return StudyRecordRepository(StudyRecordDataSource());
+});
 
 class StudyRecordRepository {
-  final StudyRecordDataSource _localDataSource;
+  final StudyRecordDataSource _remoteDataSource;
 
-  StudyRecordRepository(this._localDataSource);
+  StudyRecordRepository(this._remoteDataSource);
 
-  Future<void> addStudyRecord(StudyRecord studyRecord, int totduration) async {
-    await _localDataSource.addStudyRecord(studyRecord);
+  Future<void> addStudyRecord(StudyRecord studyRecord) async {
+    _remoteDataSource.addStudyRecord(studyRecord);
   }
 
-  Future<Map<String, List<StudyRecord>>> getStudyRecord() async {
-    return _localDataSource.getStudyRecord();
+  Future<List<StudyRecord>> getMonthlyStudyRecords(String yearMonth) async {
+    return await _remoteDataSource.getMonthlyStudyRecords(yearMonth);
   }
 
-  Future<Map<String, List<StudyRecord>>> getStudyRecordByDate(
-      String date) async {
-    return _localDataSource.getStudyRecordByDate(date);
-  }
-
-  Future<Map<String, List<StudyRecord>>> getStudyRecordByRange(
-    DateTime startDate,
-    DateTime endDate,
-    int period,
-  ) async {
-    Map<String, List<StudyRecord>> studyRecordMap = {};
-    for (int i = 0; i < period; i++) {
-      final date = formatDate(startDate.add(Duration(days: i)));
-      final studyRecord = await getStudyRecordByDate(
-          formatDate(startDate.add(Duration(days: i))));
-
-      studyRecordMap[date] = studyRecord[date] ?? [];
-    }
-
-    return studyRecordMap;
-  }
-
-  Future<void> updateStudyRecord(StudyRecord studyRecord) async {
-    await _localDataSource.updateStudyRecord(studyRecord);
-  }
-
-  Future<void> deleteStudyRecord() async {
-    await _localDataSource.deleteStudyRecord();
+  Future<List<StudyRecord>> getStudyRecord() async {
+    String monthKey = DateFormat('yyyy-MM').format(DateTime.now());
+    return await _remoteDataSource.getMonthlyStudyRecords(monthKey);
   }
 }
