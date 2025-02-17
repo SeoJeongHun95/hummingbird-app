@@ -7,11 +7,11 @@ import '../../models/study_record/study_record.dart';
 import '../../models/subject/subject.dart';
 import '../../viewmodels/study_record/study_record_viewmodel.dart';
 import '../../viewmodels/timer/timer_bg_color_provider.dart';
-import '../network_status/network_state_provider.dart';
 
 part 'suduck_timer_provider_2_0.g.dart';
 
-final Subject noSubject = Subject(title: "미분류", color: "ba4849", order: -1);
+final Subject noSubject =
+    Subject(subjectId: "0", title: "미분류", color: "ba4849", order: -1);
 
 class TimerState {
   final bool isRunning;
@@ -65,8 +65,8 @@ class SuDuckTimer extends _$SuDuckTimer {
   }
 
   Future<void> startTimer({Subject? subject}) async {
-    final isConnected = ref.watch(networkStateProvider);
-    if (isConnected.asData?.value != true) return;
+    // final isConnected = ref.watch(networkStateProvider);
+    // if (isConnected.asData?.value != true) return;
 
     if (state.isRunning) return;
     _cancelBreakTimer();
@@ -108,9 +108,9 @@ class SuDuckTimer extends _$SuDuckTimer {
     final currentSubject = state.currSubject ?? noSubject;
 
     final updatedRecord = StudyRecord(
+      subjectId: currentSubject.subjectId!,
       title: currentSubject.title,
       color: currentSubject.color,
-      order: currentSubject.order,
       elapsedTime: state.elapsedTime,
       breakTime: state.breakTime,
       startAt: state.startAt,

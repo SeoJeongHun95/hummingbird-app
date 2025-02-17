@@ -94,9 +94,7 @@ class SubjectListWidget extends ConsumerWidget {
                           final subject = data[index - 1];
                           final matchedSubject = studyRecord
                               .where(
-                                (e) =>
-                                    e.order == subject.order &&
-                                    e.title == subject.title,
+                                (e) => e.title == subject.title,
                               )
                               .toList()
                               .firstOrNull;
