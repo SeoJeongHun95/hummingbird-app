@@ -8,15 +8,18 @@
     "StudyTimeToday": "今日学习时间",
     "TodaySummary": "今日学习总结"
   },
-  "DDayDialog": {
+  "DDayAddScreen": {
     "Add": "添加",
     "Cancel": "取消",
     "Color": "颜色:",
     "Confirm": "确认",
+    "DDayAdd": "添加 D-Day",
     "Edit": "编辑",
-    "EnterGoalTitle": "请输入目标标题",
+    "FillInAllFields": "请填写所有项目。",
     "GoalDate": "目标日期:",
     "GoalTime": "目标时间:",
+    "GoalTitle": "目标标题",
+    "Save": "保存",
     "SelectDate": "请选择日期",
     "SelectTime": "请选择时间"
   },
@@ -30,6 +33,15 @@
     "GoalDate": "目标日期:",
     "OfflineEditDeleteError": "离线状态下无法编辑或删除。",
     "OfflineStatus": "当前处于离线状态"
+  },
+  "DDayUpdateScreen": {
+    "Color": "颜色:",
+    "DDayEdit": "编辑 D-Day",
+    "FillInAllFields": "请填写所有项目。",
+    "GoalDate": "目标日期:",
+    "GoalTime": "目标时间:",
+    "GoalTitle": "目标标题",
+    "Save": "保存"
   },
   "Dialog": {
     "Cancel": "取消",
@@ -122,6 +134,12 @@
     "FuturePlan": "未来将添加更多主题",
     "ThemeColor": "主题颜色"
   },
+  "SetStudySettingWidget": {
+    "done": "完成",
+    "goalDuration": "目标学习时间",
+    "group": "群组",
+    "timePickerTitle": "选择时间"
+  },
   "SettingButton": {
     "Setting": "设置"
   },
@@ -149,11 +167,7 @@
   },
   "StudySettingScreen": {
     "complete": "完成",
-    "done": "完成",
-    "goalDuration": "目标学习时间",
-    "group": "分组",
-    "previous": "上一步",
-    "timePickerTitle": "时间选择"
+    "previous": "上一步"
   },
   "SubjectAddScreen": {
     "AddSubject": "添加科目",

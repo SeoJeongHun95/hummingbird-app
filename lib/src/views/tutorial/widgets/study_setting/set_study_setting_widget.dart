@@ -32,13 +32,13 @@ class SetStudySettingWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(tr('StudySettingScreen.goalDuration')),
+            Text(tr('SetStudySettingWidget.goalDuration')),
             GestureDetector(
               behavior: HitTestBehavior.opaque,
               onTap: () async {
                 final selectedDuration = await showTimePickerBottomModal(
                     context,
-                    tr('StudySettingScreen.timePickerTitle'),
+                    tr('SetStudySettingWidget.timePickerTitle'),
                     goalDuration);
                 if (selectedDuration != null) {
                   selectGoalDuration(selectedDuration.inSeconds);
@@ -53,7 +53,7 @@ class SetStudySettingWidget extends StatelessWidget {
               ),
             ),
             Divider(color: Colors.grey),
-            Text(tr('StudySettingScreen.group')),
+            Text(tr('SetStudySettingWidget.group')),
             GestureDetector(
               behavior: HitTestBehavior.opaque,
               onTap: () async {
@@ -98,7 +98,7 @@ class SetStudySettingWidget extends StatelessWidget {
                     const Spacer(),
                     TextButton(
                       onPressed: () => Navigator.pop(context, selected),
-                      child: Text(tr('StudySettingScreen.done')),
+                      child: Text(tr('SetStudySettingWidget.done')),
                     ),
                   ],
                 ),

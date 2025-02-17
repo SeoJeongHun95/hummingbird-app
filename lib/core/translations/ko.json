@@ -8,15 +8,18 @@
     "StudyTimeToday": "금일 공부시간",
     "TodaySummary": "금일 공부 요약"
   },
-  "DDayDialog": {
+  "DDayAddScreen": {
     "Add": "추가",
     "Cancel": "취소",
     "Color": "색상:",
     "Confirm": "확인",
+    "DDayAdd": "디데이 추가",
     "Edit": "편집",
-    "EnterGoalTitle": "목표 제목을 입력하시오",
+    "FillInAllFields": "모든 항목을 입력해 주세요",
     "GoalDate": "목표 날짜:",
     "GoalTime": "목표 시간:",
+    "GoalTitle": "목표 제목",
+    "Save": "저장",
     "SelectDate": "날짜를 선택하시오",
     "SelectTime": "시간을 선택하시오"
   },
@@ -30,6 +33,15 @@
     "GoalDate": "목표 날짜:",
     "OfflineEditDeleteError": "오프라인 상태에서는 편집, 제거 기능을 사용할 수 없습니다.",
     "OfflineStatus": "오프라인 상태입니다"
+  },
+  "DDayUpdateScreen": {
+    "Color": "색상:",
+    "DDayEdit": "디데이 수정",
+    "FillInAllFields": "모든 항목을 입력해 주세요",
+    "GoalDate": "목표 날짜:",
+    "GoalTime": "목표 시간:",
+    "GoalTitle": "목표 제목",
+    "Save": "저장"
   },
   "Dialog": {
     "Cancel": "취소",
@@ -122,6 +134,12 @@
     "FuturePlan": "향후 추가할 계획입니다",
     "ThemeColor": "테마 색상"
   },
+  "SetStudySettingWidget": {
+    "done": "완료",
+    "goalDuration": "목표 공부시간",
+    "group": "그룹",
+    "timePickerTitle": "시간 선택"
+  },
   "SettingButton": {
     "Setting": "설정"
   },
@@ -149,11 +167,7 @@
   },
   "StudySettingScreen": {
     "complete": "완료",
-    "done": "완료",
-    "goalDuration": "목표 공부시간",
-    "group": "그룹",
-    "previous": "이전",
-    "timePickerTitle": "시간 선택"
+    "previous": "이전"
   },
   "SubjectAddScreen": {
     "AddSubject": "과목 추가",
