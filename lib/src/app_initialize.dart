@@ -5,7 +5,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../core/const/box_keys.dart';
-import 'models/d_day/d_day.dart';
 import 'models/setting/app_setting.dart';
 import 'models/setting/study_setting.dart';
 import 'models/setting/user_setting.dart';
@@ -28,13 +27,11 @@ Future<void> appInitialize() async {
 
   await Hive.initFlutter(directory.path);
   Hive.registerAdapter(TokenModelAdapter());
-  Hive.registerAdapter(DDayAdapter());
 
   await Hive.openBox<TokenModel>(BoxKeys.tokenBoxKey,
       encryptionCipher: HiveAesCipher(key));
 
   await Hive.openBox<List<int>>(BoxKeys.suduckBoxKey);
-  await Hive.openBox<DDay>(BoxKeys.dDayBoxKey);
 
   Hive.registerAdapter(StudySettingAdapter());
   await Hive.openBox<StudySetting>(BoxKeys.studySettingBoxKey);

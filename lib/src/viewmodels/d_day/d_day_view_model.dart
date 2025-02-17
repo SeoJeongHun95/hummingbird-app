@@ -56,31 +56,21 @@ class DDayViewModel extends _$DDayViewModel {
     });
   }
 
-  // Future<void> initializeDDay() async {
-  //   bool isConnected;
-  //   try {
-  //     isConnected = await ref.read(networkStateProvider.future);
-  //   } catch (e) {
-  //     isConnected = false;
-  //   }
-  //   await repository.initializeDDay(isConnected);
-  // }
-
   List<DDay> getSortedDDays(List<DDay> dDays) {
     dDays.sort((a, b) => a.targetDatetime.compareTo(b.targetDatetime));
     return dDays;
   }
 
-  ({List<String> goalTitleList, List<String> dDayIndicatorList}) getDDayInfo(
-      List<DDay> dDays) {
-    List<String> goalTitleList = [];
-    List<String> dDayIndicatorList = [];
-    for (int i = 0; i < dDays.length; i++) {
-      goalTitleList.add(dDays[i].title);
-      dDayIndicatorList.add(getDDayIndicator(dDays[i].targetDatetime));
-    }
-    return (goalTitleList: goalTitleList, dDayIndicatorList: dDayIndicatorList);
-  }
+  // ({List<String> goalTitleList, List<String> dDayIndicatorList}) getDDayInfo(
+  //     List<DDay> dDays) {
+  //   List<String> goalTitleList = [];
+  //   List<String> dDayIndicatorList = [];
+  //   for (int i = 0; i < dDays.length; i++) {
+  //     goalTitleList.add(dDays[i].title);
+  //     dDayIndicatorList.add(getDDayIndicator(dDays[i].targetDatetime));
+  //   }
+  //   return (goalTitleList: goalTitleList, dDayIndicatorList: dDayIndicatorList);
+  // }
 
   String getDDayIndicator(int dateByseconds) {
     final now = DateTime.now();

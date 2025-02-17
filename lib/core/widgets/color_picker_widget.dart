@@ -1,7 +1,7 @@
+import 'package:StudyDuck/core/theme/colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../src/datasource/local/d_day_local_datasource/dummy_data.dart';
 import '../enum/mxnRate.dart';
 import 'circle_color_container.dart';
 import 'mxnContainer.dart';
@@ -26,7 +26,7 @@ class _ColorPickerWidgetState extends State<ColorPickerWidget> {
   @override
   void initState() {
     super.initState();
-    selectedColor = widget.initialColor ?? DummyData.colors.first;
+    selectedColor = widget.initialColor ?? AppColor.dSubColors.first;
   }
 
   @override
@@ -38,7 +38,7 @@ class _ColorPickerWidgetState extends State<ColorPickerWidget> {
         child: Wrap(
           spacing: 10.w,
           runSpacing: 10.w,
-          children: DummyData.colors.map((color) {
+          children: AppColor.dSubColors.map((color) {
             return GestureDetector(
               onTap: () {
                 setState(() {
