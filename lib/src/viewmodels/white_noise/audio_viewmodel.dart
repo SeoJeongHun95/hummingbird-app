@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../models/whitenoise/audio_model.dart';
 import '../../../core/services/whitenoise/audio_service.dart';
+import '../../models/whitenoise/audio_model.dart';
 
 class MultiAudioprovider extends StateNotifier<List<AudioModel>> {
   final MultiAudioService audioService;

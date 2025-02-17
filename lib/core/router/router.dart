@@ -18,7 +18,7 @@ import '../../src/views/splash/splash_screen.dart';
 import '../../src/views/statistics/views/statistics_screen.dart';
 import '../../src/views/tutorial/profile_setting_screen.dart';
 import '../../src/views/tutorial/study_setting_screen.dart';
-import '../../src/views/white_noise/white_noise_screen.dart';
+import '../../src/views/white_noise/white_noise_player_screen.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 bool firstRun = true;

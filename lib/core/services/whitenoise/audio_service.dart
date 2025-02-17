@@ -1,39 +1,97 @@
-import 'package:just_audio/just_audio.dart';
+import 'package:flutter_sound/flutter_sound.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
 import '../../../src/models/whitenoise/audio_model.dart';
 import '../../../src/viewmodels/white_noise/audio_viewmodel.dart';
 
 class MultiAudioService {
-  final Map<String, AudioPlayer> _audioPlayers = {};
+  final Map<String, FlutterSoundPlayer> _audioPlayers = {};
+
+  // Asset 파일을 임시 파일로 복사하는 헬퍼 함수
+  Future<String> _getAudioFilePath(String assetPath) async {
+    final dir = await getTemporaryDirectory();
+    final file = File('${dir.path}/${assetPath.split('/').last}');
+
+    if (!await file.exists()) {
+      final byteData = await rootBundle.load(assetPath);
+      await file.writeAsBytes(byteData.buffer.asUint8List());
+    }
+
+    return file.path;
+  }
 
   Future<void> play(String assetPath) async {
     if (!_audioPlayers.containsKey(assetPath)) {
-      final player = AudioPlayer();
-      await player.setAsset(assetPath);
-      await player.setLoopMode(LoopMode.all);
-      await player.setVolume(0.3); // 볼륨을 30%로 설정
-      _audioPlayers[assetPath] = player;
-    }
+      final player = FlutterSoundPlayer();
+      await player.openPlayer(); // openAudioSession() 대신 openPlayer() 사용
 
-    await _audioPlayers[assetPath]!.play();
+      // Asset 파일을 임시 파일로 복사
+      final audioFilePath = await _getAudioFilePath(assetPath);
+
+      // 초기 볼륨 설정 (0.5 = 50%)
+      await player.setVolume(0.5);
+
+      await player.startPlayer(
+        fromURI: audioFilePath,
+        codec: Codec.mp3,
+        whenFinished: () async {
+          // 재생이 끝나면 다시 시작
+          await play(assetPath);
+        },
+      );
+
+      _audioPlayers[assetPath] = player;
+    } else {
+      final player = _audioPlayers[assetPath]!;
+      if (!player.isPlaying) {
+        final audioFilePath = await _getAudioFilePath(assetPath);
+        await player.startPlayer(
+          fromURI: audioFilePath,
+          codec: Codec.mp3,
+          whenFinished: () async {
+            await play(assetPath);
+          },
+        );
+      }
+    }
   }
 
   Future<void> stop(String assetPath) async {
-    await _audioPlayers[assetPath]?.stop();
-    await _audioPlayers[assetPath]?.seek(Duration.zero);
+    final player = _audioPlayers[assetPath];
+    if (player != null && player.isPlaying) {
+      await player.stopPlayer();
+    }
   }
 
   Future<void> setVolume(String assetPath, double volume) async {
-    await _audioPlayers[assetPath]?.setVolume(volume);
+    final player = _audioPlayers[assetPath];
+    if (player != null) {
+      // 볼륨값을 0.0 ~ 1.0 사이로 제한
+      double normalizedVolume = volume.clamp(0.0, 1.0);
+      try {
+        await player.setVolume(normalizedVolume);
+        print('Volume set to: $normalizedVolume for $assetPath'); // 디버깅용
+      } catch (e) {
+        print('Error setting volume: $e'); // 디버깅용
+        // 에러 발생시 재시도
+        await Future.delayed(Duration(milliseconds: 100));
+        await player.setVolume(normalizedVolume);
+      }
+    }
   }
 
   Stream<Duration>? positionStream(String assetPath) {
-    return _audioPlayers[assetPath]?.positionStream;
+    final player = _audioPlayers[assetPath];
+    return player?.onProgress?.map((e) => e.duration);
   }
 
   void dispose() {
-    _audioPlayers.forEach((_, player) => player.dispose());
+    for (var player in _audioPlayers.values) {
+      player.stopPlayer();
+      player.closePlayer();
+    }
     _audioPlayers.clear();
   }
 }
