@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -75,7 +76,9 @@ class DrewerWhiteNoiseController extends ConsumerWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children:
-                                "화이트 노이즈가 재생되고 있지 않습니다".split('').map((char) {
+                                tr("WhiteNoiseScreen.No white noise playing")
+                                    .split('')
+                                    .map((char) {
                               return Text(
                                 char,
                                 style: TextStyle(fontSize: 14),

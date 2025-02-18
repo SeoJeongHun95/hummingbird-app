@@ -225,14 +225,19 @@
     "noData": "記録データがありません。"
   },
   "WhiteNoiseScreen": {
-    "chooseYourWhiteNoise": "好きなホワイトノイズを選んでください",
-    "cafeNoise": "カフェの音",
-    "close": "閉じる",
-    "fireNoise": "焚き火の音",
-    "rainNoise": "雨の音",
-    "volumeControl": "音量調整",
-    "whiteNoise": "ホワイトノイズ",
-    "windNoise": "風の音"
+    "Cafe": "カフェ",
+    "Rain": "雨",
+    "Wind": "風",
+    "Fire": "火",
+    "Chime": "チャイム",
+    "Stream": "小川",
+    "Wave": "波",
+    "Bird": "鳥",
+    "chooseYourWhiteNoise": "お好みのホワイトノイズを選んでください",
+    "WhiteNoise": "ホワイトノイズ",
+    "No white noise playing": "再生中のホワイトノイズはありません",
+    "Volume Control": "音量コントロール",
+    "close": "閉じる"
   },
   "getBrithDateText": {
     "birthDate": "生年月日",

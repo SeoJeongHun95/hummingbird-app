@@ -225,14 +225,19 @@
     "noData": "기록된 데이터가 없습니다"
   },
   "WhiteNoiseScreen": {
+    "Cafe": "카페",
+    "Rain": "비",
+    "Wind": "바람",
+    "Fire": "장작",
+    "Chime": "방울",
+    "Stream": "시냇물",
+    "Wave": "파도",
+    "Bird": "새",
     "chooseYourWhiteNoise": "원하는 화이트 노이즈를 선택하세요",
-    "cafeNoise": "카페소리",
-    "close": "닫기",
-    "fireNoise": "장작소리",
-    "rainNoise": "비소리",
-    "volumeControl": "음량 조절",
-    "whiteNoise": "화이트 노이즈",
-    "windNoise": "바람소리"
+    "WhiteNoise": "화이트 노이즈",
+    "No white noise playing": "재생중인 화이트 노이즈 없음",
+    "Volume Control": "볼륨 조절",
+    "close": "닫기"
   },
   "getBrithDateText": {
     "birthDate": "생년월일",

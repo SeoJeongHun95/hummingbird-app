@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,7 +13,8 @@ class WhiteNoiseScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final audioList = ref.watch(multiAudioViewModelProvider);
-    final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = ScreenUtil().screenWidth;
+    // final screenWidth = MediaQuery.of(context).size.width;
 
     // 🔹 재생 중인 항목을 앞쪽으로 정렬
     final sortedAudioList = [...audioList]..sort((a, b) {
@@ -32,12 +34,12 @@ class WhiteNoiseScreen extends ConsumerWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         title: const Text(
-          'White Noise',
+          'WhiteNoiseScreen.WhiteNoise',
           style: TextStyle(
             color: Colors.black87,
             fontWeight: FontWeight.w600,
           ),
-        ),
+        ).tr(),
       ),
       body: SafeArea(
         child: Padding(
@@ -116,7 +118,7 @@ class WhiteNoiseScreen extends ConsumerWidget {
                   SizedBox(
                     width: 60.w,
                     child: Text(
-                      audio.name,
+                      tr(audio.name),
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -193,12 +195,12 @@ class WhiteNoiseScreen extends ConsumerWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             const Text(
-              'Volume Control',
+              "WhiteNoiseScreen.Volume Control",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
-            ),
+            ).tr(),
             const Gap(20),
             Consumer(
               builder: (context, ref, child) {
@@ -232,9 +234,9 @@ class WhiteNoiseScreen extends ConsumerWidget {
                 ),
               ),
               child: const Text(
-                'Close',
+                "WhiteNoiseScreen.Close",
                 style: TextStyle(fontSize: 16),
-              ),
+              ).tr(),
             ),
           ],
         ),

@@ -102,36 +102,36 @@ final multiAudioViewModelProvider =
     audioService: MultiAudioService(),
     initialSounds: [
       AudioModel(
-          name: 'Cafe',
+          name: 'WhiteNoiseScreen.Cafe',
           assetPath: 'lib/core/mp3/cafe-noise-32940.mp3',
           imagePath: 'lib/core/imgs/whitenoise/cafe.png'),
       AudioModel(
-          name: 'Rain',
+          name: 'WhiteNoiseScreen.Rain',
           assetPath: 'lib/core/mp3/sound-of-falling-rain-145473.mp3',
           imagePath: 'lib/core/imgs/whitenoise/rain.png'),
       AudioModel(
-          name: 'Wind',
+          name: 'WhiteNoiseScreen.Wind',
           assetPath: 'lib/core/mp3/wind__artic__cold-6195.mp3',
           imagePath: 'lib/core/imgs/whitenoise/wind.png'),
       AudioModel(
-          name: 'Fire',
+          name: 'WhiteNoiseScreen.Fire',
           assetPath: 'lib/core/mp3/fireplace-with-crackling-sounds.mp3',
           imagePath: 'lib/core/imgs/whitenoise/fireplase.png'),
       AudioModel(
-          name: 'Chime',
+          name: 'WhiteNoiseScreen.Chime',
           assetPath: 'lib/core/mp3/wind-chime-small-64660.mp3',
           imagePath: 'lib/core/imgs/whitenoise/windchime.png'),
       AudioModel(
-          name: 'Stream',
+          name: 'WhiteNoiseScreen.Stream',
           assetPath:
               'lib/core/mp3/the-sound-of-a-stream-a-spring-stream-the-sound-of-water-109237.mp3',
           imagePath: 'lib/core/imgs/whitenoise/stream.png'),
       AudioModel(
-          name: 'Wave',
+          name: 'WhiteNoiseScreen.Wave',
           assetPath: 'lib/core/mp3/soft-waves-on-the-beach-sound-190884.mp3',
           imagePath: 'lib/core/imgs/whitenoise/wave.png'),
       AudioModel(
-          name: 'Bird',
+          name: 'WhiteNoiseScreen.Bird',
           assetPath:
               'lib/core/mp3/evening-birds-singing-in-spring-background-sounds-of-nature-146388.mp3',
           imagePath: 'lib/core/imgs/whitenoise/bird.png'),
