@@ -1,34 +1,46 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../../models/subject/subject.dart';
 
 class SubjectRemoteDataSource {
-  final CollectionReference _subjectCollection =
-      FirebaseFirestore.instance.collection('subjects');
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<String> addSubject(Subject subject) async {
-    var docRef = await _subjectCollection.add(subject.toJson());
-    await docRef.update({'id': docRef.id});
-    return docRef.id;
+  String get _userId => FirebaseAuth.instance.currentUser!.uid;
+
+  DocumentReference get _userSubjectsDoc =>
+      _firestore.collection('subjects').doc(_userId);
+
+  Future<void> addSubject(Subject subject) async {
+    String subjectId = _firestore.collection('dummy').doc().id;
+    await _userSubjectsDoc.set({
+      subjectId: subject.toJson(),
+    }, SetOptions(merge: true));
   }
 
   Future<List<Subject>> getAllSubjects() async {
-    var snapshot = await _subjectCollection.get();
-    return snapshot.docs
-        .map((doc) => Subject.fromJson(doc.data() as Map<String, dynamic>))
-        .toList();
+    var snapshot = await _userSubjectsDoc.get();
+    if (!snapshot.exists) return [];
+
+    var data = snapshot.data() as Map<String, dynamic>;
+    return data.entries.map((e) {
+      var subject = Subject.fromJson(e.value as Map<String, dynamic>);
+      return subject.copyWith(subjectId: e.key);
+    }).toList();
   }
 
   Future<void> updateSubject(Subject updatedSubject) async {
     if (updatedSubject.subjectId == null) {
       throw Exception('Subject ID is null');
     }
-    await _subjectCollection
-        .doc(updatedSubject.subjectId)
-        .update(updatedSubject.toJson());
+    await _userSubjectsDoc.update({
+      updatedSubject.subjectId!: updatedSubject.toJson(),
+    });
   }
 
   Future<void> deleteSubject(String subjectId) async {
-    await _subjectCollection.doc(subjectId).delete();
+    await _userSubjectsDoc.update({
+      subjectId: FieldValue.delete(),
+    });
   }
 }
