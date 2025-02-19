@@ -8,6 +8,8 @@ import '../../repositories/study_record/study_record_repository.dart';
 
 part 'study_record_viewmodel.g.dart';
 
+//CI/CD 테스트트
+
 @Riverpod(keepAlive: true)
 class StudyRecordViewModel extends _$StudyRecordViewModel {
   late StudyRecordRepository repository;
