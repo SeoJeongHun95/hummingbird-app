@@ -1,7 +1,6 @@
-import 'dart:developer';
-
-import 'package:StudyDuck/src/models/d_day/d_day.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../../../models/d_day/d_day.dart';
 
 class DDayRemoteDatasource {
   final CollectionReference _dDayCollection =
@@ -24,7 +23,6 @@ class DDayRemoteDatasource {
 
       return dDayList;
     } catch (e) {
-      log(e.toString());
       return <DDay>[];
     }
   }

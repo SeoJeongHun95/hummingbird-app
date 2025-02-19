@@ -32,9 +32,18 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
   }
 
   List<StudyRecord> loadMergedStudyRecordsByDate(List<StudyRecord> records) {
-    return records
+    final currentDayRecords = records
+        .where(
+          (record) => isWithinTargetDateRange(
+            secondsSinceEpoch: record.endAt ?? 0,
+            targetDate: DateTime.now(),
+          ),
+        )
+        .toList();
+
+    return currentDayRecords
         .fold<Map<String, StudyRecord>>({}, (acc, record) {
-          final key = record.title;
+          final key = record.subjectId;
           if (acc.containsKey(key)) {
             final existingRecord = acc[key]!;
             acc[key] = existingRecord.copyWith(
@@ -78,89 +87,46 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
     return sortedRecords;
   }
 
-  // Future<(List<StudyRecord>, List<int>)> loadStudyRecordsByPeriod(
-  //     DateTime currentDate, PeriodOption option) async {
-  //   final period = switch (option) {
-  //     PeriodOption.WEEKLY => 7,
-  //     _ => DateUtils.getDaysInMonth(currentDate.year, currentDate.month),
-  //   };
-  //   final startDate = getStartDate(currentDate, option);
-
-  //   List<StudyRecord> studyRecords = [];
-
-  //   final dailyTotalDuration = List.generate(period, (index) => 0);
-  //   final studyRecordsMap =
-  //       await repository.getStudyRecordByRange(startDate, currentDate, period);
-
-  //   for (int day = 0; day < period; day++) {
-  //     final dailyRecords =
-  //         studyRecordsMap[formatDate(startDate.add(Duration(days: day)))] ?? [];
-
-  //     for (var record in dailyRecords) {
-  //       dailyTotalDuration[day] += record.elapsedTime;
-
-  //       final subjectIndex =
-  //           studyRecords.indexWhere((rec) => rec.title == record.title);
-  //       if (subjectIndex != -1) {
-  //         studyRecords[subjectIndex] = studyRecords[subjectIndex].copyWith(
-  //           elapsedTime:
-  //               studyRecords[subjectIndex].elapsedTime + record.elapsedTime,
-  //           breakTime: studyRecords[subjectIndex].breakTime + record.breakTime,
-  //         );
-  //       } else {
-  //         studyRecords.add(record);
-  //       }
-  //     }
-  //   }
-  //   return (studyRecords, dailyTotalDuration);
-  // }
-
   Future<(List<StudyRecord>, List<int>)> loadStudyRecordsByPeriod(
       DateTime currentDate, PeriodOption option) async {
+    final period = switch (option) {
+      PeriodOption.WEEKLY => 7,
+      _ => DateUtils.getDaysInMonth(currentDate.year, currentDate.month),
+    };
     final startDate = getStartDate(currentDate, option);
-    final endDate = currentDate;
 
-    final studyRecords = await repository.getStudyRecord();
-
-    final filteredRecords = studyRecords.where((record) {
-      final recordDate =
-          DateTime.fromMillisecondsSinceEpoch(record.startAt ?? 0);
-      return recordDate.isAfter(startDate.subtract(const Duration(days: 1))) &&
-          recordDate.isBefore(endDate.add(const Duration(days: 1)));
-    }).toList();
-
-    final period = option == PeriodOption.WEEKLY
-        ? 7
-        : DateUtils.getDaysInMonth(currentDate.year, currentDate.month);
+    List<StudyRecord> studyRecords = [];
 
     final dailyTotalDuration = List.generate(period, (index) => 0);
-    List<StudyRecord> aggregatedRecords = [];
+    final studyRecordsOfMonth = await repository.getStudyRecord();
 
-    for (var record in filteredRecords) {
-      final recordDate =
-          DateTime.fromMillisecondsSinceEpoch(record.startAt ?? 0);
-      final dayIndex = recordDate.difference(startDate).inDays;
+    for (int day = 0; day < period; day++) {
+      final dailyRecords = studyRecordsOfMonth
+          .where(
+            (studyRecord) => isWithinTargetDateRange(
+              secondsSinceEpoch: studyRecord.endAt ?? 0,
+              targetDate: startDate.add(Duration(days: day)),
+            ),
+          )
+          .toList();
 
-      if (dayIndex >= 0 && dayIndex < period) {
-        dailyTotalDuration[dayIndex] += record.elapsedTime;
-      }
+      for (var record in dailyRecords) {
+        dailyTotalDuration[day] += record.elapsedTime;
 
-      final subjectIndex =
-          aggregatedRecords.indexWhere((rec) => rec.title == record.title);
-      if (subjectIndex != -1) {
-        aggregatedRecords[subjectIndex] =
-            aggregatedRecords[subjectIndex].copyWith(
-          elapsedTime:
-              aggregatedRecords[subjectIndex].elapsedTime + record.elapsedTime,
-          breakTime:
-              aggregatedRecords[subjectIndex].breakTime + record.breakTime,
-        );
-      } else {
-        aggregatedRecords.add(record);
+        final subjectIndex =
+            studyRecords.indexWhere((rec) => rec.subjectId == record.subjectId);
+        if (subjectIndex != -1) {
+          studyRecords[subjectIndex] = studyRecords[subjectIndex].copyWith(
+            elapsedTime:
+                studyRecords[subjectIndex].elapsedTime + record.elapsedTime,
+            breakTime: studyRecords[subjectIndex].breakTime + record.breakTime,
+          );
+        } else {
+          studyRecords.add(record);
+        }
       }
     }
-
-    return (aggregatedRecords, dailyTotalDuration);
+    return (studyRecords, dailyTotalDuration);
   }
 
   String formatDate(DateTime date) {
@@ -173,4 +139,17 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
           currentDate.subtract(Duration(days: DateTime.now().weekday - 1)),
         _ => DateTime(currentDate.year, currentDate.month, 1),
       };
+
+  bool isWithinTargetDateRange({
+    required int secondsSinceEpoch,
+    required DateTime targetDate,
+  }) {
+    final date =
+        DateTime.fromMillisecondsSinceEpoch(secondsSinceEpoch * 1000).toLocal();
+
+    final target = DateTime(targetDate.year, targetDate.month, targetDate.day);
+
+    return target.add(const Duration(hours: 6)).isBefore(date) &&
+        target.add(const Duration(days: 1, hours: 6)).isAfter(date);
+  }
 }
