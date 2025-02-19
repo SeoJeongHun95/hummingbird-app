@@ -29,7 +29,13 @@ jobs:
 
       - name: Create .env File
         run: |
-          echo "GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}" > .env
+          echo "ANDROID_TEST_AD_ID=${{ secrets.ANDROID_TEST_AD_ID }}" > .env
+          echo "APPSTORE_API_KEY=${{ secrets.APPSTORE_API_KEY }}" >> .env
+          echo "APP_NAME=${{ secrets.APP_NAME }}" >> .env
+          echo "GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}" >> .env
+          echo "IOS_TEST_AD_ID=${{ secrets.IOS_TEST_AD_ID }}" >> .env
+          echo "SERVER_BASE_URL=${{ secrets.SERVER_BASE_URL }}" >> .env
+
 
     
 
