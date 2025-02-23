@@ -11,8 +11,19 @@ class NotificationService {
   static const String _channelName = 'High Importance Notifications';
 
   Future<void> initialize() async {
-    // 먼저 채널 생성
-    await _createNotificationChannel();
+    const androidChannel = AndroidNotificationChannel(
+      _channelId,
+      _channelName,
+      description: '이 채널은 중요 알림에 사용됩니다.',
+      importance: Importance.max,
+      playSound: true,
+      enableVibration: true,
+      showBadge: true,
+    );
+
+    final plugin = _notificationsPlugin.resolvePlatformSpecificImplementation<
+        AndroidFlutterLocalNotificationsPlugin>();
+    await plugin?.createNotificationChannel(androidChannel);
 
     const AndroidInitializationSettings initializationSettingsAndroid =
         AndroidInitializationSettings('@mipmap/launcher_icon');
@@ -38,28 +49,6 @@ class NotificationService {
     );
 
     print('NotificationService initialized successfully');
-  }
-
-  Future<void> _createNotificationChannel() async {
-    const AndroidNotificationChannel channel = AndroidNotificationChannel(
-      _channelId,
-      _channelName,
-      description: '이 채널은 중요 알림에 사용됩니다.',
-      importance: Importance.max,
-      playSound: true,
-      enableVibration: true,
-      showBadge: true,
-      enableLights: true,
-    );
-
-    try {
-      final plugin = _notificationsPlugin.resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin>();
-      await plugin?.createNotificationChannel(channel);
-      print('Notification channel created successfully');
-    } catch (e) {
-      print('Error creating notification channel: $e');
-    }
   }
 
   Future<void> showNotification({
