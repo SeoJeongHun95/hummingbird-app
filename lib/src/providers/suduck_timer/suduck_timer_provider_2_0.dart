@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../core/utils/selection_haptic.dart';
 import '../../../core/utils/utils.dart';
 import '../../models/study_record/study_record.dart';
 import '../../models/subject/subject.dart';
@@ -67,7 +68,8 @@ class SuDuckTimer extends _$SuDuckTimer {
   Future<void> startTimer({Subject? subject}) async {
     // final isConnected = ref.watch(networkStateProvider);
     // if (isConnected.asData?.value != true) return;
-
+// Haptic 구현
+    await SelectionHaptic.vibrate();
     if (state.isRunning) return;
     _cancelBreakTimer();
 
@@ -81,13 +83,17 @@ class SuDuckTimer extends _$SuDuckTimer {
     );
   }
 
-  void stopTimer() {
+  void stopTimer() async {
+    // Haptic 구현
+    await SelectionHaptic.vibrate();
     _cancelAllTimers();
     _startBreakLoop();
     state = state.copyWith(isRunning: false);
   }
 
   Future<void> resetTimer() async {
+    // Haptic 구현
+    await SelectionHaptic.vibrate();
     _cancelAllTimers();
 
     _updateBgColor(null);
@@ -103,6 +109,8 @@ class SuDuckTimer extends _$SuDuckTimer {
   }
 
   Future<void> saveTimer() async {
+    // Haptic 구현
+    await SelectionHaptic.vibrate();
     _cancelAllTimers();
 
     final currentSubject = state.currSubject ?? noSubject;
