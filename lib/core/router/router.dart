@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../src/models/subject/subject.dart';
+import '../../src/providers/auth/auth_provider.dart';
 import '../../src/viewmodels/app_setting/app_setting_view_model.dart';
 import '../../src/views/home/home_screen.dart';
 import '../../src/views/home/suduck_timer_focus_mode_screen.dart';
@@ -24,7 +25,8 @@ bool firstRun = true;
 
 // GoRouter 설정
 final goRouterProvider = Provider<GoRouter>((ref) {
-  final isLoggedIn = true;
+  final auth = ref.watch(authProvider);
+  final isLoggedIn = auth.asData?.value != null;
   bool isFirstInstalled = true;
 
   if (isLoggedIn) {

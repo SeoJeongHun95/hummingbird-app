@@ -1,8 +1,8 @@
-import 'package:StudyDuck/core/utils/format_date.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
+import '../../../../../core/utils/format_date.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 
 class ProfileInfoWidget extends StatelessWidget {
