@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../../../core/utils/get_formatted_time.dart';
 import '../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
@@ -25,6 +26,7 @@ class _SuduckTimerFocusModeWidgetState
   @override
   void initState() {
     super.initState();
+    WakelockPlus.enable();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
@@ -49,6 +51,7 @@ class _SuduckTimerFocusModeWidgetState
 
   @override
   void dispose() {
+    WakelockPlus.disable();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
