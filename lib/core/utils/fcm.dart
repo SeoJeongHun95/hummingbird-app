@@ -155,7 +155,10 @@ class FcmManager {
       // 토큰 가져오기 시도
       String? token;
       int attempts = 0;
-      const maxAttempts = 3;
+      // const maxAttempts = 3;
+
+      // 임시로 1회
+      const maxAttempts = 1;
 
       while (token == null && attempts < maxAttempts) {
         print('Attempting to get device token (${attempts + 1}/$maxAttempts)');
