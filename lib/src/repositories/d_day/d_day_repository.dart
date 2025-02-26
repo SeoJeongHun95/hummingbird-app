@@ -10,7 +10,7 @@ class DDayRepository {
     await _remoteDatasource.addDDay(dDay);
   }
 
-  Future<List<DDay>> getAllDDay(bool isConnected) async {
+  Future<List<DDay>> getAllDDay() async {
     final localDDayList = await _remoteDatasource.getAllDDay();
 
     return localDDayList;
