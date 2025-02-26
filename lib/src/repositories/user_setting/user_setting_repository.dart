@@ -24,7 +24,7 @@ class UserSettingRepository {
     await _localDatasource.addUserSetting(userSetting);
   }
 
-  Future<UserSetting> getUserSetting(bool isConnected) async {
+  Future<UserSetting> getUserSetting() async {
     return _localDatasource.getUserSetting();
   }
 

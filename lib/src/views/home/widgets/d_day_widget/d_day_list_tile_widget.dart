@@ -7,7 +7,6 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/widgets/color_container_with_opacity.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
-import '../../../../providers/d_day/d_day_screen_state_provider.dart';
 import '../../../../viewmodels/d_day/d_day_view_model.dart';
 
 class DDayListTileWidget extends ConsumerWidget {
@@ -15,12 +14,12 @@ class DDayListTileWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final dDayScreenState = ref.watch(dDayScreenStateProvider);
+    final dDayScreenState = ref.watch(dDayViewModelProvider);
     final viewModel = ref.read(dDayViewModelProvider.notifier);
 
     return dDayScreenState.when(
       data: (state) {
-        final (dDays, isConnected) = state;
+        final (dDays) = state;
         return MxNcontainer(
           MxN_rate: MxNRate.TWOBYTWO,
           MxN_child: Container(
@@ -71,67 +70,55 @@ class DDayListTileWidget extends ConsumerWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              isConnected
-                                  ? MenuAnchor(
-                                      alignmentOffset: Offset(-17.w, 0),
-                                      style: MenuStyle(
-                                        backgroundColor:
-                                            WidgetStateProperty.all(
-                                                Colors.white),
-                                      ),
-                                      menuChildren: [
-                                        MenuItemButton(
-                                          onPressed: () {
-                                            context.push(
-                                              '/dDayUpdate',
-                                              extra: {
-                                                'index': index,
-                                                'dDayId': dDayId,
-                                                'title': goalTitle,
-                                                'color': dDays[index].color,
-                                                'targetDatetime': goalDate,
-                                              },
-                                            );
-                                          },
-                                          child: Text(tr("DDayListTile.Edit")),
-                                        ),
-                                        MenuItemButton(
-                                          onPressed: () =>
-                                              _showDeleteDDayDialog(
-                                            context: context,
-                                            index: index,
-                                            goalTitle: goalTitle,
-                                            dDayId: dDays[index].ddayId ?? '',
-                                            deleteDDay: viewModel.deleteDDay,
-                                          ),
-                                          child:
-                                              Text(tr("DDayListTile.Delete")),
-                                        )
-                                      ],
-                                      builder: (context, controller, child) {
-                                        return IconButton(
-                                          onPressed: () {
-                                            if (controller.isOpen) {
-                                              controller.close();
-                                            } else {
-                                              controller.open();
-                                            }
-                                          },
-                                          icon: Icon(
-                                            Icons.more_vert,
-                                            size: 16.sp,
-                                          ),
-                                        );
-                                      },
-                                    )
-                                  : IconButton(
-                                      onPressed: () =>
-                                          showOnOfflineDialog(context),
-                                      icon: Icon(
-                                        Icons.more_vert,
-                                        size: 16.sp,
-                                      ),
+                              MenuAnchor(
+                                alignmentOffset: Offset(-17.w, 0),
+                                style: MenuStyle(
+                                  backgroundColor:
+                                      WidgetStateProperty.all(Colors.white),
+                                ),
+                                menuChildren: [
+                                  MenuItemButton(
+                                    onPressed: () {
+                                      context.push(
+                                        '/dDayUpdate',
+                                        extra: {
+                                          'index': index,
+                                          'dDayId': dDayId,
+                                          'title': goalTitle,
+                                          'color': dDays[index].color,
+                                          'targetDatetime': goalDate,
+                                        },
+                                      );
+                                    },
+                                    child: Text(tr("DDayListTile.Edit")),
+                                  ),
+                                  MenuItemButton(
+                                    onPressed: () => _showDeleteDDayDialog(
+                                      context: context,
+                                      index: index,
+                                      goalTitle: goalTitle,
+                                      dDayId: dDays[index].ddayId ?? '',
+                                      deleteDDay: viewModel.deleteDDay,
                                     ),
+                                    child: Text(tr("DDayListTile.Delete")),
+                                  )
+                                ],
+                                builder: (context, controller, child) {
+                                  return IconButton(
+                                    onPressed: () {
+                                      if (controller.isOpen) {
+                                        controller.close();
+                                      } else {
+                                        controller.open();
+                                      }
+                                    },
+                                    icon: Icon(
+                                      Icons.more_vert,
+                                      size: 16.sp,
+                                    ),
+                                  );
+                                },
+                              ),
                             ],
                           ),
                         );
@@ -139,24 +126,7 @@ class DDayListTileWidget extends ConsumerWidget {
                         return Padding(
                           padding: EdgeInsets.symmetric(
                               vertical: 16.h, horizontal: 20.w),
-                          child: isConnected
-                              ? OutlinedButton(
-                                  style: OutlinedButton.styleFrom(
-                                    fixedSize: Size(300.w, 20.w),
-                                  ),
-                                  onPressed: () {
-                                    context.push('/dDayAdd');
-                                  },
-                                  child: Icon(Icons.add),
-                                )
-                              : onOfflineContainer,
-                        );
-                      }
-                    },
-                  )
-                : Center(
-                    child: isConnected
-                        ? OutlinedButton(
+                          child: OutlinedButton(
                             style: OutlinedButton.styleFrom(
                               fixedSize: Size(300.w, 20.w),
                             ),
@@ -164,8 +134,21 @@ class DDayListTileWidget extends ConsumerWidget {
                               context.push('/dDayAdd');
                             },
                             child: Icon(Icons.add),
-                          )
-                        : onOfflineContainer,
+                          ),
+                        );
+                      }
+                    },
+                  )
+                : Center(
+                    child: OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        fixedSize: Size(300.w, 20.w),
+                      ),
+                      onPressed: () {
+                        context.push('/dDayAdd');
+                      },
+                      child: Icon(Icons.add),
+                    ),
                   ),
           ),
         );

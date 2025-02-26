@@ -3,7 +3,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../models/d_day/d_day.dart';
 import '../../providers/d_day/d_day_repository_provider.dart';
-import '../../providers/network_status/network_state_provider.dart';
 import '../../repositories/d_day/d_day_repository.dart';
 
 part 'd_day_view_model.g.dart';
@@ -15,16 +14,14 @@ class DDayViewModel extends _$DDayViewModel {
   @override
   Future<List<DDay>> build() async {
     repository = ref.watch(dDayRepositoryProvider);
-    final isConnected = await ref.watch(networkStateProvider.future);
-    final dDays = await repository.getAllDDay(isConnected);
+    final dDays = await repository.getAllDDay();
     return getSortedDDays(dDays);
   }
 
   Future<void> addDDay(DDay dDay) async {
-    final bool isConnected = await ref.read(networkStateProvider.future);
     state = await AsyncValue.guard(() async {
       await repository.addDDay(dDay);
-      final newList = await repository.getAllDDay(isConnected);
+      final newList = await repository.getAllDDay();
 
       return getSortedDDays(newList);
     });
