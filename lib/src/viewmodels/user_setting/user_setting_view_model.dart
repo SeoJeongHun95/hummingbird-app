@@ -1,7 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../models/setting/user_setting.dart';
-import '../../providers/network_status/network_state_provider.dart';
 import '../../repositories/user_setting/user_setting_repository.dart';
 
 part 'user_setting_view_model.g.dart';
