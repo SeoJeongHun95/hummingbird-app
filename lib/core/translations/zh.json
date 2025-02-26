@@ -225,14 +225,19 @@
     "noData": "没有记录的数据"
   },
   "WhiteNoiseScreen": {
-    "chooseYourWhiteNoise": "选择您喜欢的白噪音",
-    "cafeNoise": "咖啡馆声音",
-    "close": "关闭",
-    "fireNoise": "火焰声音",
-    "rainNoise": "雨声",
-    "volumeControl": "音量控制",
-    "whiteNoise": "白噪音",
-    "windNoise": "风声"
+    "Cafe": "咖啡馆",
+    "Rain": "雨",
+    "Wind": "风",
+    "Fire": "火",
+    "Chime": "钟声",
+    "Stream": "溪流",
+    "Wave": "波浪",
+    "Bird": "鸟",
+    "chooseYourWhiteNoise": "选择您的白噪音",
+    "WhiteNoise": "白噪音",
+    "No white noise playing": "没有播放白噪音",
+    "Volume Control": "音量控制",
+    "close": "关闭"
   },
   "getBrithDateText": {
     "birthDate": "生日",

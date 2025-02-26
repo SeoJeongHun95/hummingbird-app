@@ -29,7 +29,7 @@ class _SuduckTimerControllBarWidgetState
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             GestureDetector(
-              onTap: suduckTimerNotifier.resetSubject,
+              onTap: () => context.push("/whiteNoise"),
               child: Center(
                 child: Text(
                   tr("TimerControlBar.WhiteNoise"),

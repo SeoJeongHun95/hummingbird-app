@@ -225,14 +225,19 @@
     "noData": "Không có dữ liệu được ghi nhận"
   },
   "WhiteNoiseScreen": {
+    "Cafe": "Quán cà phê",
+    "Rain": "Mưa",
+    "Wind": "Gió",
+    "Fire": "Lửa",
+    "Chime": "Tiếng chuông",
+    "Stream": "Suối",
+    "Wave": "Sóng",
+    "Bird": "Chim",
     "chooseYourWhiteNoise": "Chọn tiếng ồn trắng của bạn",
-    "cafeNoise": "Tiếng quán cà phê",
-    "close": "Đóng",
-    "fireNoise": "Tiếng lửa cháy",
-    "rainNoise": "Tiếng mưa",
-    "volumeControl": "Điều chỉnh âm lượng",
-    "whiteNoise": "Tiếng ồn trắng",
-    "windNoise": "Tiếng gió"
+    "WhiteNoise": "Tiếng ồn trắng",
+    "No white noise playing": "Không có tiếng ồn trắng đang phát",
+    "Volume Control": "Điều khiển âm lượng",
+    "close": "Đóng"
   },
   "getBrithDateText": {
     "birthDate": "Ngày sinh",

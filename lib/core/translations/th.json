@@ -225,14 +225,19 @@
     "noData": "ไม่มีข้อมูลที่บันทึกไว้"
   },
   "WhiteNoiseScreen": {
-    "chooseYourWhiteNoise": "เลือกเสียงรบกวนที่คุณต้องการ",
-    "cafeNoise": "เสียงคาเฟ่",
-    "close": "ปิด",
-    "fireNoise": "เสียงไฟ",
-    "rainNoise": "เสียงฝน",
-    "volumeControl": "ควบคุมระดับเสียง",
-    "whiteNoise": "เสียงรบกวนสีขาว",
-    "windNoise": "เสียงลม"
+    "Cafe": "ร้านกาแฟ",
+    "Rain": "ฝน",
+    "Wind": "ลม",
+    "Fire": "ไฟ",
+    "Chime": "เสียงระฆัง",
+    "Stream": "ลำธาร",
+    "Wave": "คลื่น",
+    "Bird": "นก",
+    "chooseYourWhiteNoise": "เลือกเสียงไวท์นอยซ์ของคุณ",
+    "WhiteNoise": "เสียงไวท์นอยซ์",
+    "No white noise playing": "ไม่มีเสียงไวท์นอยซ์ที่กำลังเล่นอยู่",
+    "Volume Control": "การควบคุมระดับเสียง",
+    "close": "ปิด"
   },
   "getBrithDateText": {
     "birthDate": "วันเกิด",

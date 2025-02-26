@@ -225,14 +225,19 @@
     "noData": "No recorded data."
   },
   "WhiteNoiseScreen": {
-    "chooseYourWhiteNoise": "Choose your preferred white noise",
-    "cafeNoise": "Cafe noise",
-    "close": "Close",
-    "fireNoise": "Fireplace sound",
-    "rainNoise": "Rain sound",
-    "volumeControl": "Volume control",
-    "whiteNoise": "White noise",
-    "windNoise": "Wind sound"
+    "Cafe": "Cafe",
+    "Rain": "Rain",
+    "Wind": "Wind",
+    "Fire": "Fire",
+    "Chime": "Chime",
+    "Stream": "Stream",
+    "Wave": "Wave",
+    "Bird": "bird",
+    "chooseYourWhiteNoise": "hooseYourWhiteNoise",
+    "WhiteNoise": "whiteNoise",
+    "No white noise playing": "No white noise playing",
+    "Volume Control": "Volume Control",
+    "close": "close"
   },
   "getBrithDateText": {
     "birthDate": "Date of birth",
