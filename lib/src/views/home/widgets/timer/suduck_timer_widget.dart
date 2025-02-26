@@ -1,4 +1,3 @@
-import 'package:StudyDuck/src/viewmodels/app_setting/app_setting_view_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,6 +8,7 @@ import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/utils/get_formatted_time.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
+import '../../../../viewmodels/app_setting/app_setting_view_model.dart';
 import '../../../../viewmodels/timer/timer_bg_color_provider.dart';
 
 class SuDuckTimerWidget extends ConsumerStatefulWidget {

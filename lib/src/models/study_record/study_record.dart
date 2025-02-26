@@ -9,6 +9,7 @@ class StudyRecord with _$StudyRecord {
     required String subjectId,
     required String title,
     required String color,
+    required String dateKey,
     int? startAt,
     int? endAt,
     @Default(0) int elapsedTime,

@@ -1,8 +1,8 @@
-import 'package:StudyDuck/core/theme/colors/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../enum/mxnRate.dart';
+import '../theme/colors/app_color.dart';
 import 'circle_color_container.dart';
 import 'mxnContainer.dart';
 

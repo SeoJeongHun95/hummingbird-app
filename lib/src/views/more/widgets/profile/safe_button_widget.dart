@@ -1,6 +1,7 @@
-import 'package:StudyDuck/core/enum/mxnRate.dart';
-import 'package:StudyDuck/core/widgets/mxnContainer.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../core/enum/mxnRate.dart';
+import '../../../../../core/widgets/mxnContainer.dart';
 
 class SafeButtonWidget extends StatelessWidget {
   const SafeButtonWidget({

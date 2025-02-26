@@ -1,0 +1,61 @@
+name: Flutter Build & Deploy
+
+on:
+  push:
+    branches:
+      - FireStore_Dev
+  pull_request:
+    branches:
+      - FireStore_Dev
+
+jobs:
+  build_and_deploy:
+    name: Build & Deploy Flutter App
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.27.1"
+          channel: "stable"
+          cache: true
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Create .env File
+        run: |
+          echo "ANDROID_TEST_AD_ID=${{ secrets.ANDROID_TEST_AD_ID }}" > .env
+          echo "APPSTORE_API_KEY=${{ secrets.APPSTORE_API_KEY }}" >> .env
+          echo "APP_NAME=${{ secrets.APP_NAME }}" >> .env
+          echo "GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}" >> .env
+          echo "IOS_TEST_AD_ID=${{ secrets.IOS_TEST_AD_ID }}" >> .env
+          echo "SERVER_BASE_URL=${{ secrets.SERVER_BASE_URL }}" >> .env
+
+
+    
+
+      - name: Generate Env Variables
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+
+      - name: Build APK
+        run: flutter build apk --release
+
+      - name: Build AppBundle
+        run: flutter build appbundle
+
+      - name: Upload APK as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Upload AAB as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-aab
+          path: build/app/outputs/bundle/release/app-release.aab

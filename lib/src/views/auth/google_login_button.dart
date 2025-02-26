@@ -1,50 +1,28 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:gap/gap.dart';
-// import 'package:google_sign_in/google_sign_in.dart';
+import 'package:StudyDuck/src/providers/auth/auth_provider.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gap/gap.dart';
 
-// import '../../../core/utils/is_android.dart';
-// import '../../models/env.dart';
+class GoogleLoginButton extends ConsumerWidget {
+  const GoogleLoginButton({super.key});
 
-// class GoogleLoginButton extends ConsumerWidget {
-//   final _googleSignIn =
-//       isAndroid() ? GoogleSignIn() : GoogleSignIn(clientId: Env.googleClientId);
-
-//   GoogleLoginButton({super.key});
-
-//   @override
-//   Widget build(BuildContext context, WidgetRef ref) {
-//     return GestureDetector(
-//       onTap: () async {
-//         try {
-//           final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-
-//           if (googleUser == null) {
-//             return;
-//           }
-
-//           await ref.read(googleLoginProvider.notifier).googleLogin(
-//                 googleId: googleUser.id,
-//                 email: googleUser.email,
-//                 displayName: googleUser.displayName,
-//               );
-//         } catch (err) {
-//           print(err);
-//         }
-//       },
-//       child: Row(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: [
-//           Gap(
-//             8.0,
-//           ),
-//           Image.asset(
-//             'lib/core/imgs/icons/SignInGoogle.png',
-//             width: MediaQuery.of(context).size.width * 0.8,
-//             height: MediaQuery.of(context).size.height * 0.05,
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return GestureDetector(
+      onTap: () async {
+        await ref.read(authProvider.notifier).signInWithGoogle();
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Gap(8.0),
+          Image.asset(
+            'lib/core/imgs/icons/SignInGoogle.png',
+            width: MediaQuery.of(context).size.width * 0.8,
+            height: MediaQuery.of(context).size.height * 0.05,
+          ),
+        ],
+      ),
+    );
+  }
+}
