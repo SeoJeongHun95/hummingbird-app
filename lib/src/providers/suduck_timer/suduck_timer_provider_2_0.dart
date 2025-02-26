@@ -119,6 +119,7 @@ class SuDuckTimer extends _$SuDuckTimer {
       subjectId: currentSubject.subjectId!,
       title: currentSubject.title,
       color: currentSubject.color,
+      dateKey: formattedToday,
       elapsedTime: state.elapsedTime,
       breakTime: state.breakTime,
       startAt: state.startAt,
