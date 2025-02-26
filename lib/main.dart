@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:ui';
 
 import 'package:easy_localization/easy_localization.dart';
@@ -23,10 +24,12 @@ void main() async {
   final List<String> supportedLanguages = ['ko', 'en', 'ja', 'zh', 'vi', 'th'];
   WidgetsFlutterBinding.ensureInitialized();
 
-  try {
-    // Firebase 초기화를 먼저 수행
-    await Firebase.initializeApp();
+  // Firebase 초기화를 먼저 수행
+  await Firebase.initializeApp();
 
+  await EasyLocalization.ensureInitialized();
+  await appInitialize();
+  try {
     // FCM 초기화를 NotificationService 이전에 수행
     await FcmManager.initialize();
 
@@ -35,31 +38,26 @@ void main() async {
 
     // 백그라운드 핸들러 등록
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-
-    await SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]);
-
-    await EasyLocalization.ensureInitialized();
-    await appInitialize();
-
-    runApp(
-      EasyLocalization(
-        supportedLocales:
-            supportedLanguages.map((lang) => Locale(lang)).toList(),
-        path: 'lib/core/translations',
-        fallbackLocale: const Locale('en'),
-        startLocale: supportedLanguages
-                .contains(PlatformDispatcher.instance.locale.languageCode)
-            ? Locale(PlatformDispatcher.instance.locale.languageCode)
-            : const Locale('en'),
-        child: const ProviderScope(child: MyApp()),
-      ),
-    );
   } catch (e) {
-    print('Initialization error: $e');
+    log(e.toString());
   }
+
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  runApp(
+    EasyLocalization(
+      supportedLocales: supportedLanguages.map((lang) => Locale(lang)).toList(),
+      path: 'lib/core/translations',
+      fallbackLocale: const Locale('en'),
+      startLocale: supportedLanguages
+              .contains(PlatformDispatcher.instance.locale.languageCode)
+          ? Locale(PlatformDispatcher.instance.locale.languageCode)
+          : const Locale('en'),
+      child: const ProviderScope(child: MyApp()),
+    ),
+  );
 }
 
 class MyApp extends ConsumerWidget {
