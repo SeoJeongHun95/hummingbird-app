@@ -12,7 +12,7 @@ class SubjectRemoteDataSource {
       _firestore.collection('subjects').doc(_userId);
 
   Future<void> addSubject(Subject subject) async {
-    String subjectId = _firestore.collection('dummy').doc().id;
+    String subjectId = _userSubjectsDoc.collection('subject').doc().id;
     await _userSubjectsDoc.set({
       subjectId: subject.toJson(),
     }, SetOptions(merge: true));
