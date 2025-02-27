@@ -65,6 +65,13 @@ class MultiAudioService {
     }
   }
 
+  //모두일시정지
+  void stopAll() {
+    for (var player in _audioPlayers.values) {
+      player.stopPlayer();
+    }
+  }
+
   Future<void> setVolume(String assetPath, double volume) async {
     final player = _audioPlayers[assetPath];
     if (player != null) {
