@@ -61,7 +61,7 @@ class DrewerWhiteNoiseController extends ConsumerWidget {
                                 Text(
                                   playingAudio.name,
                                   style: const TextStyle(fontSize: 16),
-                                ),
+                                ).tr(),
                               ],
                             ),
                           );
@@ -93,7 +93,7 @@ class DrewerWhiteNoiseController extends ConsumerWidget {
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                   color: Colors.black54),
-            ),
+            ).tr(),
             SizedBox(height: 20),
           ],
         ),

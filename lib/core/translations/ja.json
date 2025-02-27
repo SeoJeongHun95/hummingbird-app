@@ -237,7 +237,8 @@
     "WhiteNoise": "ホワイトノイズ",
     "No white noise playing": "再生中のホワイトノイズはありません",
     "Volume Control": "音量コントロール",
-    "close": "閉じる"
+    "close": "閉じる",
+    "Stop": "停止"
   },
   "getBrithDateText": {
     "birthDate": "生年月日",

@@ -237,7 +237,8 @@
     "WhiteNoise": "Tiếng ồn trắng",
     "No white noise playing": "Không có tiếng ồn trắng đang phát",
     "Volume Control": "Điều khiển âm lượng",
-    "close": "Đóng"
+    "close": "Đóng",
+    "Stop": "Dừng"
   },
   "getBrithDateText": {
     "birthDate": "Ngày sinh",
