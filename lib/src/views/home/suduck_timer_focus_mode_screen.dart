@@ -201,9 +201,7 @@ class _SuduckTimerFocusModeWidgetState
 
         return AlertDialog(
           title: Text("Dialog.Focus!").tr(),
-          content:
-              Text("Dialog.You are studying. Put your phone down and focus.")
-                  .tr(),
+          content: Text("Dialog.YouarestudyingPutyourphonedownandfocus").tr(),
         );
       },
     ).then((_) {
