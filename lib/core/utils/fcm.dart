@@ -86,11 +86,10 @@ class FcmManager {
 
     // APNS 토큰 획득 시도
     int attempts = 0;
-          // const maxAttempts = 3;
+    // const maxAttempts = 3;
 
-      // 임시로 1회
-      const maxAttempts = 1;
-    
+    // 임시로 1회
+    const maxAttempts = 1;
 
     while (attempts < maxAttempts) {
       try {
