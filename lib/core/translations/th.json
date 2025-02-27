@@ -45,7 +45,9 @@
   },
   "Dialog": {
     "Cancel": "ยกเลิก",
-    "Confirm": "ยืนยัน"
+    "Confirm": "ยืนยัน",
+    "Focus!": "ตั้งใจ!",
+    "You are studying. Put your phone down and focus.": "คุณกำลังเรียนอยู่ วางโทรศัพท์และตั้งใจ!"
   },
   "HomeSegmentBar": {
     "Dday": "วันสำคัญ",

@@ -45,7 +45,9 @@
   },
   "Dialog": {
     "Cancel": "취소",
-    "Confirm": "확인"
+    "Confirm": "확인",
+    "Focus!": "집중하세요!",
+    "You are studying. Put your phone down and focus.": "공부 중입니다. 핸드폰을 내려놓고 집중하세요."
   },
   "HomeSegmentBar": {
     "Dday": "디데이",

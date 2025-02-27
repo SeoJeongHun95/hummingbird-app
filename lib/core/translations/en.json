@@ -45,7 +45,9 @@
   },
   "Dialog": {
     "Cancel": "Cancel",
-    "Confirm": "Confirm"
+    "Confirm": "Confirm",
+    "Focus!": "Focus!",
+    "You are studying. Put your phone down and focus.": "You are studying. Put your phone down and focus."
   },
   "HomeSegmentBar": {
     "Dday": "D-Day",

@@ -200,8 +200,10 @@ class _SuduckTimerFocusModeWidgetState
         });
 
         return AlertDialog(
-          title: Text("집중하세요!"),
-          content: Text("학습 중입니다. 휴대폰을 내려놓고 집중하세요."),
+          title: Text("Dialog.Focus!").tr(),
+          content:
+              Text("Dialog.You are studying. Put your phone down and focus.")
+                  .tr(),
         );
       },
     ).then((_) {
