@@ -237,7 +237,7 @@
     "WhiteNoise": "เสียงไวท์นอยซ์",
     "No white noise playing": "ไม่มีเสียงไวท์นอยซ์ที่กำลังเล่นอยู่",
     "Volume Control": "การควบคุมระดับเสียง",
-    "close": "ปิด",
+    "Close": "ปิด",
     "Stop": "หยุด"
   },
   "getBrithDateText": {
