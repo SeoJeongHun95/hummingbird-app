@@ -9,9 +9,9 @@ import '../../src/models/env.dart';
 class AdMobWidget {
   static String? anchoredAdaptiveBannerAdUnitId() {
     if (Platform.isAndroid) {
-      return "ca-app-pub-3940256099942544/6300978111"; // Android 배너 테스트 ID Env.androidTestAdId;
+      return Env.androidTestAdId; // Android 배너 테스트 ID Env.androidTestAdId;
     } else if (Platform.isIOS) {
-      return "ca-app-pub-3940256099942544/2934735716"; // iOS 배너 테스트 ID
+      return Env.iosTestAdId; // iOS 배너 테스트 ID
     }
     return null;
   }
