@@ -9,9 +9,9 @@ import '../../src/models/env.dart';
 class AdMobWidget {
   static String? anchoredAdaptiveBannerAdUnitId() {
     if (Platform.isAndroid) {
-      return Env.androidTestAdId;
+      return "ca-app-pub-3940256099942544/6300978111"; // Android 배너 테스트 ID Env.androidTestAdId;
     } else if (Platform.isIOS) {
-      return Env.iosTestAdId;
+      return "ca-app-pub-3940256099942544/2934735716"; // iOS 배너 테스트 ID
     }
     return null;
   }
@@ -25,10 +25,14 @@ class AdMobWidget {
       size: size,
       request: const AdRequest(),
       listener: BannerAdListener(
-        onAdLoaded: (ad) => debugPrint('광고가 로드되었습니다'),
+        onAdLoaded: (ad) {
+          debugPrint('배너 광고가 성공적으로 로드되었습니다.');
+        },
         onAdFailedToLoad: (ad, error) {
+          debugPrint('배너 광고 로드 실패: ${error.message}');
+          debugPrint('에러 코드: ${error.code}');
+          debugPrint('에러 도메인: ${error.domain}');
           ad.dispose();
-          debugPrint('광고 로드 실패: $error');
         },
       ),
     )..load();
@@ -55,7 +59,7 @@ class AdMobWidget {
 
             return SizedBox(
               width: ScreenUtil().screenWidth,
-              height: height.h, // height를 설정하여 광고 배너가 적절히 표시되도록 합니다.
+              height: height.h, // height를 설정하여 광고 배너가 적절히 표시되도록 함
               child: AdWidget(
                 ad: getBannerAd(
                   adUnitId: adUnitId,
@@ -70,6 +74,5 @@ class AdMobWidget {
   }
 }
 
-
 //height 값 필수
-//AdMobWidget.showBannerAd(50),  
+//AdMobWidget.showBannerAd(50),

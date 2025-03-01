@@ -64,7 +64,7 @@ class WhiteNoiseScreen extends ConsumerWidget {
               ),
               Gap(16),
               Expanded(
-                child: AdMobWidget.showBannerAd(100.h),
+                child: AdMobWidget.showBannerAd(150.h),
               )
             ],
           ),

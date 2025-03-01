@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'core/router/router.dart';
 import 'core/services/notification_service.dart';
@@ -26,6 +27,7 @@ void main() async {
 
   // Firebase 초기화를 먼저 수행
   await Firebase.initializeApp();
+  await MobileAds.instance.initialize();
 
   await EasyLocalization.ensureInitialized();
   await appInitialize();

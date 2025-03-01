@@ -1,14 +1,17 @@
 import 'dart:async';
 
+import 'package:StudyDuck/core/widgets/admob_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../../../core/utils/get_formatted_time.dart';
+import '../../../core/utils/selection_haptic.dart';
 import '../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
 import '../../viewmodels/timer/timer_bg_color_provider.dart';
 
@@ -30,28 +33,27 @@ class _SuduckTimerFocusModeWidgetState
   bool _isAlertVisible = false;
   Timer? _alertTimer;
   DateTime? _lastMovementTime;
-
-  // 설정값
-  DateTime? _lastDialogTime;
-  double _previousX = 0, _previousY = 0, _previousZ = 0;
-  final double _movementThreshold =
-      1; // 움직임 감지 임계값 숫자가 작을 수록 민감(X, Y, Z 변화량 기준)
-  final Duration _dialogCooldown = Duration(seconds: 3); // 다이얼로그 최소 간격
-
-  final int _inactiveThreshold = 1; // 움직임이 없는 시간(초)
   Color? _lastColor;
   Color? _currentBgColor;
 
+  // 설정값
+  DateTime? _lastDialogTime; // 마지막 대화창 시간
+  double _previousX = 0, _previousY = 0, _previousZ = 0; // 가속도 값 초기화
+  final double _movementThreshold = 2.2; // 움직임 감지 임계값
+  final Duration _dialogCooldown = Duration(seconds: 60); // 다이얼로그후 설정값이 지나야 재감지
+
+  final int _inactiveThreshold = 6; // 설정시간동안 움직이지 않으면 다이얼로그 닫음
+
   // 추가할 변수들
   bool _isInitialized = false;
-  final _initializationDelay = const Duration(seconds: 10); // 초기 안정화 시간
+  final _initializationDelay = const Duration(seconds: 180); //감지 초기화 지연시간
 
   @override
   void initState() {
     super.initState();
     WakelockPlus.enable();
 
-    // 지연된 센서 시작
+    // 지연후 센서 시작
     Future.delayed(_initializationDelay, () {
       if (mounted) {
         setState(() {
@@ -178,13 +180,13 @@ class _SuduckTimerFocusModeWidgetState
     _accelerometerSubscription = null;
   }
 
-  void _showConcentrationAlert() {
+  void _showConcentrationAlert() async {
     if (!mounted || _isAlertVisible) return;
 
     setState(() {
       _isAlertVisible = true;
     });
-
+    await SelectionHaptic.warning();
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -200,8 +202,18 @@ class _SuduckTimerFocusModeWidgetState
         });
 
         return AlertDialog(
-          title: Text("Dialog.Focus!").tr(),
-          content: Text("Dialog.YouarestudyingPutyourphonedownandfocus").tr(),
+          title: Center(child: Text("Dialog.Focus!").tr()),
+          content: Column(
+            children: [
+              Text("Dialog.YouarestudyingPutyourphonedownandfocus").tr(),
+              Gap(20),
+              Container(
+                width: 150.w, // 원하는 너비
+                height: 250.h, // 원하는 높이
+                child: AdMobWidget.showBannerAd(280), // 배너 광고의 높이와 일치
+              ),
+            ],
+          ),
         );
       },
     ).then((_) {
