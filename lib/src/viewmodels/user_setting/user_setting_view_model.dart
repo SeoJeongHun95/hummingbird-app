@@ -12,30 +12,14 @@ class UserSettingViewModel extends _$UserSettingViewModel {
   Future<UserSetting> build() async {
     userSettingRepository = ref.watch(userSettingRepositoryProvider);
 
-    return await userSettingRepository.getUserSetting();
-  }
-
-  Future<void> addUserSetting(
-      {required String nickName, String? birthDate}) async {
-    state = await AsyncValue.guard(() async {
-      final currentUserSetting = await userSettingRepository.getUserSetting();
-      final userSetting = UserSetting(
-        userId: currentUserSetting.userId,
-        nickname: nickName,
-        birthDate: birthDate ?? currentUserSetting.birthDate,
-      );
-      await userSettingRepository.addUserSetting(userSetting);
-
-      return userSetting;
-    });
+    return await userSettingRepository.fetchUserSetting();
   }
 
   Future<void> updateUserSetting(
       {String? updatedNickName, String? updatedAge}) async {
     state = await AsyncValue.guard(() async {
-      final currentUserSetting = await userSettingRepository.getUserSetting();
+      final currentUserSetting = await userSettingRepository.fetchUserSetting();
       final updatedUserSetting = UserSetting(
-        userId: currentUserSetting.userId,
         nickname: updatedNickName ?? currentUserSetting.nickname,
         birthDate: updatedAge ?? currentUserSetting.birthDate,
       );
@@ -43,15 +27,5 @@ class UserSettingViewModel extends _$UserSettingViewModel {
 
       return updatedUserSetting;
     });
-  }
-
-  Future<void> addUserId(int userId) async {
-    final currentUserSetting = await userSettingRepository.getUserSetting();
-    final addedIdUserSetting = UserSetting(
-      userId: userId,
-      nickname: currentUserSetting.nickname,
-      birthDate: currentUserSetting.birthDate,
-    );
-    await userSettingRepository.addUserSetting(addedIdUserSetting);
   }
 }
