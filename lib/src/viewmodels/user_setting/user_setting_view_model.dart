@@ -16,12 +16,17 @@ class UserSettingViewModel extends _$UserSettingViewModel {
   }
 
   Future<void> updateUserSetting(
-      {String? updatedNickName, String? updatedAge}) async {
+      {String? updatedNickName,
+      String? updatedAge,
+      String? updatedMbti,
+      String? updatedImgUrl}) async {
     state = await AsyncValue.guard(() async {
       final currentUserSetting = await userSettingRepository.fetchUserSetting();
       final updatedUserSetting = UserSetting(
         nickname: updatedNickName ?? currentUserSetting.nickname,
         birthDate: updatedAge ?? currentUserSetting.birthDate,
+        mbti: updatedMbti ?? currentUserSetting.mbti,
+        profileImgUrl: updatedImgUrl ?? currentUserSetting.profileImgUrl,
       );
       await userSettingRepository.updateUserSetting(updatedUserSetting);
 
