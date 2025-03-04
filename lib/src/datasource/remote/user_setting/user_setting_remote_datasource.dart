@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -30,8 +32,8 @@ class UserSettingRemoteDatasource {
     }
 
     final data = snapshot.data() as Map<String, dynamic>;
-    if(data.isEmpty){
-      final nickName = 'User #${_userId.substring(0,3)}';
+    if (data.isEmpty) {
+      final nickName = 'User #${_userId.substring(0, 3)}';
       final userSetting = UserSetting(nickname: nickName);
 
       await addUserSetting(userSetting);
@@ -40,13 +42,15 @@ class UserSettingRemoteDatasource {
     }
     return data.entries.map((e) {
       final userSetting = UserSetting.fromJson(e.value as Map<String, dynamic>);
-      return userSetting; 
+      return userSetting;
     }).first;
-
-
   }
 
   Future<void> updateUserSetting(UserSetting updatedUserSetting) async {
     await _userUserSettingDoc.update({_userId: updatedUserSetting.toJson()});
+  }
+
+  Future<void> updateProfileImg(File profileImg) async {
+    return;
   }
 }

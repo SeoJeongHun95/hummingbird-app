@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:StudyDuck/src/viewmodels/image_controller.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../models/setting/user_setting.dart';
@@ -32,5 +35,24 @@ class UserSettingViewModel extends _$UserSettingViewModel {
 
       return updatedUserSetting;
     });
+  }
+
+  Future<void> updateProfileImg(bool isFromGallery) async {
+    if (isFromGallery) {
+      final imgXFile = await ImageController.pickImageFromGallery();
+
+      if (imgXFile == null) return;
+
+      final imgFile = File(imgXFile.path);
+      await userSettingRepository.updateProfileImg(imgFile);
+      return;
+    }
+
+    final imgXFile = await ImageController.pickImageFromCamera();
+
+    if (imgXFile == null) return;
+
+    final imgFile = File(imgXFile.path);
+    await userSettingRepository.updateProfileImg(imgFile);
   }
 }

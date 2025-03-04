@@ -1,7 +1,9 @@
-import 'package:StudyDuck/src/datasource/remote/user_setting/user_setting_remote_datasourcedart';
+import 'dart:io';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../datasource/remote/user_setting/user_setting_remote_datasource.dart';
 import '../../models/setting/user_setting.dart';
 
 part 'user_setting_repository.g.dart';
@@ -20,19 +22,11 @@ class UserSettingRepository {
     return await _remoteDatasource.fetchUserSetting();
   }
 
-  // Future<void> fetchUserSetting() async {
-  //   final dto = await _remoteDatasource.getUserSetting();
-  //   final fetchedUser = profileDtoToUserSetting(dto);
-  //   final currentUserSetting = _localDatasource.getUserSetting();
-  //   addUserSetting(
-  //     currentUserSetting.copyWith(
-  //       nickname: fetchedUser.nickname ?? currentUserSetting.nickname,
-  //       birthDate: fetchedUser.birthDate ?? currentUserSetting.birthDate,
-  //     ),
-  //   );
-  // }
-
   Future<void> updateUserSetting(UserSetting updatedUserSetting) async {
     await _remoteDatasource.updateUserSetting(updatedUserSetting);
+  }
+
+  Future<void> updateProfileImg(File profileImg) async {
+    await _remoteDatasource.updateProfileImg(profileImg);
   }
 }
