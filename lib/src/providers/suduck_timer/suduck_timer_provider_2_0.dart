@@ -1,11 +1,15 @@
 import 'dart:async';
 
+import 'package:StudyDuck/src/repositories/subject/subject_repository.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/utils/selection_haptic.dart';
 import '../../../core/utils/utils.dart';
+import '../../datasource/suduck_timer_state.dart';
 import '../../models/study_record/study_record.dart';
 import '../../models/subject/subject.dart';
+import '../../repositories/suduck_timer_repositories.dart';
 import '../../viewmodels/study_record/study_record_viewmodel.dart';
 import '../../viewmodels/timer/timer_bg_color_provider.dart';
 
@@ -54,9 +58,17 @@ class TimerState {
 class SuDuckTimer extends _$SuDuckTimer {
   Timer? _elapsedTimer;
   Timer? _breakTimer;
+  late final SuduckTimerState suduckLocalState;
+  late final SuduckTimerRepositories suduckRepo;
 
   @override
   TimerState build() {
+    final box = Hive.box<List>('suduck');
+    suduckLocalState = SuduckTimerState(box);
+    suduckRepo = SuduckTimerRepositories(suduckLocalState);
+
+    _restoreTimerState();
+
     return TimerState(
       elapsedTime: 0,
       breakTime: 0,
@@ -66,15 +78,19 @@ class SuDuckTimer extends _$SuDuckTimer {
   }
 
   Future<void> startTimer({Subject? subject}) async {
-    // final isConnected = ref.watch(networkStateProvider);
-    // if (isConnected.asData?.value != true) return;
-// Haptic 구현
     await SelectionHaptic.vibrate();
     if (state.isRunning) return;
     _cancelBreakTimer();
 
     _updateBgColor(subject?.color);
     _startTimerLoop();
+
+    final startTime = DateTime.now().millisecondsSinceEpoch;
+    await suduckRepo.addSuDuckTimerState([
+      startTime,
+      state.breakTime,
+      subject == null ? state.currSubject : subject.subjectId,
+    ]);
 
     state = state.copyWith(
       isRunning: true,
@@ -84,7 +100,6 @@ class SuDuckTimer extends _$SuDuckTimer {
   }
 
   void stopTimer() async {
-    // Haptic 구현
     await SelectionHaptic.vibrate();
     _cancelAllTimers();
     _startBreakLoop();
@@ -92,11 +107,12 @@ class SuDuckTimer extends _$SuDuckTimer {
   }
 
   Future<void> resetTimer() async {
-    // Haptic 구현
     await SelectionHaptic.vibrate();
     _cancelAllTimers();
 
     _updateBgColor(null);
+
+    await suduckRepo.deleteSuDuckTimerState();
 
     state = TimerState(
       isRunning: false,
@@ -109,7 +125,6 @@ class SuDuckTimer extends _$SuDuckTimer {
   }
 
   Future<void> saveTimer() async {
-    // Haptic 구현
     await SelectionHaptic.vibrate();
     _cancelAllTimers();
 
@@ -130,7 +145,42 @@ class SuDuckTimer extends _$SuDuckTimer {
         .read(studyRecordViewModelProvider.notifier)
         .addStudyRecord(updatedRecord);
 
+    await suduckRepo.deleteSuDuckTimerState();
+
     resetTimer();
+  }
+
+  Future<void> _restoreTimerState() async {
+    final restored = await suduckLocalState.getSuDuckTimerStates();
+    if (restored == null) return;
+
+    final now = DateTime.now().millisecondsSinceEpoch;
+
+    final subjectFuture = findSubjectById(restored[2]);
+    final elapsedTime = (((now - restored[0]) / 1000)) - restored[1];
+
+    final restoredSubject = await subjectFuture;
+
+    _updateBgColor(restoredSubject.color);
+
+    state = state.copyWith(
+      elapsedTime: elapsedTime.toInt(),
+      breakTime: restored[1],
+      isRunning: true,
+      currSubject: restoredSubject,
+    );
+
+    _startTimerLoop();
+  }
+
+  Future<Subject> findSubjectById(String subId) async {
+    List<Subject> subjects =
+        await ref.read(subjectRepositoryProvider).getAllSubjects();
+
+    return subjects.firstWhere(
+      (sub) => sub.subjectId == subId,
+      orElse: () => noSubject,
+    );
   }
 
   void setSubject(Subject subject) {
@@ -162,6 +212,9 @@ class SuDuckTimer extends _$SuDuckTimer {
   void _startBreakLoop() {
     _breakTimer = Timer.periodic(const Duration(seconds: 1), (timer) async {
       state = state.copyWith(breakTime: state.breakTime + 1);
+      if (state.breakTime % 10 == 0) {
+        await suduckLocalState.updateSuDuckTimerState(state.breakTime);
+      }
     });
   }
 

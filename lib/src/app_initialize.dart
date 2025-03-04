@@ -31,7 +31,7 @@ Future<void> appInitialize() async {
   await Hive.openBox<TokenModel>(BoxKeys.tokenBoxKey,
       encryptionCipher: HiveAesCipher(key));
 
-  await Hive.openBox<List<int>>(BoxKeys.suduckBoxKey);
+  await Hive.openBox<List>(BoxKeys.suduckBoxKey);
 
   Hive.registerAdapter(StudySettingAdapter());
   await Hive.openBox<StudySetting>(BoxKeys.studySettingBoxKey);
