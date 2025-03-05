@@ -51,6 +51,14 @@ class MultiAudioprovider extends StateNotifier<List<AudioModel>> {
     });
   }
 
+  void stopAll() {
+    audioService.stopAll();
+    // 모든 오디오의 재생 상태를 'stopped'로 업데이트
+    state = state.map((audio) {
+      return audio.copyWith(playbackState: PlaybackState.stopped);
+    }).toList();
+  }
+
   @override
   void dispose() {
     audioService.dispose();

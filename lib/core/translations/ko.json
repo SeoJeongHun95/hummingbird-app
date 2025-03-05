@@ -237,7 +237,8 @@
     "WhiteNoise": "화이트 노이즈",
     "No white noise playing": "재생중인 화이트 노이즈 없음",
     "Volume Control": "볼륨 조절",
-    "close": "닫기"
+    "Close": "닫기",
+    "Stop": "정지"
   },
   "getBrithDateText": {
     "birthDate": "생년월일",

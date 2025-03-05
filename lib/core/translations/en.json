@@ -237,7 +237,8 @@
     "WhiteNoise": "whiteNoise",
     "No white noise playing": "No white noise playing",
     "Volume Control": "Volume Control",
-    "close": "close"
+    "Close": "Close",
+    "Stop": "Stop"
   },
   "getBrithDateText": {
     "birthDate": "Date of birth",

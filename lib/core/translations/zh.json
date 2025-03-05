@@ -237,7 +237,8 @@
     "WhiteNoise": "白噪音",
     "No white noise playing": "没有播放白噪音",
     "Volume Control": "音量控制",
-    "close": "关闭"
+    "Close": "关闭",
+    "Stop": "停止"
   },
   "getBrithDateText": {
     "birthDate": "生日",

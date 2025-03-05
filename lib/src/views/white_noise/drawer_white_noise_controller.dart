@@ -61,7 +61,7 @@ class DrewerWhiteNoiseController extends ConsumerWidget {
                                 Text(
                                   playingAudio.name,
                                   style: const TextStyle(fontSize: 16),
-                                ),
+                                ).tr(),
                               ],
                             ),
                           );
@@ -87,12 +87,17 @@ class DrewerWhiteNoiseController extends ConsumerWidget {
                           ),
                         ),
                       )),
-            Text(
-              'Stop',
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black54),
+            TextButton(
+              child: Text(
+                'WhiteNoiseScreen.Stop',
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black54),
+              ).tr(),
+              onPressed: () {
+                ref.read(multiAudioViewModelProvider.notifier).stopAll();
+              },
             ),
             SizedBox(height: 20),
           ],
