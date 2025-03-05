@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/router/bottom_nav_bar.dart';
@@ -12,7 +11,18 @@ class SocialScreen extends StatelessWidget {
       appBar: AppBar(),
       body: SafeArea(
         child: Center(
-          child: Text(tr("SocialScreen")),
+          child: ListView.builder(
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return ListTile(
+                leading: CircleAvatar(
+                  child: Text("${index + 1}"),
+                ),
+                title: Text("닉네임 ${index + 1}"),
+                subtitle: Text("공부 시간: ${12 - index}시간 ${index * 5}분"),
+              );
+            },
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavBar(),

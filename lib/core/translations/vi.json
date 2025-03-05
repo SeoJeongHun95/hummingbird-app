@@ -66,9 +66,9 @@
   "NavigationBar": {
     "Home": "Trang chủ",
     "More": "Thêm",
-    "Social": "Xã hội",
+    "Social": "Hạng",
     "Statistics": "Thống kê",
-    "Timer": "Bộ đếm giờ"
+    "Timer": "Hẹn giờ"
   },
   "NotificationButton": {
     "Alarm": "Thông báo"
