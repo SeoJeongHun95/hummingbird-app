@@ -254,12 +254,16 @@ class _SuduckTimerFocusModeWidgetState
                               Spacer(
                                 flex: 2,
                               ),
-                              GestureDetector(
-                                onTap: () => Navigator.pop(context),
-                                child: Icon(
-                                  Icons.arrow_back,
-                                  color: Colors.white,
-                                  size: 11.sp,
+                              Expanded(
+                                child: GestureDetector(
+                                  onTap: () => Navigator.pop(context),
+                                  child: Container(
+                                    child: Icon(
+                                      Icons.arrow_back,
+                                      color: Colors.white,
+                                      size: 14.sp,
+                                    ),
+                                  ),
                                 ),
                               ),
                               Spacer(

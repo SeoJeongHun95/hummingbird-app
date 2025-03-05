@@ -131,6 +131,7 @@ class SubjectListWidget extends ConsumerWidget {
                                   child: matchedSubject != null &&
                                           matchedSubject.elapsedTime != 0
                                       ? Text(
+                                          maxLines: 1,
                                           textAlign: TextAlign.right,
                                           getFormatTime(
                                               matchedSubject.elapsedTime),
