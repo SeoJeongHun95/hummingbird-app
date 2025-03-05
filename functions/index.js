@@ -26,22 +26,31 @@ const db = admin.firestore();
 
 exports.dailyLeaderboardUpdate = onSchedule(
     {
-        schedule: "0 6 * * *", // 매일 오전 6시 실행
-        timeZone: "Asia/Seoul", // 한국 시간 기준
+        schedule: "0 6 * * *",
+        timeZone: "Asia/Seoul",
     },
-    async (event) => {
-        const today = new Date();
-        today.setDate(today.getDate() - 1);
-        const dateKey = today.toISOString().split("T")[0];
+    async () => {
+        const now = new Date();
+        now.setUTCHours(now.getUTCHours() + 9);
+        now.setDate(now.getDate() - 1);
+        const dateKey = now.toISOString().split("T")[0];
         const yearMonth = dateKey.substring(0, 7);
 
-        const usersSnapshot = await db.collection("studyRecords").get();
-        let leaderboardData = {};
+        // console.log(`📅 어제 날짜: ${dateKey}, 연-월: ${yearMonth}`);
 
-        for (const userDoc of usersSnapshot.docs) {
+        const usersSnapshot = await db.collection("studyRecords").listDocuments();
+        let leaderboardData = [];
+
+        for (const userDoc of usersSnapshot) {
             const userId = userDoc.id;
-            const studyRecordsRef = db.collection(`studyRecords/${userId}/${yearMonth}`);
-            const querySnapshot = await studyRecordsRef.where("dateKey", "==", dateKey).get();
+            const studyRecordsRef = db
+                .collection("studyRecords")
+                .doc(userId)
+                .collection(yearMonth);
+
+            const querySnapshot = await studyRecordsRef
+                .where("dateKey", "==", dateKey)
+                .get();
 
             let totalElapsedTime = 0;
             querySnapshot.forEach((doc) => {
@@ -49,15 +58,25 @@ exports.dailyLeaderboardUpdate = onSchedule(
             });
 
             if (totalElapsedTime > 0) {
-                leaderboardData[userId] = totalElapsedTime;
+                leaderboardData.push({ userId, totalElapsedTime });
             }
         }
 
-        if (Object.keys(leaderboardData).length > 0) {
-            await db.collection("Leaderboard").doc(dateKey).set(leaderboardData);
-            console.log(`리더보드 업데이트 완료: ${dateKey}`);
+        leaderboardData.sort((a, b) => b.totalElapsedTime - a.totalElapsedTime);
+
+        if (leaderboardData.length > 0) {
+            const sortedLeaderboard = {};
+            leaderboardData.forEach((entry, index) => {
+                sortedLeaderboard[`rank_${index + 1}`] = {
+                    userId: entry.userId,
+                    totalElapsedTime: entry.totalElapsedTime,
+                };
+            });
+
+            await db.collection("Leaderboard").doc(dateKey).set(sortedLeaderboard);
+            console.log(`✅ 리더보드 업데이트 완료: ${dateKey}`);
         } else {
-            console.log(`리더보드 업데이트 실패: ${dateKey}에 데이터 없음`);
+            console.log(`⚠️ 리더보드 업데이트 실패: ${dateKey}에 데이터 없음`);
         }
     }
 );
