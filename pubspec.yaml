@@ -50,6 +50,7 @@ dependencies:
   uuid: ^4.4.2
   wakelock_plus: ^1.2.10
   flutter_sound: ^9.23.1
+  sensors_plus: ^6.1.1
 
 dev_dependencies:
   build_runner: ^2.4.13

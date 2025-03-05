@@ -45,7 +45,9 @@
   },
   "Dialog": {
     "Cancel": "Hủy",
-    "Confirm": "Xác nhận"
+    "Confirm": "Xác nhận",
+    "Focus!": "Tập trung!",
+    "YouarestudyingPutyourphonedownandfocus": "Bạn đang học. Hãy đặt điện thoại xuống và tập trung."
   },
   "HomeSegmentBar": {
     "Dday": "Ngày đặc biệt",

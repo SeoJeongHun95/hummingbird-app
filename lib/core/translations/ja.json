@@ -45,7 +45,9 @@
   },
   "Dialog": {
     "Cancel": "キャンセル",
-    "Confirm": "確認"
+    "Confirm": "確認",
+    "Focus!": "集中してください！",
+    "YouarestudyingPutyourphonedownandfocus": "勉強中です。電話を置いて集中してください。"
   },
   "HomeSegmentBar": {
     "Dday": "D-Day",
