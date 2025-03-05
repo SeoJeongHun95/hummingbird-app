@@ -82,7 +82,8 @@ class _ProfileContainerWidgetState extends State<SetProfileWidget> {
                 foregroudColor: Theme.of(context).colorScheme.primary,
                 changePage: () {
                   final nickName = _nickNameController.text;
-                  userSettingViewModel.addUserSetting(nickName: nickName);
+                  userSettingViewModel.updateUserSetting(
+                      updatedNickName: nickName);
                   context.go('/');
                   _nickNameController.clear();
                   _birthDateController.clear();
@@ -115,6 +116,4 @@ class _ProfileContainerWidgetState extends State<SetProfileWidget> {
         ? tr('SetProfileWidget.selectBirthDate')
         : DateFormat('yyyy-MM-dd').format(date);
   }
-
-  bool get isValid => _nickNameController.text.isNotEmpty;
 }
