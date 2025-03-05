@@ -207,7 +207,7 @@ class _SuduckTimerFocusModeWidgetState
             children: [
               Text("Dialog.YouarestudyingPutyourphonedownandfocus").tr(),
               Gap(20),
-              Container(
+              SizedBox(
                 width: 150.w, // 원하는 너비
                 height: 250.h, // 원하는 높이
                 child: AdMobWidget.showBannerAd(280), // 배너 광고의 높이와 일치
@@ -237,10 +237,6 @@ class _SuduckTimerFocusModeWidgetState
     final bool isRunning = suduckTimer.isRunning;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: _colorAnimation.value,
-        iconTheme: IconThemeData(color: Colors.white),
-      ),
       body: Center(
         child: AnimatedBuilder(
           animation: _colorAnimation,
@@ -248,8 +244,38 @@ class _SuduckTimerFocusModeWidgetState
             return Row(
               children: [
                 Expanded(
-                  child: Container(
-                    color: _colorAnimation.value,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          color: _colorAnimation.value,
+                          child: Row(
+                            children: [
+                              Spacer(
+                                flex: 2,
+                              ),
+                              GestureDetector(
+                                onTap: () => Navigator.pop(context),
+                                child: Icon(
+                                  Icons.arrow_back,
+                                  color: Colors.white,
+                                  size: 11.sp,
+                                ),
+                              ),
+                              Spacer(
+                                flex: 3,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 7,
+                        child: Container(
+                          color: _colorAnimation.value,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Expanded(
@@ -296,6 +322,9 @@ class TimerCenter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Spacer(
+          flex: 2,
+        ),
         Expanded(
           flex: 2,
           child: Container(

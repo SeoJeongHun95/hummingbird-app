@@ -38,8 +38,9 @@ class UserSettingViewModel extends _$UserSettingViewModel {
   }
 
   Future<void> updateProfileImg(bool isFromGallery) async {
+    final imgCtrl = ImageController();
     if (isFromGallery) {
-      final imgXFile = await ImageController.pickImageFromGallery();
+      final imgXFile = await imgCtrl.pickImageFromGallery();
 
       if (imgXFile == null) return;
 
@@ -48,7 +49,7 @@ class UserSettingViewModel extends _$UserSettingViewModel {
       return;
     }
 
-    final imgXFile = await ImageController.pickImageFromCamera();
+    final imgXFile = await imgCtrl.pickImageFromCamera();
 
     if (imgXFile == null) return;
 
