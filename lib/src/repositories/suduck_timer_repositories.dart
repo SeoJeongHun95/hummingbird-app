@@ -5,11 +5,11 @@ class SuduckTimerRepositories {
 
   final SuduckTimerState suduckTimerState;
 
-  Future<void> addSuDuckTimerState(List<int> timerState) async {
+  Future<void> addSuDuckTimerState(List timerState) async {
     return suduckTimerState.addSuDuckTimerState(timerState);
   }
 
-  Future<List<int>?> getSuDuckTimerStates() async {
+  Future<List?> getSuDuckTimerStates() async {
     return suduckTimerState.getSuDuckTimerStates();
   }
 

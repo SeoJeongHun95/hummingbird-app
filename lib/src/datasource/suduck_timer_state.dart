@@ -1,15 +1,15 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
 class SuduckTimerState {
-  final Box<List<int>> _box;
+  final Box<List> _box;
 
   SuduckTimerState(this._box);
 
-  Future<void> addSuDuckTimerState(List<int> timerState) async {
+  Future<void> addSuDuckTimerState(List timerState) async {
     _box.isEmpty ? _box.add(timerState) : null;
   }
 
-  Future<List<int>?> getSuDuckTimerStates() async {
+  Future<List?> getSuDuckTimerStates() async {
     return _box.isNotEmpty ? _box.getAt(0) : null;
   }
 
