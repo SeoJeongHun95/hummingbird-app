@@ -93,7 +93,15 @@ class _ProfileContainerWidgetState extends State<SetProfileWidget> {
                 title: tr('SetProfileWidget.next'),
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 foregroudColor: Colors.white,
-                changePage: () => context.go('/tutorial/studySetting'),
+                changePage: () async {
+                  await userSettingViewModel.updateUserSetting(
+                    updatedNickName: _nickNameController.text,
+                    updatedAge: _birthDateController.text,
+                  );
+                  if (context.mounted) {
+                    context.go('/tutorial/studySetting');
+                  }
+                },
               )
             ],
           )
