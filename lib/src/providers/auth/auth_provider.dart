@@ -1,3 +1,4 @@
+import 'package:StudyDuck/core/utils/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -35,7 +36,11 @@ class Auth extends _$Auth {
   }
 
   Future<void> signOut() async {
-    await GoogleSignIn().signOut();
-    await FirebaseAuth.instance.signOut();
+    var singOutFlag = await showConfirmDialog("", "로그아웃하시겠습니까?");
+
+    if (singOutFlag) {
+      await GoogleSignIn().signOut();
+      await FirebaseAuth.instance.signOut();
+    }
   }
 }
