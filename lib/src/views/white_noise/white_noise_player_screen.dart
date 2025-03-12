@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+
 import '../../../core/services/whitenoise/audio_service.dart';
 import '../../../core/widgets/admob_widget.dart';
 import '../../models/whitenoise/audio_model.dart';
@@ -29,10 +30,10 @@ class WhiteNoiseScreen extends ConsumerWidget {
       });
 
     return Scaffold(
-      backgroundColor: Colors.grey[100],
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        scrolledUnderElevation: 0,
         elevation: 0,
-        backgroundColor: Colors.white,
         title: const Text(
           'WhiteNoiseScreen.WhiteNoise',
           style: TextStyle(
@@ -46,7 +47,7 @@ class WhiteNoiseScreen extends ConsumerWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 height: 470.h,
                 child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -78,7 +79,7 @@ class WhiteNoiseScreen extends ConsumerWidget {
     return Stack(
       children: [
         // 배경 이미지
-        Container(
+        SizedBox(
           width: 200.w,
           height: 200.h,
           child: ClipRRect(
