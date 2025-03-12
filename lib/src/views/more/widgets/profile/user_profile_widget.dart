@@ -121,8 +121,8 @@ class UserProfileWidget extends ConsumerWidget {
   }
 
   Widget getBrithDateText(String? birthDate) {
-    return RichText(
-      text: TextSpan(
+    return Text.rich(
+      TextSpan(
         text: tr("ProfileInfoWidget.birthDate"),
         style: TextStyle(
           color: Colors.black,

@@ -123,18 +123,11 @@ class DDayListTileWidget extends ConsumerWidget {
                           ),
                         );
                       } else {
-                        return Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 16.h, horizontal: 20.w),
-                          child: OutlinedButton(
-                            style: OutlinedButton.styleFrom(
-                              fixedSize: Size(300.w, 20.w),
-                            ),
-                            onPressed: () {
-                              context.push('/dDayAdd');
-                            },
-                            child: Icon(Icons.add),
-                          ),
+                        return IconButton(
+                          onPressed: () {
+                            context.push('/dDayAdd');
+                          },
+                          icon: Icon(Icons.add),
                         );
                       }
                     },

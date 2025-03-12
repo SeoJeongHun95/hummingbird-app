@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/enum/mxnRate.dart';
 import '../../../../core/widgets/mxnContainer.dart';
-import 'settings/notification/notification_button.dart';
 import 'settings/setting_button_widget.dart';
 import 'settings/timer_stteing/timer_setting_widget.dart';
 
@@ -20,8 +19,8 @@ class OptionsContainerWidget extends StatelessWidget {
           children: [
             TimerSettingWidget(),
             const Divider(),
-            NotificationButton(),
-            const Divider(),
+            // NotificationButton(),
+            // const Divider(),
             SettingButtonWidget(),
           ],
         ),

@@ -35,9 +35,9 @@ class SummaryWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                getSummaryRichText(
+                getSummaryText(
                     context, tr("SummaryWidget.totalStudyTime"), false),
-                getSummaryRichText(
+                getSummaryText(
                     context, tr("SummaryWidget.averageStudyTime"), true),
               ],
             ),
@@ -47,17 +47,15 @@ class SummaryWidget extends StatelessWidget {
     );
   }
 
-  Widget getSummaryRichText(
-      BuildContext context, String title, bool isAverage) {
+  Widget getSummaryText(BuildContext context, String title, bool isAverage) {
     final totalDays = PeriodOption.WEEKLY == selectedPeriod
         ? DateTime.now().weekday
         : DateTime.now().day;
     final seconds =
         isAverage ? (totalStudyDuration) ~/ totalDays : totalStudyDuration;
 
-    return RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
+    return Text.rich(
+      TextSpan(
         text: '$title\n\n',
         style: TextStyle(color: Theme.of(context).colorScheme.primary),
         children: [
@@ -66,9 +64,10 @@ class SummaryWidget extends StatelessWidget {
             style: TextStyle(
               color: Colors.black,
             ),
-          )
+          ),
         ],
       ),
+      textAlign: TextAlign.center,
     );
   }
 
