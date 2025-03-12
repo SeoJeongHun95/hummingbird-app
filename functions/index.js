@@ -70,6 +70,8 @@ exports.dailyLeaderboardUpdate = onSchedule(
                 sortedLeaderboard[`rank_${index + 1}`] = {
                     userId: entry.userId,
                     totalElapsedTime: entry.totalElapsedTime,
+                    // 유셋팅에 닉네임이 있다면 닉네임을 추가
+                    // index + 1 도 랭크로 추가 
                 };
             });
 
