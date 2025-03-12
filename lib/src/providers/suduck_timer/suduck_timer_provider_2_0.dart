@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:StudyDuck/src/providers/suduck_timer/timer_lifecycle_manager.dart';
 import 'package:StudyDuck/src/repositories/subject/subject_repository.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -60,12 +61,15 @@ class SuDuckTimer extends _$SuDuckTimer {
   Timer? _breakTimer;
   late final SuduckTimerState suduckLocalState;
   late final SuduckTimerRepositories suduckRepo;
+  late final TimerLifecycleManager _appLifecycleListener;
 
   @override
   TimerState build() {
     final box = Hive.box<List>('suduck');
     suduckLocalState = SuduckTimerState(box);
     suduckRepo = SuduckTimerRepositories(suduckLocalState);
+
+    _appLifecycleListener = TimerLifecycleManager(this);
 
     _restoreTimerState();
 
@@ -75,6 +79,17 @@ class SuDuckTimer extends _$SuDuckTimer {
       isRunning: false,
       currSubject: null,
     );
+  }
+
+  @override
+  void dispose() {
+    _appLifecycleListener.dispose();
+    _cancelAllTimers();
+    dispose();
+  }
+
+  void updateElapsedTime(int seconds) {
+    state = state.copyWith(elapsedTime: state.elapsedTime + seconds);
   }
 
   Future<void> startTimer({Subject? subject}) async {

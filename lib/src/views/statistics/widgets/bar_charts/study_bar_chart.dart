@@ -60,7 +60,7 @@ class StudyBarChart extends StatelessWidget {
                   child: Center(
                     child: Text(
                       subjectTitleList[value.toInt()],
-                      maxLines: 2,
+                      maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
