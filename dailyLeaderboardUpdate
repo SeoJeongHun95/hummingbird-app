@@ -1,0 +1,36 @@
+i  emulators: Starting emulators: functions, extensions
+⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: apphosting, auth, firestore, database, hosting, pubsub, storage, dataconnect
+i  functions: Watching "/Users/seojeonghun/Documents/Momo/FlutterProjects/hummingbird-app/functions" for Cloud Functions...
+✔  functions: Using node@22 from host.
+Serving at port 8861
+
+ 
+i  emulators: Received SIGHUP for the first time. Starting a clean shutdown.
+i  emulators: Please wait for a clean shutdown or send the SIGHUP signal again to stop right now.
+i  emulators: Shutting down emulators.
+i  ui: Stopping Emulator UI
+i  extensions: Stopping Extensions Emulator
+i  functions: Stopping Functions Emulator
+i  eventarc: Stopping Eventarc Emulator
+i  tasks: Stopping Cloud Tasks Emulator
+i  hub: Stopping emulator hub
+i  logging: Stopping Logging Emulator
+✔  functions: Loaded functions definitions from source: dailyLeaderboardUpdate.
+i  functions[us-central1-dailyLeaderboardUpdate]: function ignored because the pubsub emulator does not exist or is not running.
+
+[90m┌─────────────────────────────────────────────────────────────┐[39m
+[90m│[39m ✔  All emulators ready! It is now safe to connect your app. [90m│[39m
+[90m└─────────────────────────────────────────────────────────────┘[39m
+
+[90m┌────────────[39m[90m┬──────────────────────────────────┐[39m
+[90m│[39m[33m Emulator   [39m[90m│[39m[33m Host:Port                        [39m[90m│[39m
+[90m├────────────[39m[90m┼──────────────────────────────────┤[39m
+[90m│[39m Functions  [90m│[39m Failed to initialize (see above) [90m│[39m
+[90m├────────────[39m[90m┼──────────────────────────────────┤[39m
+[90m│[39m Extensions [90m│[39m Failed to initialize (see above) [90m│[39m
+[90m└────────────[39m[90m┴──────────────────────────────────┘[39m
+  Emulator Hub not running.
+  Other reserved ports: None
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 

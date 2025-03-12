@@ -1,0 +1,249 @@
+{
+  "DailyStatistics": {
+    "Error": "Error loading data: {0}",
+    "NoData": "No recorded data today."
+  },
+  "DailySummary": {
+    "GoalStudyTime": "Target study time",
+    "StudyTimeToday": "Today's study time",
+    "TodaySummary": "Today's study summary"
+  },
+  "DDayAddScreen": {
+    "Add": "Add",
+    "Cancel": "Cancel",
+    "Color": "Color:",
+    "Confirm": "Confirm",
+    "DDayAdd": "Add D-Day",
+    "Edit": "Edit",
+    "FillInAllFields": "Please fill in all fields.",
+    "GoalDate": "Goal Date:",
+    "GoalTime": "Goal Time:",
+    "GoalTitle": "Goal Title",
+    "Save": "Save",
+    "SelectDate": "Select a date",
+    "SelectTime": "Select a time"
+  },
+  "DDayListTile": {
+    "AreYouSure": "Are you sure you want to delete ",
+    "Cancel": "Cancel",
+    "Confirm": "Confirm",
+    "Delete": "Delete",
+    "DeleteConfirmationSuffix": "?",
+    "Edit": "Edit",
+    "GoalDate": "Goal date:",
+    "OfflineEditDeleteError": "Editing and deleting are unavailable offline.",
+    "OfflineStatus": "Offline status"
+  },
+  "DDayUpdateScreen": {
+    "Color": "Color:",
+    "DDayEdit": "Edit D-Day",
+    "FillInAllFields": "Please fill in all fields.",
+    "GoalDate": "Goal Date:",
+    "GoalTime": "Goal Time:",
+    "GoalTitle": "Goal Title",
+    "Save": "Save"
+  },
+  "Dialog": {
+    "Cancel": "Cancel",
+    "Confirm": "Confirm",
+    "Focus!": "Focus!",
+    "Youarestudying.Putyourphonedownandfocus.": "You are studying. Put your phone down and focus."
+  },
+  "HomeSegmentBar": {
+    "Dday": "D-Day",
+    "Summary": "Summary",
+    "Timer": "Timer"
+  },
+  "InquiryButtonWidget": {
+    "ContactUs": "Contact us"
+  },
+  "LogoutButtonWidget": {
+    "Logout": "Logout"
+  },
+  "MonthlyStatisticsScreen": {
+    "noData": "No recorded data."
+  },
+  "NavigationBar": {
+    "Home": "Home",
+    "More": "More",
+    "Social": "Rank",
+    "Statistics": "Statistics",
+    "Timer": "Timer"
+  },
+  "NotificationButton": {
+    "Alarm": "Alarm"
+  },
+  "PrivacyPolicyWidget": {
+    "PrivacyPolicy": "Privacy Policy",
+    "URLCannotBeOpened": "Cannot open this URL.",
+    "URLFailedToOpen": "Failed to open URL.",
+    "URLLaunchError": "An error occurred."
+  },
+  "ProfileInfoWidget": {
+    "birthDate": "Date of birth",
+    "birthDateHint": "Register your date of birth",
+    "nickName": "Nickname",
+    "nickNameHint": "Enter your nickname"
+  },
+  "ProfileSettingScreen": {
+    "loadingText": "Doing your best today with Study Duck..."
+  },
+  "SelectCountryButtonWidget": {
+    "Country": "Country",
+    "SouthKorea": "South Korea"
+  },
+  "SelectCountryContainerWidget": {
+    "FuturePlan": "Planned for future updates",
+    "SouthKorea": "South Korea"
+  },
+  "SelectCountryScreen": {
+    "Country": "Country"
+  },
+  "SelectFontSizeButtonWidget": {
+    "FontSize": "Font size",
+    "Large": "Large",
+    "Medium": "Medium",
+    "Small": "Small"
+  },
+  "SelectGoalDurationButtonWidget": {
+    "Complete": "Complete",
+    "GoalStudyTime": "Target study time",
+    "TimeSelection": "Select time"
+  },
+  "SelectGroupBottomSheet": {
+    "complete": "Complete",
+    "selectGroup": "Select group"
+  },
+  "SelectGroupButtonWidget": {
+    "Group": "Group",
+    "SelectGroupPrompt": "Select a group"
+  },
+  "SelectGroupScreen": {
+    "Group": "Group"
+  },
+  "SelectLanguageButtonWidget": {
+    "Korean": "Korean",
+    "Language": "Language"
+  },
+  "SelectLanguageContainerWidget": {
+    "FuturePlan": "Planned for future updates",
+    "Korean": "Korean"
+  },
+  "SelectLanguageScreen": {
+    "Language": "Language"
+  },
+  "SelectThemeButtonWidget": {
+    "FuturePlan": "Planned for future updates",
+    "ThemeColor": "Theme color"
+  },
+  "SetStudySettingWidget": {
+    "done": "Done",
+    "goalDuration": "Goal Study Time",
+    "group": "Group",
+    "timePickerTitle": "Choose Time"
+  },
+  "SettingButton": {
+    "Setting": "Settings"
+  },
+  "SettingsScreen": {
+    "Settings": "Settings"
+  },
+  "SetProfileWidget": {
+    "next": "Next",
+    "selectBirthDate": "Select your date of birth",
+    "skip": "Skip"
+  },
+  "SocialScreen": "Social screen",
+  "SplashScreen": {
+    "message": "Doing your best today with Study Duck..."
+  },
+  "StatisticsScreen": {
+    "monthly": "Monthly",
+    "weekly": "Weekly"
+  },
+  "StudyBarChartWidget": {
+    "subjectStudyTime": "Study time per subject"
+  },
+  "StudyPieChartWidget": {
+    "subjectPercentage": "Subject percentage"
+  },
+  "StudySettingScreen": {
+    "complete": "Complete",
+    "previous": "Previous"
+  },
+  "SubjectAddScreen": {
+    "AddSubject": "Add subject",
+    "DuplicateSubject": "This subject already exists.",
+    "Save": "Save",
+    "SelectColor": "Select color",
+    "SubjectName": "Subject name"
+  },
+  "SubjectList": {
+    "AddSubject": "Add subject",
+    "Cancel": "Cancel",
+    "CannotUndoWarning": "This action cannot be undone.",
+    "Confirm": "Confirm",
+    "Delete": "Delete",
+    "DeleteSubjectPrompt": "Are you sure you want to delete this subject?",
+    "Edit": "Edit",
+    "EditSubject": "Edit subject",
+    "EnterSubjectName": "Enter subject name",
+    "SelectColor": "Select color",
+    "SelfStudy": "Self-study",
+    "Subject": "Subject",
+    "SubjectName": "Subject name"
+  },
+  "SubjectUpdateScreen": {
+    "EditSubject": "Edit subject",
+    "EnterSubjectName": "Please enter the subject name.",
+    "Save": "Save",
+    "SelectColor": "Select color",
+    "SubjectName": "Subject name"
+  },
+  "SummaryWidget": {
+    "averageStudyTime": "Average study time",
+    "totalStudyTime": "Total study time"
+  },
+  "Timer": {
+    "Pause": "PAUSE",
+    "SelfStudy": "Self-study",
+    "Start": "START"
+  },
+  "TimerControlBar": {
+    "FocusMode": "Focus mode",
+    "WhiteNoise": "White noise"
+  },
+  "TimerSetting": {
+    "AutoFocusMode": "Auto focus mode",
+    "TimeerSetting": "Timer settings"
+  },
+  "TotalDuratinosLineChartWidget": {
+    "totalStudyTime": "Total study time per day"
+  },
+  "UserProfileWidget": {
+    "profileEdit": "Edit profile"
+  },
+  "WeeklyStatisticsScreen": {
+    "noData": "No recorded data."
+  },
+  "WhiteNoiseScreen": {
+    "Cafe": "Cafe",
+    "Rain": "Rain",
+    "Wind": "Wind",
+    "Fire": "Fire",
+    "Chime": "Chime",
+    "Stream": "Stream",
+    "Wave": "Wave",
+    "Bird": "bird",
+    "chooseYourWhiteNoise": "hooseYourWhiteNoise",
+    "WhiteNoise": "whiteNoise",
+    "No white noise playing": "No white noise playing",
+    "Volume Control": "Volume Control",
+    "Close": "Close",
+    "Stop": "Stop"
+  },
+  "getBrithDateText": {
+    "birthDate": "Date of birth",
+    "birthDateHint": "Register your date of birth"
+  }
+}

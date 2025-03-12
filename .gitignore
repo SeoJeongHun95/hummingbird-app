@@ -37,11 +37,8 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-pubspec.lock
 
 # iOS specific
-ios/Podfile.lock
-ios/Runner.xcodeproj/project.pbxproj
 **/ios/Flutter/Flutter.podspec
 **/ios/Flutter/Generated.xcconfig
 **/ios/Flutter/app.flx
@@ -61,6 +58,7 @@ ios/Runner.xcodeproj/project.pbxproj
 /android/app/debug
 /android/app/profile
 /android/app/release
+/android/app/google-services.json
 
 # Web related
 lib/generated_plugin_registrant.dart
@@ -81,4 +79,13 @@ app.*.map.json
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
-# End of https://www.toptal.com/developers/gitignore/api/flutter,dart
+# Freezed generated files
+*.freezed.dart
+
+# Hive adapter files
+*.g.dart
+
+# FireStroe files
+.firebase/
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist

@@ -1,40 +1,41 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import '../../models/token_model.dart';
-import '../token_provider.dart';
 
 part 'auth_provider.g.dart';
 
 @riverpod
 class Auth extends _$Auth {
   @override
-  bool build() {
-    final token = ref.watch(tokenProvider);
-    final tokenModel = token.getToken();
+  Stream<User?> build() {
+    return FirebaseAuth.instance.authStateChanges();
+  }
 
-    if (tokenModel == null ||
-        tokenModel.accessToken == null ||
-        tokenModel.refreshToken == null) {
-      return false;
+  User? get user => state.asData?.value;
+
+  bool get isLoggedIn => user != null;
+
+  Future<void> signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      if (googleUser == null) return;
+
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      await FirebaseAuth.instance.signInWithCredential(credential);
+    } catch (e) {
+      print("Google 로그인 실패: $e");
     }
-
-    return true;
   }
 
-  void login({
-    required String accessToken,
-    required String refreshToken,
-    required int expiresAt,
-  }) {
-    ref.read(tokenProvider).updateToken(TokenModel(
-        accessToken: accessToken,
-        refreshToken: refreshToken,
-        expiresAt: expiresAt));
-    state = true;
-  }
-
-  void logout() {
-    ref.read(tokenProvider).deleteToken();
-    state = false;
+  Future<void> signOut() async {
+    await GoogleSignIn().signOut();
+    await FirebaseAuth.instance.signOut();
   }
 }

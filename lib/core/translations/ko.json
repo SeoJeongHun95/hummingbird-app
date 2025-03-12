@@ -1,0 +1,249 @@
+{
+  "DailyStatistics": {
+    "Error": "데이터를 불러오는 중 오류 발생: {0}",
+    "NoData": "오늘 기록된 데이터가 없습니다"
+  },
+  "DailySummary": {
+    "GoalStudyTime": "목표 공부시간",
+    "StudyTimeToday": "금일 공부시간",
+    "TodaySummary": "금일 공부 요약"
+  },
+  "DDayAddScreen": {
+    "Add": "추가",
+    "Cancel": "취소",
+    "Color": "색상:",
+    "Confirm": "확인",
+    "DDayAdd": "디데이 추가",
+    "Edit": "편집",
+    "FillInAllFields": "모든 항목을 입력해 주세요",
+    "GoalDate": "목표 날짜:",
+    "GoalTime": "목표 시간:",
+    "GoalTitle": "목표 제목",
+    "Save": "저장",
+    "SelectDate": "날짜를 선택하시오",
+    "SelectTime": "시간을 선택하시오"
+  },
+  "DDayListTile": {
+    "AreYouSure": "정말로 ",
+    "Cancel": "취소",
+    "Confirm": "확인",
+    "Delete": "제거",
+    "DeleteConfirmationSuffix": "을 삭제하시겠습니까?",
+    "Edit": "편집",
+    "GoalDate": "목표 날짜:",
+    "OfflineEditDeleteError": "오프라인 상태에서는 편집, 제거 기능을 사용할 수 없습니다.",
+    "OfflineStatus": "오프라인 상태입니다"
+  },
+  "DDayUpdateScreen": {
+    "Color": "색상:",
+    "DDayEdit": "디데이 수정",
+    "FillInAllFields": "모든 항목을 입력해 주세요",
+    "GoalDate": "목표 날짜:",
+    "GoalTime": "목표 시간:",
+    "GoalTitle": "목표 제목",
+    "Save": "저장"
+  },
+  "Dialog": {
+    "Cancel": "취소",
+    "Confirm": "확인",
+    "Focus!": "집중하세요!",
+    "YouarestudyingPutyourphonedownandfocus": "공부 중입니다. 핸드폰을 내려놓고 집중하세요."
+  },
+  "HomeSegmentBar": {
+    "Dday": "디데이",
+    "Summary": "요약",
+    "Timer": "타이머"
+  },
+  "InquiryButtonWidget": {
+    "ContactUs": "문의하기"
+  },
+  "LogoutButtonWidget": {
+    "Logout": "로그아웃"
+  },
+  "MonthlyStatisticsScreen": {
+    "noData": "기록된 데이터가 없습니다"
+  },
+  "NavigationBar": {
+    "Home": "홈",
+    "More": "더보기",
+    "Social": "랭킹",
+    "Statistics": "통계",
+    "Timer": "타이머"
+  },
+  "NotificationButton": {
+    "Alarm": "알람"
+  },
+  "PrivacyPolicyWidget": {
+    "PrivacyPolicy": "개인정보 처리방침",
+    "URLCannotBeOpened": "이 URL을 실행할 수 없습니다",
+    "URLFailedToOpen": "URL을 열 수 없습니다",
+    "URLLaunchError": "오류가 발생했습니다"
+  },
+  "ProfileInfoWidget": {
+    "birthDate": "생년월일",
+    "birthDateHint": "생년월일을 등록해 보세요",
+    "nickName": "닉네임",
+    "nickNameHint": "닉네임을 입력하세요"
+  },
+  "ProfileSettingScreen": {
+    "loadingText": "오늘도 최선을 다해서 Study Duck과 함께..."
+  },
+  "SelectCountryButtonWidget": {
+    "Country": "국가",
+    "SouthKorea": "대한민국"
+  },
+  "SelectCountryContainerWidget": {
+    "FuturePlan": "향후 추가할 계획입니다",
+    "SouthKorea": "대한민국"
+  },
+  "SelectCountryScreen": {
+    "Country": "국가"
+  },
+  "SelectFontSizeButtonWidget": {
+    "FontSize": "글자 크기",
+    "Large": "대",
+    "Medium": "중",
+    "Small": "소"
+  },
+  "SelectGoalDurationButtonWidget": {
+    "Complete": "완료",
+    "GoalStudyTime": "목표 공부시간",
+    "TimeSelection": "시간 선택"
+  },
+  "SelectGroupBottomSheet": {
+    "complete": "완료",
+    "selectGroup": "그룹 선택"
+  },
+  "SelectGroupButtonWidget": {
+    "Group": "그룹",
+    "SelectGroupPrompt": "그룹을 선택하세요"
+  },
+  "SelectGroupScreen": {
+    "Group": "그룹"
+  },
+  "SelectLanguageButtonWidget": {
+    "Korean": "한국어",
+    "Language": "언어"
+  },
+  "SelectLanguageContainerWidget": {
+    "FuturePlan": "향후 추가할 계획입니다",
+    "Korean": "한국어"
+  },
+  "SelectLanguageScreen": {
+    "Language": "언어"
+  },
+  "SelectThemeButtonWidget": {
+    "FuturePlan": "향후 추가할 계획입니다",
+    "ThemeColor": "테마 색상"
+  },
+  "SetStudySettingWidget": {
+    "done": "완료",
+    "goalDuration": "목표 공부시간",
+    "group": "그룹",
+    "timePickerTitle": "시간 선택"
+  },
+  "SettingButton": {
+    "Setting": "설정"
+  },
+  "SettingsScreen": {
+    "Settings": "설정"
+  },
+  "SetProfileWidget": {
+    "next": "다음",
+    "selectBirthDate": "생년월일을 선택해 보세요",
+    "skip": "건너뛰기"
+  },
+  "SocialScreen": "소셜 화면",
+  "SplashScreen": {
+    "message": "오늘도 최선을 다해서 Study Duck과 함께..."
+  },
+  "StatisticsScreen": {
+    "monthly": "월간",
+    "weekly": "주간"
+  },
+  "StudyBarChartWidget": {
+    "subjectStudyTime": "과목별 공부시간"
+  },
+  "StudyPieChartWidget": {
+    "subjectPercentage": "과목별 비율"
+  },
+  "StudySettingScreen": {
+    "complete": "완료",
+    "previous": "이전"
+  },
+  "SubjectAddScreen": {
+    "AddSubject": "과목 추가",
+    "DuplicateSubject": "같은 과목이 이미 존재합니다.",
+    "Save": "저장",
+    "SelectColor": "색상 선택",
+    "SubjectName": "과목 이름"
+  },
+  "SubjectList": {
+    "AddSubject": "과목 추가",
+    "Cancel": "취소",
+    "CannotUndoWarning": "해당 작업은 복구할 수 없습니다.",
+    "Confirm": "확인",
+    "Delete": "제거",
+    "DeleteSubjectPrompt": "과목을 삭제하시겠습니까?",
+    "Edit": "편집",
+    "EditSubject": "과목 편집",
+    "EnterSubjectName": "과목이름을 입력해주세요",
+    "SelectColor": "색상 선택",
+    "SelfStudy": "자율학습",
+    "Subject": "과목",
+    "SubjectName": "과목 이름"
+  },
+  "SubjectUpdateScreen": {
+    "EditSubject": "과목 수정",
+    "EnterSubjectName": "과목 이름을 입력해주세요.",
+    "Save": "저장",
+    "SelectColor": "색상 선택",
+    "SubjectName": "과목 이름"
+  },
+  "SummaryWidget": {
+    "averageStudyTime": "평균 공부시간",
+    "totalStudyTime": "총 공부시간"
+  },
+  "Timer": {
+    "Pause": "PAUSE",
+    "SelfStudy": "자율학습",
+    "Start": "START"
+  },
+  "TimerControlBar": {
+    "FocusMode": "집중모드",
+    "WhiteNoise": "화이트 노이즈"
+  },
+  "TimerSetting": {
+    "AutoFocusMode": "자동 집중모드",
+    "TimeerSetting": "타이머 셋팅"
+  },
+  "TotalDuratinosLineChartWidget": {
+    "totalStudyTime": "하루 총 공부시간"
+  },
+  "UserProfileWidget": {
+    "profileEdit": "프로필 편집"
+  },
+  "WeeklyStatisticsScreen": {
+    "noData": "기록된 데이터가 없습니다"
+  },
+  "WhiteNoiseScreen": {
+    "Cafe": "카페",
+    "Rain": "비",
+    "Wind": "바람",
+    "Fire": "장작",
+    "Chime": "방울",
+    "Stream": "시냇물",
+    "Wave": "파도",
+    "Bird": "새",
+    "chooseYourWhiteNoise": "원하는 화이트 노이즈를 선택하세요",
+    "WhiteNoise": "화이트 노이즈",
+    "No white noise playing": "재생중인 화이트 노이즈 없음",
+    "Volume Control": "볼륨 조절",
+    "Close": "닫기",
+    "Stop": "정지"
+  },
+  "getBrithDateText": {
+    "birthDate": "생년월일",
+    "birthDateHint": "생년월일을 등록해 보세요"
+  }
+}

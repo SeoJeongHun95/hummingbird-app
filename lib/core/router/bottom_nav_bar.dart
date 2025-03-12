@@ -1,5 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../src/views/home/widgets/timer/suduck_timer_modal_widget.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
@@ -22,12 +25,11 @@ class BottomNavBar extends StatelessWidget {
             break;
           case 2:
             showModalBottomSheet(
-              showDragHandle: true,
-              context: context,
-              builder: (context) => SizedBox(
-                width: double.maxFinite,
-                height: 400,
+              shape: ContinuousRectangleBorder(
+                borderRadius: BorderRadius.circular(28),
               ),
+              context: context,
+              builder: (context) => SuduckTimerModalWidget(),
             );
             break;
           case 3:
@@ -38,26 +40,26 @@ class BottomNavBar extends StatelessWidget {
             break;
         }
       },
-      items: const [
+      items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.home_filled),
-          label: '홈',
+          label: tr('NavigationBar.Home'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.groups),
-          label: '소셜',
+          label: tr('NavigationBar.Social'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.timer),
-          label: '타이머',
+          label: tr('NavigationBar.Timer'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.pie_chart_rounded),
-          label: '통계',
+          label: tr('NavigationBar.Statistics'),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.more_horiz_rounded),
-          label: '더보기',
+          label: tr('NavigationBar.More'),
         ),
       ],
     );

@@ -1,17 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hummingbird/src/views/login/login_screen.dart';
 
-import '../../src/views/home/views/home_screen.dart';
-import '../../src/views/more/view/more_screen.dart';
+import '../../src/models/subject/subject.dart';
+import '../../src/providers/auth/auth_provider.dart';
+import '../../src/viewmodels/app_setting/app_setting_view_model.dart';
+import '../../src/views/home/home_screen.dart';
+import '../../src/views/home/suduck_timer_focus_mode_screen.dart';
+import '../../src/views/home/widgets/d_day_widget/d_day_add_screen.dart';
+import '../../src/views/home/widgets/d_day_widget/d_day_update_screen.dart';
+import '../../src/views/home/widgets/subject/subject_add_screen.dart';
+import '../../src/views/home/widgets/subject/subject_update_screen.dart';
+import '../../src/views/more/more_screen.dart';
+import '../../src/views/more/profile_screen.dart';
+import '../../src/views/more/settings_screen/settings_export.dart';
+import '../../src/views/more/timer_setting_screen.dart';
 import '../../src/views/social/views/social_screen.dart';
+import '../../src/views/splash/splash_screen.dart';
 import '../../src/views/statistics/views/statistics_screen.dart';
+import '../../src/views/tutorial/profile_setting_screen.dart';
+import '../../src/views/tutorial/study_setting_screen.dart';
+import '../../src/views/white_noise/white_noise_player_screen.dart';
+
+final navigatorKey = GlobalKey<NavigatorState>();
+bool firstRun = true;
 
 // GoRouter 설정
 final goRouterProvider = Provider<GoRouter>((ref) {
+  final auth = ref.watch(authProvider);
+  final isLoggedIn = auth.asData?.value != null;
+  bool isFirstInstalled = true;
+
+  if (isLoggedIn) {
+    isFirstInstalled =
+        ref.read(appSettingViewModelProvider.notifier).isFirstInstalled;
+  }
+
   return GoRouter(
-    initialLocation: '/login', // 기본적으로 캘린더 화면으로 시작
+    navigatorKey: navigatorKey,
+    initialLocation: '/splash',
+    redirect: (context, state) {
+      if (firstRun && state.fullPath == '/splash') {
+        firstRun = false;
+        return null;
+      }
+
+      if (state.fullPath == '/login' && isLoggedIn) {
+        return '/';
+      }
+
+      if (!isLoggedIn) {
+        return '/splash';
+      }
+
+      if (!firstRun && state.fullPath == '/splash') {
+        return isFirstInstalled ? '/tutorial' : '/';
+      }
+
+      return null;
+    },
     routes: [
       GoRoute(
         path: '/',
@@ -19,6 +66,87 @@ final goRouterProvider = Provider<GoRouter>((ref) {
           context: context,
           state: state,
           child: const HomeScreen(),
+        ),
+        routes: [
+          GoRoute(
+            path: 'focusMode',
+            pageBuilder: (context, state) => buildPageWithDefaultTransition(
+              context: context,
+              state: state,
+              child: const SuduckTimerFocusModeWidget(),
+            ),
+          ),
+          GoRoute(
+            path: '/whiteNoise',
+            pageBuilder: (context, state) => buildPageWithDefaultTransition(
+              context: context,
+              state: state,
+              child: const WhiteNoiseScreen(),
+            ),
+          ),
+          GoRoute(
+            path: 'subjectAdd',
+            pageBuilder: (context, state) {
+              return buildPageWithDefaultTransition(
+                context: context,
+                state: state,
+                child: SubjectAddScreen(
+                  subjects: (state.extra as List)[0] as List<Subject>,
+                  index: (state.extra as List)[1] as int,
+                ),
+              );
+            },
+          ),
+          GoRoute(
+            path: 'subjectUpdate',
+            pageBuilder: (context, state) {
+              return buildPageWithDefaultTransition(
+                context: context,
+                state: state,
+                child: SubjectUpdateScreen(
+                  subject: (state.extra as List)[0] as Subject,
+                  index: (state.extra as List)[1] as int,
+                ),
+              );
+            },
+          ),
+          GoRoute(
+            path: 'dDayAdd',
+            pageBuilder: (context, state) {
+              return buildPageWithDefaultTransition(
+                context: context,
+                state: state,
+                child: DDayAddScreen(),
+              );
+            },
+          ),
+          GoRoute(
+            path: 'dDayUpdate',
+            pageBuilder: (context, state) {
+              final Map<String, dynamic> extra =
+                  state.extra as Map<String, dynamic>;
+
+              return buildPageWithDefaultTransition(
+                context: context,
+                state: state,
+                child: DDayUpdateScreen(
+                  dDayId: extra['dDayId'] as String,
+                  index: extra['index'] as int,
+                  title: extra['title'] as String,
+                  targetDatetime: extra['targetDatetime'] as int,
+                  color: extra['color'] as String,
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+      GoRoute(
+        path: '/splash',
+        pageBuilder: (context, state) => buildPageWithDefaultTransition(
+          context: context,
+          state: state,
+          child: const SplashScreen(),
         ),
       ),
       GoRoute(
@@ -44,14 +172,76 @@ final goRouterProvider = Provider<GoRouter>((ref) {
           state: state,
           child: const MoreScreen(),
         ),
+        routes: [
+          GoRoute(
+            path: 'profile',
+            pageBuilder: (context, state) => buildPageWithDefaultTransition(
+              context: context,
+              state: state,
+              child: const ProfileScreen(),
+            ),
+          ),
+          GoRoute(
+            path: 'timerSetting',
+            pageBuilder: (context, state) => buildPageWithDefaultTransition(
+              context: context,
+              state: state,
+              child: const TimerSettingScreen(),
+            ),
+          ),
+          GoRoute(
+            path: 'settings',
+            pageBuilder: (context, state) => buildPageWithDefaultTransition(
+              context: context,
+              state: state,
+              child: const SettingsScreen(),
+            ),
+            routes: [
+              GoRoute(
+                path: 'language',
+                pageBuilder: (context, state) => buildPageWithDefaultTransition(
+                  context: context,
+                  state: state,
+                  child: const SelectLanguageScreen(),
+                ),
+              ),
+              GoRoute(
+                path: 'country',
+                pageBuilder: (context, state) => buildPageWithDefaultTransition(
+                  context: context,
+                  state: state,
+                  child: const SelectCountryScreen(),
+                ),
+              ),
+              GoRoute(
+                path: 'group',
+                pageBuilder: (context, state) => buildPageWithDefaultTransition(
+                  context: context,
+                  state: state,
+                  child: const SelectGroupScreen(),
+                ),
+              ),
+            ],
+          )
+        ],
       ),
       GoRoute(
-        path: '/login',
+        path: '/tutorial',
         pageBuilder: (context, state) => buildPageWithDefaultTransition(
           context: context,
           state: state,
-          child: const LoginScreen(),
+          child: const ProfileSettingScreen(),
         ),
+        routes: [
+          GoRoute(
+            path: 'studySetting',
+            pageBuilder: (context, state) => buildPageWithDefaultTransition(
+              context: context,
+              state: state,
+              child: const StudySettingScreen(),
+            ),
+          )
+        ],
       ),
     ],
 
