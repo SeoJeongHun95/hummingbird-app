@@ -55,9 +55,8 @@ class DailySummaryWidget extends StatelessWidget {
   }
 
   Widget getSummaryLabel(String title, String content) {
-    return RichText(
-      textAlign: TextAlign.start,
-      text: TextSpan(
+    return Text.rich(
+      TextSpan(
         text: "$title\n",
         style: TextStyle(
           color: Colors.grey[700],
@@ -68,9 +67,10 @@ class DailySummaryWidget extends StatelessWidget {
             style: TextStyle(
               color: Colors.black,
             ),
-          )
+          ),
         ],
       ),
+      textAlign: TextAlign.start,
     );
   }
 }
