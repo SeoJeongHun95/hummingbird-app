@@ -1,7 +1,10 @@
 import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:StudyDuck/src/viewmodels/image_controller.dart';
+import 'package:StudyDuck/src/services/storage_service.dart';
+
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../models/setting/user_setting.dart';
 import '../../repositories/user_setting/user_setting_repository.dart';
@@ -37,23 +40,22 @@ class UserSettingViewModel extends _$UserSettingViewModel {
     });
   }
 
-  Future<void> updateProfileImg(bool isFromGallery) async {
-    final imgCtrl = ImageController();
-    if (isFromGallery) {
-      final imgXFile = await imgCtrl.pickImageFromGallery();
+  Future<void> updateProfileImg(XFile imageFile) async {
+    if (imageFile == null) return;
 
-      if (imgXFile == null) return;
+    final imgFile = File(imageFile.path);
+    final storageService = ref.read(storageServiceProvider);
+    final uid = FirebaseAuth.instance.currentUser?.uid;
 
-      final imgFile = File(imgXFile.path);
-      await userSettingRepository.updateProfileImg(imgFile);
-      return;
+    if (uid == null) {
+      throw Exception('사용자 인증이 필요합니다');
     }
 
-    final imgXFile = await imgCtrl.pickImageFromCamera();
-
-    if (imgXFile == null) return;
-
-    final imgFile = File(imgXFile.path);
-    await userSettingRepository.updateProfileImg(imgFile);
+    try {
+      final downloadUrl = await storageService.uploadProfileImage(imgFile, uid);
+      await updateUserSetting(updatedImgUrl: downloadUrl);
+    } catch (e) {
+      throw Exception('프로필 이미지 업데이트 실패: $e');
+    }
   }
 }

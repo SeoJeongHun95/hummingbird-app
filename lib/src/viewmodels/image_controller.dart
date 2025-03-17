@@ -8,7 +8,9 @@ class ImageController {
 //갤러리 사용 이미지 선택
   Future<XFile?> pickImageFromGallery() async {
     try {
-      final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+      final XFile? image = await _picker.pickImage(
+        source: ImageSource.gallery,
+      );
       if (image != null) {
         final File? croppedImage = await _cropImage(image);
         return croppedImage != null
@@ -43,8 +45,19 @@ class ImageController {
       final croppedFile = await ImageCropper().cropImage(
         sourcePath: image.path,
         aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
+        uiSettings: [
+          AndroidUiSettings(
+            toolbarTitle: 'Crop Image',
+            cropStyle: CropStyle.rectangle,
+          ),
+          IOSUiSettings(
+            title: 'Crop Image',
+          ),
+        ],
         compressFormat: ImageCompressFormat.jpg,
-        compressQuality: 100, //이미지 품질
+        compressQuality: 50,
+        maxWidth: 200,
+        maxHeight: 200,
       );
       return croppedFile != null ? File(croppedFile.path) : null;
     } catch (e) {
