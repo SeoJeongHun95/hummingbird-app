@@ -52,6 +52,15 @@ class UserSettingViewModel extends _$UserSettingViewModel {
     }
 
     try {
+      // 기존 이미지가 있다면 삭제
+      final currentSetting = state.value;
+      if (currentSetting != null &&
+          currentSetting.profileImgUrl != null &&
+          currentSetting.profileImgUrl!.isNotEmpty) {
+        await storageService.deleteProfileImage(currentSetting.profileImgUrl!);
+      }
+
+      // 새 이미지 업로드
       final downloadUrl = await storageService.uploadProfileImage(imgFile, uid);
       await updateUserSetting(updatedImgUrl: downloadUrl);
     } catch (e) {

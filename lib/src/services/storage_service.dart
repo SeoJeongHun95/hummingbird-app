@@ -32,4 +32,14 @@ class StorageService {
       throw Exception('이미지 업로드 실패: $e');
     }
   }
+
+  Future<void> deleteProfileImage(String imageUrl) async {
+    try {
+      final ref = FirebaseStorage.instance.refFromURL(imageUrl);
+      await ref.delete();
+    } catch (e) {
+      print('Delete storage error: $e');
+      // 삭제 실패해도 계속 진행
+    }
+  }
 }
