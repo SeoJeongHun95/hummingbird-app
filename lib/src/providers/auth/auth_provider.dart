@@ -1,7 +1,8 @@
-import 'package:StudyDuck/core/utils/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+import '../../../core/utils/utils.dart';
 
 part 'auth_provider.g.dart';
 
@@ -31,7 +32,17 @@ class Auth extends _$Auth {
 
       await FirebaseAuth.instance.signInWithCredential(credential);
     } catch (e) {
-      print("Google 로그인 실패: $e");
+      Exception("Google 로그인 실패: $e");
+    }
+  }
+
+  Future<void> signInWithApple() async {
+    try {
+      final appleProvider = AppleAuthProvider();
+
+      await FirebaseAuth.instance.signInWithProvider(appleProvider);
+    } catch (e) {
+      Exception("Apple 로그인 실패: $e");
     }
   }
 

@@ -1,11 +1,15 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../providers/auth/auth_provider.dart';
+import '../auth/apple_login_button.dart';
 import '../auth/google_login_button.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -101,7 +105,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Spacer(flex: 3),
+            const Spacer(flex: 2),
             FadeTransition(
               opacity: _fadeAnimation!,
               child: AnimatedBuilder(
@@ -140,8 +144,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
                 fontFamily: 'NanumPenScript',
               ),
             ),
-            const Spacer(flex: 2),
+            const Spacer(flex: 1),
             if (isLoggedIn == false) const GoogleLoginButton(),
+            if (isLoggedIn == false) Gap(8.h),
+            if (isLoggedIn == false && Platform.isIOS) const AppleLoginButton(),
             const Spacer(flex: 1),
           ],
         ),

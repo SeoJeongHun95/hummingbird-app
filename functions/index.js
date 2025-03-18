@@ -17,7 +17,6 @@ const logger = require("firebase-functions/logger");
 //   logger.info("Hello logs!", {structuredData: true});
 //   response.send("Hello from Firebase!");
 // });
-
 const { onSchedule } = require("firebase-functions/v2/scheduler");
 const admin = require("firebase-admin");
 
@@ -35,8 +34,6 @@ exports.dailyLeaderboardUpdate = onSchedule(
         now.setDate(now.getDate() - 1);
         const dateKey = now.toISOString().split("T")[0];
         const yearMonth = dateKey.substring(0, 7);
-
-        // console.log(`📅 어제 날짜: ${dateKey}, 연-월: ${yearMonth}`);
 
         const usersSnapshot = await db.collection("studyRecords").listDocuments();
         let leaderboardData = [];
@@ -58,7 +55,21 @@ exports.dailyLeaderboardUpdate = onSchedule(
             });
 
             if (totalElapsedTime > 0) {
-                leaderboardData.push({ userId, totalElapsedTime });
+                let nickname = "알 수 없음";
+
+                try {
+                    const userSettingDoc = await db.collection("userSetting").doc(userId).get();
+                    if (userSettingDoc.exists) {
+                        const userData = userSettingDoc.data();
+                        if (userData && userData[userId] && userData[userId].nickname) {
+                            nickname = userData[userId].nickname;
+                        }
+                    }
+                } catch (error) {
+                    console.error(`❌ ${userId} 닉네임 가져오기 실패:`, error);
+                }
+
+                leaderboardData.push({ userId, totalElapsedTime, nickname });
             }
         }
 
@@ -68,17 +79,14 @@ exports.dailyLeaderboardUpdate = onSchedule(
             const sortedLeaderboard = {};
             leaderboardData.forEach((entry, index) => {
                 sortedLeaderboard[`rank_${index + 1}`] = {
+                    rank: index + 1,
                     userId: entry.userId,
+                    nickname: entry.nickname,
                     totalElapsedTime: entry.totalElapsedTime,
-                    // 유셋팅에 닉네임이 있다면 닉네임을 추가
-                    // index + 1 도 랭크로 추가 
                 };
             });
 
             await db.collection("Leaderboard").doc(dateKey).set(sortedLeaderboard);
-            console.log(`✅ 리더보드 업데이트 완료: ${dateKey}`);
-        } else {
-            console.log(`⚠️ 리더보드 업데이트 실패: ${dateKey}에 데이터 없음`);
         }
     }
 );
