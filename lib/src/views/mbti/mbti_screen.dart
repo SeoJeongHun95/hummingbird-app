@@ -214,7 +214,11 @@ class _MBTIScreenState extends State<MBTIScreen> {
             ),
             Expanded(
               //광고자리
-              child: AdMobWidget.showExpandedBannerAd(),
+              child: Column(
+                children: [
+                  AdMobWidget.showExpandedBannerAd(),
+                ],
+              ),
               flex: 3,
             ),
           ],
