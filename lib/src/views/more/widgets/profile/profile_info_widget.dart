@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/utils/format_date.dart';
@@ -100,7 +101,7 @@ class ProfileInfoWidget extends StatelessWidget {
                 Text(tr('MBTI')),
                 TextField(
                   onTap: () {
-                    print("MBTI 검사 실행페이지로 가기");
+                    GoRouter.of(context).go('/mbti');
                   },
                   readOnly: true,
                   focusNode: mbtiFocusNode,

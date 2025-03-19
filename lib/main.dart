@@ -21,6 +21,8 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print("Handling a background message: ${message.messageId}");
 }
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 void main() async {
   final List<String> supportedLanguages = ['ko', 'en', 'ja', 'zh', 'vi', 'th'];
   WidgetsFlutterBinding.ensureInitialized();
