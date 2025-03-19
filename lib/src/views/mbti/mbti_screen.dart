@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/services/mbti/mbti_question_service.dart';
 import '../../../core/utils/selection_haptic.dart';
+import '../../../core/widgets/admob_widget.dart';
 import '../../models/mbti/mbti_question_model.dart';
 import 'result_screen.dart';
 
@@ -213,8 +214,8 @@ class _MBTIScreenState extends State<MBTIScreen> {
             ),
             Expanded(
               //광고자리
+              child: AdMobWidget.showExpandedBannerAd(),
               flex: 3,
-              child: Text("ADMOD HERE"),
             ),
           ],
         ),
