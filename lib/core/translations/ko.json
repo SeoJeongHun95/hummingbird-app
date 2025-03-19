@@ -247,5 +247,293 @@
   "getBrithDateText": {
     "birthDate": "생년월일",
     "birthDateHint": "생년월일을 등록해 보세요"
+  },
+  "mbti": {
+    "MBTIQuestion1": {
+      "question": "새로운 사람들과 어울릴 때",
+      "optionA": "기분이 좋고 활력이 생긴다",
+      "optionB": "혼자 있는 시간이 더 편하다",
+      "category": "E/I"
+    },
+    "MBTIQuestion2": {
+      "question": "주말에 에너지를 충전하는 방법은",
+      "optionA": "친구들과 만나서 시간을 보낸다",
+      "optionB": "혼자만의 시간을 가진다",
+      "category": "E/I"
+    },
+    "MBTIQuestion3": {
+      "question": "생각을 정리할 때",
+      "optionA": "소리 내어 말하며 정리한다",
+      "optionB": "조용히 머릿속에서 정리한다",
+      "category": "E/I"
+    },
+    "MBTIQuestion4": {
+      "question": "여러 사람 앞에서 말하는 것이",
+      "optionA": "자연스럽고 편하다",
+      "optionB": "부담스럽고 긴장된다",
+      "category": "E/I"
+    },
+    "MBTIQuestion5": {
+      "question": "혼자 여행을 간다면",
+      "optionA": "지루하고 외로울 것 같다",
+      "optionB": "기대되고 설렌다",
+      "category": "E/I"
+    },
+    "MBTIQuestion6": {
+      "question": "설명을 들을 때 중요하게 생각하는 것은",
+      "optionA": "구체적인 사례와 세부 정보",
+      "optionB": "전체적인 흐름과 개념",
+      "category": "S/N"
+    },
+    "MBTIQuestion7": {
+      "question": "새로운 기술을 배울 때",
+      "optionA": "매뉴얼을 보고 차근차근 배운다",
+      "optionB": "직접 해보면서 감각적으로 익힌다",
+      "category": "S/N"
+    },
+    "MBTIQuestion8": {
+      "question": "일상에서",
+      "optionA": "변화가 적고 익숙한 환경이 좋다",
+      "optionB": "새로운 경험과 변화가 더 흥미롭다",
+      "category": "S/N"
+    },
+    "MBTIQuestion9": {
+      "question": "업무나 학습을 할 때",
+      "optionA": "세부 사항까지 꼼꼼하게 체크한다",
+      "optionB": "전체적인 흐름 파악에 집중한다",
+      "category": "S/N"
+    },
+    "MBTIQuestion10": {
+      "question": "판단을 할 때",
+      "optionA": "과거 경험을 토대로 현재를 판단한다",
+      "optionB": "미래의 가능성을 더 중요하게 생각한다",
+      "category": "S/N"
+    },
+    "MBTIQuestion11": {
+      "question": "중요한 결정을 내릴 때",
+      "optionA": "논리와 객관적인 사실을 중시한다",
+      "optionB": "감정과 인간관계를 고려한다",
+      "category": "T/F"
+    },
+    "MBTIQuestion12": {
+      "question": "논쟁에서 중요하게 생각하는 것은",
+      "optionA": "논리적으로 이기는 것",
+      "optionB": "상대방의 감정을 배려하는 것",
+      "category": "T/F"
+    },
+    "MBTIQuestion13": {
+      "question": "다른 사람이 고민을 이야기할 때",
+      "optionA": "현실적인 해결책을 제시한다",
+      "optionB": "감정에 공감해준다",
+      "category": "T/F"
+    },
+    "MBTIQuestion14": {
+      "question": "일처리를 할 때 중요한 것은",
+      "optionA": "효율성과 논리",
+      "optionB": "팀워크와 분위기",
+      "category": "T/F"
+    },
+    "MBTIQuestion15": {
+      "question": "결정을 내릴 때",
+      "optionA": "옳고 그름을 기준으로 판단한다",
+      "optionB": "상대방의 기분을 고려한다",
+      "category": "T/F"
+    },
+    "MBTIQuestion16": {
+      "question": "일정 관리는",
+      "optionA": "미리 계획하고 지키는 것을 좋아한다",
+      "optionB": "즉흥적으로 유연하게 행동한다",
+      "category": "J/P"
+    },
+    "MBTIQuestion17": {
+      "question": "여행을 갈 때",
+      "optionA": "상세한 계획을 세운다",
+      "optionB": "현장에서 즉흥적으로 정한다",
+      "category": "J/P"
+    },
+    "MBTIQuestion18": {
+      "question": "마감 기한이 있을 때",
+      "optionA": "미리 끝내는 것이 편하다",
+      "optionB": "마지막까지 유연하게 조정한다",
+      "category": "J/P"
+    },
+    "MBTIQuestion19": {
+      "question": "선호하는 환경은",
+      "optionA": "정리된 깔끔한 공간",
+      "optionB": "자유로운 분위기의 공간",
+      "category": "J/P"
+    },
+    "MBTIQuestion20": {
+      "question": "계획이 틀어졌을 때",
+      "optionA": "불편함을 느낀다",
+      "optionB": "유동적으로 적응한다",
+      "category": "J/P"
+    }
+  },
+  "mbtiResult": {
+    "quickInfo": "📚 빠른 학습 정보",
+    "learningGuide": "🎯 학습 방법 가이드",
+    "consultingSummary": "💡 학습 컨설팅 총평",
+    "recommendedTime": "추천 학습 시간",
+    "dailyStudyTime": "하루 학습 추천 시간",
+    "strongSubjects": "강한 과목",
+    "weakSubjects": "약한 과목",
+    "learningMethod": "학습 방법",
+    "timeManagement": "시간 관리",
+    "analysisTitle": "MBTI 학습 스타일 분석 보고서",
+    "analysisResult": "학습 유형 분석 결과",
+    "confirm": "확인",
+    "shareComplete": "공유가 완료되었습니다",
+    "shareFailed": "공유하기에 실패했습니다",
+    "myMBTIStyle": "나의 MBTI 학습 스타일",
+    "CheckMyMBTI": "나의 MBTI 결과를 확인해보세요!\n#Study Duck #스터디덕 #MBTI학습법",
+    "MBTILearningStyleTest": "MBTI 학습 스타일 검사",
+    "question": "질문"
+  },
+  "mbtiTypeResult": {
+    "ISTJ": {
+      "learningMethod": "체계적이고 논리적인 접근을 선호하며, 계획적인 학습이 중요합니다.",
+      "timeManagement": "정해진 스케줄을 따르는 것이 효율적입니다.",
+      "recommendedTime": "오전 또는 저녁, 조용한 환경",
+      "dailyStudyTime": "2~4시간",
+      "strongSubjects": "수학, 과학, 역사",
+      "weakSubjects": "문학, 예술, 철학",
+      "consultingSummary": "ISTJ는 철저한 계획과 체계적인 접근을 통해 학습을 잘 할 수 있습니다. 수학, 과학, 역사와 같은 과목에서 뛰어난 성과를 보입니다. 일정한 시간과 환경에서 일관되게 학습하는 것이 중요하며, 실용적이고 논리적인 과목에서 강점을 보입니다. 문학이나 예술, 철학과 같은 창의적이고 감성적인 과목에서는 어려움을 겪을 수 있으므로, 이런 과목은 실용적인 예제를 통해 학습하는 것이 효과적입니다. 매일 정해진 시간에 꾸준히 학습하고 목표를 설정해 나가면 큰 성과를 낼 수 있습니다."
+    },
+    "ISFJ": {
+      "learningMethod": "반복 학습과 세부 사항을 꼼꼼히 챙기는 학습 방식이 효과적입니다.",
+      "timeManagement": "미리 계획을 세우고 실천하는 것이 중요합니다.",
+      "recommendedTime": "오후, 안정적인 환경",
+      "dailyStudyTime": "2~3시간",
+      "strongSubjects": "역사, 생물, 사회, 문학",
+      "weakSubjects": "수학, 물리, 체육",
+      "consultingSummary": "ISFJ는 반복적인 학습을 통해 성과를 올릴 수 있습니다. 역사나 문학, 사회와 같은 과목에서 우수한 성과를 보이며, 세부 사항에 주의를 기울이므로 정확한 학습이 가능합니다. 수학이나 물리와 같은 이론적이고 추상적인 과목에서는 다소 어려움을 겪을 수 있습니다. 매일 꾸준히 계획을 세우고 학습을 이어가면 좋으며, 진도가 느리더라도 성실하게 한 과목을 완성하는 것이 중요합니다. 안정적인 환경에서 집중하여 성과를 낼 수 있습니다."
+    },
+    "INFJ": {
+      "learningMethod": "깊이 있는 이해와 통찰을 중요하게 여기며, 의미를 찾는 학습이 효과적입니다.",
+      "timeManagement": "장기적인 목표 설정과 자기 반성이 필요합니다.",
+      "recommendedTime": "밤, 조용한 공간",
+      "dailyStudyTime": "3~5시간",
+      "strongSubjects": "문학, 철학, 심리학",
+      "weakSubjects": "수학, 물리",
+      "consultingSummary": "INFJ는 깊이 있는 탐구와 통찰력을 통해 학습을 진행합니다. 문학, 철학, 심리학과 같은 과목에서 뛰어난 성과를 보입니다. 학습이 진행될 때 큰 의미를 찾고자 하므로, 동기 부여가 중요합니다. 수학이나 물리와 같은 구체적인 과목에서는 어렵게 느낄 수 있으며, 이런 과목을 배우기 전에 기본적인 개념을 쉽게 풀어서 접근하는 것이 유리합니다. 자기 반성을 통해 학습 방법을 지속적으로 조정하며, 장기적인 목표를 세우고 지속적으로 발전하는 것이 핵심입니다."
+    },
+    "INTJ": {
+      "learningMethod": "논리적이고 체계적인 학습을 선호하며, 전략적 접근이 중요합니다.",
+      "timeManagement": "장기적인 계획을 세우고 효율적으로 시간 배분을 해야 합니다.",
+      "recommendedTime": "새벽 또는 저녁",
+      "dailyStudyTime": "4~6시간",
+      "strongSubjects": "수학, 과학, 논리학",
+      "weakSubjects": "체육, 예술",
+      "consultingSummary": "INTJ는 철저한 계획과 전략적 접근을 통해 학습을 효과적으로 할 수 있습니다. 수학, 과학, 논리학에서 뛰어난 성과를 보이며, 독립적인 학습을 통해 깊이 있는 이해를 할 수 있습니다. 그러나 지나치게 완벽주의적일 수 있어 학습 속도가 느려질 수 있습니다. 체육이나 예술 과목에서는 다소 약할 수 있기 때문에, 이러한 과목은 실용적인 예시를 통해 접근하는 것이 좋습니다. 현실적인 목표와 마감 기한을 설정하여 계획적으로 학습하면 최대의 효과를 낼 수 있습니다."
+    },
+    "ISTP": {
+      "learningMethod": "실제 경험과 실습을 통해 배우는 것이 효과적입니다.",
+      "timeManagement": "즉흥적인 학습을 선호하므로 유연한 계획이 필요합니다.",
+      "recommendedTime": "낮, 활동적인 환경",
+      "dailyStudyTime": "2~4시간",
+      "strongSubjects": "공학, 물리, 컴퓨터 과학",
+      "weakSubjects": "철학, 문학",
+      "consultingSummary": "ISTP는 실제 경험과 실습을 통해 빠르게 학습할 수 있습니다. 공학, 물리, 컴퓨터 과학과 같은 실용적이고 논리적인 과목에서 강점을 보입니다. 하지만 철학이나 문학과 같은 이론적인 과목에서는 다소 어려움을 겪을 수 있으므로, 실용적인 예제나 사례를 통해 접근하는 것이 효과적입니다. 시간 관리와 학습 계획에 있어 유연성을 두고, 집중할 수 있는 환경을 마련하는 것이 중요합니다."
+    },
+    "ISFP": {
+      "learningMethod": "감각적이고 실용적인 접근을 선호하며, 실용적인 학습을 선호합니다.",
+      "timeManagement": "자유로운 학습이 효과적이지만, 기본적인 계획이 필요합니다.",
+      "recommendedTime": "오후 또는 저녁",
+      "dailyStudyTime": "2~3시간",
+      "strongSubjects": "예술, 디자인, 생물",
+      "weakSubjects": "수학, 논리학",
+      "consultingSummary": "ISFP는 창의적이고 감각적인 접근을 통해 학습을 효과적으로 진행할 수 있습니다. 예술과 디자인, 생물학 등 창의적이고 직관적인 과목에서 뛰어난 성과를 보입니다. 수학이나 논리학과 같은 이론적이고 분석적인 과목에서는 어려움을 겪을 수 있으므로, 실용적인 예제나 사례를 통해 접근하는 것이 좋습니다. 자유롭고 유연한 학습 방식이 유리하며, 자기 주도적으로 학습을 이어가는 것이 중요합니다."
+    },
+    "INFP": {
+      "learningMethod": "감성적이고 의미 있는 학습을 선호하며, 깊이 있는 탐구를 즐깁니다.",
+      "timeManagement": "자신만의 페이스를 유지하는 것이 중요합니다.",
+      "recommendedTime": "밤, 조용한 공간",
+      "dailyStudyTime": "3~5시간",
+      "strongSubjects": "문학, 심리학, 사회학",
+      "weakSubjects": "수학, 과학",
+      "consultingSummary": "INFP는 창의적이고 열정적으로 학습에 접근합니다. 문학, 심리학, 사회학 등 사람과 관련된 과목에서 뛰어난 성과를 보이며, 새로운 아이디어를 통해 학습을 이어갑니다. 수학과 과학과 같은 계산적이고 구조적인 과목에서는 다소 어려움을 느낄 수 있습니다. 유연하게 계획을 세우고 자주 변화하는 학습 방식이 효과적이며, 학습을 즐기고 창의적으로 접근하는 것이 중요합니다."
+    },
+    "INTP": {
+      "learningMethod": "이론적인 개념을 탐구하고 실험적인 접근이 효과적입니다.",
+      "timeManagement": "유연한 스케줄이 필요하며, 때로는 즉흥적인 학습을 시도합니다.",
+      "recommendedTime": "새벽, 조용한 환경",
+      "dailyStudyTime": "4~6시간",
+      "strongSubjects": "철학, 과학, 수학",
+      "weakSubjects": "예술, 체육",
+      "consultingSummary": "INTP는 논리적이고 이론적인 접근을 통해 학습을 진행하며, 다양한 관점에서 문제를 해결하는 데 강점을 보입니다. 철학, 과학, 수학과 같은 과목에서 뛰어난 성과를 보이며, 복잡한 문제를 여러 관점에서 풀어가는 것을 즐깁니다. 예술이나 체육과 같은 감성적이고 실용적인 과목에서는 약할 수 있으므로, 보다 구체적이고 실용적인 예시를 통해 접근하는 것이 좋습니다. 자유로운 시간 관리와 즉흥적인 학습도 효과적입니다."
+    },
+    "ESTP": {
+      "learningMethod": "실험적이고 직관적인 접근을 선호하며, 활동적인 학습이 효과적입니다.",
+      "timeManagement": "유연하게 계획하고 즉흥적인 학습을 시도합니다.",
+      "recommendedTime": "낮, 활동적인 환경",
+      "dailyStudyTime": "3~5시간",
+      "strongSubjects": "물리, 수학, 공학",
+      "weakSubjects": "문학, 철학",
+      "consultingSummary": "ESTP는 실험적인 방법을 통해 학습할 때 강점을 보입니다. 물리나 공학, 수학과 같은 과목에서 두각을 나타내며, 실제 문제를 해결하는 방식으로 접근하는 것이 좋습니다. 문학이나 철학처럼 추상적인 과목에서는 어려움을 느낄 수 있습니다. 활동적이고 실험적인 환경에서 학습을 진행하는 것이 이상적이며, 유연한 시간 계획을 세우는 것이 효과적입니다."
+    },
+    "ESFP": {
+      "learningMethod": "감각적이고 실용적인 접근을 선호하며, 활기차고 즐겁게 학습합니다.",
+      "timeManagement": "자유로운 계획을 통해 학습을 즐기며 합니다.",
+      "recommendedTime": "오후, 활동적인 환경",
+      "dailyStudyTime": "3~4시간",
+      "strongSubjects": "예술, 사회, 생물학",
+      "weakSubjects": "수학, 물리",
+      "consultingSummary": "ESFP는 실용적이고 감각적인 학습을 선호합니다. 예술, 사회, 생물학 등 창의적이고 직관적인 과목에서 뛰어난 성과를 보입니다. 수학이나 물리와 같은 이론적인 과목에서는 어려움을 겪을 수 있으며, 더 실용적인 접근이 필요합니다. 학습이 즐겁고 활기차게 이루어지면 효과적이며, 자유로운 시간 관리와 창의적인 방법으로 학습을 이어가는 것이 중요합니다."
+    },
+    "ENFP": {
+      "learningMethod": "창의적이고 열정적인 접근을 통해 학습하며, 새로운 아이디어를 시도합니다.",
+      "timeManagement": "유연한 계획을 통해 학습하고 자주 변화를 시도합니다.",
+      "recommendedTime": "오후, 창의적인 환경",
+      "dailyStudyTime": "3~5시간",
+      "strongSubjects": "문학, 심리학, 사회학",
+      "weakSubjects": "수학, 과학",
+      "consultingSummary": "ENFP는 창의적이고 열정적으로 학습에 접근합니다. 문학, 심리학, 사회학 등 사람과 관련된 과목에서 뛰어난 성과를 보이며, 새로운 아이디어를 통해 학습을 이어갑니다. 수학과 과학과 같은 계산적이고 구조적인 과목에서는 다소 어려움을 느낄 수 있습니다. 유연하게 계획을 세우고 자주 변화하는 학습 방식이 효과적이며, 학습을 즐기고 창의적으로 접근하는 것이 중요합니다."
+    },
+    "ENTP": {
+      "learningMethod": "논리적이고 이론적인 접근을 선호하며, 다양한 관점에서 문제를 풀어갑니다.",
+      "timeManagement": "자유로운 시간 관리가 필요하며, 때로는 즉흥적인 학습을 시도합니다.",
+      "recommendedTime": "저녁, 자극적인 환경",
+      "dailyStudyTime": "4~6시간",
+      "strongSubjects": "철학, 과학, 수학",
+      "weakSubjects": "예술, 체육",
+      "consultingSummary": "ENTP는 논리적이고 이론적인 접근을 통해 학습을 진행하며, 다양한 관점에서 문제를 해결하는 데 강점을 보입니다. 철학, 과학, 수학과 같은 과목에서 뛰어난 성과를 보이며, 복잡한 문제를 여러 관점에서 풀어가는 것을 즐깁니다. 예술이나 문학과 같은 감성적이고 실용적인 과목에서는 약할 수 있으므로, 더 실용적이고 구조적인 학습 방법이 필요합니다. 자유로운 시간 관리와 즉흥적인 학습도 효과적입니다."
+    },
+    "ESTJ": {
+      "learningMethod": "구조적이고 체계적인 접근을 통해 학습합니다. 구체적인 목표 설정과 계획이 중요합니다.",
+      "timeManagement": "엄격한 스케줄을 따르는 것이 효과적입니다.",
+      "recommendedTime": "아침, 조직적인 환경",
+      "dailyStudyTime": "3~5시간",
+      "strongSubjects": "수학, 경영학, 경제학",
+      "weakSubjects": "예술, 심리학",
+      "consultingSummary": "ESTJ는 매우 구조적이고 체계적인 학습 방식을 선호합니다. 수학, 경영학, 경제학과 같은 실용적이고 구체적인 과목에서 뛰어난 성과를 보입니다. 그러나 예술이나 심리학과 같은 창의적이고 감성적인 과목에서는 어려움을 겪을 수 있습니다. 목표를 분명히 설정하고, 철저한 시간 관리를 통해 학습을 진행하는 것이 중요하며, 효율적으로 학습 계획을 세워 실천하는 것이 성과를 높입니다."
+    },
+    "ESFJ": {
+      "learningMethod": "사회적이고 협력적인 접근을 선호하며, 다른 사람들과 함께 학습하는 것이 효과적입니다.",
+      "timeManagement": "미리 계획하고 사람들과의 상호작용을 통해 학습합니다.",
+      "recommendedTime": "오후, 편안한 환경",
+      "dailyStudyTime": "3~4시간",
+      "strongSubjects": "사회학, 역사, 언어학",
+      "weakSubjects": "수학, 물리",
+      "consultingSummary": "ESFJ는 사회적이고 협력적인 학습 방식을 통해 성과를 올릴 수 있습니다. 사회학, 역사, 언어학과 같은 과목에서 뛰어난 성과를 보이며, 다른 사람들과의 상호작용을 통해 학습을 즐깁니다. 수학이나 물리와 같은 과목에서는 어려움을 느낄 수 있으므로, 구체적이고 체계적인 접근이 필요합니다. 사람들과 함께 하는 학습이나 그룹 활동을 통해 학습 효과를 극대화할 수 있습니다."
+    },
+    "ENFJ": {
+      "learningMethod": "사람과의 소통을 중요하게 생각하며, 감성적이고 동기 부여를 중시합니다.",
+      "timeManagement": "사람들과의 교류와 협력을 통해 효율적인 학습을 합니다.",
+      "recommendedTime": "오전, 긍정적인 환경",
+      "dailyStudyTime": "3~5시간",
+      "strongSubjects": "심리학, 문학, 사회학",
+      "weakSubjects": "수학, 물리",
+      "consultingSummary": "ENFJ는 사람들과의 소통을 통해 학습을 진행합니다. 심리학, 문학, 사회학과 같은 과목에서 뛰어난 성과를 보이며, 학습 중에 다른 사람들과의 의견 교환과 협력이 중요합니다. 수학이나 물리와 같은 과목에서는 어려움을 느낄 수 있으며, 감성적이고 직관적인 방법으로 접근하는 것이 유리합니다. 긍정적이고 협력적인 환경에서 학습을 하면 더 큰 동기 부여를 받을 수 있습니다."
+    },
+    "ENTJ": {
+      "learningMethod": "체계적이고 목표 지향적인 접근을 선호하며, 효율적인 전략을 세웁니다.",
+      "timeManagement": "엄격한 시간 관리와 계획을 통해 학습을 진행합니다.",
+      "recommendedTime": "아침, 집중적인 환경",
+      "dailyStudyTime": "4~6시간",
+      "strongSubjects": "경영학, 경제학, 수학",
+      "weakSubjects": "예술, 문학",
+      "consultingSummary": "ENTJ는 목표를 명확히 설정하고 체계적인 접근을 통해 학습하는 것을 선호합니다. 경영학, 경제학, 수학과 같은 논리적이고 분석적인 과목에서 뛰어난 성과를 보입니다. 예술이나 문학과 같은 창의적이고 감성적인 과목에서는 어려움을 겪을 수 있으므로, 더 실용적이고 구조적인 학습 방법이 필요합니다. 엄격한 시간 관리와 효율적인 계획이 중요하며, 항상 명확한 목표를 설정하여 집중적으로 학습하는 것이 이상적입니다."
+    }
   }
 }

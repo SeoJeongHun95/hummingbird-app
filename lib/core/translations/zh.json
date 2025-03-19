@@ -247,5 +247,293 @@
   "getBrithDateText": {
     "birthDate": "生日",
     "birthDateHint": "请输入您的生日"
+  },
+  "mbti": {
+    "MBTIQuestion1": {
+      "question": "与新朋友社交时",
+      "optionA": "感到充满活力和兴奋",
+      "optionB": "更喜欢独处时光",
+      "category": "E/I"
+    },
+    "MBTIQuestion2": {
+      "question": "周末充电的方式是",
+      "optionA": "与朋友一起度过时光",
+      "optionB": "享受独处时光",
+      "category": "E/I"
+    },
+    "MBTIQuestion3": {
+      "question": "整理思绪时",
+      "optionA": "通过说出来整理思路",
+      "optionB": "在脑海中安静地整理",
+      "category": "E/I"
+    },
+    "MBTIQuestion4": {
+      "question": "在众人面前说话时",
+      "optionA": "感到自然和舒适",
+      "optionB": "感到压力和紧张",
+      "category": "E/I"
+    },
+    "MBTIQuestion5": {
+      "question": "如果独自旅行",
+      "optionA": "可能会感到无聊和孤单",
+      "optionB": "感到期待和兴奋",
+      "category": "E/I"
+    },
+    "MBTIQuestion6": {
+      "question": "听解释时最重视的是",
+      "optionA": "具体案例和细节",
+      "optionB": "整体流程和概念",
+      "category": "S/N"
+    },
+    "MBTIQuestion7": {
+      "question": "学习新技能时",
+      "optionA": "按照手册逐步学习",
+      "optionB": "通过实践直觉地掌握",
+      "category": "S/N"
+    },
+    "MBTIQuestion8": {
+      "question": "在日常生活中",
+      "optionA": "喜欢变化少且熟悉的环境",
+      "optionB": "新体验和变化更有趣",
+      "category": "S/N"
+    },
+    "MBTIQuestion9": {
+      "question": "工作或学习时",
+      "optionA": "仔细检查每个细节",
+      "optionB": "关注整体流程",
+      "category": "S/N"
+    },
+    "MBTIQuestion10": {
+      "question": "做判断时",
+      "optionA": "根据过去经验判断现在",
+      "optionB": "更重视未来的可能性",
+      "category": "S/N"
+    },
+    "MBTIQuestion11": {
+      "question": "做重要决定时",
+      "optionA": "重视逻辑和客观事实",
+      "optionB": "考虑感受和人际关系",
+      "category": "T/F"
+    },
+    "MBTIQuestion12": {
+      "question": "在争论中最重要的是",
+      "optionA": "用逻辑取胜",
+      "optionB": "照顾对方感受",
+      "category": "T/F"
+    },
+    "MBTIQuestion13": {
+      "question": "当别人诉说烦恼时",
+      "optionA": "提供实际的解决方案",
+      "optionB": "共情他们的感受",
+      "category": "T/F"
+    },
+    "MBTIQuestion14": {
+      "question": "处理事务时重要的是",
+      "optionA": "效率和逻辑",
+      "optionB": "团队合作和氛围",
+      "category": "T/F"
+    },
+    "MBTIQuestion15": {
+      "question": "做决定时",
+      "optionA": "根据对错标准判断",
+      "optionB": "考虑他人感受",
+      "category": "T/F"
+    },
+    "MBTIQuestion16": {
+      "question": "日程安排",
+      "optionA": "喜欢提前计划并遵守",
+      "optionB": "根据情况灵活行动",
+      "category": "J/P"
+    },
+    "MBTIQuestion17": {
+      "question": "旅行时",
+      "optionA": "制定详细计划",
+      "optionB": "现场随机决定",
+      "category": "J/P"
+    },
+    "MBTIQuestion18": {
+      "question": "面对截止日期时",
+      "optionA": "提前完成更轻松",
+      "optionB": "灵活调整直到最后",
+      "category": "J/P"
+    },
+    "MBTIQuestion19": {
+      "question": "喜欢的环境是",
+      "optionA": "整理得井井有条的空间",
+      "optionB": "自由氛围的空间",
+      "category": "J/P"
+    },
+    "MBTIQuestion20": {
+      "question": "当计划改变时",
+      "optionA": "感到不适",
+      "optionB": "灵活适应",
+      "category": "J/P"
+    }
+  },
+  "mbtiResult": {
+    "quickInfo": "📚 快速学习信息",
+    "learningGuide": "🎯 学习方法指南",
+    "consultingSummary": "💡 学习咨询总结",
+    "recommendedTime": "推荐学习时间",
+    "dailyStudyTime": "每日建议学习时长",
+    "strongSubjects": "优势学科",
+    "weakSubjects": "弱势学科",
+    "learningMethod": "学习方法",
+    "timeManagement": "时间管理",
+    "analysisTitle": "MBTI学习风格分析报告",
+    "analysisResult": "学习类型分析结果",
+    "confirm": "确认",
+    "shareComplete": "分享成功",
+    "shareFailed": "分享失败",
+    "myMBTIStyle": "我的MBTI学习风格",
+    "CheckMyMBTI": "来看看我的MBTI结果吧!\n#StudyDuck #学习鸭 #MBTI学习法",
+    "MBTILearningStyleTest": "MBTI学习风格测试",
+    "question": "问题"
+  },
+  "mbtiTypeResult": {
+    "ISTJ": {
+      "learningMethod": "倾向于系统和逻辑性的学习方法，计划性学习很重要。",
+      "timeManagement": "按照固定时间表学习最有效。",
+      "recommendedTime": "早晨或晚上，安静的环境",
+      "dailyStudyTime": "2~4小时",
+      "strongSubjects": "数学、科学、历史",
+      "weakSubjects": "文学、艺术、哲学",
+      "consultingSummary": "ISTJ通过严格的计划和系统的方法可以很好地学习。在数学、科学、历史等科目上表现出色。在固定的时间和环境中持续学习很重要，在实用和逻辑性的科目中表现出优势。在文学、艺术、哲学等创造性和感性的科目可能会遇到困难，因此这些科目最好通过实用的例子来学习。每天在固定时间坚持学习并设定目标，就能取得很大的成果。"
+    },
+    "ISFJ": {
+      "learningMethod": "重复学习和关注细节的学习方式最为有效。",
+      "timeManagement": "提前制定计划并付诸实践很重要。",
+      "recommendedTime": "下午，稳定的环境",
+      "dailyStudyTime": "2~3小时",
+      "strongSubjects": "历史、生物、社会、文学",
+      "weakSubjects": "数学、物理、体育",
+      "consultingSummary": "ISFJ通过重复学习可以取得成果。在历史、文学、社会等科目表现优异，因为注重细节所以能够准确学习。在数学或物理等理论性和抽象性的科目可能会遇到一些困难。每天坚持制定计划并持续学习很重要，即使进度缓慢也要认真完成每个科目。在稳定的环境中能够集中注意力取得成果。"
+    },
+    "INFJ": {
+      "learningMethod": "重视深入理解和洞察，寻找意义的学习方式最有效。",
+      "timeManagement": "需要设定长期目标和自我反省。",
+      "recommendedTime": "晚上，安静的空间",
+      "dailyStudyTime": "3~5小时",
+      "strongSubjects": "文学、哲学、心理学",
+      "weakSubjects": "数学、物理",
+      "consultingSummary": "INFJ通过深入探究和洞察力来进行学习。在文学、哲学、心理学等科目表现出色。在学习过程中寻求更深层的意义，因此动力很重要。在数学或物理等具体科目可能会感到困难，学习这些科目前最好先简单理解基本概念。通过自我反省不断调整学习方法，设定长期目标并持续发展是关键。"
+    },
+    "INTJ": {
+      "learningMethod": "倾向于逻辑和系统的学习，注重策略性方法。",
+      "timeManagement": "需要制定长期计划并有效分配时间。",
+      "recommendedTime": "凌晨或晚上",
+      "dailyStudyTime": "4~6小时",
+      "strongSubjects": "数学、科学、逻辑学",
+      "weakSubjects": "体育、艺术",
+      "consultingSummary": "INTJ通过周密的计划和策略性方法能够有效学习。在数学、科学和逻辑学方面表现出色，通过独立学习可以获得深入的理解。但可能过于完美主义，导致学习进度缓慢。在体育或艺术等科目可能较弱，建议通过实用的例子来学习这些科目。设定实际的目标和期限，按计划学习可以达到最佳效果。"
+    },
+    "ISTP": {
+      "learningMethod": "通过实际经验和实践学习最为有效。",
+      "timeManagement": "偏好即兴学习，需要灵活的计划。",
+      "recommendedTime": "白天，活跃的环境",
+      "dailyStudyTime": "2~4小时",
+      "strongSubjects": "工程、物理、计算机科学",
+      "weakSubjects": "哲学、文学",
+      "consultingSummary": "ISTP能通过实际经验和实践快速学习。在工程、物理、计算机科学等实用和逻辑性科目上表现出色。但在哲学或文学等理论性科目可能遇到困难，建议通过实用的例子和案例来学习。时间管理和学习计划要保持灵活，创造适合集中注意力的环境很重要。"
+    },
+    "ISFP": {
+      "learningMethod": "偏好感性和实用的方法，喜欢实用性学习。",
+      "timeManagement": "自由学习最有效，但需要基本计划。",
+      "recommendedTime": "下午或晚上",
+      "dailyStudyTime": "2~3小时",
+      "strongSubjects": "艺术、设计、生物",
+      "weakSubjects": "数学、逻辑学",
+      "consultingSummary": "ISFP通过创造性和感性的方法能有效学习。在艺术、设计、生物等创造性和直觉性科目表现优异。在数学或逻辑学等理论性和分析性科目可能遇到困难，建议通过实用的例子和案例来学习。适合自由灵活的学习方式，保持自主学习很重要。"
+    },
+    "INFP": {
+      "learningMethod": "偏好感性和有意义的学习，享受深入探究。",
+      "timeManagement": "保持自己的节奏很重要。",
+      "recommendedTime": "夜晚，安静的空间",
+      "dailyStudyTime": "3~5小时",
+      "strongSubjects": "文学、心理学、社会学",
+      "weakSubjects": "数学、科学",
+      "consultingSummary": "INFP以创造性和热情的方式进行学习。在文学、心理学、社会学等与人相关的科目表现出色，通过新想法持续学习。在数学和科学等计算性和结构性科目可能感到困难。灵活制定计划并经常改变学习方式最有效，享受学习并创造性地接近它很重要。"
+    },
+    "INTP": {
+      "learningMethod": "理论概念探究和实验性方法最为有效。",
+      "timeManagement": "需要灵活的时间安排，有时采用即兴学习。",
+      "recommendedTime": "凌晨，安静的环境",
+      "dailyStudyTime": "4~6小时",
+      "strongSubjects": "哲学、科学、数学",
+      "weakSubjects": "艺术、体育",
+      "consultingSummary": "INTP通过逻辑和理论方法进行学习，在多角度解决问题方面表现出色。在哲学、科学、数学等科目表现优异，喜欢从不同角度解决复杂问题。在艺术或体育等感性和实用性科目可能表现较弱，建议通过更具体和实用的例子来学习。灵活的时间管理和即兴学习也很有效。"
+    },
+    "ESTP": {
+      "learningMethod": "偏好实验性和直觉性方法，活动性学习最有效。",
+      "timeManagement": "灵活制定计划，尝试即兴学习。",
+      "recommendedTime": "白天，活跃的环境",
+      "dailyStudyTime": "3~5小时",
+      "strongSubjects": "物理、数学、工程",
+      "weakSubjects": "文学、哲学",
+      "consultingSummary": "ESTP在实验性方法中表现出色。在物理、工程、数学等科目表现优异，适合通过解决实际问题的方式学习。在文学或哲学等抽象科目可能会感到困难。在活跃和实验性环境中学习效果最好，制定灵活的时间计划最为有效。"
+    },
+    "ESFP": {
+      "learningMethod": "偏好感性和实用的方法，喜欢活力和愉快的学习方式。",
+      "timeManagement": "通过自由计划享受学习过程。",
+      "recommendedTime": "下午，活跃的环境",
+      "dailyStudyTime": "3~4小时",
+      "strongSubjects": "艺术、社会、生物学",
+      "weakSubjects": "数学、物理",
+      "consultingSummary": "ESFP倾向于实用和感性的学习方式。在艺术、社会、生物学等创造性和直觉性科目表现优异。在数学或物理等理论性科目可能会遇到困难，需要更实用的学习方法。学习过程愉快活力时效果最好，保持自由的时间管理和创造性的学习方法很重要。"
+    },
+    "ENFP": {
+      "learningMethod": "通过创造性和热情的方式学习，尝试新想法。",
+      "timeManagement": "通过灵活计划学习，经常尝试改变。",
+      "recommendedTime": "下午，创造性环境",
+      "dailyStudyTime": "3~5小时",
+      "strongSubjects": "文学、心理学、社会学",
+      "weakSubjects": "数学、科学",
+      "consultingSummary": "ENFP以创造性和热情的方式进行学习。在文学、心理学、社会学等与人相关的科目表现出色，通过新想法持续学习。在数学和科学等计算性和结构性科目可能感到困难。灵活制定计划并经常改变学习方式最有效，享受学习并创造性地接近它很重要。"
+    },
+    "ENTP": {
+      "learningMethod": "偏好逻辑和理论方法，从多角度解决问题。",
+      "timeManagement": "需要自由的时间管理，有时采用即兴学习。",
+      "recommendedTime": "晚上，有刺激性的环境",
+      "dailyStudyTime": "4~6小时",
+      "strongSubjects": "哲学、科学、数学",
+      "weakSubjects": "艺术、体育",
+      "consultingSummary": "ENTP通过逻辑和理论方法进行学习，在多角度解决问题方面表现出色。在哲学、科学、数学等科目表现优异，喜欢从不同角度解决复杂问题。在艺术或文学等感性和实用性科目可能表现较弱，需要更实用和结构化的学习方法。自由的时间管理和即兴学习也很有效。"
+    },
+    "ESTJ": {
+      "learningMethod": "通过结构化和系统性方法学习。设定具体目标和计划很重要。",
+      "timeManagement": "严格遵循时间表最为有效。",
+      "recommendedTime": "早晨，有组织的环境",
+      "dailyStudyTime": "3~5小时",
+      "strongSubjects": "数学、管理学、经济学",
+      "weakSubjects": "艺术、心理学",
+      "consultingSummary": "ESTJ偏好非常结构化和系统性的学习方式。在数学、管理学、经济学等实用和具体的科目表现优异。但在艺术或心理学等创造性和感性科目可能会遇到困难。明确设定目标，通过严格的时间管理进行学习很重要，制定并执行有效的学习计划可以提高成果。"
+    },
+    "ESFJ": {
+      "learningMethod": "偏好社交和合作的方法，与他人一起学习最有效。",
+      "timeManagement": "提前计划并通过与他人互动来学习。",
+      "recommendedTime": "下午，舒适的环境",
+      "dailyStudyTime": "3~4小时",
+      "strongSubjects": "社会学、历史、语言学",
+      "weakSubjects": "数学、物理",
+      "consultingSummary": "ESFJ通过社交和合作的学习方式可以取得好成绩。在社会学、历史、语言学等科目表现优异，享受与他人互动的学习过程。在数学或物理等科目可能会感到困难，需要具体和系统的学习方法。通过与他人一起学习或小组活动可以最大化学习效果。"
+    },
+    "ENFJ": {
+      "learningMethod": "重视与人沟通，注重情感和动力。",
+      "timeManagement": "通过与他人交流和合作实现高效学习。",
+      "recommendedTime": "上午，积极的环境",
+      "dailyStudyTime": "3~5小时",
+      "strongSubjects": "心理学、文学、社会学",
+      "weakSubjects": "数学、物理",
+      "consultingSummary": "ENFJ通过与他人沟通进行学习。在心理学、文学、社会学等科目表现优异，学习过程中重视与他人交换意见和合作。在数学或物理等科目可能会感到困难，适合采用感性和直觉的方法。在积极和合作的环境中学习可以获得更大的动力。"
+    },
+    "ENTJ": {
+      "learningMethod": "偏好系统性和目标导向的方法，制定有效策略。",
+      "timeManagement": "通过严格的时间管理和计划进行学习。",
+      "recommendedTime": "早晨，专注的环境",
+      "dailyStudyTime": "4~6小时",
+      "strongSubjects": "管理学、经济学、数学",
+      "weakSubjects": "艺术、文学",
+      "consultingSummary": "ENTJ喜欢明确设定目标并通过系统方法学习。在管理学、经济学、数学等逻辑和分析性科目表现优异。在艺术或文学等创造性和感性科目可能会遇到困难，需要更实用和结构化的学习方法。严格的时间管理和有效的计划很重要，始终设定明确目标并集中学习是最理想的。"
+    }
   }
 }

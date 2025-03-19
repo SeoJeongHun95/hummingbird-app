@@ -247,5 +247,293 @@
   "getBrithDateText": {
     "birthDate": "生年月日",
     "birthDateHint": "生年月日を登録してください"
+  },
+  "mbti": {
+    "MBTIQuestion1": {
+      "question": "新しい人々と交流するとき",
+      "optionA": "気分が良くなり、活力が湧いてくる",
+      "optionB": "一人でいる時間の方が快適だ",
+      "category": "E/I"
+    },
+    "MBTIQuestion2": {
+      "question": "週末にエネルギーを充電する方法は",
+      "optionA": "友達と会って時間を過ごす",
+      "optionB": "一人の時間を過ごす",
+      "category": "E/I"
+    },
+    "MBTIQuestion3": {
+      "question": "考えを整理するとき",
+      "optionA": "声に出して整理する",
+      "optionB": "静かに頭の中で整理する",
+      "category": "E/I"
+    },
+    "MBTIQuestion4": {
+      "question": "大勢の前で話すことは",
+      "optionA": "自然で快適だ",
+      "optionB": "負担で緊張する",
+      "category": "E/I"
+    },
+    "MBTIQuestion5": {
+      "question": "一人旅に行くとしたら",
+      "optionA": "退屈で寂しそうだ",
+      "optionB": "期待で胸が躍る",
+      "category": "E/I"
+    },
+    "MBTIQuestion6": {
+      "question": "説明を聞くとき重要に考えること",
+      "optionA": "具体的な例と詳細情報",
+      "optionB": "全体の流れと概念",
+      "category": "S/N"
+    },
+    "MBTIQuestion7": {
+      "question": "新しい技術を学ぶとき",
+      "optionA": "マニュアルを見ながら段階的に学ぶ",
+      "optionB": "実践しながら感覚的に覚える",
+      "category": "S/N"
+    },
+    "MBTIQuestion8": {
+      "question": "日常生活で",
+      "optionA": "変化が少なく慣れた環境が好き",
+      "optionB": "新しい経験と変化の方が面白い",
+      "category": "S/N"
+    },
+    "MBTIQuestion9": {
+      "question": "仕事や学習をするとき",
+      "optionA": "細部まで丁寧にチェックする",
+      "optionB": "全体の流れの把握に集中する",
+      "category": "S/N"
+    },
+    "MBTIQuestion10": {
+      "question": "判断するとき",
+      "optionA": "過去の経験を基に現在を判断する",
+      "optionB": "将来の可能性をより重視する",
+      "category": "S/N"
+    },
+    "MBTIQuestion11": {
+      "question": "重要な決定を下すとき",
+      "optionA": "論理と客観的な事実を重視する",
+      "optionB": "感情と人間関係を考慮する",
+      "category": "T/F"
+    },
+    "MBTIQuestion12": {
+      "question": "議論で重要に考えること",
+      "optionA": "論理的に勝つこと",
+      "optionB": "相手の感情に配慮すること",
+      "category": "T/F"
+    },
+    "MBTIQuestion13": {
+      "question": "他人が悩みを話すとき",
+      "optionA": "現実的な解決策を提示する",
+      "optionB": "感情に共感する",
+      "category": "T/F"
+    },
+    "MBTIQuestion14": {
+      "question": "仕事をする上で重要なこと",
+      "optionA": "効率性と論理",
+      "optionB": "チームワークと雰囲気",
+      "category": "T/F"
+    },
+    "MBTIQuestion15": {
+      "question": "決定を下すとき",
+      "optionA": "正しいか間違っているかで判断する",
+      "optionB": "相手の気持ちを考慮する",
+      "category": "T/F"
+    },
+    "MBTIQuestion16": {
+      "question": "スケジュール管理は",
+      "optionA": "事前に計画を立てて守ることが好き",
+      "optionB": "臨機応変に柔軟に行動する",
+      "category": "J/P"
+    },
+    "MBTIQuestion17": {
+      "question": "旅行に行くとき",
+      "optionA": "詳細な計画を立てる",
+      "optionB": "現場で即興的に決める",
+      "category": "J/P"
+    },
+    "MBTIQuestion18": {
+      "question": "締め切りがあるとき",
+      "optionA": "早めに終わらせる方が楽だ",
+      "optionB": "最後まで柔軟に調整する",
+      "category": "J/P"
+    },
+    "MBTIQuestion19": {
+      "question": "好みの環境は",
+      "optionA": "整理された清潔な空間",
+      "optionB": "自由な雰囲気の空間",
+      "category": "J/P"
+    },
+    "MBTIQuestion20": {
+      "question": "計画が狂ったとき",
+      "optionA": "不快感を感じる",
+      "optionB": "柔軟に適応する",
+      "category": "J/P"
+    }
+  },
+  "mbtiResult": {
+    "quickInfo": "📚 クイック学習情報",
+    "learningGuide": "🎯 学習方法ガイド",
+    "consultingSummary": "💡 学習コンサルティング総評",
+    "recommendedTime": "推奨学習時間",
+    "dailyStudyTime": "1日の推奨学習時間",
+    "strongSubjects": "得意科目",
+    "weakSubjects": "苦手科目",
+    "learningMethod": "学習方法",
+    "timeManagement": "時間管理",
+    "analysisTitle": "MBTI学習スタイル分析レポート",
+    "analysisResult": "学習タイプ分析結果",
+    "confirm": "確認",
+    "shareComplete": "共有が完了しました",
+    "shareFailed": "共有に失敗しました",
+    "myMBTIStyle": "私のMBTI学習スタイル",
+    "CheckMyMBTI": "あなたのMBTI結果をチェック!\n#Study Duck #スタディダック #スタディダック #MBTI学習法",
+    "MBTILearningStyleTest": "MBTI学習スタイル診断",
+    "question": "質問"
+  },
+  "mbtiTypeResult": {
+    "ISTJ": {
+      "learningMethod": "体系的で論理的なアプローチを好み、計画的な学習が重要です。",
+      "timeManagement": "決められたスケジュールに従うことが効率的です。",
+      "recommendedTime": "午前または夕方、静かな環境",
+      "dailyStudyTime": "2~4時間",
+      "strongSubjects": "数学、科学、歴史",
+      "weakSubjects": "文学、芸術、哲学",
+      "consultingSummary": "ISTJは徹底的な計画と体系的なアプローチで学習を効果的に進めることができます。数学、科学、歴史などの科目で優れた成果を上げます。一定の時間と環境で一貫して学習することが重要で、実用的で論理的な科目で強みを発揮します。文学や芸術、哲学などの創造的で感性的な科目では苦労する可能性があるため、これらの科目は実用的な例を通じて学習すると効果的です。毎日決まった時間に着実に学習し、目標を設定していくことで大きな成果を上げることができます。"
+    },
+    "ISFJ": {
+      "learningMethod": "反復学習と細部に注意を払う学習方式が効果的です。",
+      "timeManagement": "事前に計画を立てて実践することが重要です。",
+      "recommendedTime": "午後、安定した環境",
+      "dailyStudyTime": "2~3時間",
+      "strongSubjects": "歴史、生物、社会、文学",
+      "weakSubjects": "数学、物理、体育",
+      "consultingSummary": "ISFJは反復的な学習を通じて成果を上げることができます。歴史や文学、社会などの科目で優れた成果を上げ、細部に注意を払うため正確な学習が可能です。数学や物理のような理論的で抽象的な科目では多少苦労する可能性があります。毎日着実に計画を立てて学習を続けることが良く、進度が遅くても誠実に一つの科目を完成させることが重要です。安定した環境で集中して成果を上げることができます。"
+    },
+    "INFJ": {
+      "learningMethod": "深い理解と洞察を重視し、意味を見出す学習が効果的です。",
+      "timeManagement": "長期的な目標設定と自己反省が必要です。",
+      "recommendedTime": "夜、静かな空間",
+      "dailyStudyTime": "3~5時間",
+      "strongSubjects": "文学、哲学、心理学",
+      "weakSubjects": "数学、物理",
+      "consultingSummary": "INFJは深い探求と洞察力を通じて学習を進めます。文学、哲学、心理学などの科目で優れた成果を示します。学習を進める際に大きな意味を見出そうとするため、モチベーションが重要です。数学や物理のような具体的な科目では困難を感じることがあり、これらの科目を学ぶ前に基本的な概念を分かりやすく理解することが有利です。自己反省を通じて学習方法を継続的に調整し、長期的な目標を立てて持続的に発展することが鍵となります。"
+    },
+    "INTJ": {
+      "learningMethod": "論理的かつ体系的な学習を好み、戦略的なアプローチが重要です。",
+      "timeManagement": "長期的な計画を立て、効率的な時間配分が必要です。",
+      "recommendedTime": "明け方または夜",
+      "dailyStudyTime": "4~6時間",
+      "strongSubjects": "数学、科学、論理学",
+      "weakSubjects": "体育、芸術",
+      "consultingSummary": "INTJは徹底的な計画と戦略的なアプローチを通じて効果的に学習を行うことができます。数学、科学、論理学で優れた成果を示し、独立した学習を通じて深い理解を得ることができます。しかし、完璧主義的すぎる傾向があり、学習の速度が遅くなる可能性があります。体育や芸術の科目では若干苦手な場合があるため、これらの科目は実践的な例を通じてアプローチすることが良いでしょう。現実的な目標と期限を設定し、計画的に学習することで最大の効果を得ることができます。"
+    },
+    "ISTP": {
+      "learningMethod": "実際の経験と実習を通じて学ぶことが効果的です。",
+      "timeManagement": "即興的な学習を好むため、柔軟な計画が必要です。",
+      "recommendedTime": "昼、活動的な環境",
+      "dailyStudyTime": "2~4時間",
+      "strongSubjects": "工学、物理、コンピューターサイエンス",
+      "weakSubjects": "哲学、文学",
+      "consultingSummary": "ISTPは実際の経験と実習を通じて素早く学習することができます。工学、物理、コンピューターサイエンスのような実用的で論理的な科目で強みを発揮します。しかし、哲学や文学のような理論的な科目では多少困難を感じることがあるため、実用的な例や事例を通じてアプローチすることが効果的です。時間管理と学習計画において柔軟性を持ち、集中できる環境を整えることが重要です。"
+    },
+    "ISFP": {
+      "learningMethod": "感覚的で実用的なアプローチを好み、実践的な学習を好みます。",
+      "timeManagement": "自由な学習が効果的ですが、基本的な計画が必要です。",
+      "recommendedTime": "午後または夜",
+      "dailyStudyTime": "2~3時間",
+      "strongSubjects": "芸術、デザイン、生物",
+      "weakSubjects": "数学、論理学",
+      "consultingSummary": "ISFPは創造的で感覚的なアプローチを通じて効果的に学習を進めることができます。芸術とデザイン、生物学など創造的で直感的な科目で優れた成果を示します。数学や論理学のような理論的で分析的な科目では困難を感じることがあるため、実用的な例や事例を通じてアプローチすることが良いでしょう。自由で柔軟な学習方式が有利であり、自己主導的に学習を進めることが重要です。"
+    },
+    "INFP": {
+      "learningMethod": "感性的で意味のある学習を好み、深い探求を楽しみます。",
+      "timeManagement": "自分のペースを維持することが重要です。",
+      "recommendedTime": "夜、静かな空間",
+      "dailyStudyTime": "3~5時間",
+      "strongSubjects": "文学、心理学、社会学",
+      "weakSubjects": "数学、科学",
+      "consultingSummary": "INFPは創造的で情熱的に学習にアプローチします。文学、心理学、社会学など人に関連する科目で優れた成果を示し、新しいアイデアを通じて学習を進めます。数学や科学のような計算的で構造的な科目では多少困難を感じることがあります。柔軟に計画を立て、頻繁に変化する学習方式が効果的であり、学習を楽しみ創造的にアプローチすることが重要です。"
+    },
+    "INTP": {
+      "learningMethod": "理論的な概念を探求し、実験的なアプローチが効果的です。",
+      "timeManagement": "柔軟なスケジュールが必要で、時には即興的な学習を試みます。",
+      "recommendedTime": "明け方、静かな環境",
+      "dailyStudyTime": "4~6時間",
+      "strongSubjects": "哲学、科学、数学",
+      "weakSubjects": "芸術、体育",
+      "consultingSummary": "INTPは論理的で理論的なアプローチを通じて学習を進め、様々な視点から問題を解決することに強みを示します。哲学、科学、数学のような科目で優れた成果を示し、複雑な問題を様々な視点から解いていくことを楽しみます。芸術や体育のような感性的で実用的な科目では弱い可能性があるため、より具体的で実用的な例を通じてアプローチすることが良いでしょう。自由な時間管理と即興的な学習も効果的です。"
+    },
+    "ESTP": {
+      "learningMethod": "実験的で直感的なアプローチを好み、活動的な学習が効果的です。",
+      "timeManagement": "柔軟に計画し、即興的な学習を試みます。",
+      "recommendedTime": "昼、活動的な環境",
+      "dailyStudyTime": "3~5時間",
+      "strongSubjects": "物理、数学、工学",
+      "weakSubjects": "文学、哲学",
+      "consultingSummary": "ESTPは実験的な方法を通じて学習する時に強みを示します。物理や工学、数学のような科目で頭角を現し、実際の問題を解決する方式でアプローチすることが良いです。文学や哲学のように抽象的な科目では困難を感じることがあります。活動的で実験的な環境で学習を進めることが理想的であり、柔軟な時間計画を立てることが効果的です。"
+    },
+    "ESFP": {
+      "learningMethod": "感覚的で実用的なアプローチを好み、活気があり楽しく学習します。",
+      "timeManagement": "自由な計画を通じて学習を楽しみながら行います。",
+      "recommendedTime": "午後、活動的な環境",
+      "dailyStudyTime": "3~4時間",
+      "strongSubjects": "芸術、社会、生物学",
+      "weakSubjects": "数学、物理",
+      "consultingSummary": "ESFPは実用的で感覚的な学習を好みます。芸術、社会、生物学など創造的で直感的な科目で優れた成果を示します。数学や物理のような理論的な科目では困難を感じることがあり、より実用的なアプローチが必要です。学習が楽しく活気があれば効果的であり、自由な時間管理と創造的な方法で学習を進めることが重要です。"
+    },
+    "ENFP": {
+      "learningMethod": "創造的で情熱的なアプローチを通じて学習し、新しいアイデアを試みます。",
+      "timeManagement": "柔軟な計画を通じて学習し、頻繁に変化を試みます。",
+      "recommendedTime": "午後、創造的な環境",
+      "dailyStudyTime": "3~5時間",
+      "strongSubjects": "文学、心理学、社会学",
+      "weakSubjects": "数学、科学",
+      "consultingSummary": "ENFPは創造的で情熱的に学習にアプローチします。文学、心理学、社会学など人に関連する科目で優れた成果を示し、新しいアイデアを通じて学習を進めます。数学や科学のような計算的で構造的な科目では多少困難を感じることがあります。柔軟に計画を立て、頻繁に変化する学習方式が効果的であり、学習を楽しみ創造的にアプローチすることが重要です。"
+    },
+    "ENTP": {
+      "learningMethod": "論理的で理論的なアプローチを好み、様々な視点から問題を解いていきます。",
+      "timeManagement": "自由な時間管理が必要で、時には即興的な学習を試みます。",
+      "recommendedTime": "夜、刺激的な環境",
+      "dailyStudyTime": "4~6時間",
+      "strongSubjects": "哲学、科学、数学",
+      "weakSubjects": "芸術、体育",
+      "consultingSummary": "ENTPは論理的で理論的なアプローチを通じて学習を進め、様々な視点から問題を解決することに強みを示します。哲学、科学、数学のような科目で優れた成果を示し、複雑な問題を様々な視点から解いていくことを楽しみます。芸術や文学のような感性的で実用的な科目では弱い可能性があるため、より実用的で構造的な学習方法が必要です。自由な時間管理と即興的な学習も効果的です。"
+    },
+    "ESTJ": {
+      "learningMethod": "構造的で体系的なアプローチを通じて学習します。具体的な目標設定と計画が重要です。",
+      "timeManagement": "厳格なスケジュールに従うことが効果的です。",
+      "recommendedTime": "朝、組織的な環境",
+      "dailyStudyTime": "3~5時間",
+      "strongSubjects": "数学、経営学、経済学",
+      "weakSubjects": "芸術、心理学",
+      "consultingSummary": "ESTJは非常に構造的で体系的な学習方式を好みます。数学、経営学、経済学のような実用的で具体的な科目で優れた成果を示します。しかし、芸術や心理学のような創造的で感性的な科目では困難を感じることがあります。目標を明確に設定し、徹底的な時間管理を通じて学習を進めることが重要であり、効率的に学習計画を立てて実践することで成果を高めます。"
+    },
+    "ESFJ": {
+      "learningMethod": "社会的で協力的なアプローチを好み、他の人々と共に学習することが効果的です。",
+      "timeManagement": "事前に計画し、人々との相互作用を通じて学習します。",
+      "recommendedTime": "午後、快適な環境",
+      "dailyStudyTime": "3~4時間",
+      "strongSubjects": "社会学、歴史、言語学",
+      "weakSubjects": "数学、物理",
+      "consultingSummary": "ESFJは社会的で協力的な学習方式を通じて成果を上げることができます。社会学、歴史、言語学のような科目で優れた成果を示し、他の人々との相互作用を通じて学習を楽しみます。数学や物理のような科目では困難を感じることがあるため、具体的で体系的なアプローチが必要です。人々と共に行う学習やグループ活動を通じて学習効果を最大化することができます。"
+    },
+    "ENFJ": {
+      "learningMethod": "人とのコミュニケーションを重要に考え、感性的でモチベーションを重視します。",
+      "timeManagement": "人々との交流と協力を通じて効率的な学習をします。",
+      "recommendedTime": "午前、ポジティブな環境",
+      "dailyStudyTime": "3~5時間",
+      "strongSubjects": "心理学、文学、社会学",
+      "weakSubjects": "数学、物理",
+      "consultingSummary": "ENFJは人々とのコミュニケーションを通じて学習を進めます。心理学、文学、社会学のような科目で優れた成果を示し、学習中に他の人々との意見交換と協力が重要です。数学や物理のような科目では困難を感じることがあり、感性的で直感的な方法でアプローチすることが有利です。ポジティブで協力的な環境で学習をすればより大きなモチベーションを得ることができます。"
+    },
+    "ENTJ": {
+      "learningMethod": "体系的で目標志向的なアプローチを好み、効率的な戦略を立てます。",
+      "timeManagement": "厳格な時間管理と計画を通じて学習を進めます。",
+      "recommendedTime": "朝、集中的な環境",
+      "dailyStudyTime": "4~6時間",
+      "strongSubjects": "経営学、経済学、数学",
+      "weakSubjects": "芸術、文学",
+      "consultingSummary": "ENTJは目標を明確に設定し体系的なアプローチを通じて学習することを好みます。経営学、経済学、数学のような論理的で分析的な科目で優れた成果を示します。芸術や文学のような創造的で感性的な科目では困難を感じることがあるため、より実用的で構造的な学習方法が必要です。厳格な時間管理と効率的な計画が重要であり、常に明確な目標を設定して集中的に学習することが理想的です。"
+    }
   }
 }

@@ -247,5 +247,293 @@
   "getBrithDateText": {
     "birthDate": "Ngày sinh",
     "birthDateHint": "Hãy nhập ngày sinh của bạn"
+  },
+  "mbti": {
+    "MBTIQuestion1": {
+      "question": "Khi giao tiếp với người mới",
+      "optionA": "Cảm thấy vui vẻ và tràn đầy năng lượng",
+      "optionB": "Cảm thấy thoải mái hơn khi ở một mình",
+      "category": "E/I"
+    },
+    "MBTIQuestion2": {
+      "question": "Cách nạp năng lượng vào cuối tuần",
+      "optionA": "Dành thời gian gặp gỡ bạn bè",
+      "optionB": "Dành thời gian ở một mình",
+      "category": "E/I"
+    },
+    "MBTIQuestion3": {
+      "question": "Khi sắp xếp suy nghĩ",
+      "optionA": "Nói ra thành lời để sắp xếp",
+      "optionB": "Sắp xếp một cách yên lặng trong đầu",
+      "category": "E/I"
+    },
+    "MBTIQuestion4": {
+      "question": "Việc nói trước đám đông",
+      "optionA": "Tự nhiên và thoải mái",
+      "optionB": "Cảm thấy áp lực và căng thẳng",
+      "category": "E/I"
+    },
+    "MBTIQuestion5": {
+      "question": "Nếu đi du lịch một mình",
+      "optionA": "Có thể sẽ thấy buồn chán và cô đơn",
+      "optionB": "Cảm thấy háo hức và phấn khích",
+      "category": "E/I"
+    },
+    "MBTIQuestion6": {
+      "question": "Điều quan trọng khi nghe giải thích",
+      "optionA": "Ví dụ cụ thể và chi tiết",
+      "optionB": "Khái niệm và dòng chảy tổng thể",
+      "category": "S/N"
+    },
+    "MBTIQuestion7": {
+      "question": "Khi học một kỹ năng mới",
+      "optionA": "Học từng bước theo hướng dẫn",
+      "optionB": "Học qua trải nghiệm thực tế",
+      "category": "S/N"
+    },
+    "MBTIQuestion8": {
+      "question": "Trong cuộc sống hàng ngày",
+      "optionA": "Thích môi trường quen thuộc, ít thay đổi",
+      "optionB": "Thích trải nghiệm mới và thay đổi thú vị",
+      "category": "S/N"
+    },
+    "MBTIQuestion9": {
+      "question": "Khi làm việc hoặc học tập",
+      "optionA": "Kiểm tra kỹ lưỡng từng chi tiết",
+      "optionB": "Tập trung vào nắm bắt tổng thể",
+      "category": "S/N"
+    },
+    "MBTIQuestion10": {
+      "question": "Khi đưa ra quyết định",
+      "optionA": "Dựa trên kinh nghiệm quá khứ",
+      "optionB": "Cân nhắc khả năng trong tương lai",
+      "category": "S/N"
+    },
+    "MBTIQuestion11": {
+      "question": "Khi đưa ra quyết định quan trọng",
+      "optionA": "Chú trọng logic và sự thật khách quan",
+      "optionB": "Cân nhắc cảm xúc và mối quan hệ",
+      "category": "T/F"
+    },
+    "MBTIQuestion12": {
+      "question": "Điều quan trọng trong tranh luận",
+      "optionA": "Thắng bằng lý lẽ logic",
+      "optionB": "Quan tâm đến cảm xúc đối phương",
+      "category": "T/F"
+    },
+    "MBTIQuestion13": {
+      "question": "Khi người khác chia sẻ vấn đề",
+      "optionA": "Đề xuất giải pháp thực tế",
+      "optionB": "Đồng cảm với cảm xúc",
+      "category": "T/F"
+    },
+    "MBTIQuestion14": {
+      "question": "Điều quan trọng khi xử lý công việc",
+      "optionA": "Hiệu quả và logic",
+      "optionB": "Tinh thần đồng đội và bầu không khí",
+      "category": "T/F"
+    },
+    "MBTIQuestion15": {
+      "question": "Khi đưa ra quyết định",
+      "optionA": "Đánh giá dựa trên đúng sai",
+      "optionB": "Cân nhắc cảm xúc của người khác",
+      "category": "T/F"
+    },
+    "MBTIQuestion16": {
+      "question": "Quản lý lịch trình",
+      "optionA": "Thích lập kế hoạch trước và tuân thủ",
+      "optionB": "Linh hoạt và hành động theo tình huống",
+      "category": "J/P"
+    },
+    "MBTIQuestion17": {
+      "question": "Khi đi du lịch",
+      "optionA": "Lập kế hoạch chi tiết",
+      "optionB": "Quyết định linh hoạt tại chỗ",
+      "category": "J/P"
+    },
+    "MBTIQuestion18": {
+      "question": "Khi có thời hạn",
+      "optionA": "Thích hoàn thành sớm",
+      "optionB": "Linh hoạt điều chỉnh đến phút cuối",
+      "category": "J/P"
+    },
+    "MBTIQuestion19": {
+      "question": "Môi trường ưa thích",
+      "optionA": "Không gian ngăn nắp, gọn gàng",
+      "optionB": "Không gian tự do, thoải mái",
+      "category": "J/P"
+    },
+    "MBTIQuestion20": {
+      "question": "Khi kế hoạch thay đổi",
+      "optionA": "Cảm thấy không thoải mái",
+      "optionB": "Thích nghi một cách linh hoạt",
+      "category": "J/P"
+    }
+  },
+  "mbtiResult": {
+    "quickInfo": "📚 Thông tin Nhanh",
+    "learningGuide": "🎯 Hướng dẫn Phương pháp Học tập",
+    "consultingSummary": "💡 Tổng kết Tư vấn Học tập",
+    "recommendedTime": "Thời gian Đề xuất",
+    "dailyStudyTime": "Thời gian Học Hàng ngày",
+    "strongSubjects": "Môn học Thế mạnh",
+    "weakSubjects": "Môn học Cần cải thiện",
+    "learningMethod": "Phương pháp Học tập",
+    "timeManagement": "Quản lý Thời gian",
+    "analysisTitle": "Báo cáo Phân tích Phong cách Học tập MBTI",
+    "analysisResult": "Kết quả Phân tích Kiểu Học tập",
+    "confirm": "Xác nhận",
+    "shareComplete": "Chia sẻ thành công",
+    "shareFailed": "Chia sẻ thất bại",
+    "myMBTIStyle": "Phong cách Học tập MBTI của tôi",
+    "CheckMyMBTI": "Hãy xem kết quả MBTI của tôi!\n#StudyDuck #스터디덕 #PhongCachHocTapMBTI",
+    "MBTILearningStyleTest": "Kiểm tra Phong cách Học tập MBTI",
+    "question": "Câu hỏi"
+  },
+  "mbtiTypeResult": {
+    "ISTJ": {
+      "learningMethod": "Thích cách tiếp cận có hệ thống và logic, việc học có kế hoạch rất quan trọng",
+      "timeManagement": "Hiệu quả nhất khi tuân theo lịch trình đã định",
+      "recommendedTime": "Buổi sáng hoặc buổi tối, môi trường yên tĩnh",
+      "dailyStudyTime": "2-4 giờ",
+      "strongSubjects": "Toán học, Khoa học, Lịch sử",
+      "weakSubjects": "Văn học, Nghệ thuật, Triết học",
+      "consultingSummary": "ISTJ có thể học tốt thông qua kế hoạch kỹ lưỡng và cách tiếp cận có hệ thống. Họ thể hiện xuất sắc trong các môn như toán học, khoa học và lịch sử. Việc học tập nhất quán trong thời gian và môi trường ổn định là quan trọng, và họ có thế mạnh trong các môn học thực tế và logic. Họ có thể gặp khó khăn với các môn sáng tạo và cảm xúc như văn học, nghệ thuật và triết học, vì vậy hiệu quả nhất là học những môn này thông qua các ví dụ thực tế. Họ có thể đạt được thành tích cao bằng cách học đều đặn vào thời gian cố định mỗi ngày và đặt ra các mục tiêu."
+    },
+    "ISFJ": {
+      "learningMethod": "Hiệu quả với việc học lặp lại và chú ý đến chi tiết",
+      "timeManagement": "Quan trọng là lập kế hoạch trước và thực hiện",
+      "recommendedTime": "Buổi chiều, môi trường ổn định",
+      "dailyStudyTime": "2-3 giờ",
+      "strongSubjects": "Lịch sử, Sinh học, Xã hội học, Văn học",
+      "weakSubjects": "Toán học, Vật lý, Thể dục",
+      "consultingSummary": "ISFJ có thể đạt được kết quả thông qua việc học lặp đi lặp lại. Họ thể hiện xuất sắc trong các môn như lịch sử, văn học và xã hội học, và có thể học chính xác nhờ sự chú ý đến chi tiết. Họ có thể gặp khó khăn với các môn lý thuyết và trừu tượng như toán học hoặc vật lý. Tốt nhất là lập kế hoạch và học tập đều đặn hàng ngày, và điều quan trọng là hoàn thành kỹ lưỡng từng môn học dù tiến độ có chậm. Họ có thể đạt được hiệu quả cao trong môi trường ổn định."
+    },
+    "INFJ": {
+      "learningMethod": "Hiệu quả với việc hiểu sâu và có cái nhìn sâu sắc, học tập có ý nghĩa",
+      "timeManagement": "Cần thiết lập mục tiêu dài hạn và tự phản ánh",
+      "recommendedTime": "Ban đêm, không gian yên tĩnh",
+      "dailyStudyTime": "3-5 giờ",
+      "strongSubjects": "Văn học, Triết học, Tâm lý học",
+      "weakSubjects": "Toán học, Vật lý",
+      "consultingSummary": "INFJ học thông qua nghiên cứu sâu và sự thấu hiểu. Họ xuất sắc trong các môn như văn học, triết học và tâm lý học. Do tìm kiếm ý nghĩa trong quá trình học tập, động lực là rất quan trọng. Họ có thể gặp khó khăn với các môn như toán học hoặc vật lý, và tốt nhất nên tiếp cận những môn này bằng cách giải thích các khái niệm cơ bản một cách đơn giản. Điều chỉnh phương pháp học tập thông qua tự phản ánh và thiết lập mục tiêu dài hạn để phát triển liên tục là chìa khóa thành công."
+    },
+    "INTJ": {
+      "learningMethod": "Ưa thích học tập logic và có hệ thống, cách tiếp cận chiến lược rất quan trọng",
+      "timeManagement": "Cần lập kế hoạch dài hạn và phân bổ thời gian hiệu quả",
+      "recommendedTime": "Sáng sớm hoặc tối muộn",
+      "dailyStudyTime": "4-6 giờ",
+      "strongSubjects": "Toán học, Khoa học, Logic học",
+      "weakSubjects": "Thể dục, Nghệ thuật",
+      "consultingSummary": "INTJ có thể học hiệu quả thông qua kế hoạch kỹ lưỡng và cách tiếp cận chiến lược. Họ xuất sắc trong toán học, khoa học và logic học, và có thể hiểu sâu thông qua học tập độc lập. Tuy nhiên, chủ nghĩa hoàn hảo có thể làm chậm tốc độ học tập. Họ có thể yếu trong các môn thể dục hoặc nghệ thuật, nên tiếp cận những môn này thông qua các ví dụ thực tế. Đạt hiệu quả tối đa bằng cách đặt mục tiêu thực tế và thời hạn cụ thể."
+    },
+    "ISTP": {
+      "learningMethod": "Học hiệu quả thông qua trải nghiệm và thực hành thực tế",
+      "timeManagement": "Ưa thích học tập linh hoạt nên cần kế hoạch linh động",
+      "recommendedTime": "Ban ngày, môi trường năng động",
+      "dailyStudyTime": "2-4 giờ",
+      "strongSubjects": "Kỹ thuật, Vật lý, Khoa học máy tính",
+      "weakSubjects": "Triết học, Văn học",
+      "consultingSummary": "ISTP có thể học nhanh thông qua trải nghiệm và thực hành thực tế. Họ thể hiện điểm mạnh trong các môn thực tiễn và logic như kỹ thuật, vật lý, và khoa học máy tính. Tuy nhiên, họ có thể gặp khó khăn với các môn lý thuyết như triết học hoặc văn học, vì vậy nên tiếp cận thông qua các ví dụ và tình huống thực tế. Quan trọng là duy trì tính linh hoạt trong quản lý thời gian và kế hoạch học tập, đồng thời tạo môi trường thuận lợi để tập trung."
+    },
+    "ISFP": {
+      "learningMethod": "Ưa thích cách tiếp cận thực tế và trực quan, thích học tập thực tiễn",
+      "timeManagement": "Học tập tự do hiệu quả nhưng cần có kế hoạch cơ bản",
+      "recommendedTime": "Buổi chiều hoặc tối",
+      "dailyStudyTime": "2-3 giờ",
+      "strongSubjects": "Nghệ thuật, Thiết kế, Sinh học",
+      "weakSubjects": "Toán học, Logic học",
+      "consultingSummary": "ISFP có thể học hiệu quả thông qua cách tiếp cận sáng tạo và trực quan. Họ xuất sắc trong các môn như nghệ thuật, thiết kế và sinh học - những môn học sáng tạo và trực quan. Họ có thể gặp khó khăn với các môn lý thuyết và phân tích như toán học hoặc logic học, vì vậy nên tiếp cận thông qua các ví dụ và tình huống thực tế. Phương pháp học tập tự do và linh hoạt là lợi thế, và việc duy trì học tập tự chủ là quan trọng."
+    },
+    "INFP": {
+      "learningMethod": "Ưa thích học tập có cảm xúc và ý nghĩa, thích khám phá sâu",
+      "timeManagement": "Quan trọng là duy trì nhịp độ riêng của mình",
+      "recommendedTime": "Ban đêm, không gian yên tĩnh",
+      "dailyStudyTime": "3-5 giờ",
+      "strongSubjects": "Văn học, Tâm lý học, Xã hội học",
+      "weakSubjects": "Toán học, Khoa học",
+      "consultingSummary": "INFP tiếp cận học tập với sự sáng tạo và nhiệt huyết. Họ xuất sắc trong các môn liên quan đến con người như văn học, tâm lý học, xã hội học và tiếp tục học thông qua những ý tưởng mới. Họ có thể gặp khó khăn với các môn tính toán và có cấu trúc như toán học và khoa học. Lập kế hoạch linh hoạt và thường xuyên thay đổi phương pháp học tập là hiệu quả, và điều quan trọng là tận hưởng việc học và tiếp cận một cách sáng tạo."
+    },
+    "INTP": {
+      "learningMethod": "Khám phá khái niệm lý thuyết và tiếp cận thực nghiệm là hiệu quả",
+      "timeManagement": "Cần lịch trình linh hoạt và đôi khi học tập theo hứng thú",
+      "recommendedTime": "Sáng sớm, môi trường yên tĩnh",
+      "dailyStudyTime": "4-6 giờ",
+      "strongSubjects": "Triết học, Khoa học, Toán học",
+      "weakSubjects": "Nghệ thuật, Thể dục",
+      "consultingSummary": "INTP học tập thông qua cách tiếp cận logic và lý thuyết, và có thế mạnh trong việc giải quyết vấn đề từ nhiều góc độ khác nhau. Họ xuất sắc trong các môn như triết học, khoa học và toán học, và thích thú với việc giải quyết các vấn đề phức tạp từ nhiều góc nhìn. Họ có thể yếu trong các môn nghệ thuật hoặc thể dục, nên tiếp cận những môn này thông qua các ví dụ cụ thể và thực tế. Quản lý thời gian tự do và học tập theo cảm hứng cũng hiệu quả."
+    },
+    "ESTP": {
+      "learningMethod": "Ưa thích cách tiếp cận thực nghiệm và trực giác, học tập năng động hiệu quả",
+      "timeManagement": "Lập kế hoạch linh hoạt và học tập theo cảm hứng",
+      "recommendedTime": "Ban ngày, môi trường năng động",
+      "dailyStudyTime": "3-5 giờ",
+      "strongSubjects": "Vật lý, Toán học, Kỹ thuật",
+      "weakSubjects": "Văn học, Triết học",
+      "consultingSummary": "ESTP thể hiện thế mạnh khi học thông qua phương pháp thực nghiệm. Họ nổi bật trong các môn như vật lý, kỹ thuật và toán học, và nên tiếp cận bằng cách giải quyết các vấn đề thực tế. Họ có thể gặp khó khăn với các môn trừu tượng như văn học hoặc triết học. Lý tưởng nhất là học trong môi trường năng động và thực nghiệm, và lập kế hoạch thời gian linh hoạt sẽ hiệu quả."
+    },
+    "ESFP": {
+      "learningMethod": "Ưa thích cách tiếp cận thực tế và trực quan, học tập vui vẻ và năng động",
+      "timeManagement": "Học tập thông qua kế hoạch tự do và niềm vui",
+      "recommendedTime": "Buổi chiều, môi trường năng động",
+      "dailyStudyTime": "3-4 giờ",
+      "strongSubjects": "Nghệ thuật, Xã hội, Sinh học",
+      "weakSubjects": "Toán học, Vật lý",
+      "consultingSummary": "ESFP ưa thích học tập thực tế và trực quan. Họ xuất sắc trong các môn như nghệ thuật, xã hội và sinh học - những môn học sáng tạo và trực quan. Họ có thể gặp khó khăn với các môn lý thuyết như toán học hoặc vật lý, và cần cách tiếp cận thực tế hơn. Học tập hiệu quả khi vui vẻ và năng động, và điều quan trọng là duy trì quản lý thời gian tự do và phương pháp sáng tạo."
+    },
+    "ENFP": {
+      "learningMethod": "Học tập thông qua cách tiếp cận sáng tạo và nhiệt tình, thử nghiệm ý tưởng mới",
+      "timeManagement": "Học thông qua kế hoạch linh hoạt và thường xuyên thay đổi",
+      "recommendedTime": "Buổi chiều, môi trường sáng tạo",
+      "dailyStudyTime": "3-5 giờ",
+      "strongSubjects": "Văn học, Tâm lý học, Xã hội học",
+      "weakSubjects": "Toán học, Khoa học",
+      "consultingSummary": "ENFP tiếp cận học tập với sự sáng tạo và nhiệt huyết. Họ xuất sắc trong các môn liên quan đến con người như văn học, tâm lý học, xã hội học và tiếp tục học thông qua những ý tưởng mới. Họ có thể gặp khó khăn với các môn tính toán và có cấu trúc như toán học và khoa học. Lập kế hoạch linh hoạt và thường xuyên thay đổi phương pháp học tập là hiệu quả, và điều quan trọng là tận hưởng việc học và tiếp cận một cách sáng tạo."
+    },
+    "ENTP": {
+      "learningMethod": "Ưa thích cách tiếp cận logic và lý thuyết, giải quyết vấn đề từ nhiều góc độ",
+      "timeManagement": "Cần quản lý thời gian tự do và đôi khi học theo cảm hứng",
+      "recommendedTime": "Buổi tối, môi trường kích thích",
+      "dailyStudyTime": "4-6 giờ",
+      "strongSubjects": "Triết học, Khoa học, Toán học",
+      "weakSubjects": "Nghệ thuật, Thể dục",
+      "consultingSummary": "ENTP học tập thông qua cách tiếp cận logic và lý thuyết, và có thế mạnh trong việc giải quyết vấn đề từ nhiều góc độ khác nhau. Họ xuất sắc trong các môn như triết học, khoa học và toán học, và thích thú với việc giải quyết các vấn đề phức tạp từ nhiều góc nhìn. Họ có thể yếu trong các môn nghệ thuật hoặc văn học, vì vậy cần phương pháp học tập thực tế và có cấu trúc hơn. Quản lý thời gian tự do và học tập theo cảm hứng cũng hiệu quả."
+    },
+    "ESTJ": {
+      "learningMethod": "Học tập thông qua cách tiếp cận có cấu trúc và hệ thống. Việc đặt mục tiêu và lập kế hoạch cụ thể rất quan trọng",
+      "timeManagement": "Tuân theo lịch trình nghiêm ngặt là hiệu quả",
+      "recommendedTime": "Buổi sáng, môi trường có tổ chức",
+      "dailyStudyTime": "3-5 giờ",
+      "strongSubjects": "Toán học, Quản trị, Kinh tế",
+      "weakSubjects": "Nghệ thuật, Tâm lý học",
+      "consultingSummary": "ESTJ ưa thích phương pháp học tập có cấu trúc và hệ thống cao. Họ xuất sắc trong các môn thực tế và cụ thể như toán học, quản trị và kinh tế. Tuy nhiên, họ có thể gặp khó khăn với các môn sáng tạo và cảm xúc như nghệ thuật hoặc tâm lý học. Điều quan trọng là đặt mục tiêu rõ ràng và quản lý thời gian nghiêm túc, và việc lập kế hoạch học tập hiệu quả và thực hiện sẽ nâng cao thành tích."
+    },
+    "ESFJ": {
+      "learningMethod": "Ưa thích cách tiếp cận xã hội và hợp tác, học hiệu quả khi làm việc với người khác",
+      "timeManagement": "Lập kế hoạch trước và học thông qua tương tác với người khác",
+      "recommendedTime": "Buổi chiều, môi trường thoải mái",
+      "dailyStudyTime": "3-4 giờ",
+      "strongSubjects": "Xã hội học, Lịch sử, Ngôn ngữ học",
+      "weakSubjects": "Toán học, Vật lý",
+      "consultingSummary": "ESFJ có thể đạt thành tích tốt thông qua phương pháp học tập xã hội và hợp tác. Họ xuất sắc trong các môn như xã hội học, lịch sử và ngôn ngữ học, và thích học thông qua tương tác với người khác. Họ có thể gặp khó khăn với các môn như toán học hoặc vật lý, vì vậy cần cách tiếp cận cụ thể và có hệ thống. Có thể tối đa hóa hiệu quả học tập thông qua học nhóm và hoạt động tập thể."
+    },
+    "ENFJ": {
+      "learningMethod": "Coi trọng giao tiếp với người khác, chú trọng cảm xúc và động lực",
+      "timeManagement": "Học hiệu quả thông qua trao đổi và hợp tác với người khác",
+      "recommendedTime": "Buổi sáng, môi trường tích cực",
+      "dailyStudyTime": "3-5 giờ",
+      "strongSubjects": "Tâm lý học, Văn học, Xã hội học",
+      "weakSubjects": "Toán học, Vật lý",
+      "consultingSummary": "ENFJ học tập thông qua giao tiếp với người khác. Họ xuất sắc trong các môn như tâm lý học, văn học và xã hội học, và việc trao đổi ý kiến và hợp tác với người khác trong quá trình học tập rất quan trọng. Họ có thể gặp khó khăn với các môn như toán học hoặc vật lý, và nên tiếp cận theo cách cảm xúc và trực quan. Họ có thể được động lực lớn hơn khi học trong môi trường tích cực và hợp tác."
+    },
+    "ENTJ": {
+      "learningMethod": "Ưa thích cách tiếp cận có hệ thống và định hướng mục tiêu, xây dựng chiến lược hiệu quả",
+      "timeManagement": "Học tập thông qua quản lý thời gian nghiêm ngặt và kế hoạch",
+      "recommendedTime": "Buổi sáng, môi trường tập trung",
+      "dailyStudyTime": "4-6 giờ",
+      "strongSubjects": "Quản trị, Kinh tế, Toán học",
+      "weakSubjects": "Nghệ thuật, Văn học",
+      "consultingSummary": "ENTJ thích học tập với mục tiêu rõ ràng và cách tiếp cận có hệ thống. Họ xuất sắc trong các môn logic và phân tích như quản trị, kinh tế và toán học. Họ có thể gặp khó khăn với các môn sáng tạo và cảm xúc như nghệ thuật hoặc văn học, vì vậy cần phương pháp học tập thực tế và có cấu trúc hơn. Quản lý thời gian nghiêm ngặt và kế hoạch hiệu quả rất quan trọng, và lý tưởng nhất là luôn đặt mục tiêu rõ ràng để tập trung học tập."
+    }
   }
 }
