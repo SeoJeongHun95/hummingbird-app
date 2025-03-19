@@ -2,12 +2,15 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/utils/format_date.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
+import '../../../../viewmodels/user_setting/user_setting_view_model.dart';
+import '../../../mbti/mbti_screen.dart';
 
-class ProfileInfoWidget extends StatelessWidget {
+class ProfileInfoWidget extends ConsumerWidget {
   const ProfileInfoWidget({
     super.key,
     required this.nickNameController,
@@ -30,7 +33,15 @@ class ProfileInfoWidget extends StatelessWidget {
   final String mbti;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.watch(userSettingViewModelProvider);
+    final userMbti = viewModel.value?.mbti ?? '';
+
+    // MBTI 컨트롤러 초기값 설정
+    if (userMbti.isNotEmpty && mbtiController.text.isEmpty) {
+      mbtiController.text = userMbti;
+    }
+
     return MxNcontainer(
       MxN_rate: MxNRate.TWOBYTHREEQUARTERS,
       MxN_child: Container(
@@ -100,8 +111,22 @@ class ProfileInfoWidget extends StatelessWidget {
               children: [
                 Text(tr('MBTI')),
                 TextField(
-                  onTap: () {
-                    GoRouter.of(context).go('/mbti');
+                  onTap: () async {
+                    await Navigator.push<String>(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MBTIScreen(
+                          onMbtiResult: (String mbtiType) async {
+                            // UserSettingViewModel을 통해 MBTI 업데이트
+                            await ref
+                                .read(userSettingViewModelProvider.notifier)
+                                .updateMbti(mbtiType);
+                            mbtiController.text = mbtiType;
+                            return mbtiType;
+                          },
+                        ),
+                      ),
+                    );
                   },
                   readOnly: true,
                   focusNode: mbtiFocusNode,

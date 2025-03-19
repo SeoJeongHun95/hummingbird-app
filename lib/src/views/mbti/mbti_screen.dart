@@ -7,7 +7,8 @@ import '../../models/mbti/mbti_question_model.dart';
 import 'result_screen.dart';
 
 class MBTIScreen extends StatefulWidget {
-  const MBTIScreen({super.key});
+  final Function(String)? onMbtiResult;
+  const MBTIScreen({super.key, this.onMbtiResult});
 
   @override
   State<MBTIScreen> createState() => _MBTIScreenState();
@@ -109,7 +110,10 @@ class _MBTIScreenState extends State<MBTIScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ResultScreen(mbtiType: mbtiResult),
+        builder: (context) => ResultScreen(
+          mbtiType: mbtiResult,
+          onMbtiResult: widget.onMbtiResult,
+        ),
       ),
     );
   }

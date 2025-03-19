@@ -67,4 +67,15 @@ class UserSettingViewModel extends _$UserSettingViewModel {
       throw Exception('프로필 이미지 업데이트 실패: $e');
     }
   }
+
+  Future<void> updateMbti(String mbtiType) async {
+    state = const AsyncValue.loading();
+    try {
+      final updatedSetting = state.value?.copyWith(mbti: mbtiType);
+      // Save to your data source here
+      state = AsyncValue.data(updatedSetting!);
+    } catch (e) {
+      state = AsyncValue.error(e, StackTrace.current);
+    }
+  }
 }

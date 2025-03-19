@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:go_router/go_router.dart';
 import '../../../core/utils/screen_share.dart';
 import 'mbti_screen.dart';
 
 class ResultScreen extends StatefulWidget {
   final String mbtiType;
-  const ResultScreen({super.key, required this.mbtiType});
+  final Function(String)? onMbtiResult;
+  const ResultScreen({super.key, required this.mbtiType, this.onMbtiResult});
 
   @override
   State<ResultScreen> createState() => _ResultScreenState();
@@ -186,11 +188,12 @@ class _ResultScreenState extends State<ResultScreen> {
               const SizedBox(height: 20),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(
-                          builder: (context) => const MBTIScreen()),
-                      (route) => false,
-                    );
+                    widget.onMbtiResult?.call(widget.mbtiType);
+                    // 이전 화면들을 모두 제거하고 결과값 전달
+                    int count = 0;
+                    Navigator.of(context).popUntil((route) {
+                      return count++ == 2;
+                    });
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,
@@ -225,7 +228,7 @@ class _ResultScreenState extends State<ResultScreen> {
             children: [
               ClipOval(
                 child: Image.asset(
-                  'lib/core/image/$type.png',
+                  'lib/core/imgs/mbti/$type.png', // 이미지 경로 수정
                   width: 80,
                   height: 80,
                   fit: BoxFit.cover,
