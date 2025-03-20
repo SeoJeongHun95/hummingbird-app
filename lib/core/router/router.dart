@@ -11,6 +11,7 @@ import '../../src/views/home/widgets/d_day_widget/d_day_add_screen.dart';
 import '../../src/views/home/widgets/d_day_widget/d_day_update_screen.dart';
 import '../../src/views/home/widgets/subject/subject_add_screen.dart';
 import '../../src/views/home/widgets/subject/subject_update_screen.dart';
+import '../../src/views/mbti/mbti_screen.dart';
 import '../../src/views/more/more_screen.dart';
 import '../../src/views/more/profile_screen.dart';
 import '../../src/views/more/settings_screen/settings_export.dart';
@@ -242,6 +243,14 @@ final goRouterProvider = Provider<GoRouter>((ref) {
             ),
           )
         ],
+      ),
+      GoRoute(
+        path: '/mbti',
+        pageBuilder: (context, state) => buildPageWithDefaultTransition(
+          context: context,
+          state: state,
+          child: const MBTIScreen(),
+        ),
       ),
     ],
 

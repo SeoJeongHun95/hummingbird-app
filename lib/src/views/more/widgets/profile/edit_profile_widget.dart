@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
@@ -11,11 +12,13 @@ class EditProfileWidget extends StatefulWidget {
     super.key,
     this.nickName,
     this.birthDate,
+    this.mbti,
     required this.userSettingViewModel,
   });
 
   final String? nickName;
   final String? birthDate;
+  final String? mbti;
   final UserSettingViewModel userSettingViewModel;
 
   @override
@@ -25,9 +28,11 @@ class EditProfileWidget extends StatefulWidget {
 class _ProfileAndBtnWidgetState extends State<EditProfileWidget> {
   late final TextEditingController _nickNameController;
   late final TextEditingController _birthDateController;
+  late final TextEditingController _mbtiController;
   late final UserSettingViewModel userSettingViewModel;
 
-  final _focusNode = FocusNode();
+  final _nickNameFocusNode = FocusNode();
+  final _mbtiFocusNode = FocusNode();
   DateTime? birthDate;
 
   @override
@@ -36,6 +41,7 @@ class _ProfileAndBtnWidgetState extends State<EditProfileWidget> {
 
     _nickNameController = TextEditingController(text: widget.nickName);
     _birthDateController = TextEditingController(text: widget.birthDate);
+    _mbtiController = TextEditingController(text: widget.mbti ?? '');
 
     userSettingViewModel = widget.userSettingViewModel;
   }
@@ -55,7 +61,9 @@ class _ProfileAndBtnWidgetState extends State<EditProfileWidget> {
   void dispose() {
     _nickNameController.dispose();
     _birthDateController.dispose();
-    _focusNode.dispose();
+    _mbtiController.dispose();
+    _nickNameFocusNode.dispose();
+    _mbtiFocusNode.dispose();
     super.dispose();
   }
 
@@ -63,17 +71,22 @@ class _ProfileAndBtnWidgetState extends State<EditProfileWidget> {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           ProfileInfoWidget(
             nickNameController: _nickNameController,
             birthDateController: _birthDateController,
-            focusNode: _focusNode,
+            mbtiController: _mbtiController,
+            nickNameFocusNode: _nickNameFocusNode,
+            mbtiFocusNode: _mbtiFocusNode,
             selectDate: selectDate,
             validateNickName: validateNickName,
+            mbti: '',
           ),
+          const SizedBox(height: 2), // 간격을 8로 줄임
           SafeButtonWidget(
-            title: '저장',
+            title: tr('ProfileInfoWidget.save'),
             isValid: isValid,
             backgroundColor: Theme.of(context).colorScheme.primary,
             foregroudColor: Theme.of(context).colorScheme.onPrimary,
@@ -81,6 +94,7 @@ class _ProfileAndBtnWidgetState extends State<EditProfileWidget> {
               await userSettingViewModel.updateUserSetting(
                 updatedNickName: _nickNameController.text,
                 updatedAge: _birthDateController.text,
+                updatedMbti: _mbtiController.text,
               );
               if (context.mounted) {
                 context.pop();

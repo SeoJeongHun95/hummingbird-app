@@ -83,7 +83,9 @@
     "birthDate": "Date of birth",
     "birthDateHint": "Register your date of birth",
     "nickName": "Nickname",
-    "nickNameHint": "Enter your nickname"
+    "nickNameHint": "Edit Profile",
+    "save": "SAVE",
+    "mbtiTest": "MBTI Test"
   },
   "ProfileSettingScreen": {
     "loadingText": "Doing your best today with Study Duck..."
@@ -245,5 +247,293 @@
   "getBrithDateText": {
     "birthDate": "Date of birth",
     "birthDateHint": "Register your date of birth"
+  },
+  "mbti": {
+    "MBTIQuestion1": {
+      "question": "When meeting new people",
+      "optionA": "I feel energized and happy",
+      "optionB": "I feel more comfortable being alone",
+      "category": "E/I"
+    },
+    "MBTIQuestion2": {
+      "question": "How do you recharge on weekends?",
+      "optionA": "Spending time with friends",
+      "optionB": "Having time alone",
+      "category": "E/I"
+    },
+    "MBTIQuestion3": {
+      "question": "When organizing thoughts",
+      "optionA": "I speak out loud to organize them",
+      "optionB": "I organize them quietly in my head",
+      "category": "E/I"
+    },
+    "MBTIQuestion4": {
+      "question": "Speaking in front of many people",
+      "optionA": "Feels natural and comfortable",
+      "optionB": "Feels burdensome and nervous",
+      "category": "E/I"
+    },
+    "MBTIQuestion5": {
+      "question": "If traveling alone",
+      "optionA": "Might feel boring and lonely",
+      "optionB": "Feel excited and looking forward to it",
+      "category": "E/I"
+    },
+    "MBTIQuestion6": {
+      "question": "When listening to explanations, what's important is",
+      "optionA": "Specific examples and details",
+      "optionB": "Overall flow and concepts",
+      "category": "S/N"
+    },
+    "MBTIQuestion7": {
+      "question": "When learning new skills",
+      "optionA": "Learn step by step following the manual",
+      "optionB": "Learn intuitively through hands-on experience",
+      "category": "S/N"
+    },
+    "MBTIQuestion8": {
+      "question": "In daily life",
+      "optionA": "Prefer familiar environments with little change",
+      "optionB": "Find new experiences and changes more interesting",
+      "category": "S/N"
+    },
+    "MBTIQuestion9": {
+      "question": "When working or studying",
+      "optionA": "Check details thoroughly",
+      "optionB": "Focus on understanding the overall flow",
+      "category": "S/N"
+    },
+    "MBTIQuestion10": {
+      "question": "When making judgments",
+      "optionA": "Judge the present based on past experiences",
+      "optionB": "Consider future possibilities more important",
+      "category": "S/N"
+    },
+    "MBTIQuestion11": {
+      "question": "When making important decisions",
+      "optionA": "Value logic and objective facts",
+      "optionB": "Consider emotions and relationships",
+      "category": "T/F"
+    },
+    "MBTIQuestion12": {
+      "question": "In debates, what's important is",
+      "optionA": "Winning with logic",
+      "optionB": "Considering others' feelings",
+      "category": "T/F"
+    },
+    "MBTIQuestion13": {
+      "question": "When others share their concerns",
+      "optionA": "Suggest practical solutions",
+      "optionB": "Empathize with their feelings",
+      "category": "T/F"
+    },
+    "MBTIQuestion14": {
+      "question": "When handling tasks, what's important is",
+      "optionA": "Efficiency and logic",
+      "optionB": "Teamwork and atmosphere",
+      "category": "T/F"
+    },
+    "MBTIQuestion15": {
+      "question": "When making decisions",
+      "optionA": "Judge based on right and wrong",
+      "optionB": "Consider others' feelings",
+      "category": "T/F"
+    },
+    "MBTIQuestion16": {
+      "question": "Schedule management",
+      "optionA": "Like to plan ahead and stick to it",
+      "optionB": "Act flexibly and spontaneously",
+      "category": "J/P"
+    },
+    "MBTIQuestion17": {
+      "question": "When going on a trip",
+      "optionA": "Make detailed plans",
+      "optionB": "Decide spontaneously on the spot",
+      "category": "J/P"
+    },
+    "MBTIQuestion18": {
+      "question": "When there's a deadline",
+      "optionA": "Prefer to finish early",
+      "optionB": "Flexibly adjust until the last minute",
+      "category": "J/P"
+    },
+    "MBTIQuestion19": {
+      "question": "Preferred environment",
+      "optionA": "Organized and neat space",
+      "optionB": "Space with free atmosphere",
+      "category": "J/P"
+    },
+    "MBTIQuestion20": {
+      "question": "When plans change",
+      "optionA": "Feel uncomfortable",
+      "optionB": "Adapt flexibly",
+      "category": "J/P"
+    }
+  },
+  "mbtiResult": {
+    "quickInfo": "📚 Quick Learning Info",
+    "learningGuide": "🎯 Learning Method Guide",
+    "consultingSummary": "💡 Learning Consulting Summary",
+    "recommendedTime": "Recommended Study Time",
+    "dailyStudyTime": "Recommended Daily Study Hours",
+    "strongSubjects": "Strong Subjects",
+    "weakSubjects": "Weak Subjects",
+    "learningMethod": "Learning Method",
+    "timeManagement": "Time Management",
+    "analysisTitle": "MBTI Learning Style Analysis Report",
+    "analysisResult": "Learning Type Analysis Result",
+    "confirm": "Confirm",
+    "shareComplete": "Share completed",
+    "shareFailed": "Share failed",
+    "myMBTIStyle": "My MBTI Learning Style",
+    "CheckMyMBTI": "Check my MBTI learning style result!\n#StudyDuck #StudyDuck #MBTILearning",
+    "MBTILearningStyleTest": "MBTI Learning Style Test",
+    "question": "Question"
+  },
+  "mbtiTypeResult": {
+    "ISTJ": {
+      "learningMethod": "Prefers systematic and logical approaches, with planned learning being important.",
+      "timeManagement": "Following a set schedule is efficient.",
+      "recommendedTime": "Morning or Evening, Quiet environment",
+      "dailyStudyTime": "2~4 hours",
+      "strongSubjects": "Math, Science, History",
+      "weakSubjects": "Literature, Art, Philosophy",
+      "consultingSummary": "ISTJ can learn effectively through thorough planning and systematic approaches. They show excellent performance in subjects like mathematics, science, and history. It's important to study consistently in a regular time and environment, showing strengths in practical and logical subjects. They may struggle with creative and emotional subjects like literature, art, and philosophy, so it's effective to learn these subjects through practical examples. They can achieve great results by studying consistently at set times daily and setting goals."
+    },
+    "ISFJ": {
+      "learningMethod": "Effective through repetitive learning and attention to detail",
+      "timeManagement": "Important to make and follow plans in advance",
+      "recommendedTime": "Afternoon, stable environment",
+      "dailyStudyTime": "2~3 hours",
+      "strongSubjects": "History, Biology, Social Studies, Literature",
+      "weakSubjects": "Math, Physics, Physical Education",
+      "consultingSummary": "ISFJ can achieve results through repetitive learning. They show excellent performance in subjects like history, literature, and social studies, and can learn accurately by paying attention to details. They may find theoretical and abstract subjects like mathematics and physics challenging. It's good to set and follow daily plans consistently, and it's important to complete one subject thoroughly even if progress is slow. They can achieve results by concentrating in a stable environment."
+    },
+    "INFJ": {
+      "learningMethod": "Values deep understanding and insight, effective through finding meaning",
+      "timeManagement": "Requires long-term goal setting and self-reflection",
+      "recommendedTime": "Night, quiet space",
+      "dailyStudyTime": "3~5 hours",
+      "strongSubjects": "Literature, Philosophy, Psychology",
+      "weakSubjects": "Math, Physics",
+      "consultingSummary": "INFJ learns through deep exploration and insight. They excel in subjects like literature, philosophy, and psychology. They seek meaningful connections while learning, so motivation is important. They may find concrete subjects like math or physics challenging, and it's beneficial to approach these subjects by breaking down basic concepts first. They continuously adjust their learning methods through self-reflection, focusing on long-term goals and continuous development."
+    },
+    "INTJ": {
+      "learningMethod": "Prefers logical and systematic learning, with strategic approach being important",
+      "timeManagement": "Must set long-term plans and efficiently allocate time",
+      "recommendedTime": "Dawn or Evening",
+      "dailyStudyTime": "4~6 hours",
+      "strongSubjects": "Math, Science, Logic",
+      "weakSubjects": "Physical Education, Art",
+      "consultingSummary": "INTJ can learn effectively through thorough planning and strategic approaches. They show excellent performance in subjects like mathematics, science, and logic. They can achieve deep understanding through independent learning. However, they may be overly perfectionistic, which can slow down their learning pace. They may struggle with subjects like physical education and art, so it's effective to approach these subjects through practical examples. Setting realistic goals and deadlines can maximize their learning efficiency."
+    },
+    "ISTP": {
+      "learningMethod": "Effective through hands-on experience and practice",
+      "timeManagement": "Prefers spontaneous learning, requiring flexible plans",
+      "recommendedTime": "Daytime, active environment",
+      "dailyStudyTime": "2~4 hours",
+      "strongSubjects": "Engineering, Physics, Computer Science",
+      "weakSubjects": "Philosophy, Literature",
+      "consultingSummary": "ISTP can learn quickly through hands-on experience and practice. They show strengths in practical and logical subjects like engineering, physics, and computer science. However, they may find theoretical subjects like philosophy and literature challenging, so it's effective to approach these subjects through practical examples. It's important to maintain flexibility in time management and learning plans, and to create an environment where they can focus."
+    },
+    "ISFP": {
+      "learningMethod": "Prefers sensory and practical approaches, favoring practical learning",
+      "timeManagement": "Effective through free learning, but basic planning is needed",
+      "recommendedTime": "Afternoon or Evening",
+      "dailyStudyTime": "2~3 hours",
+      "strongSubjects": "Art, Design, Biology",
+      "weakSubjects": "Math, Logic",
+      "consultingSummary": "ISFP can learn effectively through creative and sensory approaches. They show excellent performance in creative and intuitive subjects like art, design, and biology. They may find theoretical and analytical subjects like math and logic challenging, so it's effective to approach these subjects through practical examples. Free and flexible learning methods are advantageous, and it's important to continue learning independently."
+    },
+    "INFP": {
+      "learningMethod": "Prefers emotional and meaningful learning, enjoying deep exploration",
+      "timeManagement": "Important to maintain their own pace",
+      "recommendedTime": "Night, quiet space",
+      "dailyStudyTime": "3~5 hours",
+      "strongSubjects": "Literature, Psychology, Sociology",
+      "weakSubjects": "Math, Science",
+      "consultingSummary": "INFP approaches learning creatively and passionately. They show excellent performance in subjects related to people, such as literature, psychology, and sociology, and continue learning through new ideas. They may find calculative and structured subjects like math and science challenging. Flexible planning and frequently changing learning methods are effective, and it's important to enjoy learning and approach it creatively."
+    },
+    "INTP": {
+      "learningMethod": "Effective through exploring theoretical concepts and experimental approaches",
+      "timeManagement": "Requires flexible schedules, sometimes attempting spontaneous learning",
+      "recommendedTime": "Dawn, quiet environment",
+      "dailyStudyTime": "4~6 hours",
+      "strongSubjects": "Philosophy, Science, Math",
+      "weakSubjects": "Art, Physical Education",
+      "consultingSummary": "INTP progresses through logical and theoretical approaches, showing strengths in solving problems from various perspectives. They show excellent performance in subjects like philosophy, science, and math, enjoying solving complex problems from multiple angles. They may find emotional and practical subjects like art and physical education challenging, so it's effective to approach these subjects through more concrete and practical examples. Free time management and spontaneous learning are also effective."
+    },
+    "ESTP": {
+      "learningMethod": "Prefers experimental and intuitive approaches, effective through active learning",
+      "timeManagement": "Plans flexibly and attempts spontaneous learning",
+      "recommendedTime": "Daytime, active environment",
+      "dailyStudyTime": "3~5 hours",
+      "strongSubjects": "Physics, Math, Engineering",
+      "weakSubjects": "Literature, Philosophy",
+      "consultingSummary": "ESTP shows strengths in learning through experimental methods. They excel in subjects like physics, engineering, and math, approaching learning by solving real problems. They may find abstract subjects like literature and philosophy challenging. It's ideal to learn in an active and experimental environment, and flexible time planning is effective."
+    },
+    "ESFP": {
+      "learningMethod": "Prefers sensory and practical approaches, learning actively and enjoyably",
+      "timeManagement": "Enjoys learning through free planning",
+      "recommendedTime": "Afternoon, active environment",
+      "dailyStudyTime": "3~4 hours",
+      "strongSubjects": "Art, Social Studies, Biology",
+      "weakSubjects": "Math, Physics",
+      "consultingSummary": "ESFP prefers practical and sensory learning. They show excellent performance in creative and intuitive subjects like art, social studies, and biology. They may find theoretical subjects like math and physics challenging, so a more practical approach is needed. Learning is effective when it's enjoyable and active, and it's important to continue learning with free time management and creative methods."
+    },
+    "ENFP": {
+      "learningMethod": "Prefers creative and passionate approaches, trying new ideas",
+      "timeManagement": "Learns through flexible planning and frequent changes",
+      "recommendedTime": "Afternoon, creative environment",
+      "dailyStudyTime": "3~5 hours",
+      "strongSubjects": "Literature, Psychology, Sociology",
+      "weakSubjects": "Math, Science",
+      "consultingSummary": "ENFP approaches learning creatively and passionately. They show excellent performance in subjects related to people, such as literature, psychology, and sociology, and continue learning through new ideas. They may find calculative and structured subjects like math and science challenging. Flexible planning and frequently changing learning methods are effective, and it's important to enjoy learning and approach it creatively."
+    },
+    "ENTP": {
+      "learningMethod": "Prefers logical and theoretical approaches, solving problems from various perspectives",
+      "timeManagement": "Requires free time management, sometimes attempting spontaneous learning",
+      "recommendedTime": "Evening, stimulating environment",
+      "dailyStudyTime": "4~6 hours",
+      "strongSubjects": "Philosophy, Science, Math",
+      "weakSubjects": "Art, Physical Education",
+      "consultingSummary": "ENTP progresses through logical and theoretical approaches, showing strengths in solving problems from various perspectives. They show excellent performance in subjects like philosophy, science, and math, enjoying solving complex problems from multiple angles. They may find emotional and practical subjects like art and physical education challenging, so it's effective to approach these subjects through more concrete and practical examples. Free time management and spontaneous learning are also effective."
+    },
+    "ESTJ": {
+      "learningMethod": "Prefers structured and systematic approaches, with clear goal setting and planning being important",
+      "timeManagement": "Effective through strict schedules",
+      "recommendedTime": "Morning, organized environment",
+      "dailyStudyTime": "3~5 hours",
+      "strongSubjects": "Math, Business, Economics",
+      "weakSubjects": "Art, Psychology",
+      "consultingSummary": "ESTJ prefers highly structured and systematic learning methods. They show excellent performance in practical and concrete subjects like math, business, and economics. However, they may find creative and emotional subjects like art and psychology challenging. It's important to set clear goals and manage time strictly, progressing through efficient learning plans to achieve high performance."
+    },
+    "ESFJ": {
+      "learningMethod": "Prefers social and cooperative approaches, learning effectively with others",
+      "timeManagement": "Plans in advance and learns through interactions with people",
+      "recommendedTime": "Afternoon, comfortable environment",
+      "dailyStudyTime": "3~4 hours",
+      "strongSubjects": "Sociology, History, Linguistics",
+      "weakSubjects": "Math, Physics",
+      "consultingSummary": "ESFJ can achieve results through social and cooperative learning methods. They show excellent performance in subjects like sociology, history, and linguistics, enjoying learning through interactions with others. They may find subjects like math and physics challenging, so a more concrete and systematic approach is needed. Learning with others or in group activities can maximize their learning effectiveness."
+    },
+    "ENFJ": {
+      "learningMethod": "Values communication with people, focusing on emotional and motivational aspects",
+      "timeManagement": "Learns efficiently through interactions and cooperation with people",
+      "recommendedTime": "Morning, positive environment",
+      "dailyStudyTime": "3~5 hours",
+      "strongSubjects": "Psychology, Literature, Sociology",
+      "weakSubjects": "Math, Physics",
+      "consultingSummary": "ENFJ progresses through communication with people. They show excellent performance in subjects like psychology, literature, and sociology, valuing exchanges of opinions and cooperation with others during learning. They may find subjects like math and physics challenging, so it's beneficial to approach these subjects through emotional and intuitive methods. Learning in a positive and cooperative environment can provide greater motivation."
+    },
+    "ENTJ": {
+      "learningMethod": "Prefers structured and goal-oriented approaches, setting efficient strategies",
+      "timeManagement": "Learns through strict time management and planning",
+      "recommendedTime": "Morning, focused environment",
+      "dailyStudyTime": "4~6 hours",
+      "strongSubjects": "Business, Economics, Math",
+      "weakSubjects": "Art, Literature",
+      "consultingSummary": "ENTJ prefers clear goal setting and structured approaches to learning. They show excellent performance in logical and analytical subjects like business, economics, and math. They may find creative and emotional subjects like art and literature challenging, so a more practical and structured learning method is needed. Strict time management and efficient planning are important, always setting clear goals and focusing on learning intensively."
+    }
   }
 }

@@ -28,7 +28,9 @@ class UserProfileWidget extends ConsumerWidget {
               children: [
                 Row(
                   children: [
-                    ProfileImageWidget(radius: 40.w),
+                    ProfileImageWidget(
+                      radius: 40.w,
+                    ),
                     SizedBox(
                       width: 40.w,
                     ),
@@ -40,7 +42,12 @@ class UserProfileWidget extends ConsumerWidget {
                           Row(
                             children: [
                               Text(tr("ProfileInfoWidget.nickName")),
-                              Text(" : ${userSetting.nickname}"),
+                              Expanded(
+                                child: Text(
+                                  " : ${userSetting.nickname}",
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
                             ],
                           ),
                           SizedBox(height: 12.w),

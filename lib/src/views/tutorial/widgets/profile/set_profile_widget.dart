@@ -10,12 +10,14 @@ class SetProfileWidget extends StatefulWidget {
   const SetProfileWidget(
     this.nickName,
     this.birthDate,
+    this.mbti,
     this.userSettingViewModel, {
     super.key,
   });
 
   final String? nickName;
   final String? birthDate;
+  final String? mbti;
   final UserSettingViewModel userSettingViewModel;
 
   @override
@@ -25,9 +27,12 @@ class SetProfileWidget extends StatefulWidget {
 class _ProfileContainerWidgetState extends State<SetProfileWidget> {
   late final TextEditingController _nickNameController;
   late final TextEditingController _birthDateController;
+  late final TextEditingController _mbtiController;
   late final UserSettingViewModel userSettingViewModel;
 
   final _focusNode = FocusNode();
+  final _nickNameFocusNode = FocusNode();
+  final _mbtiFocusNode = FocusNode();
   DateTime? birthDate;
 
   @override
@@ -36,6 +41,7 @@ class _ProfileContainerWidgetState extends State<SetProfileWidget> {
 
     _nickNameController = TextEditingController(text: widget.nickName);
     _birthDateController = TextEditingController(text: widget.birthDate);
+    _mbtiController = TextEditingController(text: '');
 
     userSettingViewModel = widget.userSettingViewModel;
   }
@@ -55,6 +61,7 @@ class _ProfileContainerWidgetState extends State<SetProfileWidget> {
   void dispose() {
     _nickNameController.dispose();
     _birthDateController.dispose();
+    _mbtiController.dispose();
     _focusNode.dispose();
     super.dispose();
   }
@@ -69,7 +76,10 @@ class _ProfileContainerWidgetState extends State<SetProfileWidget> {
           ProfileInfoWidget(
             nickNameController: _nickNameController,
             birthDateController: _birthDateController,
-            focusNode: _focusNode,
+            mbtiController: _mbtiController,
+            mbti: widget.mbti ?? '',
+            nickNameFocusNode: _nickNameFocusNode,
+            mbtiFocusNode: _mbtiFocusNode,
             selectDate: selectDate,
             validateNickName: validateNickName,
           ),

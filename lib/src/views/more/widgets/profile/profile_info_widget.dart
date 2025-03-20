@@ -1,30 +1,49 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/utils/format_date.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
+import '../../../../viewmodels/user_setting/user_setting_view_model.dart';
+import '../../../mbti/mbti_screen.dart';
 
-class ProfileInfoWidget extends StatelessWidget {
+class ProfileInfoWidget extends ConsumerWidget {
   const ProfileInfoWidget({
     super.key,
     required this.nickNameController,
     required this.birthDateController,
-    required this.focusNode,
+    required this.mbtiController,
+    required this.nickNameFocusNode,
+    required this.mbtiFocusNode,
     required this.selectDate,
     required this.validateNickName,
+    required this.mbti,
   });
 
   final TextEditingController nickNameController;
   final TextEditingController birthDateController;
-  final FocusNode focusNode;
+  final TextEditingController mbtiController;
+  final FocusNode nickNameFocusNode;
+  final FocusNode mbtiFocusNode;
   final void Function(DateTime selectedDate) selectDate;
   final void Function() validateNickName;
+  final String mbti;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.watch(userSettingViewModelProvider);
+    final userMbti = viewModel.value?.mbti ?? '';
+
+    // MBTI 컨트롤러 초기값 설정
+    if (userMbti.isNotEmpty && mbtiController.text.isEmpty) {
+      mbtiController.text = userMbti;
+    }
+
     return MxNcontainer(
-      MxN_rate: MxNRate.TWOBYONE,
+      MxN_rate: MxNRate.TWOBYTHREEQUARTERS,
       MxN_child: Container(
         color: Colors.white,
         padding: const EdgeInsets.all(16.0),
@@ -32,50 +51,100 @@ class ProfileInfoWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(tr('ProfileInfoWidget.nickName')),
-            TextField(
-              focusNode: focusNode,
-              controller: nickNameController,
-              maxLength: 30,
-              decoration: InputDecoration(
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(tr('ProfileInfoWidget.nickName')),
+                TextField(
+                  focusNode: nickNameFocusNode,
+                  controller: nickNameController,
+                  maxLength: 30,
+                  decoration: InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey),
+                    ),
+                    hintText: tr('ProfileInfoWidget.nickNameHint'),
+                  ),
+                  onChanged: (value) {
+                    if (value.isEmpty) {
+                      validateNickName();
+                    }
+                  },
                 ),
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
-                ),
-                hintText: tr('ProfileInfoWidget.nickNameHint'),
-              ),
-              onChanged: (value) {
-                if (value.isEmpty) {
-                  validateNickName();
-                }
-              },
+              ],
             ),
-            Text(tr('ProfileInfoWidget.birthDate')),
-            TextField(
-              controller: birthDateController,
-              readOnly: true,
-              onTap: () async {
-                final selectedDate = await showSelectBirthPicker(
-                  context,
-                  birthDateController.text,
-                );
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(tr('ProfileInfoWidget.birthDate')),
+                TextField(
+                  controller: birthDateController,
+                  readOnly: true,
+                  onTap: () async {
+                    final selectedDate = await showSelectBirthPicker(
+                      context,
+                      birthDateController.text,
+                    );
 
-                if (selectedDate != null) {
-                  selectDate(selectedDate);
-                }
-              },
-              decoration: InputDecoration(
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
+                    if (selectedDate != null) {
+                      selectDate(selectedDate);
+                    }
+                  },
+                  decoration: InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey),
+                    ),
+                    suffixIcon: Icon(Icons.calendar_month),
+                  ),
                 ),
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey),
+              ],
+            ),
+            Gap(8),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(tr('MBTI')),
+                TextField(
+                  onTap: () async {
+                    await Navigator.push<String>(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MBTIScreen(
+                          onMbtiResult: (String mbtiType) async {
+                            // UserSettingViewModel을 통해 MBTI 업데이트
+                            await ref
+                                .read(userSettingViewModelProvider.notifier)
+                                .updateMbti(mbtiType);
+                            mbtiController.text = mbtiType;
+                            return mbtiType;
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                  readOnly: true,
+                  focusNode: mbtiFocusNode,
+                  controller: mbtiController,
+                  maxLength: 4,
+                  decoration: InputDecoration(
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey),
+                    ),
+                    hintText: tr('ProfileInfoWidget.mbtiTest'),
+                    suffixIcon: Icon(Icons.pending_actions),
+                  ),
                 ),
-                suffixIcon: Icon(Icons.calendar_month),
-              ),
-            )
+              ],
+            ),
           ],
         ),
       ),

@@ -74,6 +74,44 @@ class AdMobWidget {
       },
     );
   }
+
+  // Expanded 버전의 배너 광고 위젯 (height는 선택적)
+  static Widget showExpandedBannerAd([double? height]) {
+    final adUnitId = anchoredAdaptiveBannerAdUnitId();
+    if (adUnitId == null) {
+      return const SizedBox.shrink();
+    }
+
+    return Builder(
+      builder: (context) {
+        return Expanded(
+          child: FutureBuilder<AdSize?>(
+            future: Platform.isIOS
+                ? AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
+                    ScreenUtil().screenWidth.toInt(),
+                  )
+                : Future.value(AdSize.getInlineAdaptiveBannerAdSize(
+                    ScreenUtil().screenWidth.toInt(),
+                    height?.h.toInt() ?? ScreenUtil().screenHeight.toInt())),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) return const SizedBox.shrink();
+
+              return SizedBox(
+                width: ScreenUtil().screenWidth,
+                height: height?.h ?? double.infinity,
+                child: AdWidget(
+                  ad: getBannerAd(
+                    adUnitId: adUnitId,
+                    size: snapshot.data!,
+                  ),
+                ),
+              );
+            },
+          ),
+        );
+      },
+    );
+  }
 }
 
 //height 값 필수

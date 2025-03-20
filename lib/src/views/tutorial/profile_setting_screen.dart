@@ -33,6 +33,7 @@ class ProfileSettingScreen extends ConsumerWidget {
                     SetProfileWidget(
                       userSetting.nickname,
                       userSetting.birthDate,
+                      userSetting.mbti,
                       userSettingViewModel,
                     ),
                   ],
