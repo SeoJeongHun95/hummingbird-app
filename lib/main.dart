@@ -34,9 +34,6 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   await appInitialize();
   try {
-    // FCM 초기화를 NotificationService 이전에 수행
-    await FcmManager.initialize();
-
     // 알림 서비스 초기화
     await NotificationService.instance.initialize();
 
