@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
 import '../../../core/services/whitenoise/audio_service.dart';
-import '../../../core/widgets/admob_widget.dart';
 import '../../models/whitenoise/audio_model.dart';
 
 class WhiteNoiseScreen extends ConsumerWidget {
@@ -64,9 +63,9 @@ class WhiteNoiseScreen extends ConsumerWidget {
                 ),
               ),
               Gap(16),
-              Expanded(
-                child: AdMobWidget.showBannerAd(150.h),
-              )
+              // Expanded(
+              //   child: AdMobWidget.showBannerAd(150.h),
+              // )
             ],
           ),
         ),
