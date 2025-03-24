@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PrivacyPolicyWidget extends StatelessWidget {
@@ -61,20 +60,14 @@ class PrivacyPolicyWidget extends StatelessWidget {
       onTap: () {
         _launchURL(context);
       },
-      leading: Icon(
-        Icons.privacy_tip_outlined,
-        size: 20.w,
-      ),
+      leading: Icon(Icons.privacy_tip_outlined, size: 20),
       title: Text(
         tr("PrivacyPolicyWidget.PrivacyPolicy"),
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w500,
             ),
       ),
-      trailing: Icon(
-        Icons.arrow_forward_ios,
-        size: 16.w,
-      ),
+      trailing: Icon(Icons.arrow_forward_ios, size: 16),
     );
   }
 }
