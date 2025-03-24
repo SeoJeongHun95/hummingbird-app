@@ -129,6 +129,9 @@ class _MBTIScreenState extends State<MBTIScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('mbtiResult.MBTILearningStyleTest').tr(),
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        scrolledUnderElevation: 0,
+        elevation: 0,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
