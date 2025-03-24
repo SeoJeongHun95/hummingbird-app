@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/utils/fcm.dart';
 import '../../providers/auth/auth_provider.dart';
 import '../auth/apple_login_button.dart';
 import '../auth/google_login_button.dart';
@@ -34,7 +35,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   @override
   void initState() {
     super.initState();
-
+    _initializeFcm();
     _controller = AnimationController(
       duration: const Duration(milliseconds: 1500),
       vsync: this,
@@ -86,6 +87,14 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
         }
       });
     });
+  }
+
+  void _initializeFcm() async {
+    try {
+      await FcmManager.initialize();
+    } catch (e) {
+      print("FCM 초기화 실패: $e");
+    }
   }
 
   @override
