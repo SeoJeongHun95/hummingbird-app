@@ -1,7 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
@@ -46,7 +44,7 @@ class ProfileInfoWidget extends ConsumerWidget {
       MxN_rate: MxNRate.TWOBYTHREEQUARTERS,
       MxN_child: Container(
         color: Colors.white,
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,12 +52,13 @@ class ProfileInfoWidget extends ConsumerWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(tr('ProfileInfoWidget.nickName')),
                 TextField(
                   focusNode: nickNameFocusNode,
                   controller: nickNameController,
                   maxLength: 30,
                   decoration: InputDecoration(
+                    labelText: tr('ProfileInfoWidget.nickName'),
+                    counterText: "",
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey),
                     ),
@@ -79,7 +78,6 @@ class ProfileInfoWidget extends ConsumerWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(tr('ProfileInfoWidget.birthDate')),
                 TextField(
                   controller: birthDateController,
                   readOnly: true,
@@ -94,6 +92,7 @@ class ProfileInfoWidget extends ConsumerWidget {
                     }
                   },
                   decoration: InputDecoration(
+                    labelText: tr('ProfileInfoWidget.birthDate'),
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey),
                     ),
@@ -105,11 +104,9 @@ class ProfileInfoWidget extends ConsumerWidget {
                 ),
               ],
             ),
-            Gap(8),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(tr('MBTI')),
                 TextField(
                   onTap: () async {
                     await Navigator.push<String>(
@@ -133,6 +130,8 @@ class ProfileInfoWidget extends ConsumerWidget {
                   controller: mbtiController,
                   maxLength: 4,
                   decoration: InputDecoration(
+                    labelText: tr('MBTI'),
+                    counterText: "",
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey),
                     ),

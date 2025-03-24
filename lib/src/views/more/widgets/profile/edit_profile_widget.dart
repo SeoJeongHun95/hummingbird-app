@@ -1,11 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../viewmodels/user_setting/user_setting_view_model.dart';
 import 'profile_info_widget.dart';
-import 'safe_button_widget.dart';
+import 'save_button_widget.dart';
 
 class EditProfileWidget extends StatefulWidget {
   const EditProfileWidget({
@@ -85,7 +84,7 @@ class _ProfileAndBtnWidgetState extends State<EditProfileWidget> {
             mbti: '',
           ),
           const SizedBox(height: 2), // 간격을 8로 줄임
-          SafeButtonWidget(
+          SaveButtonWidget(
             title: tr('ProfileInfoWidget.save'),
             isValid: isValid,
             backgroundColor: Theme.of(context).colorScheme.primary,

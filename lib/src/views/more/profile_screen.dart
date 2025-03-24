@@ -28,26 +28,22 @@ class ProfileScreen extends ConsumerWidget {
             scrolledUnderElevation: 0,
           ),
           body: SafeArea(
-            child: Padding(
-              padding: EdgeInsets.only(bottom: 48.0),
-              child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => FocusScope.of(context).unfocus(),
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Gap(32.w),
-                      ProfileImageWidget(radius: 88.w),
-                      Gap(40.w),
-                      EditProfileWidget(
-                        nickName: userSetting.nickname,
-                        birthDate: userSetting.birthDate,
-                        userSettingViewModel: userSettingViewModel,
-                      ),
-                    ],
-                  ),
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () => FocusScope.of(context).unfocus(),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ProfileImageWidget(radius: 88.w),
+                    Gap(16.h),
+                    EditProfileWidget(
+                      nickName: userSetting.nickname,
+                      birthDate: userSetting.birthDate,
+                      userSettingViewModel: userSettingViewModel,
+                    ),
+                  ],
                 ),
               ),
             ),
