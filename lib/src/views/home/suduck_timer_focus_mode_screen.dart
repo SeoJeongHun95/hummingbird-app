@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:StudyDuck/core/widgets/admob_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -210,7 +209,7 @@ class _SuduckTimerFocusModeWidgetState
               SizedBox(
                 width: 150.w, // 원하는 너비
                 height: 250.h, // 원하는 높이
-                child: AdMobWidget.showBannerAd(280), // 배너 광고의 높이와 일치
+                // child: AdMobWidget.showBannerAd(280), // 배너 광고의 높이와 일치
               ),
             ],
           ),
