@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/utils.dart';
 
@@ -16,20 +15,14 @@ class InquiryButtonWidget extends StatelessWidget {
       onTap: () {
         sendEmail(context);
       },
-      leading: Icon(
-        Icons.mail_outline_rounded,
-        size: 20.w,
-      ),
+      leading: Icon(Icons.mail_outline_rounded, size: 20),
       title: Text(
         tr('InquiryButtonWidget.ContactUs'),
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w500,
             ),
       ),
-      trailing: Icon(
-        Icons.arrow_forward_ios,
-        size: 16.w,
-      ),
+      trailing: Icon(Icons.arrow_forward_ios, size: 16),
     );
   }
 }

@@ -15,12 +15,14 @@ class MoreScreen extends ConsumerWidget {
       appBar: AppBar(),
       body: SafeArea(
         child: Center(
-          child: Column(
-            children: [
-              UserProfileWidget(),
-              OptionsContainerWidget(),
-              UserAuthWidget(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                UserProfileWidget(),
+                OptionsContainerWidget(),
+                UserAuthWidget(),
+              ],
+            ),
           ),
         ),
       ),
