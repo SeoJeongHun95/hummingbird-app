@@ -167,19 +167,18 @@ class SuDuckTimer extends _$SuDuckTimer {
 
   Future<void> _restoreTimerState() async {
     final restored = await suduckLocalState.getSuDuckTimerStates();
-    var restoreFlag = false;
-
-    if (restored != null) {
-      restoreFlag = await showConfirmDialog("", "기존의 타이머가 있습니다. 복구하시겠습니까?");
-    }
-
-    if (!restoreFlag || restored == null) return;
+    if (restored == null) return;
 
     final now = DateTime.now().millisecondsSinceEpoch;
-
-    final subjectFuture = findSubjectById(restored[2]);
     final elapsedTime = (((now - restored[0]) / 1000)) - restored[1];
 
+    if (elapsedTime >= 86400) return;
+
+    final restoreFlag = await showConfirmDialog("", "기존의 타이머가 있습니다. 복구하시겠습니까?");
+
+    if (!restoreFlag) return;
+
+    final subjectFuture = findSubjectById(restored[2]);
     final restoredSubject = await subjectFuture;
 
     _updateBgColor(restoredSubject.color);

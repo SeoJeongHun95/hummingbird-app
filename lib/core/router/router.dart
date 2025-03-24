@@ -16,7 +16,7 @@ import '../../src/views/more/more_screen.dart';
 import '../../src/views/more/profile_screen.dart';
 import '../../src/views/more/settings_screen/settings_export.dart';
 import '../../src/views/more/timer_setting_screen.dart';
-import '../../src/views/social/views/social_screen.dart';
+import '../../src/views/social/social_screen.dart';
 import '../../src/views/splash/splash_screen.dart';
 import '../../src/views/statistics/views/statistics_screen.dart';
 import '../../src/views/tutorial/profile_setting_screen.dart';
