@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:StudyDuck/core/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,8 +14,6 @@ class LeardBoardWidget extends ConsumerWidget {
     return Container(
       child: leaderboardState.when(
         data: (leaderboardStatedata) {
-          log(leaderboardStatedata.toString());
-
           return Expanded(
             child: ListView.builder(
               itemCount: leaderboardStatedata.length,
