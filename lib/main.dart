@@ -12,7 +12,6 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'core/router/router.dart';
 import 'core/services/notification_service.dart';
-import 'core/utils/fcm.dart';
 import 'core/utils/show_snack_bar.dart';
 import 'src/app_initialize.dart';
 import 'src/viewmodels/app_setting/app_setting_view_model.dart';

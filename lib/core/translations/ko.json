@@ -388,7 +388,8 @@
     "myMBTIStyle": "나의 MBTI 학습 스타일",
     "CheckMyMBTI": "나의 MBTI 결과를 확인해보세요!\n#Study Duck #스터디덕 #MBTI학습법",
     "MBTILearningStyleTest": "MBTI 학습 스타일 검사",
-    "question": "질문"
+    "question": "질문",
+    "MBTINotTest": "아직 MBTI 테스트를 진행하지 않았습니다. 테스트를 진행해주세요."
   },
   "mbtiTypeResult": {
     "ISTJ": {
@@ -535,5 +536,11 @@
       "weakSubjects": "예술, 문학",
       "consultingSummary": "ENTJ는 목표를 명확히 설정하고 체계적인 접근을 통해 학습하는 것을 선호합니다. 경영학, 경제학, 수학과 같은 논리적이고 분석적인 과목에서 뛰어난 성과를 보입니다. 예술이나 문학과 같은 창의적이고 감성적인 과목에서는 어려움을 겪을 수 있으므로, 더 실용적이고 구조적인 학습 방법이 필요합니다. 엄격한 시간 관리와 효율적인 계획이 중요하며, 항상 명확한 목표를 설정하여 집중적으로 학습하는 것이 이상적입니다."
     }
+  },
+  "MBTIResoltScreen": {
+    "MyMBTIresult": "나의 MBTI 결과"
+  },
+  "License": {
+    "License": "라이센스"
   }
 }

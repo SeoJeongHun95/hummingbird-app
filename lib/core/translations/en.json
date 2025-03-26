@@ -388,7 +388,8 @@
     "myMBTIStyle": "My MBTI Learning Style",
     "CheckMyMBTI": "Check my MBTI learning style result!\n#StudyDuck #StudyDuck #MBTILearning",
     "MBTILearningStyleTest": "MBTI Learning Style Test",
-    "question": "Question"
+    "question": "Question",
+    "MBTINotTest": "You haven't taken the MBTI test yet. Please take the test."
   },
   "mbtiTypeResult": {
     "ISTJ": {
@@ -535,5 +536,11 @@
       "weakSubjects": "Art, Literature",
       "consultingSummary": "ENTJ prefers clear goal setting and structured approaches to learning. They show excellent performance in logical and analytical subjects like business, economics, and math. They may find creative and emotional subjects like art and literature challenging, so a more practical and structured learning method is needed. Strict time management and efficient planning are important, always setting clear goals and focusing on learning intensively."
     }
+  },
+  "MBTIResoltScreen": {
+    "MyMBTIresult": "My MBTI result"
+  },
+  "License": {
+    "License": "License"
   }
 }

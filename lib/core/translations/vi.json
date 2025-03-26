@@ -388,7 +388,8 @@
     "myMBTIStyle": "Phong cách Học tập MBTI của tôi",
     "CheckMyMBTI": "Hãy xem kết quả MBTI của tôi!\n#StudyDuck #스터디덕 #PhongCachHocTapMBTI",
     "MBTILearningStyleTest": "Kiểm tra Phong cách Học tập MBTI",
-    "question": "Câu hỏi"
+    "question": "Câu hỏi",
+    "MBTINotTest": "Bạn chưa làm bài kiểm tra MBTI. Vui lòng làm bài kiểm tra."
   },
   "mbtiTypeResult": {
     "ISTJ": {
@@ -535,5 +536,11 @@
       "weakSubjects": "Nghệ thuật, Văn học",
       "consultingSummary": "ENTJ thích học tập với mục tiêu rõ ràng và cách tiếp cận có hệ thống. Họ xuất sắc trong các môn logic và phân tích như quản trị, kinh tế và toán học. Họ có thể gặp khó khăn với các môn sáng tạo và cảm xúc như nghệ thuật hoặc văn học, vì vậy cần phương pháp học tập thực tế và có cấu trúc hơn. Quản lý thời gian nghiêm ngặt và kế hoạch hiệu quả rất quan trọng, và lý tưởng nhất là luôn đặt mục tiêu rõ ràng để tập trung học tập."
     }
+  },
+  "MBTIResoltScreen": {
+    "MyMBTIresult": "Kết quả MBTI của tôi"
+  },
+  "License": {
+    "License": "Giấy phép"
   }
 }

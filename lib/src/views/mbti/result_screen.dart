@@ -8,7 +8,13 @@ import 'mbti_screen.dart';
 class ResultScreen extends StatefulWidget {
   final String mbtiType;
   final Function(String)? onMbtiResult;
-  const ResultScreen({super.key, required this.mbtiType, this.onMbtiResult});
+  final bool isResoultScreen;
+  const ResultScreen({
+    super.key,
+    required this.mbtiType,
+    this.onMbtiResult,
+    required this.isResoultScreen,
+  });
 
   @override
   State<ResultScreen> createState() => _ResultScreenState();
@@ -188,12 +194,10 @@ class _ResultScreenState extends State<ResultScreen> {
               const SizedBox(height: 20),
               ElevatedButton(
                   onPressed: () {
-                    widget.onMbtiResult?.call(widget.mbtiType);
-                    // 이전 화면들을 모두 제거하고 결과값 전달
-                    int count = 0;
-                    Navigator.of(context).popUntil((route) {
-                      return count++ == 2;
-                    });
+                    // 나의 MBTI 결과화면에서 온건지 체크
+                    widget.isResoultScreen == false
+                        ? _MoveToThePageAfterTheMBTItest()
+                        : Navigator.of(context).pop();
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueAccent,
@@ -212,6 +216,16 @@ class _ResultScreenState extends State<ResultScreen> {
         ),
       ),
     );
+  }
+
+  void _MoveToThePageAfterTheMBTItest() {
+    print("MBTI 결과 화면에서 온 경우");
+    widget.onMbtiResult?.call(widget.mbtiType);
+    // 이전 화면들을 모두 제거하고 결과값 전달
+    int count = 0;
+    Navigator.of(context).popUntil((route) {
+      return count++ == 2;
+    });
   }
 
   Widget _buildMbtiHeader(String type) {

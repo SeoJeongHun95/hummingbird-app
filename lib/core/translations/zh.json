@@ -388,7 +388,8 @@
     "myMBTIStyle": "我的MBTI学习风格",
     "CheckMyMBTI": "来看看我的MBTI结果吧!\n#StudyDuck #学习鸭 #MBTI学习法",
     "MBTILearningStyleTest": "MBTI学习风格测试",
-    "question": "问题"
+    "question": "问题",
+    "MBTINotTest": "您还没有进行MBTI测试。请进行测试。"
   },
   "mbtiTypeResult": {
     "ISTJ": {
@@ -535,5 +536,11 @@
       "weakSubjects": "艺术、文学",
       "consultingSummary": "ENTJ喜欢明确设定目标并通过系统方法学习。在管理学、经济学、数学等逻辑和分析性科目表现优异。在艺术或文学等创造性和感性科目可能会遇到困难，需要更实用和结构化的学习方法。严格的时间管理和有效的计划很重要，始终设定明确目标并集中学习是最理想的。"
     }
+  },
+  "MBTIResoltScreen": {
+    "MyMBTIresult": "我的MBTI结果"
+  },
+  "License": {
+    "License": "许可证"
   }
 }
