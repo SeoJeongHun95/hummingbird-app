@@ -85,7 +85,8 @@
     "nickName": "ชื่อเล่น",
     "nickNameHint": "แก้ไขโปรไฟล์",
     "save": "บันทึก",
-    "mbtiTest": "แบบทดสอบ MBTI"
+    "mbtiTest": "แบบทดสอบ MBTI",
+    "NoMBTIResult": "ไม่มีผลลัพธ์ MBTI"
   },
   "ProfileSettingScreen": {
     "loadingText": "มุ่งมั่นเรียนรู้ไปกับ Study Duck..."
@@ -388,7 +389,8 @@
     "myMBTIStyle": "รูปแบบการเรียนรู้ MBTI ของฉัน",
     "CheckMyMBTI": "มาดูผล MBTI ของฉันกัน!\n#StudyDuck #สตัดดี้ดัก #MBTI การเรียนรู้",
     "MBTILearningStyleTest": "แบบทดสอบรูปแบบการเรียนรู้ MBTI",
-    "question": "คำถาม"
+    "question": "คำถาม",
+    "MBTINotTest": "คุณยังไม่ได้ทำการทดสอบ MBTI โปรดทำการทดสอบ"
   },
   "mbtiTypeResult": {
     "ISTJ": {
@@ -535,5 +537,11 @@
       "weakSubjects": "คณิตศาสตร์ ตรรกะ",
       "consultingSummary": "ISFP สามารถเรียนรู้ได้อย่างมีประสิทธิภาพผ่านวิธีการสร้างสรรค์และการรับรู้ โดดเด่นในวิชาศิลปะ การออกแบบ และชีววิทยา อาจพบความยากลำบากในวิชาคณิตศาสตร์หรือตรรกะ ควรใช้ตัวอย่างที่ปฏิบัติได้จริงในการเรียนรู้ วิธีการเรียนรู้ที่ยืดหยุ่นและอิสระจะช่วยให้เกิดประสิทธิภาพสูงสุด"
     }
+  },
+  "MBTIResoltScreen": {
+    "MyMBTIresult": "ผลลัพธ์ MBTI ของฉัน"
+  },
+  "License": {
+    "License": "ใบอนุญาต"
   }
 }

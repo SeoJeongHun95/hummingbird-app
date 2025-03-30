@@ -113,6 +113,7 @@ class _MBTIScreenState extends State<MBTIScreen> {
         builder: (context) => ResultScreen(
           mbtiType: mbtiResult,
           onMbtiResult: widget.onMbtiResult,
+          isResoultScreen: false,
         ),
       ),
     );

@@ -1,9 +1,11 @@
+import 'package:StudyDuck/src/views/more/oss_licenses_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/enum/mxnRate.dart';
 import '../../../../core/widgets/mxnContainer.dart';
 import 'user_auth/inquiry_button_widget.dart';
 import 'user_auth/logout_button_widget.dart';
+import 'user_auth/oss_licenses_widge.dart';
 import 'user_auth/privacy_policy_widget.dart';
 
 class UserAuthWidget extends StatelessWidget {
@@ -12,12 +14,14 @@ class UserAuthWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MxNcontainer(
-      MxN_rate: MxNRate.TWOBYONE,
+      MxN_rate: MxNRate.TWOBYTHREEQUARTERS,
       MxN_child: Container(
         color: Colors.white,
         padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         child: Column(
           children: [
+            OssLicensesWidge(),
+            Divider(),
             InquiryButtonWidget(),
             Divider(),
             PrivacyPolicyWidget(),
