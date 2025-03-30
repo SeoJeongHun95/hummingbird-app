@@ -85,7 +85,8 @@
     "nickName": "닉네임",
     "nickNameHint": "프로필 변경",
     "save": "저장",
-    "mbtiTest": "MBTI 테스트"
+    "mbtiTest": "MBTI 테스트",
+    "NoMBTIResult": "MBTI결과 없음"
   },
   "ProfileSettingScreen": {
     "loadingText": "오늘도 최선을 다해서 Study Duck과 함께..."

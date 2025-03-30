@@ -85,7 +85,8 @@
     "nickName": "Nickname",
     "nickNameHint": "Edit Profile",
     "save": "SAVE",
-    "mbtiTest": "MBTI Test"
+    "mbtiTest": "MBTI Test",
+    "NoMBTIResult": "No MBTI result"
   },
   "ProfileSettingScreen": {
     "loadingText": "Doing your best today with Study Duck..."

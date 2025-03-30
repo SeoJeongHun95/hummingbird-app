@@ -50,8 +50,30 @@ class UserProfileWidget extends ConsumerWidget {
                               ),
                             ],
                           ),
-                          SizedBox(height: 12.w),
+                          SizedBox(height: 8.w),
                           getBrithDateText(userSetting.birthDate),
+                          SizedBox(height: 8.w),
+                          Row(
+                            children: [
+                              Text("MBTI : "),
+                              Expanded(
+                                child: Text(
+                                  userSetting.mbti == null
+                                      ? tr("ProfileInfoWidget.NoMBTIResult")
+                                      : userSetting.mbti!,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1, // 한 줄만 표시하도록 설정
+                                  softWrap: false, // 자동 줄바꿈 방지
+
+                                  style: TextStyle(
+                                    color: userSetting.mbti == null
+                                        ? Colors.grey
+                                        : Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     )
@@ -135,6 +157,12 @@ class UserProfileWidget extends ConsumerWidget {
           color: Colors.black,
         ),
         children: [
+          TextSpan(
+            text: " : ",
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
           TextSpan(
             text: birthDate ?? tr("ProfileInfoWidget.nickNameHint"),
             style: TextStyle(

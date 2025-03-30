@@ -85,7 +85,8 @@
     "nickName": "ชื่อเล่น",
     "nickNameHint": "แก้ไขโปรไฟล์",
     "save": "บันทึก",
-    "mbtiTest": "แบบทดสอบ MBTI"
+    "mbtiTest": "แบบทดสอบ MBTI",
+    "NoMBTIResult": "ไม่มีผลลัพธ์ MBTI"
   },
   "ProfileSettingScreen": {
     "loadingText": "มุ่งมั่นเรียนรู้ไปกับ Study Duck..."

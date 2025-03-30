@@ -85,7 +85,8 @@
     "nickName": "昵称",
     "nickNameHint": "更改个人资料",
     "save": "保存",
-    "mbtiTest": "MBTI测试"
+    "mbtiTest": "MBTI测试",
+    "NoMBTIResult": "没有MBTI结果"
   },
   "ProfileSettingScreen": {
     "loadingText": "今天也要全力以赴，与 Study Duck 一起学习..."

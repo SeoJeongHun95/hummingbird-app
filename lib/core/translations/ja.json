@@ -85,7 +85,8 @@
     "nickName": "ニックネーム",
     "nickNameHint": "プロフィール変更",
     "save": "保存",
-    "mbtiTest": "MBTIテスト"
+    "mbtiTest": "MBTIテスト",
+    "NoMBTIResult": "MBTIの結果なし"
   },
   "ProfileSettingScreen": {
     "loadingText": "今日も全力で Study Duck と一緒に..."
