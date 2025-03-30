@@ -47,7 +47,10 @@
     "Cancel": "キャンセル",
     "Confirm": "確認",
     "Focus!": "集中してください！",
-    "YouarestudyingPutyourphonedownandfocus": "勉強中です。電話を置いて集中してください。"
+    "YouarestudyingPutyourphonedownandfocus": "勉強中です。携帯電話を置いて集中してください。",
+    "restoreTimer": "既存のタイマーがあります。復元しますか？",
+    "LogoutDialog": "ログアウトしますか？",
+    "DeleteUserDialog": "本当にアカウントを削除しますか？"
   },
   "HomeSegmentBar": {
     "Dday": "D-Day",
@@ -59,6 +62,9 @@
   },
   "LogoutButtonWidget": {
     "Logout": "ログアウト"
+  },
+  "DeleteUserButtonWidget": {
+    "DeleteUser": "アカウント削除"
   },
   "MonthlyStatisticsScreen": {
     "noData": "記録データがありません。"
@@ -90,6 +96,9 @@
   },
   "ProfileSettingScreen": {
     "loadingText": "今日も全力で Study Duck と一緒に..."
+  },
+  "Rank": {
+    "Rank": "勉強ランキング"
   },
   "SelectCountryButtonWidget": {
     "Country": "国",

@@ -2,10 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../oss_licenses_screen.dart';
+import '../../../../providers/auth/auth_provider.dart';
 
-class OssLicensesWidge extends ConsumerWidget {
-  const OssLicensesWidge({super.key});
+class DeleteUserButtonWidget extends ConsumerWidget {
+  const DeleteUserButtonWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -14,14 +14,11 @@ class OssLicensesWidge extends ConsumerWidget {
       contentPadding: EdgeInsets.zero,
       visualDensity: VisualDensity(vertical: -4),
       onTap: () async {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => OssLicensesScreen()),
-        );
+        await ref.read(authProvider.notifier).deleteUser();
       },
-      leading: Icon(Icons.rule, size: 20),
+      leading: Icon(Icons.details_outlined, size: 20),
       title: Text(
-        tr('License.License'),
+        tr('DeleteUserButtonWidget.DeleteUser'),
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w500,
             ),

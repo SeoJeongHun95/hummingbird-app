@@ -46,8 +46,11 @@
   "Dialog": {
     "Cancel": "取消",
     "Confirm": "确认",
-    "Focus!": "集中！",
-    "YouarestudyingPutyourphonedownandfocus": "你在学习。把手机放下，集中精力。"
+    "Focus!": "专心！",
+    "YouarestudyingPutyourphonedownandfocus": "你正在学习。放下手机，专心致志。",
+    "restoreTimer": "已有计时器。你想恢复吗？",
+    "LogoutDialog": "你确定要退出登录吗？",
+    "DeleteUserDialog": "你确定要删除账户吗？"
   },
   "HomeSegmentBar": {
     "Dday": "倒计时",
@@ -59,6 +62,9 @@
   },
   "LogoutButtonWidget": {
     "Logout": "退出登录"
+  },
+  "DeleteUserButtonWidget": {
+    "DeleteUser": "删除账户"
   },
   "MonthlyStatisticsScreen": {
     "noData": "没有记录的数据"
@@ -90,6 +96,9 @@
   },
   "ProfileSettingScreen": {
     "loadingText": "今天也要全力以赴，与 Study Duck 一起学习..."
+  },
+  "Rank": {
+    "Rank": "学习排名"
   },
   "SelectCountryButtonWidget": {
     "Country": "国家",
