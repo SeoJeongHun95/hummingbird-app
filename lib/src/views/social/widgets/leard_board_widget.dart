@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../viewmodels/leader_board/leader_board_view_model_view_model.dart';
 
-class LeardBoardWidget extends ConsumerWidget {
-  const LeardBoardWidget({super.key});
+class LeaderboardWidget extends ConsumerWidget {
+  const LeaderboardWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -62,6 +62,7 @@ class LeardBoardWidget extends ConsumerWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
+                    //TODO : 한글화 작업 필요
                     subtitle: Text(
                         "공부시간 : ${getFormatTime(player["totalElapsedTime"])}"),
                     trailing: Row(

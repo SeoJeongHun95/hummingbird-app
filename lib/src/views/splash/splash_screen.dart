@@ -92,9 +92,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   void _initializeFcm() async {
     try {
       await FcmManager.initialize();
-    } catch (e) {
-      print("FCM 초기화 실패: $e");
-    }
+    } catch (e) {}
   }
 
   @override

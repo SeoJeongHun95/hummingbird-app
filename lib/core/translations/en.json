@@ -47,7 +47,10 @@
     "Cancel": "Cancel",
     "Confirm": "Confirm",
     "Focus!": "Focus!",
-    "Youarestudying.Putyourphonedownandfocus.": "You are studying. Put your phone down and focus."
+    "YouarestudyingPutyourphonedownandfocus": "You are studying. Put your phone down and focus.",
+    "restoreTimer": "There is an existing timer. Do you want to restore it?",
+    "LogoutDialog": "Are you sure you want to log out?",
+    "DeleteUserDialog": "Are you sure you want to delete your account?"
   },
   "HomeSegmentBar": {
     "Dday": "D-Day",
@@ -59,6 +62,9 @@
   },
   "LogoutButtonWidget": {
     "Logout": "Logout"
+  },
+  "DeleteUserButtonWidget": {
+    "DeleteUser": "Delete Account"
   },
   "MonthlyStatisticsScreen": {
     "noData": "No recorded data."
@@ -90,6 +96,9 @@
   },
   "ProfileSettingScreen": {
     "loadingText": "Doing your best today with Study Duck..."
+  },
+  "Rank": {
+    "Rank": "Study Ranking"
   },
   "SelectCountryButtonWidget": {
     "Country": "Country",

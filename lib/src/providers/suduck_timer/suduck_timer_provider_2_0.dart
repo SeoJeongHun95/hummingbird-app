@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:StudyDuck/src/providers/suduck_timer/timer_lifecycle_manager.dart';
 import 'package:StudyDuck/src/repositories/subject/subject_repository.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -174,7 +175,7 @@ class SuDuckTimer extends _$SuDuckTimer {
 
     if (elapsedTime >= 86400) return;
 
-    final restoreFlag = await showConfirmDialog("", "기존의 타이머가 있습니다. 복구하시겠습니까?");
+    final restoreFlag = await showConfirmDialog('', 'Dialog.restoreTimer'.tr());
 
     if (!restoreFlag) return;
 

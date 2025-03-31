@@ -1,9 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import 'package:easy_localization/easy_localization.dart';
-import 'package:go_router/go_router.dart';
 import '../../../core/utils/screen_share.dart';
-import 'mbti_screen.dart';
 
 class ResultScreen extends StatefulWidget {
   final String mbtiType;
@@ -35,6 +33,7 @@ class _ResultScreenState extends State<ResultScreen> {
       isSharing = true;
     });
 
+    //TOOD : 한글화 필요
     final tips = learningTips[widget.mbtiType] ??
         {"안내": "해당 MBTI 유형의 학습 팁이 준비되지 않았습니다."};
 

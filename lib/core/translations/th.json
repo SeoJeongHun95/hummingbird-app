@@ -46,8 +46,11 @@
   "Dialog": {
     "Cancel": "ยกเลิก",
     "Confirm": "ยืนยัน",
-    "Focus!": "ตั้งใจ!",
-    "YouarestudyingPutyourphonedownandfocus": "คุณกำลังเรียนอยู่ วางโทรศัพท์และตั้งใจ!"
+    "Focus!": "จดจ่อ!",
+    "YouarestudyingPutyourphonedownandfocus": "คุณกำลังเรียนอยู่ วางโทรศัพท์แล้วมุ่งมั่นไปที่การเรียน",
+    "restoreTimer": "มีตัวจับเวลาที่มีอยู่แล้ว คุณต้องการกู้คืนหรือไม่?",
+    "LogoutDialog": "คุณแน่ใจหรือไม่ว่าต้องการออกจากระบบ?",
+    "DeleteUserDialog": "คุณแน่ใจหรือไม่ว่าต้องการลบบัญชี?"
   },
   "HomeSegmentBar": {
     "Dday": "วันสำคัญ",
@@ -59,6 +62,9 @@
   },
   "LogoutButtonWidget": {
     "Logout": "ออกจากระบบ"
+  },
+  "DeleteUserButtonWidget": {
+    "DeleteUser": "ลบบัญชี"
   },
   "MonthlyStatisticsScreen": {
     "noData": "ไม่มีข้อมูลที่บันทึกไว้"
@@ -90,6 +96,9 @@
   },
   "ProfileSettingScreen": {
     "loadingText": "มุ่งมั่นเรียนรู้ไปกับ Study Duck..."
+  },
+  "Rank": {
+    "Rank": "การจัดอันดับการเรียน"
   },
   "SelectCountryButtonWidget": {
     "Country": "ประเทศ",

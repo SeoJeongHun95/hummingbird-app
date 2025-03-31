@@ -1,8 +1,8 @@
-import 'package:StudyDuck/src/views/more/oss_licenses_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/enum/mxnRate.dart';
 import '../../../../core/widgets/mxnContainer.dart';
+import 'user_auth/delete_user_button_widget.dart';
 import 'user_auth/inquiry_button_widget.dart';
 import 'user_auth/logout_button_widget.dart';
 import 'user_auth/oss_licenses_widge.dart';
@@ -27,6 +27,8 @@ class UserAuthWidget extends StatelessWidget {
             PrivacyPolicyWidget(),
             Divider(),
             LogoutButtonWidget(),
+            Divider(),
+            DeleteUserButtonWidget()
           ],
         ),
       ),
