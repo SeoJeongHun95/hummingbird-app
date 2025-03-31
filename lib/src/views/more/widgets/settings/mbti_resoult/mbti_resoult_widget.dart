@@ -23,14 +23,25 @@ class MbtiResoultWidget extends ConsumerWidget {
               context: context,
               builder: (BuildContext context) {
                 return AlertDialog(
-                  title: Text('NotificationButton.Alarm'),
-                  content: Text('mbtiResult.MBTINotTest'), // 메시지
+                  title: Text('NotificationButton.Alarm').tr(),
+                  content: Text('mbtiResult.MBTINotTest').tr(), // 메시지
                   actions: [
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).pop(); // 다이얼로그 닫기
                       },
-                      child: Text('DDayAddScreen.Confirm'),
+                      child: Text('WhiteNoiseScreen.Close').tr(),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop(); // 다이얼로그 닫기
+                        context.go('/more/profile');
+                      },
+                      child: Text(
+                        'mbtiResult.GoTest',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.blue),
+                      ).tr(),
                     ),
                   ],
                 );

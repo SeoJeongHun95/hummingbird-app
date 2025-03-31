@@ -402,7 +402,8 @@
     "MBTINotTest": "คุณยังไม่ได้ทำการทดสอบ MBTI โปรดทำการทดสอบ",
     "error": "ข้อผิดพลาด",
     "Tryagain": "ลองอีกครั้ง",
-    "Failedtoloadthequestion": "โหลดคำถามไม่สำเร็จ"
+    "Failedtoloadthequestion": "โหลดคำถามไม่สำเร็จ",
+    "GoTest": "ไปทดสอบ"
   },
   "mbtiTypeResult": {
     "ISTJ": {

@@ -402,7 +402,8 @@
     "MBTINotTest": "You haven't taken the MBTI test yet. Please take the test.",
     "error": "Error",
     "Tryagain": "Try again",
-    "Failedtoloadthequestion": "Failed to load the question."
+    "Failedtoloadthequestion": "Failed to load the question.",
+    "GoTest": "Go to Test"
   },
   "mbtiTypeResult": {
     "ISTJ": {

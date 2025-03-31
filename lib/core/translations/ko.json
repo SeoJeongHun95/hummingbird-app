@@ -402,7 +402,8 @@
     "MBTINotTest": "아직 MBTI 테스트를 진행하지 않았습니다. 테스트를 진행해주세요.",
     "error": "오류",
     "Tryagain": "다시 시도",
-    "Failedtoloadthequestion": "질문을 불러오는데 실패했습니다."
+    "Failedtoloadthequestion": "질문을 불러오는데 실패했습니다.",
+    "GoTest": "테스트하러가기"
   },
   "mbtiTypeResult": {
     "ISTJ": {

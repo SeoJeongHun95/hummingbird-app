@@ -402,7 +402,8 @@
     "MBTINotTest": "Bạn chưa làm bài kiểm tra MBTI. Vui lòng làm bài kiểm tra.",
     "error": "Lỗi",
     "Tryagain": "Thử lại",
-    "Failedtoloadthequestion": "Không thể tải câu hỏi."
+    "Failedtoloadthequestion": "Không thể tải câu hỏi.",
+    "GoTest": "Đi kiểm tra"
   },
   "mbtiTypeResult": {
     "ISTJ": {

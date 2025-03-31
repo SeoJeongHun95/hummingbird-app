@@ -402,7 +402,8 @@
     "MBTINotTest": "まだMBTIテストを受けていません。テストを受けてください。",
     "error": "エラー",
     "Tryagain": "もう一度試してください",
-    "Failedtoloadthequestion": "質問の読み込みに失敗しました。"
+    "Failedtoloadthequestion": "質問の読み込みに失敗しました。",
+    "GoTest": "テストしに行く"
   },
   "mbtiTypeResult": {
     "ISTJ": {

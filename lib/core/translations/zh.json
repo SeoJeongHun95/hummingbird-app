@@ -402,7 +402,8 @@
     "MBTINotTest": "您还没有进行MBTI测试。请进行测试。",
     "error": "错误",
     "Tryagain": "请重试",
-    "Failedtoloadthequestion": "加载问题失败。"
+    "Failedtoloadthequestion": "加载问题失败。",
+    "GoTest": "去测试"
   },
   "mbtiTypeResult": {
     "ISTJ": {
