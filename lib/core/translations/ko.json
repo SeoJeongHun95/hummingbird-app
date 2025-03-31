@@ -47,7 +47,10 @@
     "Cancel": "취소",
     "Confirm": "확인",
     "Focus!": "집중하세요!",
-    "YouarestudyingPutyourphonedownandfocus": "공부 중입니다. 핸드폰을 내려놓고 집중하세요."
+    "YouarestudyingPutyourphonedownandfocus": "공부 중입니다. 핸드폰을 내려놓고 집중하세요.",
+    "restoreTimer": "기존의 타이머가 있습니다. 복구하시겠습니까?",
+    "LogoutDialog": "로그아웃하시겠습니까?",
+    "DeleteUserDialog": "정말로 탈퇴하시겠습니까?"
   },
   "HomeSegmentBar": {
     "Dday": "디데이",
@@ -59,6 +62,9 @@
   },
   "LogoutButtonWidget": {
     "Logout": "로그아웃"
+  },
+  "DeleteUserButtonWidget": {
+    "DeleteUser": "회원탈퇴"
   },
   "MonthlyStatisticsScreen": {
     "noData": "기록된 데이터가 없습니다"
@@ -90,6 +96,9 @@
   },
   "ProfileSettingScreen": {
     "loadingText": "오늘도 최선을 다해서 Study Duck과 함께..."
+  },
+  "Rank": {
+    "Rank": "공부 랭킹"
   },
   "SelectCountryButtonWidget": {
     "Country": "국가",

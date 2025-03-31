@@ -44,10 +44,13 @@
     "Save": "Lưu"
   },
   "Dialog": {
-    "Cancel": "Hủy",
+    "Cancel": "Hủy bỏ",
     "Confirm": "Xác nhận",
-    "Focus!": "Tập trung!",
-    "YouarestudyingPutyourphonedownandfocus": "Bạn đang học. Hãy đặt điện thoại xuống và tập trung."
+    "Focus!": "Hãy tập trung!",
+    "YouarestudyingPutyourphonedownandfocus": "Bạn đang học. Hãy bỏ điện thoại xuống và tập trung.",
+    "restoreTimer": "Có một bộ đếm thời gian hiện tại. Bạn có muốn khôi phục không?",
+    "LogoutDialog": "Bạn có chắc chắn muốn đăng xuất không?",
+    "DeleteUserDialog": "Bạn có chắc chắn muốn xóa tài khoản không?"
   },
   "HomeSegmentBar": {
     "Dday": "Ngày đặc biệt",
@@ -59,6 +62,9 @@
   },
   "LogoutButtonWidget": {
     "Logout": "Đăng xuất"
+  },
+  "DeleteUserButtonWidget": {
+    "DeleteUser": "Xóa tài khoản"
   },
   "MonthlyStatisticsScreen": {
     "noData": "Không có dữ liệu được ghi nhận"
@@ -90,6 +96,9 @@
   },
   "ProfileSettingScreen": {
     "loadingText": "Hãy cố gắng hết mình cùng với Study Duck..."
+  },
+  "Rank": {
+    "Rank": "Xếp hạng học tập"
   },
   "SelectCountryButtonWidget": {
     "Country": "Quốc gia",

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -20,7 +21,7 @@ class AutoFocusSwitchWidget extends ConsumerWidget {
         appSettingNotifer.updateAppSetting(updatedAutoFocusMode: value);
       },
       title: Text(
-        "자동 집중모드",
+        tr("TimerSetting.AutoFocusMode"),
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w500,
             ),
