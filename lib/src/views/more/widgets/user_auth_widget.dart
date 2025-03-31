@@ -17,19 +17,27 @@ class UserAuthWidget extends StatelessWidget {
       MxN_rate: MxNRate.TWOBYTHREEQUARTERS,
       MxN_child: Container(
         color: Colors.white,
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-        child: Column(
-          children: [
-            OssLicensesWidge(),
-            Divider(),
-            InquiryButtonWidget(),
-            Divider(),
-            PrivacyPolicyWidget(),
-            Divider(),
-            LogoutButtonWidget(),
-            Divider(),
-            DeleteUserButtonWidget()
-          ],
+        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              OssLicensesWidge(),
+              Divider(),
+              InquiryButtonWidget(),
+              Divider(),
+              PrivacyPolicyWidget(),
+              Divider(),
+              LogoutButtonWidget(),
+              Divider(),
+              Column(
+                children: [
+                  Icon(Icons.keyboard_arrow_down),
+                  // SizedBox(height: 8),
+                ],
+              ),
+              DeleteUserButtonWidget()
+            ],
+          ),
         ),
       ),
     );
