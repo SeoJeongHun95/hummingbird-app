@@ -58,15 +58,15 @@ class _MBTIScreenState extends State<MBTIScreen> {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: const Text('오류'),
-            content: Text('질문을 불러오는데 실패했습니다: ${e.toString()}'),
+            title: const Text('mbtiResult.error').tr(),
+            content: Text('mbtiResult.Failedtoloadthequestion').tr(),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                   _loadQuestions(); // 다시 시도
                 },
-                child: const Text('다시 시도'),
+                child: const Text('mbtiResult.Tryagain').tr(),
               ),
             ],
           ),

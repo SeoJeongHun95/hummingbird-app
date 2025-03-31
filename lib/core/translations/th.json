@@ -390,7 +390,10 @@
     "CheckMyMBTI": "มาดูผล MBTI ของฉันกัน!\n#StudyDuck #สตัดดี้ดัก #MBTI การเรียนรู้",
     "MBTILearningStyleTest": "แบบทดสอบรูปแบบการเรียนรู้ MBTI",
     "question": "คำถาม",
-    "MBTINotTest": "คุณยังไม่ได้ทำการทดสอบ MBTI โปรดทำการทดสอบ"
+    "MBTINotTest": "คุณยังไม่ได้ทำการทดสอบ MBTI โปรดทำการทดสอบ",
+    "error": "ข้อผิดพลาด",
+    "Tryagain": "ลองอีกครั้ง",
+    "Failedtoloadthequestion": "โหลดคำถามไม่สำเร็จ"
   },
   "mbtiTypeResult": {
     "ISTJ": {

@@ -140,7 +140,7 @@ class _ResultScreenState extends State<ResultScreen> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          content: const Text('mbtiResult.shareFailed'),
+          content: const Text('mbtiResult.shareFailed').tr(),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),

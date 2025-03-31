@@ -390,7 +390,10 @@
     "CheckMyMBTI": "Check my MBTI learning style result!\n#StudyDuck #StudyDuck #MBTILearning",
     "MBTILearningStyleTest": "MBTI Learning Style Test",
     "question": "Question",
-    "MBTINotTest": "You haven't taken the MBTI test yet. Please take the test."
+    "MBTINotTest": "You haven't taken the MBTI test yet. Please take the test.",
+    "error": "Error",
+    "Tryagain": "Try again",
+    "Failedtoloadthequestion": "Failed to load the question."
   },
   "mbtiTypeResult": {
     "ISTJ": {

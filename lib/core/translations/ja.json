@@ -390,7 +390,10 @@
     "CheckMyMBTI": "あなたのMBTI結果をチェック!\n#Study Duck #スタディダック #スタディダック #MBTI学習法",
     "MBTILearningStyleTest": "MBTI学習スタイル診断",
     "question": "質問",
-    "MBTINotTest": "まだMBTIテストを受けていません。テストを受けてください。"
+    "MBTINotTest": "まだMBTIテストを受けていません。テストを受けてください。",
+    "error": "エラー",
+    "Tryagain": "もう一度試してください",
+    "Failedtoloadthequestion": "質問の読み込みに失敗しました。"
   },
   "mbtiTypeResult": {
     "ISTJ": {
