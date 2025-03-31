@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
+import 'dart:io' show Platform;
+import 'package:permission_handler/permission_handler.dart';
 import '../../../core/utils/screen_share.dart';
 
 class ResultScreen extends StatefulWidget {
@@ -33,7 +34,57 @@ class _ResultScreenState extends State<ResultScreen> {
       isSharing = true;
     });
 
-    //TOOD : 한글화 필요
+    // 플랫폼별 권한 확인
+    if (Platform.isAndroid) {
+      final status = await Permission.storage.status;
+      if (!status.isGranted) {
+        final result = await Permission.storage.request();
+        if (!result.isGranted) {
+          setState(() {
+            isSharing = false;
+          });
+          if (!mounted) return;
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              content: const Text('mbtiResult.permissionDenied').tr(),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('mbtiResult.confirm').tr(),
+                ),
+              ],
+            ),
+          );
+          return;
+        }
+      }
+    } else if (Platform.isIOS) {
+      final status = await Permission.photos.status;
+      if (!status.isGranted) {
+        final result = await Permission.photos.request();
+        if (!result.isGranted) {
+          setState(() {
+            isSharing = false;
+          });
+          if (!mounted) return;
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              content: const Text('mbtiResult.permissionDenied').tr(),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('mbtiResult.confirm').tr(),
+                ),
+              ],
+            ),
+          );
+          return;
+        }
+      }
+    }
+
     final tips = learningTips[widget.mbtiType] ??
         {"안내": "해당 MBTI 유형의 학습 팁이 준비되지 않았습니다."};
 
@@ -139,7 +190,7 @@ class _ResultScreenState extends State<ResultScreen> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          content: const Text('mbtiResult.shareFailed'),
+          content: const Text('mbtiResult.shareFailed').tr(),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),

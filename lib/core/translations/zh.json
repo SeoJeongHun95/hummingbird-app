@@ -399,7 +399,11 @@
     "CheckMyMBTI": "来看看我的MBTI结果吧!\n#StudyDuck #学习鸭 #MBTI学习法",
     "MBTILearningStyleTest": "MBTI学习风格测试",
     "question": "问题",
-    "MBTINotTest": "您还没有进行MBTI测试。请进行测试。"
+    "MBTINotTest": "您还没有进行MBTI测试。请进行测试。",
+    "error": "错误",
+    "Tryagain": "请重试",
+    "Failedtoloadthequestion": "加载问题失败。",
+    "GoTest": "去测试"
   },
   "mbtiTypeResult": {
     "ISTJ": {

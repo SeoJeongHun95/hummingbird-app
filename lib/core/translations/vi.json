@@ -399,7 +399,11 @@
     "CheckMyMBTI": "Hãy xem kết quả MBTI của tôi!\n#StudyDuck #스터디덕 #PhongCachHocTapMBTI",
     "MBTILearningStyleTest": "Kiểm tra Phong cách Học tập MBTI",
     "question": "Câu hỏi",
-    "MBTINotTest": "Bạn chưa làm bài kiểm tra MBTI. Vui lòng làm bài kiểm tra."
+    "MBTINotTest": "Bạn chưa làm bài kiểm tra MBTI. Vui lòng làm bài kiểm tra.",
+    "error": "Lỗi",
+    "Tryagain": "Thử lại",
+    "Failedtoloadthequestion": "Không thể tải câu hỏi.",
+    "GoTest": "Đi kiểm tra"
   },
   "mbtiTypeResult": {
     "ISTJ": {
