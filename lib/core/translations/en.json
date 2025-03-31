@@ -403,7 +403,8 @@
     "error": "Error",
     "Tryagain": "Try again",
     "Failedtoloadthequestion": "Failed to load the question.",
-    "GoTest": "Go to Test"
+    "GoTest": "Go to Test",
+    "permissionDenied": "Permission denied"
   },
   "mbtiTypeResult": {
     "ISTJ": {

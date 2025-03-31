@@ -168,9 +168,9 @@ class SubjectListWidget extends ConsumerWidget {
                                     }
 
                                     final confirm = await showConfirmDialog(
-                                      subject.title +
+                                      "${subject.title} " +
                                           tr('SubjectList.DeleteSubjectPrompt'),
-                                      tr("CannotUndoWarning"),
+                                      tr("SubjectList.CannotUndoWarning"),
                                     );
 
                                     if (!confirm) {

@@ -403,7 +403,8 @@
     "error": "Lỗi",
     "Tryagain": "Thử lại",
     "Failedtoloadthequestion": "Không thể tải câu hỏi.",
-    "GoTest": "Đi kiểm tra"
+    "GoTest": "Đi kiểm tra",
+    "permissionDenied": "Quyền bị từ chối"
   },
   "mbtiTypeResult": {
     "ISTJ": {
