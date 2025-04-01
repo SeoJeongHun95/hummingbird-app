@@ -29,12 +29,6 @@ class UserAuthWidget extends StatelessWidget {
               Divider(),
               LogoutButtonWidget(),
               Divider(),
-              Column(
-                children: [
-                  Icon(Icons.keyboard_arrow_down),
-                  // SizedBox(height: 8),
-                ],
-              ),
               DeleteUserButtonWidget()
             ],
           ),
