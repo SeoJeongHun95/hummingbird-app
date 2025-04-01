@@ -244,14 +244,16 @@ class _ResultScreenState extends State<ResultScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            onPressed: isSharing ? null : handleShare,
-            icon: Icon(isSharing ? Icons.hourglass_empty : Icons.share),
-          ),
-        ],
-        elevation: 0,
-        backgroundColor: Colors.white,
+        scrolledUnderElevation: 0,
+        backgroundColor: Colors.transparent,
+        // actions: [
+        //   IconButton(
+        //     onPressed: isSharing ? null : handleShare,
+        //     icon: Icon(isSharing ? Icons.hourglass_empty : Icons.share),
+        //   ),
+        // ],
+        elevation: 0, //
+        // backgroundColor: Colors.white,
       ),
       body: screenShare.wrapWithScreenshot(
         child: SingleChildScrollView(
@@ -305,51 +307,48 @@ class _ResultScreenState extends State<ResultScreen> {
   }
 
   Widget _buildMbtiHeader(String type) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: Colors.blue.shade50,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            children: [
-              ClipOval(
-                child: Image.asset(
-                  'lib/core/imgs/mbti/$type.png',
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                ),
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: Colors.blue.shade50,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          children: [
+            ClipOval(
+              child: Image.asset(
+                'lib/core/imgs/mbti/$type.png',
+                width: 80,
+                height: 80,
+                fit: BoxFit.cover,
               ),
-              const SizedBox(width: 24),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      type,
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue.shade800,
-                      ),
+            ),
+            const SizedBox(width: 24),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    type,
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue.shade800,
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      'mbtiResult.analysisResult',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey.shade700,
-                      ),
-                    ).tr(),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    'mbtiResult.analysisResult',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey.shade700,
+                    ),
+                  ).tr(),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
