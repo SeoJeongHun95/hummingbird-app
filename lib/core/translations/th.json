@@ -404,7 +404,9 @@
     "Tryagain": "ลองอีกครั้ง",
     "Failedtoloadthequestion": "โหลดคำถามไม่สำเร็จ",
     "GoTest": "ไปทดสอบ",
-    "permissionDenied": "การอนุญาตถูกปฏิเสธ"
+    "permissionDenied": "การอนุญาตถูกปฏิเสธ",
+    "permissionTitle": "การอนุญาตถูกปฏิเสธ",
+    "openSettings": "เปิดการตั้งค่า"
   },
   "mbtiTypeResult": {
     "ISTJ": {

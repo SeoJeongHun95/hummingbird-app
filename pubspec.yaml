@@ -55,6 +55,7 @@ dependencies:
   url_launcher: ^6.0.6
   uuid: ^4.4.2
   wakelock_plus: ^1.2.10
+  device_info_plus: ^11.3.0
 
 dev_dependencies:
   build_runner: ^2.4.13

@@ -404,7 +404,9 @@
     "Tryagain": "Try again",
     "Failedtoloadthequestion": "Failed to load the question.",
     "GoTest": "Go to Test",
-    "permissionDenied": "Permission denied"
+    "permissionDenied": "Permission denied",
+    "permissionTitle": "Permission",
+    "openSettings": "Open Settings"
   },
   "mbtiTypeResult": {
     "ISTJ": {
