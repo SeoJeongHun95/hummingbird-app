@@ -403,7 +403,10 @@
     "error": "错误",
     "Tryagain": "请重试",
     "Failedtoloadthequestion": "加载问题失败。",
-    "GoTest": "去测试"
+    "GoTest": "去测试",
+    "permissionDenied": "权限被拒绝",
+    "permissionTitle": "权限被拒绝",
+    "openSettings": "打开设置"
   },
   "mbtiTypeResult": {
     "ISTJ": {

@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'dart:io' show Platform;
 import 'package:permission_handler/permission_handler.dart';
+import 'package:device_info_plus/device_info_plus.dart'; // Correct import
 import '../../../core/utils/screen_share.dart';
 
 class ResultScreen extends StatefulWidget {
@@ -20,6 +21,8 @@ class ResultScreen extends StatefulWidget {
 }
 
 class _ResultScreenState extends State<ResultScreen> {
+  final DeviceInfoPlugin deviceInfo =
+      DeviceInfoPlugin(); // Properly defined here
   final screenShare = ScreenShare();
   bool isSharing = false;
   final GlobalKey _printKey = GlobalKey();
@@ -34,61 +37,81 @@ class _ResultScreenState extends State<ResultScreen> {
       isSharing = true;
     });
 
-    // 플랫폼별 권한 확인
-    if (Platform.isAndroid) {
-      final status = await Permission.storage.status;
-      if (!status.isGranted) {
-        final result = await Permission.storage.request();
-        if (!result.isGranted) {
-          setState(() {
-            isSharing = false;
-          });
-          if (!mounted) return;
-          showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-              content: const Text('mbtiResult.permissionDenied').tr(),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text('mbtiResult.confirm').tr(),
-                ),
-              ],
-            ),
-          );
-          return;
-        }
-      }
-    } else if (Platform.isIOS) {
-      final status = await Permission.photos.status;
-      if (!status.isGranted) {
-        final result = await Permission.photos.request();
-        if (!result.isGranted) {
-          setState(() {
-            isSharing = false;
-          });
-          if (!mounted) return;
-          showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-              content: const Text('mbtiResult.permissionDenied').tr(),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text('mbtiResult.confirm').tr(),
-                ),
-              ],
-            ),
-          );
-          return;
-        }
-      }
-    }
-
-    final tips = learningTips[widget.mbtiType] ??
-        {"안내": "해당 MBTI 유형의 학습 팁이 준비되지 않았습니다."};
+    bool permissionGranted = false;
 
     try {
+      // 플랫폼별 권한 확인 (Android 버전에 따라 다른 권한 요청)
+      if (Platform.isAndroid) {
+        // Android 버전 확인 using deviceInfo
+        final androidInfo = await deviceInfo.androidInfo; // Correct usage
+        final sdkInt = androidInfo.version.sdkInt;
+
+        print('Android SDK Version: $sdkInt');
+
+        if (sdkInt >= 33) {
+          // Android 13 이상
+          final status = await Permission.photos.status;
+          print('Android 13+ Photos permission status: $status');
+
+          if (!status.isGranted) {
+            final result = await Permission.photos.request();
+            print('Android 13+ Photos permission request result: $result');
+            permissionGranted = result.isGranted;
+          } else {
+            permissionGranted = true;
+          }
+        } else {
+          // Android 12 이하
+          final status = await Permission.storage.status;
+          print('Android Storage permission status: $status');
+
+          if (!status.isGranted) {
+            final result = await Permission.storage.request();
+            print('Android Storage permission request result: $result');
+            permissionGranted = result.isGranted;
+          } else {
+            permissionGranted = true;
+          }
+        }
+      } else if (Platform.isIOS) {
+        final status = await Permission.photos.status;
+        print('iOS Photos permission status: $status');
+
+        if (!status.isGranted) {
+          final result = await Permission.photos.request();
+          print('iOS Photos permission request result: $result');
+          permissionGranted = result.isGranted;
+        } else {
+          permissionGranted = true;
+        }
+      }
+
+      if (!permissionGranted) {
+        if (!mounted) return;
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('mbtiResult.permissionTitle').tr(),
+            content: const Text('mbtiResult.permissionDenied').tr(),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('mbtiResult.confirm').tr(),
+              ),
+              TextButton(
+                onPressed: () => openAppSettings(),
+                child: const Text('mbtiResult.openSettings').tr(),
+              ),
+            ],
+          ),
+        );
+        return;
+      }
+
+      final tips = learningTips[widget.mbtiType] ??
+          {"안내": "해당 MBTI 유형의 학습 팁이 준비되지 않았습니다."};
+
+      // Rest of your handleShare logic...
       final content = RepaintBoundary(
         key: _printKey,
         child: Material(
@@ -170,7 +193,9 @@ class _ResultScreenState extends State<ResultScreen> {
         ),
       );
 
+      print('Attempting to capture and share content');
       await screenShare.captureAndShare(content);
+      print('Content captured and shared successfully');
 
       if (!mounted) return;
       showDialog(
@@ -186,11 +211,12 @@ class _ResultScreenState extends State<ResultScreen> {
         ),
       );
     } catch (e) {
+      print('Error during sharing: $e');
       if (!mounted) return;
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          content: const Text('mbtiResult.shareFailed').tr(),
+          content: Text(tr('mbtiResult.shareFailed') + ': $e'),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
@@ -215,18 +241,19 @@ class _ResultScreenState extends State<ResultScreen> {
   @override
   Widget build(BuildContext context) {
     final tips = learningTips[widget.mbtiType] ?? {};
-
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            onPressed: isSharing ? null : handleShare,
-            icon: Icon(isSharing ? Icons.hourglass_empty : Icons.share),
-          ),
-        ],
-        elevation: 0,
-        backgroundColor: Colors.white,
+        scrolledUnderElevation: 0,
+        backgroundColor: Colors.transparent,
+        // actions: [
+        //   IconButton(
+        //     onPressed: isSharing ? null : handleShare,
+        //     icon: Icon(isSharing ? Icons.hourglass_empty : Icons.share),
+        //   ),
+        // ],
+        elevation: 0, //
+        // backgroundColor: Colors.white,
       ),
       body: screenShare.wrapWithScreenshot(
         child: SingleChildScrollView(
@@ -243,24 +270,26 @@ class _ResultScreenState extends State<ResultScreen> {
               _buildConsultingSummary(tips),
               const SizedBox(height: 20),
               ElevatedButton(
-                  onPressed: () {
-                    // 나의 MBTI 결과화면에서 온건지 체크
-                    widget.isResoultScreen == false
-                        ? _MoveToThePageAfterTheMBTItest()
-                        : Navigator.of(context).pop();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueAccent,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.zero, // 모서리를 각지게 설정
-                    ),
+                onPressed: () {
+                  widget.isResoultScreen == false
+                      ? _MoveToThePageAfterTheMBTItest()
+                      : Navigator.of(context).pop();
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueAccent,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.zero,
                   ),
-                  child: Text("mbtiResult.confirm",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold))
-                      .tr()),
+                ),
+                child: Text(
+                  "mbtiResult.confirm",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ).tr(),
+              ),
             ],
           ),
         ),
@@ -271,7 +300,6 @@ class _ResultScreenState extends State<ResultScreen> {
   void _MoveToThePageAfterTheMBTItest() {
     print("MBTI 결과 화면에서 온 경우");
     widget.onMbtiResult?.call(widget.mbtiType);
-    // 이전 화면들을 모두 제거하고 결과값 전달
     int count = 0;
     Navigator.of(context).popUntil((route) {
       return count++ == 2;
@@ -279,51 +307,48 @@ class _ResultScreenState extends State<ResultScreen> {
   }
 
   Widget _buildMbtiHeader(String type) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: Colors.blue.shade50,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            children: [
-              ClipOval(
-                child: Image.asset(
-                  'lib/core/imgs/mbti/$type.png', // 이미지 경로 수정
-                  width: 80,
-                  height: 80,
-                  fit: BoxFit.cover,
-                ),
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: Colors.blue.shade50,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          children: [
+            ClipOval(
+              child: Image.asset(
+                'lib/core/imgs/mbti/$type.png',
+                width: 80,
+                height: 80,
+                fit: BoxFit.cover,
               ),
-              const SizedBox(width: 24),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      type,
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue.shade800,
-                      ),
+            ),
+            const SizedBox(width: 24),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    type,
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue.shade800,
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      'mbtiResult.analysisResult',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey.shade700,
-                      ),
-                    ).tr(),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    'mbtiResult.analysisResult',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey.shade700,
+                    ),
+                  ).tr(),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

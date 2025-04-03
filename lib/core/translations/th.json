@@ -403,7 +403,10 @@
     "error": "ข้อผิดพลาด",
     "Tryagain": "ลองอีกครั้ง",
     "Failedtoloadthequestion": "โหลดคำถามไม่สำเร็จ",
-    "GoTest": "ไปทดสอบ"
+    "GoTest": "ไปทดสอบ",
+    "permissionDenied": "การอนุญาตถูกปฏิเสธ",
+    "permissionTitle": "การอนุญาตถูกปฏิเสธ",
+    "openSettings": "เปิดการตั้งค่า"
   },
   "mbtiTypeResult": {
     "ISTJ": {

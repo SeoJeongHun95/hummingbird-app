@@ -403,7 +403,10 @@
     "error": "エラー",
     "Tryagain": "もう一度試してください",
     "Failedtoloadthequestion": "質問の読み込みに失敗しました。",
-    "GoTest": "テストしに行く"
+    "GoTest": "テストしに行く",
+    "permissionDenied": "権限が拒否されました",
+    "permissionTitle": "権限が必要です",
+    "openSettings": "設定を開く"
   },
   "mbtiTypeResult": {
     "ISTJ": {

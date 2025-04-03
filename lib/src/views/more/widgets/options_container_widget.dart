@@ -15,7 +15,7 @@ class OptionsContainerWidget extends StatelessWidget {
       MxN_rate: MxNRate.TWOBYONE,
       MxN_child: Container(
         color: Colors.white,
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
         child: Column(
           children: [
             MbtiResoultWidget(),

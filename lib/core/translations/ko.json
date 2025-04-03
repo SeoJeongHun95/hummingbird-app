@@ -403,7 +403,10 @@
     "error": "오류",
     "Tryagain": "다시 시도",
     "Failedtoloadthequestion": "질문을 불러오는데 실패했습니다.",
-    "GoTest": "테스트하러가기"
+    "GoTest": "테스트하러가기",
+    "permissionDenied": "권한이 거부되었습니다",
+    "permissionTitle": "권한 요청",
+    "openSettings": "설정 열기"
   },
   "mbtiTypeResult": {
     "ISTJ": {
