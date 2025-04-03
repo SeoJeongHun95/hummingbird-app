@@ -11,6 +11,7 @@ import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../../../core/utils/get_formatted_time.dart';
 import '../../../core/utils/selection_haptic.dart';
+import '../../../core/widgets/admob_widget.dart';
 import '../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
 import '../../viewmodels/timer/timer_bg_color_provider.dart';
 
@@ -41,7 +42,7 @@ class _SuduckTimerFocusModeWidgetState
   final double _movementThreshold = 2.2; // 움직임 감지 임계값
   final Duration _dialogCooldown = Duration(seconds: 60); // 다이얼로그후 설정값이 지나야 재감지
 
-  final int _inactiveThreshold = 6; // 설정시간동안 움직이지 않으면 다이얼로그 닫음
+  final int _inactiveThreshold = 10; // 설정시간동안 움직이지 않으면 다이얼로그 닫음
 
   // 추가할 변수들
   bool _isInitialized = false;
@@ -209,7 +210,7 @@ class _SuduckTimerFocusModeWidgetState
               SizedBox(
                 width: 150.w, // 원하는 너비
                 height: 250.h, // 원하는 높이
-                // child: AdMobWidget.showBannerAd(280), // 배너 광고의 높이와 일치
+                child: AdMobWidget.showBannerAd(80), // 배너 광고의 높이와 일치
               ),
             ],
           ),

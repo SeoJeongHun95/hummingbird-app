@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../../oss_licenses.dart';
+import '../../../core/widgets/admob_widget.dart';
 
 // Todo : 배포 전에 라이센스 확인
 // Todo : 라이센스 가지오기
@@ -43,7 +45,7 @@ class OssLicensesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Open Source Licenses'),
+          title: AdMobWidget.showBannerAd(50),
         ),
         body: FutureBuilder<List<Package>>(
             future: _licenses,
@@ -54,18 +56,23 @@ class OssLicensesScreen extends StatelessWidget {
                   itemCount: snapshot.data?.length ?? 0,
                   itemBuilder: (context, index) {
                     final package = snapshot.data![index];
-                    return ListTile(
-                      title: Text('${package.name} ${package.version}'),
-                      subtitle: package.description.isNotEmpty
-                          ? Text(package.description)
-                          : null,
-                      trailing: const Icon(Icons.chevron_right),
-                      onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              MiscOssLicenseSingle(package: package),
+                    return Column(
+                      children: [
+                        ListTile(
+                          title: Text('${package.name} ${package.version}'),
+                          subtitle: package.description.isNotEmpty
+                              ? Text(package.description)
+                              : null,
+                          trailing: const Icon(Icons.chevron_right),
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  MiscOssLicenseSingle(package: package),
+                            ),
+                          ),
                         ),
-                      ),
+                        Gap(20),
+                      ],
                     );
                   },
                   separatorBuilder: (context, index) => const Divider());

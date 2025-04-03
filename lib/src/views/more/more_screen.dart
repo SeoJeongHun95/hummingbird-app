@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/router/bottom_nav_bar.dart';
+import '../../../core/widgets/admob_widget.dart';
 import 'widgets/options_container_widget.dart';
 import 'widgets/profile/user_profile_widget.dart';
 import 'widgets/user_auth_widget.dart';
@@ -23,7 +24,15 @@ class MoreScreen extends ConsumerWidget {
             child: Column(
               children: [
                 UserProfileWidget(),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(18, 0, 18, 0),
+                  child: AdMobWidget.showBannerAd(26),
+                ),
                 OptionsContainerWidget(),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(18, 0, 18, 0),
+                  child: AdMobWidget.showBannerAd(26),
+                ),
                 UserAuthWidget(),
               ],
             ),

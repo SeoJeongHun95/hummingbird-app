@@ -1,3 +1,4 @@
+import 'package:StudyDuck/core/widgets/admob_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,7 @@ class SocialScreen extends StatelessWidget {
         child: Column(
           children: [
             LeaderboardWidget(),
+            AdMobWidget.showBannerAd(100),
           ],
         ),
       ),

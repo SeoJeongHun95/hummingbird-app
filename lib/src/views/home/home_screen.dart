@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/router/bottom_nav_bar.dart';
 import '../../../core/theme/colors/app_color.dart';
+import '../../../core/widgets/admob_widget.dart';
 import '../white_noise/drawer_white_noise_controller.dart';
 import 'home_seg1_screen.dart';
 import 'home_seg2_screen.dart';
@@ -70,6 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Seg1Screen(),
               Seg2Screen(),
               Seg3Screen(),
+              AdMobWidget.showBannerAd(60),
             ],
           ),
         ),

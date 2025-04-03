@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/widgets/admob_widget.dart';
 import '../widgets/settings/app_setting/app_setting_widget.dart';
 import '../widgets/settings/study_setting/study_setting_widget.dart';
 
@@ -29,11 +30,15 @@ class SettingsScreen extends StatelessWidget {
           child: Column(
             children: [
               AppSettingWidget(),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                child: AdMobWidget.showBannerAd(50),
+              ),
               StudySettingWidget(),
-              // Padding(
-              //   padding: const EdgeInsets.all(16.0),
-              //   child: AdMobWidget.showBannerAd(220),
-              // )
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                child: AdMobWidget.showBannerAd(50),
+              )
             ],
           ),
         ),

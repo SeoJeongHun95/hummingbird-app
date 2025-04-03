@@ -4,6 +4,7 @@ import 'dart:io' show Platform;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart'; // Correct import
 import '../../../core/utils/screen_share.dart';
+import '../../../core/widgets/admob_widget.dart';
 
 class ResultScreen extends StatefulWidget {
   final String mbtiType;
@@ -264,9 +265,9 @@ class _ResultScreenState extends State<ResultScreen> {
               _buildMbtiHeader(widget.mbtiType),
               const SizedBox(height: 20),
               _buildQuickInfoSection(tips),
-              const SizedBox(height: 20),
+              AdMobWidget.showBannerAd(50),
               _buildDetailedTipsSection(tips),
-              const SizedBox(height: 20),
+              AdMobWidget.showBannerAd(50),
               _buildConsultingSummary(tips),
               const SizedBox(height: 20),
               ElevatedButton(

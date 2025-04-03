@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/enum/mxnRate.dart';
 import '../../../../core/enum/period_option.dart';
+import '../../../../core/widgets/admob_widget.dart';
 import '../../../../core/widgets/mxnContainer.dart';
 import '../../../providers/study_record/monthly_statistic_data.dart';
 import '../../../viewmodels/study_record/study_record_viewmodel.dart';
@@ -50,7 +51,9 @@ class MonthlyStatisticsScreen extends ConsumerWidget {
                       child: Text(tr("MonthlyStatisticsScreen.noData")),
                     ),
                   ),
-                )
+                ),
+                Spacer(),
+                AdMobWidget.showBannerAd(100),
               ],
             );
           }
