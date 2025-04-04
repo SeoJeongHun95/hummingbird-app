@@ -26,22 +26,20 @@ class DailyStatisticsWidget extends ConsumerWidget {
         final goalDuration =
             ref.watch(studySettingViewModelProvider).goalDuration;
         if (studyRecords.isEmpty) {
-          return SingleChildScrollView(
-            child: Column(
-              children: [
-                DailySummaryWidget(
-                    totalStudyDuration: 0, goalDuration: goalDuration),
-                MxNcontainer(
-                  MxN_rate: MxNRate.TWOBYONE,
-                  MxN_child: Container(
-                    color: Colors.white,
-                    child: Center(
-                      child: Text(tr("DailyStatistics.NoData")),
-                    ),
+          return Column(
+            children: [
+              DailySummaryWidget(
+                  totalStudyDuration: 0, goalDuration: goalDuration),
+              MxNcontainer(
+                MxN_rate: MxNRate.TWOBYONE,
+                MxN_child: Container(
+                  color: Colors.white,
+                  child: Center(
+                    child: Text(tr("DailyStatistics.NoData")),
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           );
         }
 

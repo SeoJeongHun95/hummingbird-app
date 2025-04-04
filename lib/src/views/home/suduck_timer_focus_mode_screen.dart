@@ -210,7 +210,7 @@ class _SuduckTimerFocusModeWidgetState
               SizedBox(
                 width: 150.w, // 원하는 너비
                 height: 250.h, // 원하는 높이
-                child: AdMobWidget.showBannerAd(80), // 배너 광고의 높이와 일치
+                child: AdMobWidget.showExpandedBannerAd(), // 배너 광고의 높이와 일치
               ),
             ],
           ),
@@ -472,7 +472,8 @@ class TimerCenter extends StatelessWidget {
             ),
           ),
         ),
-        Spacer(flex: 2)
+        // Spacer(flex: 2),
+        AdMobWidget.showExpandedBannerAd(),
       ],
     );
   }

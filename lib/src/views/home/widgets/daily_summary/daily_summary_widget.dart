@@ -19,19 +19,19 @@ class DailySummaryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MxNcontainer(
-      MxN_rate: MxNRate.TWOBYTHREEQUARTERS,
+      MxN_rate: MxNRate.TWOBYONE,
       MxN_child: Container(
         color: Colors.white,
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(0.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(tr("DailySummary.TodaySummary")),
+            Text(tr("DailySummary.")),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 GoalProgressIndicatorWidget(
-                  width: 160.w,
+                  width: 130.w,
                   progress: totalStudyDuration / goalDuration,
                 ),
                 Column(

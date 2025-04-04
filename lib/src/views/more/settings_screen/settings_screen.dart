@@ -30,15 +30,8 @@ class SettingsScreen extends StatelessWidget {
           child: Column(
             children: [
               AppSettingWidget(),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                child: AdMobWidget.showBannerAd(50),
-              ),
               StudySettingWidget(),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                child: AdMobWidget.showBannerAd(50),
-              )
+              AdMobWidget.showExpandedBannerAd(),
             ],
           ),
         ),

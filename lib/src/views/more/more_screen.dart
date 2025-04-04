@@ -25,15 +25,19 @@ class MoreScreen extends ConsumerWidget {
               children: [
                 UserProfileWidget(),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(18, 0, 18, 0),
-                  child: AdMobWidget.showBannerAd(26),
+                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                  child: AdMobWidget.showBannerAd(50),
                 ),
                 OptionsContainerWidget(),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(18, 0, 18, 0),
-                  child: AdMobWidget.showBannerAd(26),
-                ),
+                // Padding(
+                //   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                //   child: AdMobWidget.showBannerAd(26),
+                // ),
                 UserAuthWidget(),
+                // Padding(
+                //   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                //   child: AdMobWidget.showBannerAd(26),
+                // ),
               ],
             ),
           ),

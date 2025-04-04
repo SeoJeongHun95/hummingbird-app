@@ -12,8 +12,6 @@ class Seg3Screen extends StatelessWidget {
     return Column(
       children: [
         DailyStatisticsWidget(),
-        Spacer(),
-        AdMobWidget.showBannerAd(100),
       ],
     );
   }

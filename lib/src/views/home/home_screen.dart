@@ -71,7 +71,6 @@ class _HomeScreenState extends State<HomeScreen> {
               Seg1Screen(),
               Seg2Screen(),
               Seg3Screen(),
-              AdMobWidget.showBannerAd(60),
             ],
           ),
         ),

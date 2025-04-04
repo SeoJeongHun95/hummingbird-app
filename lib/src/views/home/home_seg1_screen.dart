@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/widgets/admob_widget.dart';
 import 'widgets/subject/subject_list_widget.dart';
 import 'widgets/timer/suduck_timer_controll_bar_widget.dart';
 import 'widgets/timer/suduck_timer_widget.dart';
@@ -16,6 +17,7 @@ class Seg1Screen extends StatelessWidget {
           SuDuckTimerWidget(),
           SuduckTimerControllBarWidget(),
           SubjectListWidget(),
+          AdMobWidget.showBannerAd(60),
         ],
       ),
     );

@@ -14,9 +14,23 @@ abstract class Env {
   @EnviedField(varName: 'APPSTORE_API_KEY', obfuscate: true)
   static String appStoreApiKey = _Env.appStoreApiKey;
 
-  @EnviedField(varName: 'ANDROID_TEST_AD_ID', obfuscate: true)
-  static String androidTestAdId = _Env.androidTestAdId;
+  // Android 실제 광고 ID
+  @EnviedField(varName: 'ANDROID_BANNER_AD_ID', obfuscate: true)
+  static String androidBannerAdId = _Env.androidBannerAdId;
 
-  @EnviedField(varName: 'IOS_TEST_AD_ID', obfuscate: true)
-  static String iosTestAdId = _Env.iosTestAdId;
+  @EnviedField(varName: 'ANDROID_INTERSTITIAL_AD_ID', obfuscate: true)
+  static String androidInterstitialAdId = _Env.androidInterstitialAdId;
+
+  @EnviedField(varName: 'ANDROID_NATIVE_AD_ID', obfuscate: true)
+  static String androidNativeAdId = _Env.androidNativeAdId;
+
+  // iOS 실제 광고 ID
+  @EnviedField(varName: 'IOS_BANNER_AD_ID', obfuscate: true)
+  static String iosBannerAdId = _Env.iosBannerAdId;
+
+  @EnviedField(varName: 'IOS_INTERSTITIAL_AD_ID', obfuscate: true)
+  static String iosInterstitialAdId = _Env.iosInterstitialAdId;
+
+  @EnviedField(varName: 'IOS_NATIVE_AD_ID', obfuscate: true)
+  static String iosNativeAdId = _Env.iosNativeAdId;
 }
