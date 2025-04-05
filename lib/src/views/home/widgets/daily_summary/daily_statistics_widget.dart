@@ -75,7 +75,7 @@ class DailyStatisticsWidget extends ConsumerWidget {
                   studyDurationList: studyDurationList,
                   subjectColorList: subjectColorList,
                 ),
-                AdMobWidget.showBannerAd(50),
+                AdMobWidget.showBannerAd(50, true),
               ],
             ),
           ),

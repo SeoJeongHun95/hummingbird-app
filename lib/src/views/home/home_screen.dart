@@ -3,11 +3,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:animated_segmented_tab_control/animated_segmented_tab_control.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../core/router/bottom_nav_bar.dart';
 import '../../../core/theme/colors/app_color.dart';
 import '../../../core/widgets/admob_widget.dart';
@@ -61,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (BuildContext context) {
         // Give the container a fixed height to prevent resizing
         return Container(
-          height: 370.h, // Set a fixed height
+          height: 400.h, // Set a fixed height
           width: double.infinity,
           // color: Colors.transparent, // Color is often set by theme, can remove if default is fine
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
@@ -70,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               // Replace the Text widget with the BreathingExerciseWidget
               SizedBox(
-                  height: 140.h, // Add some space above the exercise
+                  height: 160.h, // Add some space above the exercise
                   child: const BreathingExerciseWidget()),
               SizedBox(height: 16.h), // Add some space below the exercise
               AdMobWidget.showBannerAd(80.h), // 실제 광고 위젯

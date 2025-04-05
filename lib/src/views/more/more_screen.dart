@@ -13,31 +13,21 @@ class MoreScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.surface,
-        scrolledUnderElevation: 0,
-        elevation: 0,
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Theme.of(context).colorScheme.surface,
+      //   scrolledUnderElevation: 0,
+      //   elevation: 0,
+      // ),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
             child: Column(
               children: [
                 UserProfileWidget(),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                  child: AdMobWidget.showBannerAd(50),
-                ),
+                AdMobWidget.showBannerAd(50, true),
                 OptionsContainerWidget(),
-                // Padding(
-                //   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                //   child: AdMobWidget.showBannerAd(26),
-                // ),
                 UserAuthWidget(),
-                // Padding(
-                //   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                //   child: AdMobWidget.showBannerAd(26),
-                // ),
+                AdMobWidget.showBannerAd(50, true),
               ],
             ),
           ),
