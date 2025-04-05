@@ -23,7 +23,20 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
-  final List<String> supportedLanguages = ['ko', 'en', 'ja', 'zh', 'vi', 'th'];
+  final List<String> supportedLanguages = [
+    'ko',
+    'en',
+    'ja',
+    'zh',
+    'vi',
+    'th',
+    'fr',
+    'de',
+    'es',
+    'it',
+    'ru',
+    'ar'
+  ];
   WidgetsFlutterBinding.ensureInitialized();
 
   // Firebase 초기화를 먼저 수행

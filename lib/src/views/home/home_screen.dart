@@ -3,11 +3,17 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'package:animated_segmented_tab_control/animated_segmented_tab_control.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../core/router/bottom_nav_bar.dart';
 import '../../../core/theme/colors/app_color.dart';
 import '../../../core/widgets/admob_widget.dart';
 import '../white_noise/drawer_white_noise_controller.dart';
 import 'home_seg1_screen.dart';
+import 'widgets/breathing_exercise_widget.dart'; // Import the new widget
 import 'home_seg2_screen.dart';
 import 'home_seg3_screen.dart';
 
@@ -50,21 +56,24 @@ class _HomeScreenState extends State<HomeScreen> {
   void _showBottomSheet() {
     showModalBottomSheet(
       context: context,
-      isScrollControlled: true,
+      isScrollControlled:
+          true, // Keep true if content might exceed screen height initially
       builder: (BuildContext context) {
+        // Give the container a fixed height to prevent resizing
         return Container(
+          height: 370.h, // Set a fixed height
           width: double.infinity,
-          color: Colors.transparent,
+          // color: Colors.transparent, // Color is often set by theme, can remove if default is fine
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                tr("Common.Advertisement"), // 광고임을 알리는 텍스트 (선택 사항)
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.sp),
-              ),
-              SizedBox(height: 8.h),
-              AdMobWidget.showBannerAd(100.h), // 실제 광고 위젯
+              // Replace the Text widget with the BreathingExerciseWidget
+              SizedBox(
+                  height: 140.h, // Add some space above the exercise
+                  child: const BreathingExerciseWidget()),
+              SizedBox(height: 16.h), // Add some space below the exercise
+              AdMobWidget.showBannerAd(80.h), // 실제 광고 위젯
               SizedBox(height: 16.h),
               SizedBox(
                 width: double.infinity,
