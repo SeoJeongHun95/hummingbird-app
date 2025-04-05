@@ -1,3 +1,4 @@
+import 'package:StudyDuck/core/widgets/admob_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -52,25 +53,31 @@ class DailyStatisticsWidget extends ConsumerWidget {
 
         final totalStudyDuration = studyDurationList.fold(0, (a, b) => a + b);
 
-        return SingleChildScrollView(
-          child: Column(
-            children: [
-              DailySummaryWidget(
-                totalStudyDuration: totalStudyDuration,
-                goalDuration: goalDuration,
-              ),
-              StudyPieChartWidget(
-                subjectTitleList: sortedTitleList,
-                studyDurationList: sortedDurationList,
-                subjectColorList: sortedColorList,
-                totalStudyDuration: totalStudyDuration,
-              ),
-              StudyBarChartWidget(
-                subjectTitleList: subjectTitleList,
-                studyDurationList: studyDurationList,
-                subjectColorList: subjectColorList,
-              )
-            ],
+        // Wrap with Expanded to give the SingleChildScrollView bounded height
+        return SizedBox(
+          height: MediaQuery.of(context).size.height * 0.8,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                DailySummaryWidget(
+                  totalStudyDuration: totalStudyDuration,
+                  goalDuration: goalDuration,
+                ),
+                AdMobWidget.showBannerAd(50, true),
+                StudyPieChartWidget(
+                  subjectTitleList: sortedTitleList,
+                  studyDurationList: sortedDurationList,
+                  subjectColorList: sortedColorList,
+                  totalStudyDuration: totalStudyDuration,
+                ),
+                StudyBarChartWidget(
+                  subjectTitleList: subjectTitleList,
+                  studyDurationList: studyDurationList,
+                  subjectColorList: subjectColorList,
+                ),
+                AdMobWidget.showBannerAd(50),
+              ],
+            ),
           ),
         );
       },

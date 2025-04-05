@@ -67,79 +67,151 @@ class AdMobWidget {
   }
 
   // 고정 높이의 배너 광고 표시
-  static Widget showBannerAd(double height) {
+  static Widget showBannerAd(double height, [bool applyPadding = false]) {
     final adUnitId = bannerAdUnitId();
     if (adUnitId == null) {
       return const SizedBox.shrink();
     }
 
-    return Builder(
-      builder: (context) {
-        return FutureBuilder<AdSize?>(
-          future: Platform.isIOS
-              ? AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
-                  ScreenUtil().screenWidth.toInt(),
-                )
-              : Future.value(AdSize.getInlineAdaptiveBannerAdSize(
-                  ScreenUtil().screenWidth.toInt(), height.h.toInt())),
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) return const SizedBox.shrink();
+    return applyPadding
+        ? Padding(
+            padding: const EdgeInsets.fromLTRB(18, 1, 18, 1),
+            child: Builder(
+              builder: (context) {
+                return FutureBuilder<AdSize?>(
+                  future: Platform.isIOS
+                      ? AdSize
+                          .getCurrentOrientationAnchoredAdaptiveBannerAdSize(
+                          ScreenUtil().screenWidth.toInt(),
+                        )
+                      : Future.value(AdSize.getInlineAdaptiveBannerAdSize(
+                          ScreenUtil().screenWidth.toInt(), height.h.toInt())),
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData || snapshot.data == null) {
+                      return const SizedBox.shrink();
+                    }
 
-            return SizedBox(
-              width: ScreenUtil().screenWidth,
-              height: height.h,
-              child: AdWidget(
-                ad: getBannerAd(
-                  adUnitId: adUnitId,
-                  size: snapshot.data!,
-                ),
-              ),
-            );
-          },
-        );
-      },
-    );
-  }
+                    return SizedBox(
+                      width: ScreenUtil().screenWidth,
+                      height: height.h,
+                      child: AdWidget(
+                        ad: getBannerAd(
+                          adUnitId: adUnitId,
+                          size: snapshot.data!,
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+            ))
+        : Builder(
+            builder: (context) {
+              return FutureBuilder<AdSize?>(
+                future: Platform.isIOS
+                    ? AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
+                        ScreenUtil().screenWidth.toInt(),
+                      )
+                    : Future.value(AdSize.getInlineAdaptiveBannerAdSize(
+                        ScreenUtil().screenWidth.toInt(), height.h.toInt())),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData || snapshot.data == null) {
+                    return const SizedBox.shrink();
+                  }
 
-  // Expanded 버전의 배너 광고 위젯
-  static Widget showExpandedBannerAd([double? height]) {
-    final adUnitId = bannerAdUnitId();
-    if (adUnitId == null) {
-      return const SizedBox.shrink();
-    }
-
-    return Builder(
-      builder: (context) {
-        return Expanded(
-          child: FutureBuilder<AdSize?>(
-            future: Platform.isIOS
-                ? AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
-                    ScreenUtil().screenWidth.toInt(),
-                  )
-                : Future.value(AdSize.getInlineAdaptiveBannerAdSize(
-                    ScreenUtil().screenWidth.toInt(),
-                    height?.h.toInt() ?? ScreenUtil().screenHeight.toInt())),
-            builder: (context, snapshot) {
-              if (!snapshot.hasData) return const SizedBox.shrink();
-
-              return SizedBox(
-                width: ScreenUtil().screenWidth,
-                height: height?.h ?? double.infinity,
-                child: AdWidget(
-                  ad: getBannerAd(
-                    adUnitId: adUnitId,
-                    size: snapshot.data!,
-                  ),
-                ),
+                  return SizedBox(
+                      width: ScreenUtil().screenWidth,
+                      height: height.h,
+                      child: AdWidget(
+                        ad: getBannerAd(
+                          adUnitId: adUnitId,
+                          size: snapshot.data!,
+                        ),
+                      ));
+                },
               );
             },
-          ),
-        );
-      },
-    );
+          );
   }
 
-  // 네이티브 고급 광고
+  // Expanded 버전의 배너 광고 위젯 (로드 실패 시 빈 공간)
+  static Widget showExpandedBannerAd(
+      [bool applyPadding = false, double? height]) {
+    final adUnitId = bannerAdUnitId();
+    if (adUnitId == null) {
+      return const SizedBox.shrink();
+    }
+
+    return applyPadding
+        ? Padding(
+            padding: const EdgeInsets.fromLTRB(18, 1, 18, 1),
+            child: Builder(
+              builder: (context) {
+                return FutureBuilder<AdSize?>(
+                  future: Platform.isIOS
+                      ? AdSize
+                          .getCurrentOrientationAnchoredAdaptiveBannerAdSize(
+                          ScreenUtil().screenWidth.toInt(),
+                        )
+                      : Future.value(height != null
+                          ? AdSize.getInlineAdaptiveBannerAdSize(
+                              ScreenUtil().screenWidth.toInt(),
+                              height.h.toInt())
+                          : AdSize.banner),
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData || snapshot.data == null) {
+                      return const SizedBox.shrink();
+                    }
+
+                    return Expanded(
+                      child: SizedBox(
+                        width: ScreenUtil().screenWidth,
+                        child: AdWidget(
+                          ad: getBannerAd(
+                            adUnitId: adUnitId,
+                            size: snapshot.data!,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+            ))
+        : Builder(
+            builder: (context) {
+              return FutureBuilder<AdSize?>(
+                future: Platform.isIOS
+                    ? AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
+                        ScreenUtil().screenWidth.toInt(),
+                      )
+                    : Future.value(height != null
+                        ? AdSize.getInlineAdaptiveBannerAdSize(
+                            ScreenUtil().screenWidth.toInt(), height.h.toInt())
+                        : AdSize.banner),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData || snapshot.data == null) {
+                    return const SizedBox.shrink();
+                  }
+
+                  return Expanded(
+                    child: SizedBox(
+                      width: ScreenUtil().screenWidth,
+                      child: AdWidget(
+                        ad: getBannerAd(
+                          adUnitId: adUnitId,
+                          size: snapshot.data!,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+          );
+  }
+
+  // 네이티브 고급 광고 (로드 실패 시 빈 공간)
   static Widget showNativeAd({
     required double height,
     required String factoryId,
@@ -149,53 +221,30 @@ class AdMobWidget {
       return const SizedBox.shrink();
     }
 
-    return SizedBox(
-      height: height.h,
-      child: FutureBuilder<NativeAd?>(
-        future: _loadNativeAd(adUnitId, factoryId, height),
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return const Center(child: CircularProgressIndicator());
-          }
-
-          return SizedBox(
-            height: height.h,
-            width: double.infinity,
-            child: AdWidget(ad: snapshot.data!),
-          );
-        },
-      ),
-    );
-  }
-
-  // 네이티브 광고 로드 - 고정된 크기 적용
-  static Future<NativeAd?> _loadNativeAd(
-    String adUnitId,
-    String factoryId,
-    double height,
-  ) async {
-    final completer = Completer<NativeAd?>();
+    final Completer<NativeAd?> adCompleter = Completer<NativeAd?>();
+    NativeAd? _nativeAd;
 
     // 네이티브 광고 크기 - 안드로이드에서도 고정 크기 사용
     final adSize = Platform.isAndroid
         ? Size(ScreenUtil().screenWidth, height.h)
         : Size(ScreenUtil().screenWidth, height.h);
 
-    final ad = NativeAd(
+    _nativeAd = NativeAd(
       adUnitId: adUnitId,
       factoryId: factoryId,
       request: const AdRequest(),
       listener: NativeAdListener(
         onAdLoaded: (ad) {
           debugPrint('네이티브 광고가 성공적으로 로드되었습니다.');
-          completer.complete(ad as NativeAd);
+          adCompleter.complete(ad as FutureOr<NativeAd?>?);
         },
         onAdFailedToLoad: (ad, error) {
           debugPrint('네이티브 광고 로드 실패: ${error.message}');
           debugPrint('에러 코드: ${error.code}');
           debugPrint('에러 도메인: ${error.domain}');
           ad.dispose();
-          completer.complete(null);
+          adCompleter.complete(null);
+          _nativeAd = null; // 로드 실패 시 _nativeAd를 null로 설정
         },
       ),
       // 안드로이드에서 크기 문제 해결을 위한 옵션 추가
@@ -204,19 +253,28 @@ class AdMobWidget {
           : null,
     );
 
-    await ad.load();
+    _nativeAd?.load();
 
-    // 일정 시간이 지나도 로드되지 않으면 null 반환
-    Future.delayed(const Duration(seconds: 5), () {
-      if (!completer.isCompleted) {
-        completer.complete(null);
-      }
-    });
-
-    return completer.future;
+    return SizedBox(
+      height: height.h,
+      child: FutureBuilder<NativeAd?>(
+        future: adCompleter.future,
+        builder: (context, snapshot) {
+          if (snapshot.hasData && snapshot.data != null) {
+            return SizedBox(
+              height: height.h,
+              width: double.infinity,
+              child: AdWidget(ad: snapshot.data!),
+            );
+          } else {
+            return const SizedBox.shrink(); // 로딩 실패 또는 광고 없음 시 빈 공간 반환
+          }
+        },
+      ),
+    );
   }
 
-  // 전면 광고 로드 및 표시
+  // 전면 광고 로드 및 표시 (로드 실패 시 콜백만 호출)
   static Future<void> showInterstitialAd({Function? onAdClosed}) async {
     final adUnitId = interstitialAdUnitId();
     if (adUnitId == null) {
@@ -257,7 +315,7 @@ class AdMobWidget {
           debugPrint('전면 광고 로드 실패: ${error.message}');
           debugPrint('에러 코드: ${error.code}');
           debugPrint('에러 도메인: ${error.domain}');
-          onAdClosed?.call();
+          onAdClosed?.call(); // 로드 실패 시에도 콜백 호출
         },
       ),
     );
@@ -266,21 +324,19 @@ class AdMobWidget {
 
 // 배너 광고 사용
 // 고정 크기의 배너 광고 표시
-// AdMobWidget.showBannerAd(50);
+// AdMobWidget.showBannerAd(50.h, true);
 
 // 또는 확장되는 배너 광고 표시 (Expanded 내부에서 사용할 때)
-// AdMobWidget.showExpandedBannerAd();
-
-
+//     Expanded(
+//       child: AdMobWidget.showExpandedBannerAd(true), // 이렇게 사용 가능
+//     ),
 
 // 네이티브 고급 광고 사용
 // factoryId는 네이티브 광고 레이아웃을 등록할 때 사용한 ID입니다
 // AdMobWidget.showNativeAd(
-//   height: 300,
+//   height: 300.h,
 //   factoryId: 'listTile',
 // );
-
-
 
 // 전면 광고 사용
 // AdMobWidget.showInterstitialAd(

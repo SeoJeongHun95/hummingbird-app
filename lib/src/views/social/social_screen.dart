@@ -21,7 +21,7 @@ class SocialScreen extends StatelessWidget {
         child: Column(
           children: [
             LeaderboardWidget(),
-            AdMobWidget.showExpandedBannerAd(),
+            Expanded(child: AdMobWidget.showExpandedBannerAd(true)),
           ],
         ),
       ),

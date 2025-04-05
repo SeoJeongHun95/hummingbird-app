@@ -263,7 +263,6 @@ class _ResultScreenState extends State<ResultScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               _buildMbtiHeader(widget.mbtiType),
-              AdMobWidget.showBannerAd(50),
               _buildQuickInfoSection(tips),
               AdMobWidget.showBannerAd(50),
               _buildDetailedTipsSection(tips),
@@ -291,6 +290,7 @@ class _ResultScreenState extends State<ResultScreen> {
                   ),
                 ).tr(),
               ),
+              AdMobWidget.showBannerAd(50),
             ],
           ),
         ),

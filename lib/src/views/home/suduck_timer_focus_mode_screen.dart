@@ -472,8 +472,7 @@ class TimerCenter extends StatelessWidget {
             ),
           ),
         ),
-        // Spacer(flex: 2),
-        AdMobWidget.showExpandedBannerAd(),
+        Expanded(flex: 2, child: AdMobWidget.showExpandedBannerAd()),
       ],
     );
   }

@@ -9,10 +9,12 @@ class Seg3Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        DailyStatisticsWidget(),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          DailyStatisticsWidget(),
+        ],
+      ),
     );
   }
 }

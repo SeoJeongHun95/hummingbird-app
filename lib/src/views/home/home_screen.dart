@@ -33,13 +33,63 @@ final List<SegmentTab> _tabs = [
 ];
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // 위젯이 처음 생성될 때 _showBottomSheet 함수를 호출합니다.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _showBottomSheet();
+    });
+  }
+
+  void _showBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return Container(
+          width: double.infinity,
+          color: Colors.transparent,
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                tr("Common.Advertisement"), // 광고임을 알리는 텍스트 (선택 사항)
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.sp),
+              ),
+              SizedBox(height: 8.h),
+              AdMobWidget.showBannerAd(100.h), // 실제 광고 위젯
+              SizedBox(height: 16.h),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      padding: EdgeInsets.symmetric(vertical: 12.h),
+                    ),
+                    child: Text(tr("Common.Close"),
+                        style:
+                            TextStyle(fontSize: 16.sp, color: Colors.white))),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

@@ -66,11 +66,11 @@ class MonthlyStatisticsScreen extends ConsumerWidget {
                   targetMonth: targetMonth,
                   targetWeekStartDate: targetWeekStartDate,
                 ),
-                AdMobWidget.showBannerAd(50),
                 TotalDuratinosLineChartWidget(
                   period: PeriodOption.MONTHLY,
                   dailyTotalDuration: dailyTotalDuration,
                 ),
+                AdMobWidget.showBannerAd(50, true),
                 StudyPieChartWidget(
                   subjectTitleList: sortedTitle,
                   studyDurationList: sortedDurations,
@@ -82,7 +82,7 @@ class MonthlyStatisticsScreen extends ConsumerWidget {
                   studyDurationList: studyDurationList,
                   subjectColorList: subjectColorList,
                 ),
-                AdMobWidget.showBannerAd(50),
+                AdMobWidget.showBannerAd(50, true),
               ],
             ),
           );
