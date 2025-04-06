@@ -25,8 +25,8 @@ class AdMobWidget {
       // return Env.androidInterstitialAdId; // 실제 앱에서는 실제 ID로 교체
       return "ca-app-pub-8655023098401674/2541248878"; // 테스트 ID
     } else if (Platform.isIOS) {
-      return Env.iosInterstitialAdId; // 실제 앱에서는 실제 ID로 교체
-      // return "ca-app-pub-3940256099942544/4411468910"; // 테스트 ID
+      // return Env.iosInterstitialAdId; // 실제 앱에서는 실제 ID로 교체
+      return "ca-app-pub-8655023098401674/9545640929"; // 테스트 ID
     }
     return null;
   }
@@ -37,8 +37,8 @@ class AdMobWidget {
       // return Env.androidNativeAdId; // 실제 앱에서는 실제 ID로 교체
       return "ca-app-pub-8655023098401674/3634019481"; // 테스트 ID
     } else if (Platform.isIOS) {
-      return Env.iosNativeAdId; // 실제 앱에서는 실제 ID로 교체
-      // return "ca-app-pub-3940256099942544/3986624511"; // 테스트 ID
+      // return Env.iosNativeAdId; // 실제 앱에서는 실제 ID로 교체
+      return "ca-app-pub-8655023098401674/5743014368"; // 테스트 ID
     }
     return null;
   }
