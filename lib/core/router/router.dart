@@ -66,7 +66,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         pageBuilder: (context, state) => buildPageWithDefaultTransition(
           context: context,
           state: state,
-          child: const HomeScreen(),
+          child: HomeScreen(),
         ),
         routes: [
           GoRoute(

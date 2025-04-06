@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/widgets/admob_widget.dart';
 import 'widgets/d_day_widget/d_day_list_tile_widget.dart';
 
 //Dday
@@ -11,6 +12,7 @@ class Seg2Screen extends StatelessWidget {
     return Column(
       children: [
         DDayListTileWidget(),
+        Expanded(child: AdMobWidget.showExpandedBannerAd()),
       ],
     );
   }

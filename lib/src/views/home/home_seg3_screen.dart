@@ -1,3 +1,4 @@
+import 'package:StudyDuck/core/widgets/admob_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/daily_summary/daily_statistics_widget.dart';
@@ -8,6 +9,12 @@ class Seg3Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DailyStatisticsWidget();
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          DailyStatisticsWidget(),
+        ],
+      ),
+    );
   }
 }

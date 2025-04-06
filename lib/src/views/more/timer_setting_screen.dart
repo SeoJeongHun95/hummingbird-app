@@ -1,3 +1,4 @@
+import 'package:StudyDuck/core/widgets/admob_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/enum/mxnRate.dart';
@@ -27,6 +28,10 @@ class TimerSettingScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                child: AdMobWidget.showBannerAd(50),
               ),
             ],
           ),

@@ -559,5 +559,17 @@
   },
   "License": {
     "License": "Giấy phép"
+  },
+  "BreathingExercise": {
+    "Intro": "Đây là phương pháp thở được giới thiệu bởi Tiến sĩ Andrew Weil, \nhiệu quả trong việc nhanh chóng làm dịu hệ thần kinh, giảm căng thẳng và cải thiện sự tập trung. \n\n Chúng ta sẽ thực hiện bài tập thở 4-7-8.",
+    "Inhale": "Ngậm miệng và hít vào từ từ bằng mũi trong 4 giây.",
+    "Hold": "Giữ hơi thở trong 7 giây.",
+    "Exhale": "Thở ra từ từ và hoàn toàn bằng miệng trong 8 giây, tạo ra âm thanh \"phù\".",
+    "Completed": "Hoàn thành bài tập thở!",
+    "Repetition": "Lặp lại"
+  },
+  "Common": {
+    "Advertisement": "Bài tập thở 4-7-8",
+    "Close": "Bắt đầu học"
   }
 }
