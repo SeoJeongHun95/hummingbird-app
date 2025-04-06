@@ -35,7 +35,9 @@ void main() async {
     'es',
     'it',
     'ru',
-    'ar'
+    'ar',
+    'hi',
+    'da'
   ];
   WidgetsFlutterBinding.ensureInitialized();
 
