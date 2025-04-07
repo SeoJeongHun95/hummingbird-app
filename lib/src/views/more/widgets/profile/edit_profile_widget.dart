@@ -85,7 +85,7 @@ class _ProfileAndBtnWidgetState extends State<EditProfileWidget> {
             mbti: '',
           ),
           const SizedBox(height: 2), // 간격을 8로 줄임
-
+          AdMobWidget.showBannerAd(50, true),
           SaveButtonWidget(
             title: tr('ProfileInfoWidget.save'),
             isValid: isValid,
@@ -102,7 +102,6 @@ class _ProfileAndBtnWidgetState extends State<EditProfileWidget> {
               }
             },
           ),
-          AdMobWidget.showBannerAd(50),
         ],
       ),
     );
