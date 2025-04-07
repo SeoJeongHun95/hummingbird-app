@@ -26,7 +26,7 @@ class DailySummaryWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(tr("DailySummary.")),
+            Text(tr("DailySummary.TodaySummary")),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
