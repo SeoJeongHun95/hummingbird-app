@@ -5,13 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../../../core/utils/get_formatted_time.dart';
 import '../../../core/utils/selection_haptic.dart';
-import '../../../core/widgets/admob_widget.dart';
 import '../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
 import '../../viewmodels/timer/timer_bg_color_provider.dart';
 
@@ -35,28 +33,30 @@ class _SuduckTimerFocusModeWidgetState
   Color? _currentBgColor;
   String? _temporaryMessage;
   Timer? _resetTimer;
+  Timer? _hapticTimer;
   bool _canProcessMovement = true;
 
   // 설정값
   DateTime? _lastDialogTime; // 마지막 대화창 시간
   double _previousX = 0, _previousY = 0, _previousZ = 0; // 가속도 값 초기화
-  final double _movementThreshold = 1.2; // 움직임 감지 임계값을 낮춰 더 민감하게
-  final Duration _dialogCooldown = Duration(seconds: 60); // 다이얼로그후 설정값이 지나야 재감지
+  final double _movementThreshold = 1.5; // 핸드폰을 들어올리는 동작 감지를 위한 임계값
+  final Duration _dialogCooldown = Duration(seconds: 20); // 다이얼로그후 설정값이 지나야 재감지
 
   final int _inactiveThreshold = 3; // 설정시간동안 움직이지 않으면 다이얼로그 닫음
 
   // 추가할 변수들
   bool _isInitialized = false;
-  final _initializationDelay = const Duration(seconds: 10); //감지 초기화 지연시간
+  final _initializationDelay = const Duration(seconds: 15); //감지 초기화 지연시간
   int _consecutiveMovements = 0; // 연속된 움직임 감지 횟수
-  final int _requiredConsecutiveMovements = 2; // 필요한 연속 움직임 횟수
+  final int _requiredConsecutiveMovements = 3; // 필요한 연속 움직임 횟수
   DateTime? _lastMovementDetectionTime;
   final Duration _movementResetDuration =
-      Duration(milliseconds: 500); // 움직임 초기화 시간
+      Duration(milliseconds: 800); // 움직임 초기화 시간
   bool _isProcessingMovement = false;
 
   void _resetAllStates() {
     if (mounted) {
+      _stopHapticFeedback();
       setState(() {
         _isAlertVisible = false;
         _temporaryMessage = null;
@@ -71,11 +71,13 @@ class _SuduckTimerFocusModeWidgetState
   }
 
   void _showConcentrationAlert() async {
-    if (!mounted || _isAlertVisible) return;
+    if (!mounted) return;
 
     try {
+      if (!mounted || _isAlertVisible) return;
+
       _resetTimer?.cancel();
-      _resetTimer = null;
+      _hapticTimer?.cancel();
 
       setState(() {
         _isAlertVisible = true;
@@ -83,16 +85,37 @@ class _SuduckTimerFocusModeWidgetState
         _canProcessMovement = false;
       });
 
-      await SelectionHaptic.warning();
+      // 햅틱 피드백 시작
+      _startHapticFeedback();
 
       _resetTimer = Timer(Duration(seconds: _inactiveThreshold), () {
+        _stopHapticFeedback();
         _resetAllStates();
-        debugPrint('Timer reset completed');
       });
     } catch (e) {
       debugPrint('Error in showConcentrationAlert: $e');
+      _stopHapticFeedback();
       _resetAllStates();
     }
+  }
+
+  void _startHapticFeedback() {
+    // 초기 햅틱
+    HapticFeedback.mediumImpact();
+
+    // 500ms 간격으로 햅틱 피드백 반복
+    _hapticTimer = Timer.periodic(Duration(milliseconds: 500), (timer) {
+      if (mounted && _isAlertVisible) {
+        HapticFeedback.mediumImpact();
+      } else {
+        _stopHapticFeedback();
+      }
+    });
+  }
+
+  void _stopHapticFeedback() {
+    _hapticTimer?.cancel();
+    _hapticTimer = null;
   }
 
   @override
@@ -158,6 +181,7 @@ class _SuduckTimerFocusModeWidgetState
   void dispose() {
     _resetTimer?.cancel();
     _resetTimer = null;
+    _stopHapticFeedback();
     _isInitialized = false;
     _stopAccelerometer();
     _canProcessMovement = false;
@@ -180,7 +204,7 @@ class _SuduckTimerFocusModeWidgetState
   void _startAccelerometer() {
     _stopAccelerometer();
     _accelerometerSubscription ??=
-        accelerometerEventStream(samplingPeriod: Duration(milliseconds: 1500))
+        accelerometerEventStream(samplingPeriod: Duration(milliseconds: 2500))
             .listen((AccelerometerEvent event) {
       if (!mounted ||
           !_isInitialized ||
@@ -214,9 +238,13 @@ class _SuduckTimerFocusModeWidgetState
         _previousY = event.y;
         _previousZ = event.z;
 
-        bool isMoving = (deltaX > _movementThreshold ||
+        // 수직 방향(Z축) 변화에 더 큰 가중치 부여
+        bool isSignificantVerticalMovement = deltaZ > _movementThreshold * 1.2;
+        bool isGeneralMovement = (deltaX > _movementThreshold ||
             deltaY > _movementThreshold ||
             deltaZ > _movementThreshold);
+
+        bool isMoving = isSignificantVerticalMovement || isGeneralMovement;
 
         if (isMoving) {
           _consecutiveMovements++;
@@ -263,6 +291,14 @@ class _SuduckTimerFocusModeWidgetState
     updateAnimation(bgColor);
 
     final bool isRunning = suduckTimer.isRunning;
+    Color textColor = Colors.white;
+    if (_colorAnimation.value != null) {
+      if (_temporaryMessage != null) {
+        textColor = _getReadableTextColor(_colorAnimation.value!);
+      } else {
+        textColor = Colors.white;
+      }
+    }
 
     if (_isAlertVisible && _resetTimer == null) {
       _resetTimer = Timer(Duration(seconds: _inactiveThreshold), () {
@@ -349,6 +385,18 @@ class _SuduckTimerFocusModeWidgetState
       debugPrint('Wakelock enable error: $e');
     }
   }
+
+  Color _getReadableTextColor(Color backgroundColor) {
+    HSLColor hsl = HSLColor.fromColor(backgroundColor);
+
+    if (hsl.lightness > 0.7) {
+      return hsl.withLightness(0.2).toColor();
+    } else if (hsl.lightness < 0.3) {
+      return hsl.withLightness(0.9).toColor();
+    } else {
+      return hsl.withLightness(hsl.lightness < 0.5 ? 0.9 : 0.1).toColor();
+    }
+  }
 }
 
 class TimerCenter extends StatelessWidget {
@@ -369,6 +417,15 @@ class TimerCenter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color textColor = Colors.white;
+    if (_colorAnimation.value != null) {
+      if (temporaryMessage != null) {
+        textColor = _getReadableTextColor(_colorAnimation.value!);
+      } else {
+        textColor = Colors.white;
+      }
+    }
+
     return Column(
       children: [
         Spacer(
@@ -412,7 +469,7 @@ class TimerCenter extends StatelessWidget {
                           fontSize: 14.sp,
                           height: 1.4,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white,
+                          color: _getReadableTextColor(_colorAnimation.value!),
                         ),
                       ),
                     )
@@ -421,7 +478,7 @@ class TimerCenter extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 46.sp,
                         fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                        color: textColor,
                         fontFeatures: [FontFeature.tabularFigures()],
                       ),
                     ),
@@ -504,6 +561,7 @@ class TimerCenter extends StatelessWidget {
                 if (isRunning || suduckTimer.elapsedTime > 0)
                   GestureDetector(
                     onTap: () {
+                      SelectionHaptic.vibrate();
                       Navigator.pop(context);
                       suduckTimerNotifier.saveTimer();
                     },
@@ -531,17 +589,19 @@ class TimerCenter extends StatelessWidget {
             ),
           ),
         ),
-        Expanded(
-          flex: 2,
-          child: Row(
-            children: [
-              Expanded(
-                child: AdMobWidget.showBannerAd(60),
-              ),
-            ],
-          ),
-        ),
       ],
     );
+  }
+
+  Color _getReadableTextColor(Color backgroundColor) {
+    HSLColor hsl = HSLColor.fromColor(backgroundColor);
+
+    if (hsl.lightness > 0.7) {
+      return hsl.withLightness(0.2).toColor();
+    } else if (hsl.lightness < 0.3) {
+      return hsl.withLightness(0.9).toColor();
+    } else {
+      return hsl.withLightness(hsl.lightness < 0.5 ? 0.9 : 0.1).toColor();
+    }
   }
 }
