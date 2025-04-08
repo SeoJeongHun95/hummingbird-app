@@ -31,22 +31,69 @@ class _SuduckTimerFocusModeWidgetState
 
   StreamSubscription? _accelerometerSubscription;
   bool _isAlertVisible = false;
-  Timer? _alertTimer;
-  DateTime? _lastMovementTime;
   Color? _lastColor;
   Color? _currentBgColor;
+  String? _temporaryMessage;
+  Timer? _resetTimer;
+  bool _canProcessMovement = true;
 
   // 설정값
   DateTime? _lastDialogTime; // 마지막 대화창 시간
   double _previousX = 0, _previousY = 0, _previousZ = 0; // 가속도 값 초기화
-  final double _movementThreshold = 2.2; // 움직임 감지 임계값
+  final double _movementThreshold = 1.2; // 움직임 감지 임계값을 낮춰 더 민감하게
   final Duration _dialogCooldown = Duration(seconds: 60); // 다이얼로그후 설정값이 지나야 재감지
 
-  final int _inactiveThreshold = 10; // 설정시간동안 움직이지 않으면 다이얼로그 닫음
+  final int _inactiveThreshold = 3; // 설정시간동안 움직이지 않으면 다이얼로그 닫음
 
   // 추가할 변수들
   bool _isInitialized = false;
-  final _initializationDelay = const Duration(seconds: 60); //감지 초기화 지연시간
+  final _initializationDelay = const Duration(seconds: 10); //감지 초기화 지연시간
+  int _consecutiveMovements = 0; // 연속된 움직임 감지 횟수
+  final int _requiredConsecutiveMovements = 2; // 필요한 연속 움직임 횟수
+  DateTime? _lastMovementDetectionTime;
+  final Duration _movementResetDuration =
+      Duration(milliseconds: 500); // 움직임 초기화 시간
+  bool _isProcessingMovement = false;
+
+  void _resetAllStates() {
+    if (mounted) {
+      setState(() {
+        _isAlertVisible = false;
+        _temporaryMessage = null;
+        _isProcessingMovement = false;
+        _consecutiveMovements = 0;
+        _previousX = 0;
+        _previousY = 0;
+        _previousZ = 0;
+        _canProcessMovement = true;
+      });
+    }
+  }
+
+  void _showConcentrationAlert() async {
+    if (!mounted || _isAlertVisible) return;
+
+    try {
+      _resetTimer?.cancel();
+      _resetTimer = null;
+
+      setState(() {
+        _isAlertVisible = true;
+        _temporaryMessage = tr("Dialog.YouarestudyingPutyourphonedownandfocus");
+        _canProcessMovement = false;
+      });
+
+      await SelectionHaptic.warning();
+
+      _resetTimer = Timer(Duration(seconds: _inactiveThreshold), () {
+        _resetAllStates();
+        debugPrint('Timer reset completed');
+      });
+    } catch (e) {
+      debugPrint('Error in showConcentrationAlert: $e');
+      _resetAllStates();
+    }
+  }
 
   @override
   void initState() {
@@ -82,19 +129,15 @@ class _SuduckTimerFocusModeWidgetState
     super.didChangeDependencies();
     _lastColor = ref.read(timerBgColorProvider);
     _currentBgColor = ref.read(timerBgColorProvider);
+    if (_isAlertVisible) {
+      _resetTimer = Timer(Duration(seconds: _inactiveThreshold), () {
+        _resetAllStates();
+      });
+    }
   }
 
   void _checkNoMovement() {
-    if (_lastMovementTime != null &&
-        DateTime.now().difference(_lastMovementTime!) >
-            Duration(seconds: _inactiveThreshold)) {
-      if (mounted && _isAlertVisible) {
-        Navigator.of(context).pop();
-        setState(() {
-          _isAlertVisible = false;
-        });
-      }
-    }
+    // This method is now empty as the logic has been updated
   }
 
   void updateAnimation(Color newColor) {
@@ -113,9 +156,11 @@ class _SuduckTimerFocusModeWidgetState
 
   @override
   void dispose() {
+    _resetTimer?.cancel();
+    _resetTimer = null;
     _isInitialized = false;
     _stopAccelerometer();
-    _alertTimer?.cancel();
+    _canProcessMovement = false;
 
     if (_colorController.isAnimating) {
       _colorController.stop();
@@ -133,94 +178,79 @@ class _SuduckTimerFocusModeWidgetState
   }
 
   void _startAccelerometer() {
+    _stopAccelerometer();
     _accelerometerSubscription ??=
-        accelerometerEventStream().listen((AccelerometerEvent event) {
-      if (!mounted || !_isInitialized || _isAlertVisible) return;
+        accelerometerEventStream(samplingPeriod: Duration(milliseconds: 1500))
+            .listen((AccelerometerEvent event) {
+      if (!mounted ||
+          !_isInitialized ||
+          _isAlertVisible ||
+          !_canProcessMovement) return;
 
       // 움직임 계산
-      double deltaX = (_previousX - event.x).abs();
-      double deltaY = (_previousY - event.y).abs();
-      double deltaZ = (_previousZ - event.z).abs();
+      try {
+        double deltaX = (_previousX - event.x).abs();
+        double deltaY = (_previousY - event.y).abs();
+        double deltaZ = (_previousZ - event.z).abs();
 
-      // 첫 번째 값 설정
-      if (_previousX == 0 && _previousY == 0 && _previousZ == 0) {
+        // 첫 번째 값 설정
+        if (_previousX == 0 && _previousY == 0 && _previousZ == 0) {
+          _previousX = event.x;
+          _previousY = event.y;
+          _previousZ = event.z;
+          return;
+        }
+
+        DateTime now = DateTime.now();
+        bool isMovementExpired = _lastMovementDetectionTime == null ||
+            now.difference(_lastMovementDetectionTime!) >
+                _movementResetDuration;
+
+        if (isMovementExpired) {
+          _consecutiveMovements = 0;
+        }
+
         _previousX = event.x;
         _previousY = event.y;
         _previousZ = event.z;
-        return;
-      }
 
-      _previousX = event.x;
-      _previousY = event.y;
-      _previousZ = event.z;
+        bool isMoving = (deltaX > _movementThreshold ||
+            deltaY > _movementThreshold ||
+            deltaZ > _movementThreshold);
 
-      bool isMoving = (deltaX > _movementThreshold ||
-          deltaY > _movementThreshold ||
-          deltaZ > _movementThreshold);
+        if (isMoving) {
+          _consecutiveMovements++;
+          _lastMovementDetectionTime = now;
+        }
 
-      DateTime now = DateTime.now();
-      bool isCooldownOver = _lastDialogTime == null ||
-          now.difference(_lastDialogTime!) > _dialogCooldown;
+        bool isCooldownOver = _lastDialogTime == null ||
+            now.difference(_lastDialogTime!) > _dialogCooldown;
 
-      if (isMoving && isCooldownOver) {
-        _lastDialogTime = now;
-        if (!_isAlertVisible) {
+        if (_consecutiveMovements >= _requiredConsecutiveMovements &&
+            isCooldownOver &&
+            _canProcessMovement) {
+          _consecutiveMovements = 0;
+          _lastDialogTime = now;
           _showConcentrationAlert();
         }
+      } catch (e) {
+        debugPrint('Error processing accelerometer event: $e');
+        _resetAllStates();
       }
     });
   }
 
   void _stopAccelerometer() {
-    _accelerometerSubscription?.cancel();
-    _accelerometerSubscription = null;
+    if (_accelerometerSubscription != null) {
+      _accelerometerSubscription?.cancel();
+      _accelerometerSubscription = null;
+    }
   }
 
-  void _showConcentrationAlert() async {
-    if (!mounted || _isAlertVisible) return;
-
-    setState(() {
-      _isAlertVisible = true;
-    });
-    await SelectionHaptic.warning();
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        _alertTimer?.cancel();
-        _alertTimer = Timer(Duration(seconds: _inactiveThreshold), () {
-          if (mounted && _isAlertVisible) {
-            Navigator.of(context).pop();
-            setState(() {
-              _isAlertVisible = false;
-            });
-          }
-        });
-
-        return AlertDialog(
-          title: Center(child: Text("Dialog.Focus!").tr()),
-          content: Container(
-            width: 280.w,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text("Dialog.YouarestudyingPutyourphonedownandfocus").tr(),
-                Gap(20),
-              ],
-            ),
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        );
-      },
-    ).then((_) {
-      if (mounted) {
-        setState(() {
-          _isAlertVisible = false;
-        });
-      }
-    });
+  @override
+  void didUpdateWidget(SuduckTimerFocusModeWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // This method is now empty as the logic has been updated
   }
 
   @override
@@ -233,6 +263,12 @@ class _SuduckTimerFocusModeWidgetState
     updateAnimation(bgColor);
 
     final bool isRunning = suduckTimer.isRunning;
+
+    if (_isAlertVisible && _resetTimer == null) {
+      _resetTimer = Timer(Duration(seconds: _inactiveThreshold), () {
+        _resetAllStates();
+      });
+    }
 
     return Scaffold(
       body: Center(
@@ -289,6 +325,7 @@ class _SuduckTimerFocusModeWidgetState
                       suduckTimer: suduckTimer,
                       isRunning: isRunning,
                       suduckTimerNotifier: suduckTimerNotifier,
+                      temporaryMessage: _temporaryMessage,
                     ),
                   ),
                 ),
@@ -321,12 +358,14 @@ class TimerCenter extends StatelessWidget {
     required this.suduckTimer,
     required this.isRunning,
     required this.suduckTimerNotifier,
+    required this.temporaryMessage,
   }) : _colorAnimation = colorAnimation;
 
   final Animation<Color?> _colorAnimation;
   final TimerState suduckTimer;
   final bool isRunning;
   final SuDuckTimer suduckTimerNotifier;
+  final String? temporaryMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -363,15 +402,29 @@ class TimerCenter extends StatelessWidget {
             width: double.infinity,
             color: _colorAnimation.value,
             child: Center(
-              child: Text(
-                getFormatTime(suduckTimer.elapsedTime),
-                style: TextStyle(
-                  fontSize: 46.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                  fontFeatures: [FontFeature.tabularFigures()],
-                ),
-              ),
+              child: temporaryMessage != null
+                  ? Container(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      child: Text(
+                        temporaryMessage!,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          height: 1.4,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
+                      ),
+                    )
+                  : Text(
+                      getFormatTime(suduckTimer.elapsedTime),
+                      style: TextStyle(
+                        fontSize: 46.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                        fontFeatures: [FontFeature.tabularFigures()],
+                      ),
+                    ),
             ),
           ),
         ),
