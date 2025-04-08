@@ -8,7 +8,10 @@ class StudyRecordDataSource {
   StudyRecordDataSource();
 
   void addStudyRecord(StudyRecord studyRecord) async {
-    String monthKey = DateFormat('yyyy-MM').format(DateTime.now());
+    // String monthKey = DateFormat('yyyy-MM').format(DateTime.now());
+    // 새벽3시에 전날로 판단하기위해서
+    String monthKey = DateFormat('yyyy-MM')
+        .format(DateTime.now().subtract(const Duration(hours: 6)));
     String userId = FirebaseAuth.instance.currentUser!.uid;
 
     await FirebaseFirestore.instance

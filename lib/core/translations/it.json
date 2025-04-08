@@ -98,7 +98,8 @@
     "loadingText": "Doing your best today with Study Duck..."
   },
   "Rank": {
-    "Rank": "Study Ranking"
+    "Rank": "अध्यान रैंकिंग",
+    "NotReady": "रैंकिंग डेटा अभी तैयार किया जा रहा है!"
   },
   "SelectCountryButtonWidget": {
     "Country": "Country",

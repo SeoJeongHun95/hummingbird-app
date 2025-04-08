@@ -98,7 +98,8 @@
     "loadingText": "오늘도 최선을 다해서 Study Duck과 함께..."
   },
   "Rank": {
-    "Rank": "공부 랭킹"
+    "Rank": "공부 랭킹",
+    "NotReady": "순위 데이터가 아직 준비 중이에요!"
   },
   "SelectCountryButtonWidget": {
     "Country": "국가",

@@ -98,7 +98,8 @@
     "loadingText": "今日も全力で Study Duck と一緒に..."
   },
   "Rank": {
-    "Rank": "勉強ランキング"
+    "Rank": "勉強ランキング",
+    "NotReady": "ランキングデータはまだ準備中です！"
   },
   "SelectCountryButtonWidget": {
     "Country": "国",

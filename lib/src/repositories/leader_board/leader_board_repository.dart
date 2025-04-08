@@ -11,13 +11,14 @@ class LeaderboardRepository {
   final LeaderboardRemoteDatasource _remoteDataSource;
 
   LeaderboardRepository(this._remoteDataSource);
-
   Future<Map<String, dynamic>> getLeaderboard() async {
-    Map<String, dynamic> result = {};
-
-    result = await _remoteDataSource
-        .getLeaderboard(formatDate(DateTime.now().subtract(Duration(days: 1))));
-
+    final result = await _remoteDataSource.getLeaderboard(
+      formatDate(
+        DateTime.now()
+            .subtract(const Duration(hours: 6))
+            .subtract(Duration(days: 1)),
+      ),
+    );
     return result;
   }
 }

@@ -38,7 +38,9 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
         .where(
           (record) => isWithinTargetDateRange(
             secondsSinceEpoch: record.endAt ?? 0,
-            targetDate: DateTime.now(),
+            // targetDate: DateTime.now(),
+            // 새벽3시에 전날로 판단하기위해서
+            targetDate: DateTime.now().subtract(const Duration(hours: 6)),
           ),
         )
         .toList();
