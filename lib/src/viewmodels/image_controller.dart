@@ -56,8 +56,8 @@ class ImageController {
         ],
         compressFormat: ImageCompressFormat.jpg,
         compressQuality: 50,
-        maxWidth: 200,
-        maxHeight: 200,
+        maxWidth: 100,
+        maxHeight: 100,
       );
       return croppedFile != null ? File(croppedFile.path) : null;
     } catch (e) {
