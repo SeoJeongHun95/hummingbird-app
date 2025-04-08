@@ -98,7 +98,8 @@
     "loadingText": "Hãy cố gắng hết mình cùng với Study Duck..."
   },
   "Rank": {
-    "Rank": "Xếp hạng học tập"
+    "Rank": "Xếp hạng học tập",
+    "NotReady": "Dữ liệu xếp hạng vẫn đang được chuẩn bị!"
   },
   "SelectCountryButtonWidget": {
     "Country": "Quốc gia",

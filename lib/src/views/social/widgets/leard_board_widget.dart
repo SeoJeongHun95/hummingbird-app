@@ -1,4 +1,5 @@
 import 'package:StudyDuck/core/utils/utils.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,6 +15,15 @@ class LeaderboardWidget extends ConsumerWidget {
     return Container(
       child: leaderboardState.when(
         data: (leaderboardStatedata) {
+          if (leaderboardStatedata.isEmpty) {
+            return Center(
+              child: Text(
+                tr("Rank.NotReady"),
+                style: TextStyle(fontSize: 16, color: Colors.grey),
+              ),
+            );
+          }
+
           return Expanded(
             child: ListView.builder(
               itemCount: leaderboardStatedata.length,

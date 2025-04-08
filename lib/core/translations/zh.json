@@ -98,7 +98,8 @@
     "loadingText": "今天也要全力以赴，与 Study Duck 一起学习..."
   },
   "Rank": {
-    "Rank": "学习排名"
+    "Rank": "學習排名",
+    "NotReady": "排名數據仍在準備中！"
   },
   "SelectCountryButtonWidget": {
     "Country": "国家",

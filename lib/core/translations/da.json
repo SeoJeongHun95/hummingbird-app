@@ -98,7 +98,8 @@
     "loadingText": "Gør dit bedste i dag med Study Duck..."
   },
   "Rank": {
-    "Rank": "Studierangering"
+    "Rank": "Study Ranking",
+    "NotReady": "Ranking data is still being prepared!"
   },
   "SelectCountryButtonWidget": {
     "Country": "Land",
