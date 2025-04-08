@@ -95,11 +95,11 @@
     "NoMBTIResult": "Intet MBTI-resultat"
   },
   "ProfileSettingScreen": {
-    "loadingText": "Gør dit bedste i dag med Study Duck..."
+    "loadingText": "Gør dit bedste i dag med Studieanden..."
   },
   "Rank": {
-    "Rank": "Study Ranking",
-    "NotReady": "Ranking data is still being prepared!"
+    "Rank": "Studierangering",
+    "NotReady": "Rangeringsdata er stadig under forberedelse!"
   },
   "SelectCountryButtonWidget": {
     "Country": "Land",
@@ -168,7 +168,7 @@
   },
   "SocialScreen": "Social skærm",
   "SplashScreen": {
-    "message": "Gør dit bedste i dag med Study Duck..."
+    "message": "Gør dit bedste i dag med Studieanden..."
   },
   "StatisticsScreen": {
     "monthly": "Månedlig",

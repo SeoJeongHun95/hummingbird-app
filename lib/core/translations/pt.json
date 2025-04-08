@@ -1,0 +1,576 @@
+{
+  "DailyStatistics": {
+    "Error": "Erro ao carregar dados: {0}",
+    "NoData": "Nenhum dado registrado hoje."
+  },
+  "DailySummary": {
+    "GoalStudyTime": "Tempo de estudo alvo",
+    "StudyTimeToday": "Tempo de estudo hoje",
+    "TodaySummary": "Resumo do estudo de hoje"
+  },
+  "DDayAddScreen": {
+    "Add": "Adicionar",
+    "Cancel": "Cancelar",
+    "Color": "Cor:",
+    "Confirm": "Confirmar",
+    "DDayAdd": "Adicionar D-Day",
+    "Edit": "Editar",
+    "FillInAllFields": "Por favor, preencha todos os campos.",
+    "GoalDate": "Data objetivo:",
+    "GoalTime": "Hora objetivo:",
+    "GoalTitle": "Título do objetivo",
+    "Save": "Salvar",
+    "SelectDate": "Selecione uma data",
+    "SelectTime": "Selecione um horário"
+  },
+  "DDayListTile": {
+    "AreYouSure": "Tem certeza que deseja excluir ",
+    "Cancel": "Cancelar",
+    "Confirm": "Confirmar",
+    "Delete": "Excluir",
+    "DeleteConfirmationSuffix": "?",
+    "Edit": "Editar",
+    "GoalDate": "Data objetivo:",
+    "OfflineEditDeleteError": "Edição e exclusão não estão disponíveis offline.",
+    "OfflineStatus": "Status offline"
+  },
+  "DDayUpdateScreen": {
+    "Color": "Cor:",
+    "DDayEdit": "Editar D-Day",
+    "FillInAllFields": "Por favor, preencha todos os campos.",
+    "GoalDate": "Data objetivo:",
+    "GoalTime": "Hora objetivo:",
+    "GoalTitle": "Título do objetivo",
+    "Save": "Salvar"
+  },
+  "Dialog": {
+    "Cancel": "Cancelar",
+    "Confirm": "Confirmar",
+    "Focus!": "Foco!",
+    "YouarestudyingPutyourphonedownandfocus": "Você está estudando.\nLargue seu telefone e concentre-se.",
+    "restoreTimer": "Existe um temporizador ativo. Deseja restaurá-lo?",
+    "LogoutDialog": "Tem certeza que deseja sair?",
+    "DeleteUserDialog": "Tem certeza que deseja excluir sua conta?"
+  },
+  "HomeSegmentBar": {
+    "Dday": "D-Day",
+    "Summary": "Resumo",
+    "Timer": "Temporizador"
+  },
+  "InquiryButtonWidget": {
+    "ContactUs": "Contate-nos"
+  },
+  "LogoutButtonWidget": {
+    "Logout": "Sair"
+  },
+  "DeleteUserButtonWidget": {
+    "DeleteUser": "Excluir Conta"
+  },
+  "MonthlyStatisticsScreen": {
+    "noData": "Nenhum dado registrado."
+  },
+  "NavigationBar": {
+    "Home": "Início",
+    "More": "Mais",
+    "Social": "Classificação",
+    "Statistics": "Estatísticas",
+    "Timer": "Temporizador"
+  },
+  "NotificationButton": {
+    "Alarm": "Alarme"
+  },
+  "PrivacyPolicyWidget": {
+    "PrivacyPolicy": "Política de Privacidade",
+    "URLCannotBeOpened": "Não é possível abrir este URL.",
+    "URLFailedToOpen": "Falha ao abrir URL.",
+    "URLLaunchError": "Ocorreu um erro."
+  },
+  "ProfileInfoWidget": {
+    "birthDate": "Data de nascimento",
+    "birthDateHint": "Registre sua data de nascimento",
+    "nickName": "Apelido",
+    "nickNameHint": "Editar Perfil",
+    "save": "SALVAR",
+    "mbtiTest": "Teste MBTI",
+    "NoMBTIResult": "Sem resultado MBTI"
+  },
+  "ProfileSettingScreen": {
+    "loadingText": "Dando o seu melhor hoje com o Study Duck..."
+  },
+  "Rank": {
+    "Rank": "Classificação de Estudo",
+    "NotReady": "Os dados de classificação ainda estão sendo preparados!"
+  },
+  "SelectCountryButtonWidget": {
+    "Country": "País",
+    "SouthKorea": "Coreia do Sul"
+  },
+  "SelectCountryContainerWidget": {
+    "FuturePlan": "Planejado para atualizações futuras",
+    "SouthKorea": "Coreia do Sul"
+  },
+  "SelectCountryScreen": {
+    "Country": "País"
+  },
+  "SelectFontSizeButtonWidget": {
+    "FontSize": "Tamanho da fonte",
+    "Large": "Grande",
+    "Medium": "Médio",
+    "Small": "Pequeno"
+  },
+  "SelectGoalDurationButtonWidget": {
+    "Complete": "Concluir",
+    "GoalStudyTime": "Tempo de estudo alvo",
+    "TimeSelection": "Selecionar tempo"
+  },
+  "SelectGroupBottomSheet": {
+    "complete": "Concluir",
+    "selectGroup": "Selecionar grupo"
+  },
+  "SelectGroupButtonWidget": {
+    "Group": "Grupo",
+    "SelectGroupPrompt": "Selecione um grupo"
+  },
+  "SelectGroupScreen": {
+    "Group": "Grupo"
+  },
+  "SelectLanguageButtonWidget": {
+    "Korean": "Coreano",
+    "Language": "Idioma"
+  },
+  "SelectLanguageContainerWidget": {
+    "FuturePlan": "Planejado para atualizações futuras",
+    "Korean": "Coreano"
+  },
+  "SelectLanguageScreen": {
+    "Language": "Idioma"
+  },
+  "SelectThemeButtonWidget": {
+    "FuturePlan": "Planejado para atualizações futuras",
+    "ThemeColor": "Cor do tema"
+  },
+  "SetStudySettingWidget": {
+    "done": "Concluído",
+    "goalDuration": "Tempo de estudo alvo",
+    "group": "Grupo",
+    "timePickerTitle": "Escolher Horário"
+  },
+  "SettingButton": {
+    "Setting": "Configurações"
+  },
+  "SettingsScreen": {
+    "Settings": "Configurações"
+  },
+  "SetProfileWidget": {
+    "next": "Próximo",
+    "selectBirthDate": "Selecione sua data de nascimento",
+    "skip": "Pular"
+  },
+  "SocialScreen": "Tela social",
+  "SplashScreen": {
+    "message": "Dando o seu melhor hoje com o Study Duck..."
+  },
+  "StatisticsScreen": {
+    "monthly": "Mensal",
+    "weekly": "Semanal"
+  },
+  "StudyBarChartWidget": {
+    "subjectStudyTime": "Tempo de estudo por matéria"
+  },
+  "StudyPieChartWidget": {
+    "subjectPercentage": "Porcentagem por matéria"
+  },
+  "StudySettingScreen": {
+    "complete": "Concluir",
+    "previous": "Anterior"
+  },
+  "SubjectAddScreen": {
+    "AddSubject": "Adicionar matéria",
+    "DuplicateSubject": "Esta matéria já existe.",
+    "Save": "Salvar",
+    "SelectColor": "Selecionar cor",
+    "SubjectName": "Nome da matéria"
+  },
+  "SubjectList": {
+    "AddSubject": "Adicionar matéria",
+    "Cancel": "Cancelar",
+    "CannotUndoWarning": "Esta ação não pode ser desfeita.",
+    "Confirm": "Confirmar",
+    "Delete": "Excluir",
+    "DeleteSubjectPrompt": "Tem certeza que deseja excluir esta matéria?",
+    "Edit": "Editar",
+    "EditSubject": "Editar matéria",
+    "EnterSubjectName": "Digite o nome da matéria",
+    "SelectColor": "Selecionar cor",
+    "SelfStudy": "Autoestudo",
+    "Subject": "Matéria",
+    "SubjectName": "Nome da matéria"
+  },
+  "SubjectUpdateScreen": {
+    "EditSubject": "Editar matéria",
+    "EnterSubjectName": "Por favor, digite o nome da matéria.",
+    "Save": "Salvar",
+    "SelectColor": "Selecionar cor",
+    "SubjectName": "Nome da matéria"
+  },
+  "SummaryWidget": {
+    "averageStudyTime": "Tempo médio de estudo",
+    "totalStudyTime": "Tempo total de estudo"
+  },
+  "Timer": {
+    "Pause": "PAUSAR",
+    "SelfStudy": "Autoestudo",
+    "Start": "INICIAR"
+  },
+  "TimerControlBar": {
+    "FocusMode": "Modo foco",
+    "WhiteNoise": "Ruído branco"
+  },
+  "TimerSetting": {
+    "AutoFocusMode": "Modo foco automático",
+    "TimeerSetting": "Configurações do temporizador"
+  },
+  "TotalDuratinosLineChartWidget": {
+    "totalStudyTime": "Tempo total de estudo por dia"
+  },
+  "UserProfileWidget": {
+    "profileEdit": "Editar perfil"
+  },
+  "WeeklyStatisticsScreen": {
+    "noData": "Nenhum dado registrado."
+  },
+  "WhiteNoiseScreen": {
+    "Cafe": "Café",
+    "Rain": "Chuva",
+    "Wind": "Vento",
+    "Fire": "Fogo",
+    "Chime": "Sino",
+    "Stream": "Riacho",
+    "Wave": "Onda",
+    "Bird": "Pássaro",
+    "chooseYourWhiteNoise": "Escolha seu ruído branco",
+    "WhiteNoise": "Ruído branco",
+    "No white noise playing": "Nenhum ruído branco tocando",
+    "Volume Control": "Controle de volume",
+    "Close": "Fechar",
+    "Stop": "Parar"
+  },
+  "getBrithDateText": {
+    "birthDate": "Data de nascimento",
+    "birthDateHint": "Registre sua data de nascimento"
+  },
+  "mbti": {
+    "MBTIQuestion1": {
+      "question": "Ao conhecer novas pessoas",
+      "optionA": "Me sinto energizado e feliz",
+      "optionB": "Me sinto mais confortável sozinho",
+      "category": "E/I"
+    },
+    "MBTIQuestion2": {
+      "question": "Como você recarrega as energias nos fins de semana?",
+      "optionA": "Passando tempo com amigos",
+      "optionB": "Tendo tempo sozinho",
+      "category": "E/I"
+    },
+    "MBTIQuestion3": {
+      "question": "Ao organizar pensamentos",
+      "optionA": "Falo em voz alta para organizá-los",
+      "optionB": "Organizo-os silenciosamente na minha cabeça",
+      "category": "E/I"
+    },
+    "MBTIQuestion4": {
+      "question": "Falar em frente a muitas pessoas",
+      "optionA": "Parece natural e confortável",
+      "optionB": "Parece pesado e me deixa nervoso",
+      "category": "E/I"
+    },
+    "MBTIQuestion5": {
+      "question": "Se viajando sozinho",
+      "optionA": "Pode parecer chato e solitário",
+      "optionB": "Me sinto animado e ansioso por isso",
+      "category": "E/I"
+    },
+    "MBTIQuestion6": {
+      "question": "When listening to explanations, what's important is",
+      "optionA": "Specific examples and details",
+      "optionB": "Overall flow and concepts",
+      "category": "S/N"
+    },
+    "MBTIQuestion7": {
+      "question": "When learning new skills",
+      "optionA": "Learn step by step following the manual",
+      "optionB": "Learn intuitively through hands-on experience",
+      "category": "S/N"
+    },
+    "MBTIQuestion8": {
+      "question": "In daily life",
+      "optionA": "Prefer familiar environments with little change",
+      "optionB": "Find new experiences and changes more interesting",
+      "category": "S/N"
+    },
+    "MBTIQuestion9": {
+      "question": "When working or studying",
+      "optionA": "Check details thoroughly",
+      "optionB": "Focus on understanding the overall flow",
+      "category": "S/N"
+    },
+    "MBTIQuestion10": {
+      "question": "When making judgments",
+      "optionA": "Judge the present based on past experiences",
+      "optionB": "Consider future possibilities more important",
+      "category": "S/N"
+    },
+    "MBTIQuestion11": {
+      "question": "When making important decisions",
+      "optionA": "Value logic and objective facts",
+      "optionB": "Consider emotions and relationships",
+      "category": "T/F"
+    },
+    "MBTIQuestion12": {
+      "question": "In debates, what's important is",
+      "optionA": "Winning with logic",
+      "optionB": "Considering others' feelings",
+      "category": "T/F"
+    },
+    "MBTIQuestion13": {
+      "question": "When others share their concerns",
+      "optionA": "Suggest practical solutions",
+      "optionB": "Empathize with their feelings",
+      "category": "T/F"
+    },
+    "MBTIQuestion14": {
+      "question": "When handling tasks, what's important is",
+      "optionA": "Efficiency and logic",
+      "optionB": "Teamwork and atmosphere",
+      "category": "T/F"
+    },
+    "MBTIQuestion15": {
+      "question": "When making decisions",
+      "optionA": "Judge based on right and wrong",
+      "optionB": "Consider others' feelings",
+      "category": "T/F"
+    },
+    "MBTIQuestion16": {
+      "question": "Schedule management",
+      "optionA": "Like to plan ahead and stick to it",
+      "optionB": "Act flexibly and spontaneously",
+      "category": "J/P"
+    },
+    "MBTIQuestion17": {
+      "question": "When going on a trip",
+      "optionA": "Make detailed plans",
+      "optionB": "Decide spontaneously on the spot",
+      "category": "J/P"
+    },
+    "MBTIQuestion18": {
+      "question": "When there's a deadline",
+      "optionA": "Prefer to finish early",
+      "optionB": "Flexibly adjust until the last minute",
+      "category": "J/P"
+    },
+    "MBTIQuestion19": {
+      "question": "Preferred environment",
+      "optionA": "Organized and neat space",
+      "optionB": "Space with free atmosphere",
+      "category": "J/P"
+    },
+    "MBTIQuestion20": {
+      "question": "When plans change",
+      "optionA": "Feel uncomfortable",
+      "optionB": "Adapt flexibly",
+      "category": "J/P"
+    }
+  },
+  "mbtiResult": {
+    "quickInfo": "📚 Informação Rápida de Aprendizagem",
+    "learningGuide": "🎯 Guia de Método de Aprendizagem",
+    "consultingSummary": "💡 Resumo da Consultoria de Aprendizagem",
+    "recommendedTime": "Horário de Estudo Recomendado",
+    "dailyStudyTime": "Horas de Estudo Diárias Recomendadas",
+    "strongSubjects": "Matérias Fortes",
+    "weakSubjects": "Matérias Fracas",
+    "learningMethod": "Método de Aprendizagem",
+    "timeManagement": "Gestão do Tempo",
+    "analysisTitle": "Relatório de Análise do Estilo de Aprendizagem MBTI",
+    "analysisResult": "Resultado da Análise do Tipo de Aprendizagem",
+    "confirm": "Confirmar",
+    "shareComplete": "Compartilhamento concluído",
+    "shareFailed": "Falha no compartilhamento",
+    "myMBTIStyle": "Meu Estilo de Aprendizagem MBTI",
+    "CheckMyMBTI": "Confira meu resultado do estilo de aprendizagem MBTI!\n#StudyDuck #StudyDuck #AprendizagemMBTI",
+    "MBTILearningStyleTest": "Teste de Estilo de Aprendizagem MBTI",
+    "question": "Pergunta",
+    "MBTINotTest": "Você ainda não fez o teste MBTI. Por favor, faça o teste.",
+    "error": "Erro",
+    "Tryagain": "Tentar novamente",
+    "Failedtoloadthequestion": "Falha ao carregar a pergunta.",
+    "GoTest": "Ir para o Teste",
+    "permissionDenied": "Permissão negada",
+    "permissionTitle": "Permissão",
+    "openSettings": "Abrir Configurações"
+  },
+  "mbtiTypeResult": {
+    "ISTJ": {
+      "learningMethod": "Aprendizagem sistemática e metódica",
+      "timeManagement": "Horários fixos e bem estruturados",
+      "recommendedStudyTime": "Manhã cedo",
+      "dailyStudyDuration": "3-5 horas",
+      "strongSubjects": "Matemática, Contabilidade, Ciências Exatas",
+      "weakSubjects": "Arte Abstrata, Filosofia Teórica",
+      "consultingSummary": "Tipo metódico que se destaca na aprendizagem sistemática e na organização detalhada"
+    },
+    "ISFJ": {
+      "learningMethod": "Aprendizagem prática e detalhada",
+      "timeManagement": "Rotina consistente e bem planejada",
+      "recommendedStudyTime": "Início da manhã ou fim da tarde",
+      "dailyStudyDuration": "2-4 horas",
+      "strongSubjects": "Biologia, História, Medicina",
+      "weakSubjects": "Física Teórica, Filosofia Abstrata",
+      "consultingSummary": "Tipo dedicado que aprende melhor através da prática e repetição sistemática"
+    },
+    "INFJ": {
+      "learningMethod": "Aprendizagem reflexiva e conceitual",
+      "timeManagement": "Períodos flexíveis com foco intenso",
+      "recommendedStudyTime": "Noite ou madrugada",
+      "dailyStudyDuration": "3-5 horas",
+      "strongSubjects": "Literatura, Psicologia, Humanidades",
+      "weakSubjects": "Estatística, Dados Técnicos",
+      "consultingSummary": "Tipo intuitivo que se destaca na compreensão profunda e conexões conceituais"
+    },
+    "INTJ": {
+      "learningMethod": "Aprendizagem analítica e estratégica",
+      "timeManagement": "Planejamento eficiente e focado",
+      "recommendedStudyTime": "Noite",
+      "dailyStudyDuration": "4-6 horas",
+      "strongSubjects": "Ciências, Estratégia, Pesquisa",
+      "weakSubjects": "Atividades Sociais, Arte Expressiva",
+      "consultingSummary": "Tipo estratégico que se destaca no pensamento analítico e planejamento de longo prazo"
+    },
+    "ISTP": {
+      "learningMethod": "Aprendizagem prática e experimental",
+      "timeManagement": "Períodos intensivos com flexibilidade",
+      "recommendedStudyTime": "Quando motivado",
+      "dailyStudyDuration": "2-4 horas",
+      "strongSubjects": "Mecânica, Engenharia, Ciências Aplicadas",
+      "weakSubjects": "Teoria Abstrata, Literatura Clássica",
+      "consultingSummary": "Tipo prático que aprende melhor através da experiência direta e resolução de problemas"
+    },
+    "ISFP": {
+      "learningMethod": "Aprendizagem sensorial e artística",
+      "timeManagement": "Horários flexíveis baseados no humor",
+      "recommendedStudyTime": "Tarde",
+      "dailyStudyDuration": "2-3 horas",
+      "strongSubjects": "Arte, Música, Ciências Naturais",
+      "weakSubjects": "Análise Teórica, Estatística",
+      "consultingSummary": "Tipo artístico que se destaca na aprendizagem através de experiências sensoriais e criativas"
+    },
+    "INFP": {
+      "learningMethod": "Aprendizagem criativa e idealista",
+      "timeManagement": "Períodos inspirados de estudo intenso",
+      "recommendedStudyTime": "Noite ou madrugada",
+      "dailyStudyDuration": "3-5 horas",
+      "strongSubjects": "Literatura, Artes, Psicologia",
+      "weakSubjects": "Dados Quantitativos, Análise Técnica",
+      "consultingSummary": "Tipo idealista que prospera na exploração criativa e expressão pessoal"
+    },
+    "INTP": {
+      "learningMethod": "Aprendizagem teórica e analítica",
+      "timeManagement": "Ciclos intensivos de estudo",
+      "recommendedStudyTime": "Noite",
+      "dailyStudyDuration": "4-6 horas",
+      "strongSubjects": "Lógica, Filosofia, Ciências Teóricas",
+      "weakSubjects": "Rotinas Estruturadas, Memorização",
+      "consultingSummary": "Tipo analítico que se destaca na compreensão de sistemas complexos e teorias abstratas"
+    },
+    "ESTP": {
+      "learningMethod": "Aprendizagem ativa e dinâmica",
+      "timeManagement": "Estudo intensivo com pausas frequentes",
+      "recommendedStudyTime": "Durante o dia",
+      "dailyStudyDuration": "2-4 horas",
+      "strongSubjects": "Economia, Esportes, Ciências Práticas",
+      "weakSubjects": "Teoria Abstrata, Literatura Clássica",
+      "consultingSummary": "Tipo energético que aprende melhor através da ação e experiência prática"
+    },
+    "ESFP": {
+      "learningMethod": "Aprendizagem social e interativa",
+      "timeManagement": "Estudo em grupo com pausas regulares",
+      "recommendedStudyTime": "Tarde",
+      "dailyStudyDuration": "2-3 horas",
+      "strongSubjects": "Artes Performáticas, Comunicação, Línguas",
+      "weakSubjects": "Matérias Teóricas, Análises Complexas",
+      "consultingSummary": "Tipo social que se destaca na aprendizagem interativa e colaborativa"
+    },
+    "ENFP": {
+      "learningMethod": "Aprendizagem criativa e exploratória",
+      "timeManagement": "Estudo flexível guiado pela inspiração",
+      "recommendedStudyTime": "Quando criativamente estimulado",
+      "dailyStudyDuration": "3-5 horas",
+      "strongSubjects": "Literatura, Arte, Psicologia",
+      "weakSubjects": "Detalhes Técnicos, Cálculos Precisos",
+      "consultingSummary": "Tipo entusiasta que prospera na aprendizagem criativa e inovadora"
+    },
+    "ENTP": {
+      "learningMethod": "Aprendizagem através do debate e desafio intelectual",
+      "timeManagement": "Estudo intensivo quando interessado",
+      "recommendedStudyTime": "Quando mentalmente ativo",
+      "dailyStudyDuration": "3-5 horas",
+      "strongSubjects": "Debate, Inovação, Ciências Teóricas",
+      "weakSubjects": "Tarefas Repetitivas, Memorização",
+      "consultingSummary": "Tipo inovador que se destaca no pensamento crítico e resolução criativa de problemas"
+    },
+    "ESTJ": {
+      "learningMethod": "Aprendizagem estruturada e organizada",
+      "timeManagement": "Planejamento rigoroso e sistemático",
+      "recommendedStudyTime": "Manhã cedo",
+      "dailyStudyDuration": "4-6 horas",
+      "strongSubjects": "Administração, Economia, Matemática",
+      "weakSubjects": "Matérias Criativas, Arte Abstrata",
+      "consultingSummary": "Tipo organizado que se destaca no planejamento sistemático e execução metódica"
+    },
+    "ESFJ": {
+      "learningMethod": "Aprendizagem colaborativa e estruturada",
+      "timeManagement": "Estudo regular com rotinas estabelecidas",
+      "recommendedStudyTime": "Durante o dia",
+      "dailyStudyDuration": "3-5 horas",
+      "strongSubjects": "Ciências Sociais, Línguas, Educação",
+      "weakSubjects": "Matérias Técnicas Complexas",
+      "consultingSummary": "Tipo cooperativo que prospera na aprendizagem social e organizada"
+    },
+    "ENFJ": {
+      "learningMethod": "Aprendizagem através do ensino e orientação",
+      "timeManagement": "Estudo equilibrado com atenção ao bem-estar",
+      "recommendedStudyTime": "Manhã ou início da tarde",
+      "dailyStudyDuration": "3-5 horas",
+      "strongSubjects": "Comunicação, Psicologia, Liderança",
+      "weakSubjects": "Análise Técnica Detalhada",
+      "consultingSummary": "Tipo carismático que se destaca na aprendizagem através da interação e orientação dos outros"
+    },
+    "ENTJ": {
+      "learningMethod": "Aprendizagem estratégica e orientada a objetivos",
+      "timeManagement": "Planejamento eficiente e orientado a resultados",
+      "recommendedStudyTime": "Quando mais produtivo",
+      "dailyStudyDuration": "4-6 horas",
+      "strongSubjects": "Estratégia, Liderança, Análise Complexa",
+      "weakSubjects": "Atividades Repetitivas, Detalhes Minuciosos",
+      "consultingSummary": "Tipo estratégico que se destaca no planejamento e execução de objetivos de aprendizagem ambiciosos"
+    }
+  },
+  "MBTIResoltScreen": {
+    "MyMBTIresult": "Meu resultado MBTI"
+  },
+  "License": {
+    "License": "Licença"
+  },
+  "BreathingExercise": {
+    "Intro": "Esta técnica de respiração foi introduzida pelo Dr. Andrew Weil. \nÉ eficaz para acalmar rapidamente o sistema nervoso, aliviar o estresse e melhorar a concentração. \n\nAgora vamos prosseguir com o exercício de respiração 4-7-8.",
+    "Inhale": "Feche a boca e inspire lentamente pelo nariz por 4 segundos.",
+    "Hold": "Segure a respiração por 7 segundos.",
+    "Exhale": "Expire lentamente e completamente pela boca por 8 segundos, fazendo um som de \"whoosh\".",
+    "Completed": "Exercício de respiração concluído!",
+    "Repetition": "Repetição"
+  },
+  "Common": {
+    "Advertisement": "Exercício de Respiração 4-7-8",
+    "Close": "Começar a Estudar"
+  }
+}
