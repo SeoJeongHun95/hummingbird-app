@@ -13,7 +13,7 @@ class Seg2Screen extends StatelessWidget {
       children: [
         DDayListTileWidget(),
         Spacer(),
-        AdMobWidget.showBannerAd(50, true),
+        AdMobWidget.showBannerAd(50),
       ],
     );
   }

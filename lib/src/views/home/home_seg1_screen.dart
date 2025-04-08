@@ -17,7 +17,7 @@ class Seg1Screen extends StatelessWidget {
           SuDuckTimerWidget(),
           SuduckTimerControllBarWidget(),
           SubjectListWidget(),
-          AdMobWidget.showBannerAd(60),
+          AdMobWidget.showBannerAd(60, true),
         ],
       ),
     );

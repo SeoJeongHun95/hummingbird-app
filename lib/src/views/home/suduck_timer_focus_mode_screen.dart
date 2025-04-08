@@ -46,12 +46,12 @@ class _SuduckTimerFocusModeWidgetState
 
   // 추가할 변수들
   bool _isInitialized = false;
-  final _initializationDelay = const Duration(seconds: 180); //감지 초기화 지연시간
+  final _initializationDelay = const Duration(seconds: 60); //감지 초기화 지연시간
 
   @override
   void initState() {
     super.initState();
-    WakelockPlus.enable();
+    _initWakelock();
 
     // 지연후 센서 시작
     Future.delayed(_initializationDelay, () {
@@ -116,10 +116,6 @@ class _SuduckTimerFocusModeWidgetState
     _isInitialized = false;
     _stopAccelerometer();
     _alertTimer?.cancel();
-
-    if (mounted) {
-      WakelockPlus.disable();
-    }
 
     if (_colorController.isAnimating) {
       _colorController.stop();
@@ -203,16 +199,18 @@ class _SuduckTimerFocusModeWidgetState
 
         return AlertDialog(
           title: Center(child: Text("Dialog.Focus!").tr()),
-          content: Column(
-            children: [
-              Text("Dialog.YouarestudyingPutyourphonedownandfocus").tr(),
-              Gap(20),
-              SizedBox(
-                width: 150.w, // 원하는 너비
-                height: 250.h, // 원하는 높이
-                child: AdMobWidget.showExpandedBannerAd(), // 배너 광고의 높이와 일치
-              ),
-            ],
+          content: Container(
+            width: 280.w,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text("Dialog.YouarestudyingPutyourphonedownandfocus").tr(),
+                Gap(20),
+              ],
+            ),
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
           ),
         );
       },
@@ -306,6 +304,14 @@ class _SuduckTimerFocusModeWidgetState
       ),
     );
   }
+
+  Future<void> _initWakelock() async {
+    try {
+      await WakelockPlus.enable();
+    } catch (e) {
+      debugPrint('Wakelock enable error: $e');
+    }
+  }
 }
 
 class TimerCenter extends StatelessWidget {
@@ -360,7 +366,7 @@ class TimerCenter extends StatelessWidget {
               child: Text(
                 getFormatTime(suduckTimer.elapsedTime),
                 style: TextStyle(
-                  fontSize: 32.sp,
+                  fontSize: 46.sp,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
                   fontFeatures: [FontFeature.tabularFigures()],
@@ -472,7 +478,16 @@ class TimerCenter extends StatelessWidget {
             ),
           ),
         ),
-        Expanded(flex: 2, child: AdMobWidget.showExpandedBannerAd()),
+        Expanded(
+          flex: 2,
+          child: Row(
+            children: [
+              Expanded(
+                child: AdMobWidget.showBannerAd(60),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
