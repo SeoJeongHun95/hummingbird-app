@@ -1,9 +1,11 @@
 import 'package:animated_segmented_tab_control/animated_segmented_tab_control.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart'; // Import Riverpod
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/router/bottom_nav_bar.dart';
+import '../../providers/suduck_timer/suduck_timer_provider_2_0.dart'; // Corrected import path
 import '../../../core/theme/colors/app_color.dart';
 import '../../../core/widgets/admob_widget.dart';
 import '../white_noise/drawer_white_noise_controller.dart';
@@ -33,18 +35,25 @@ final List<SegmentTab> _tabs = [
   ),
 ];
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerStatefulWidget {
+  // Change to ConsumerStatefulWidget
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  ConsumerState<HomeScreen> createState() =>
+      _HomeScreenState(); // Change to ConsumerState
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  // Change to ConsumerState
   @override
   void initState() {
     super.initState();
-    // 위젯이 처음 생성될 때 _showBottomSheet 함수를 호출합니다.
+    // 위젯이 처음 생성될 때 _showBottomSheet 함수를 호출합니다. (타이머가 실행 중이지 않을 때만)
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _showBottomSheet();
+      // Read the timer state using ref
+      final isTimerRunning = ref.read(suDuckTimerProvider).isRunning;
+      if (!isTimerRunning) {
+        _showBottomSheet();
+      }
     });
   }
 
