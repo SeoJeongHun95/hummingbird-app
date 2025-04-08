@@ -6,10 +6,12 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/enum/mxnRate.dart';
 import '../../../../../core/utils/get_formatted_time.dart';
+import '../../../../../core/widgets/admob_widget.dart';
 import '../../../../../core/widgets/mxnContainer.dart';
 import '../../../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
 import '../../../../viewmodels/app_setting/app_setting_view_model.dart';
 import '../../../../viewmodels/timer/timer_bg_color_provider.dart';
+import '../breathing_exercise_widget.dart';
 
 class SuDuckTimerWidget extends ConsumerStatefulWidget {
   const SuDuckTimerWidget({super.key});
@@ -154,6 +156,9 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
                               } else {
                                 suduckTimerNotifier.stopTimer();
                               }
+                              if (!isRunning && suduckTimer.elapsedTime == 0) {
+                                _showBottomSheet();
+                              }
                             },
                             child: Container(
                               width: 120.w,
@@ -224,5 +229,52 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
   void dispose() {
     _colorController.dispose();
     super.dispose();
+  }
+
+  void _showBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled:
+          true, // Keep true if content might exceed screen height initially
+      builder: (BuildContext context) {
+        // Give the container a fixed height to prevent resizing
+        return Container(
+          height: 380.h, // Set a fixed height
+          width: double.infinity,
+          // color: Colors.transparent, // Color is often set by theme, can remove if default is fine
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Replace the Text widget with the BreathingExerciseWidget
+              SizedBox(
+                  height: 160.h, // Add some space above the exercise
+                  child: const BreathingExerciseWidget()),
+
+              SizedBox(height: 16.h),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      padding: EdgeInsets.symmetric(vertical: 12.h),
+                    ),
+                    child: Text(tr("Common.Close"),
+                        style:
+                            TextStyle(fontSize: 16.sp, color: Colors.white))),
+              ),
+              SizedBox(height: 14.h),
+              AdMobWidget.showBannerAd(80.h), // 실제 광고 위젯
+            ],
+          ),
+        );
+      },
+    );
   }
 }

@@ -36,10 +36,9 @@ class _BreathingExerciseWidgetState extends State<BreathingExerciseWidget> {
     }, // 입을 약간 벌리고 8초 동안 천천히 완전히 숨을 내쉬면서 "쉬-" 하는 소리를 냅니다.
   ];
 
-  final int _totalRepetitions = 4;
-  final Duration _introDuration =
-      const Duration(seconds: 3); // Increased intro duration slightly
-  final Duration _instructionPreviewDuration = const Duration(seconds: 2);
+  final int _totalRepetitions = 3;
+  final Duration _introDuration = const Duration(seconds: 2);
+  final Duration _instructionPreviewDuration = const Duration(seconds: 0);
 
   @override
   void initState() {
