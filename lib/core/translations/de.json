@@ -1,413 +1,413 @@
 {
   "DailyStatistics": {
-    "Error": "Error loading data: {0}",
-    "NoData": "No recorded data today."
+    "Error": "Fehler beim Laden der Daten: {0}",
+    "NoData": "Heute keine aufgezeichneten Daten."
   },
   "DailySummary": {
-    "GoalStudyTime": "Target study time",
-    "StudyTimeToday": "Today's study time",
-    "TodaySummary": "Today's study summary"
+    "GoalStudyTime": "Angestrebte Lernzeit",
+    "StudyTimeToday": "Heutige Lernzeit",
+    "TodaySummary": "Heutige Lernzusammenfassung"
   },
   "DDayAddScreen": {
-    "Add": "Add",
-    "Cancel": "Cancel",
-    "Color": "Color:",
-    "Confirm": "Confirm",
-    "DDayAdd": "Add D-Day",
-    "Edit": "Edit",
-    "FillInAllFields": "Please fill in all fields.",
-    "GoalDate": "Goal Date:",
-    "GoalTime": "Goal Time:",
-    "GoalTitle": "Goal Title",
-    "Save": "Save",
-    "SelectDate": "Select a date",
-    "SelectTime": "Select a time"
+    "Add": "Hinzufügen",
+    "Cancel": "Abbrechen",
+    "Color": "Farbe:",
+    "Confirm": "Bestätigen",
+    "DDayAdd": "D-Day hinzufügen",
+    "Edit": "Bearbeiten",
+    "FillInAllFields": "Bitte füllen Sie alle Felder aus.",
+    "GoalDate": "Zieldatum:",
+    "GoalTime": "Zielzeit:",
+    "GoalTitle": "Zieltitel",
+    "Save": "Speichern",
+    "SelectDate": "Datum auswählen",
+    "SelectTime": "Zeit auswählen"
   },
   "DDayListTile": {
-    "AreYouSure": "Are you sure you want to delete ",
-    "Cancel": "Cancel",
-    "Confirm": "Confirm",
-    "Delete": "Delete",
+    "AreYouSure": "Sind Sie sicher, dass Sie löschen möchten ",
+    "Cancel": "Abbrechen",
+    "Confirm": "Bestätigen",
+    "Delete": "Löschen",
     "DeleteConfirmationSuffix": "?",
-    "Edit": "Edit",
-    "GoalDate": "Goal date:",
-    "OfflineEditDeleteError": "Editing and deleting are unavailable offline.",
-    "OfflineStatus": "Offline status"
+    "Edit": "Bearbeiten",
+    "GoalDate": "Zieldatum:",
+    "OfflineEditDeleteError": "Bearbeiten und löschen sind offline nicht verfügbar.",
+    "OfflineStatus": "Offline-Status"
   },
   "DDayUpdateScreen": {
-    "Color": "Color:",
-    "DDayEdit": "Edit D-Day",
-    "FillInAllFields": "Please fill in all fields.",
-    "GoalDate": "Goal Date:",
-    "GoalTime": "Goal Time:",
-    "GoalTitle": "Goal Title",
-    "Save": "Save"
+    "Color": "Farbe:",
+    "DDayEdit": "D-Day bearbeiten",
+    "FillInAllFields": "Bitte füllen Sie alle Felder aus.",
+    "GoalDate": "Zieldatum:",
+    "GoalTime": "Zielzeit:",
+    "GoalTitle": "Zieltitel",
+    "Save": "Speichern"
   },
   "Dialog": {
-    "Cancel": "Cancel",
-    "Confirm": "Confirm",
-    "Focus!": "Focus!",
-    "YouarestudyingPutyourphonedownandfocus": "You are studying.\nPut your phone down and focus.",
-    "restoreTimer": "There is an existing timer. Do you want to restore it?",
-    "LogoutDialog": "Are you sure you want to log out?",
-    "DeleteUserDialog": "Are you sure you want to delete your account?"
+    "Cancel": "Abbrechen",
+    "Confirm": "Bestätigen",
+    "Focus!": "Fokus!",
+    "YouarestudyingPutyourphonedownandfocus": "Sie studieren.\nSetzen Sie Ihr Telefon auf und fokussieren Sie sich.",
+    "restoreTimer": "Es gibt bereits einen Timer. Möchten Sie ihn wiederherstellen?",
+    "LogoutDialog": "Sind Sie sicher, dass Sie sich abmelden möchten?",
+    "DeleteUserDialog": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten?"
   },
   "HomeSegmentBar": {
     "Dday": "D-Day",
-    "Summary": "Summary",
+    "Summary": "Zusammenfassung",
     "Timer": "Timer"
   },
   "InquiryButtonWidget": {
-    "ContactUs": "Contact us"
+    "ContactUs": "Kontaktieren Sie uns"
   },
   "LogoutButtonWidget": {
-    "Logout": "Logout"
+    "Logout": "Abmelden"
   },
   "DeleteUserButtonWidget": {
-    "DeleteUser": "Delete Account"
+    "DeleteUser": "Konto löschen"
   },
   "MonthlyStatisticsScreen": {
-    "noData": "No recorded data."
+    "noData": "Keine aufgezeichneten Daten."
   },
   "NavigationBar": {
     "Home": "Home",
-    "More": "More",
-    "Social": "Rank",
-    "Statistics": "Statistics",
+    "More": "Mehr",
+    "Social": "Rang",
+    "Statistics": "Statistiken",
     "Timer": "Timer"
   },
   "NotificationButton": {
     "Alarm": "Alarm"
   },
   "PrivacyPolicyWidget": {
-    "PrivacyPolicy": "Privacy Policy",
-    "URLCannotBeOpened": "Cannot open this URL.",
-    "URLFailedToOpen": "Failed to open URL.",
-    "URLLaunchError": "An error occurred."
+    "PrivacyPolicy": "Datenschutzrichtlinie",
+    "URLCannotBeOpened": "Diese URL kann nicht geöffnet werden.",
+    "URLFailedToOpen": "Die URL konnte nicht geöffnet werden.",
+    "URLLaunchError": "Es ist ein Fehler aufgetreten."
   },
   "ProfileInfoWidget": {
-    "birthDate": "Date of birth",
-    "birthDateHint": "Register your date of birth",
-    "nickName": "Nickname",
-    "nickNameHint": "Edit Profile",
-    "save": "SAVE",
-    "mbtiTest": "MBTI Test",
-    "NoMBTIResult": "No MBTI result"
+    "birthDate": "Geburtsdatum",
+    "birthDateHint": "Registrieren Sie Ihr Geburtsdatum",
+    "nickName": "Spitzname",
+    "nickNameHint": "Profil bearbeiten",
+    "save": "SPEICHERN",
+    "mbtiTest": "MBTI-Test",
+    "NoMBTIResult": "Kein MBTI-Ergebnis"
   },
   "ProfileSettingScreen": {
-    "loadingText": "Doing your best today with Study Duck..."
+    "loadingText": "Machen Sie alles, um heute mit Study Duck zu arbeiten..."
   },
   "Rank": {
-    "Rank": "Study Ranking",
-    "NotReady": "Ranking data is still being prepared!"
+    "Rank": "Lernrang",
+    "NotReady": "Rangdaten werden noch vorbereitet!"
   },
   "SelectCountryButtonWidget": {
-    "Country": "Country",
-    "SouthKorea": "South Korea"
+    "Country": "Land",
+    "SouthKorea": "Südkorea"
   },
   "SelectCountryContainerWidget": {
-    "FuturePlan": "Planned for future updates",
-    "SouthKorea": "South Korea"
+    "FuturePlan": "Für zukünftige Updates geplant",
+    "SouthKorea": "Südkorea"
   },
   "SelectCountryScreen": {
-    "Country": "Country"
+    "Country": "Land"
   },
   "SelectFontSizeButtonWidget": {
-    "FontSize": "Font size",
-    "Large": "Large",
-    "Medium": "Medium",
-    "Small": "Small"
+    "FontSize": "Schriftgröße",
+    "Large": "Groß",
+    "Medium": "Mittel",
+    "Small": "Klein"
   },
   "SelectGoalDurationButtonWidget": {
-    "Complete": "Complete",
-    "GoalStudyTime": "Target study time",
-    "TimeSelection": "Select time"
+    "Complete": "Vollständig",
+    "GoalStudyTime": "Angestrebte Lernzeit",
+    "TimeSelection": "Zeit auswählen"
   },
   "SelectGroupBottomSheet": {
-    "complete": "Complete",
-    "selectGroup": "Select group"
+    "complete": "Vollständig",
+    "selectGroup": "Gruppe auswählen"
   },
   "SelectGroupButtonWidget": {
-    "Group": "Group",
-    "SelectGroupPrompt": "Select a group"
+    "Group": "Gruppe",
+    "SelectGroupPrompt": "Gruppe auswählen"
   },
   "SelectGroupScreen": {
-    "Group": "Group"
+    "Group": "Gruppe"
   },
   "SelectLanguageButtonWidget": {
-    "Korean": "Korean",
-    "Language": "Language"
+    "Korean": "Koreanisch",
+    "Language": "Sprache"
   },
   "SelectLanguageContainerWidget": {
-    "FuturePlan": "Planned for future updates",
-    "Korean": "Korean"
+    "FuturePlan": "Für zukünftige Updates geplant",
+    "Korean": "Koreanisch"
   },
   "SelectLanguageScreen": {
-    "Language": "Language"
+    "Language": "Sprache"
   },
   "SelectThemeButtonWidget": {
-    "FuturePlan": "Planned for future updates",
-    "ThemeColor": "Theme color"
+    "FuturePlan": "Für zukünftige Updates geplant",
+    "ThemeColor": "Themenfarbe"
   },
   "SetStudySettingWidget": {
-    "done": "Done",
-    "goalDuration": "Goal Study Time",
-    "group": "Group",
-    "timePickerTitle": "Choose Time"
+    "done": "Fertig",
+    "goalDuration": "Lernzeit",
+    "group": "Gruppe",
+    "timePickerTitle": "Zeit auswählen"
   },
   "SettingButton": {
-    "Setting": "Settings"
+    "Setting": "Einstellungen"
   },
   "SettingsScreen": {
-    "Settings": "Settings"
+    "Settings": "Einstellungen"
   },
   "SetProfileWidget": {
-    "next": "Next",
-    "selectBirthDate": "Select your date of birth",
-    "skip": "Skip"
+    "next": "Weiter",
+    "selectBirthDate": "Geburtsdatum auswählen",
+    "skip": "Überspringen"
   },
-  "SocialScreen": "Social screen",
+  "SocialScreen": "Soziales Bildschirm",
   "SplashScreen": {
-    "message": "Doing your best today with Study Duck..."
+    "message": "Machen Sie alles, um heute mit Study Duck zu arbeiten..."
   },
   "StatisticsScreen": {
-    "monthly": "Monthly",
-    "weekly": "Weekly"
+    "monthly": "Monatlich",
+    "weekly": "Wöchentlich"
   },
   "StudyBarChartWidget": {
-    "subjectStudyTime": "Study time per subject"
+    "subjectStudyTime": "Lernzeit pro Fach"
   },
   "StudyPieChartWidget": {
-    "subjectPercentage": "Subject percentage"
+    "subjectPercentage": "Fachprozent"
   },
   "StudySettingScreen": {
-    "complete": "Complete",
-    "previous": "Previous"
+    "complete": "Vollständig",
+    "previous": "Vorherige"
   },
   "SubjectAddScreen": {
-    "AddSubject": "Add subject",
-    "DuplicateSubject": "This subject already exists.",
-    "Save": "Save",
-    "SelectColor": "Select color",
-    "SubjectName": "Subject name"
+    "AddSubject": "Fach hinzufügen",
+    "DuplicateSubject": "Dieses Fach existiert bereits.",
+    "Save": "Speichern",
+    "SelectColor": "Farbe auswählen",
+    "SubjectName": "Fachname"
   },
   "SubjectList": {
-    "AddSubject": "Add subject",
-    "Cancel": "Cancel",
-    "CannotUndoWarning": "This action cannot be undone.",
-    "Confirm": "Confirm",
-    "Delete": "Delete",
-    "DeleteSubjectPrompt": "Are you sure you want to delete this subject?",
-    "Edit": "Edit",
-    "EditSubject": "Edit subject",
-    "EnterSubjectName": "Enter subject name",
-    "SelectColor": "Select color",
-    "SelfStudy": "Self-study",
-    "Subject": "Subject",
-    "SubjectName": "Subject name"
+    "AddSubject": "Fach hinzufügen",
+    "Cancel": "Abbrechen",
+    "CannotUndoWarning": "Diese Aktion kann nicht rückgängig gemacht werden.",
+    "Confirm": "Bestätigen",
+    "Delete": "Löschen",
+    "DeleteSubjectPrompt": "Sind Sie sicher, dass Sie dieses Fach löschen möchten?",
+    "Edit": "Bearbeiten",
+    "EditSubject": "Fach bearbeiten",
+    "EnterSubjectName": "Fachname eingeben",
+    "SelectColor": "Farbe auswählen",
+    "SelfStudy": "Selbststudium",
+    "Subject": "Fach",
+    "SubjectName": "Fachname"
   },
   "SubjectUpdateScreen": {
-    "EditSubject": "Edit subject",
-    "EnterSubjectName": "Please enter the subject name.",
-    "Save": "Save",
-    "SelectColor": "Select color",
-    "SubjectName": "Subject name"
+    "EditSubject": "Fach bearbeiten",
+    "EnterSubjectName": "Bitte geben Sie den Fachnamen ein.",
+    "Save": "Speichern",
+    "SelectColor": "Farbe auswählen",
+    "SubjectName": "Fachname"
   },
   "SummaryWidget": {
-    "averageStudyTime": "Average study time",
-    "totalStudyTime": "Total study time"
+    "averageStudyTime": "Durchschnittliche Lernzeit",
+    "totalStudyTime": "Gesamtstudienzeit"
   },
   "Timer": {
     "Pause": "PAUSE",
-    "SelfStudy": "Self-study",
+    "SelfStudy": "Selbststudium",
     "Start": "START"
   },
   "TimerControlBar": {
-    "FocusMode": "Focus mode",
-    "WhiteNoise": "White noise"
+    "FocusMode": "Fokusmodus",
+    "WhiteNoise": "Weißes Rauschen"
   },
   "TimerSetting": {
-    "AutoFocusMode": "Auto focus mode",
-    "TimeerSetting": "Timer settings"
+    "AutoFocusMode": "Automatischer Fokusmodus",
+    "TimeerSetting": "Timer-Einstellungen"
   },
   "TotalDuratinosLineChartWidget": {
-    "totalStudyTime": "Total study time per day"
+    "totalStudyTime": "Gesamtstudienzeit pro Tag"
   },
   "UserProfileWidget": {
-    "profileEdit": "Edit profile"
+    "profileEdit": "Profil bearbeiten"
   },
   "WeeklyStatisticsScreen": {
-    "noData": "No recorded data."
+    "noData": "Keine aufgezeichneten Daten."
   },
   "WhiteNoiseScreen": {
-    "Cafe": "Cafe",
-    "Rain": "Rain",
+    "Cafe": "Kaffee",
+    "Rain": "Regen",
     "Wind": "Wind",
-    "Fire": "Fire",
-    "Chime": "Chime",
-    "Stream": "Stream",
-    "Wave": "Wave",
-    "Bird": "bird",
+    "Fire": "Feuer",
+    "Chime": "Glocke",
+    "Stream": "Strom",
+    "Wave": "Welle",
+    "Bird": "Vogel",
     "chooseYourWhiteNoise": "hooseYourWhiteNoise",
-    "WhiteNoise": "whiteNoise",
-    "No white noise playing": "No white noise playing",
-    "Volume Control": "Volume Control",
-    "Close": "Close",
+    "WhiteNoise": "weisses Rauschen",
+    "No white noise playing": "Kein weisses Rauschen abgespielt",
+    "Volume Control": "Lautstärkenregelung",
+    "Close": "Schließen",
     "Stop": "Stop"
   },
   "getBrithDateText": {
-    "birthDate": "Date of birth",
-    "birthDateHint": "Register your date of birth"
+    "birthDate": "Geburtsdatum",
+    "birthDateHint": "Registrieren Sie Ihr Geburtsdatum"
   },
   "mbti": {
     "MBTIQuestion1": {
-      "question": "When meeting new people",
-      "optionA": "I feel energized and happy",
-      "optionB": "I feel more comfortable being alone",
+      "question": "Wenn Sie mit neuen Menschen sprechen",
+      "optionA": "Ich fühle mich energisiert und glücklich",
+      "optionB": "Ich fühle mich mehr allein",
       "category": "E/I"
     },
     "MBTIQuestion2": {
-      "question": "How do you recharge on weekends?",
-      "optionA": "Spending time with friends",
-      "optionB": "Having time alone",
+      "question": "Wie lade ich Sie auf Wochenenden auf?",
+      "optionA": "Zeit mit Freunden verbringen",
+      "optionB": "Zeit allein verbringen",
       "category": "E/I"
     },
     "MBTIQuestion3": {
-      "question": "When organizing thoughts",
-      "optionA": "I speak out loud to organize them",
-      "optionB": "I organize them quietly in my head",
+      "question": "Wenn Sie Gedanken organisieren",
+      "optionA": "Ich spreche laut aus, um sie zu organisieren",
+      "optionB": "Ich organisiere sie stillschweigend in meinem Kopf",
       "category": "E/I"
     },
     "MBTIQuestion4": {
-      "question": "Speaking in front of many people",
-      "optionA": "Feels natural and comfortable",
-      "optionB": "Feels burdensome and nervous",
+      "question": "Wenn Sie vor vielen Menschen sprechen",
+      "optionA": "Es fühlt sich natürlich und bequem an",
+      "optionB": "Es fühlt sich belastend und nervös an",
       "category": "E/I"
     },
     "MBTIQuestion5": {
-      "question": "If traveling alone",
-      "optionA": "Might feel boring and lonely",
-      "optionB": "Feel excited and looking forward to it",
+      "question": "Wenn Sie allein reisen",
+      "optionA": "Es könnte langweilig und einsam sein",
+      "optionB": "Es fühlt sich aufgeregt und auf das Ergebnis freut",
       "category": "E/I"
     },
     "MBTIQuestion6": {
-      "question": "When listening to explanations, what's important is",
-      "optionA": "Specific examples and details",
-      "optionB": "Overall flow and concepts",
+      "question": "Wenn Sie Erklärungen hören, was ist wichtig",
+      "optionA": "Bestimmte Beispiele und Details",
+      "optionB": "Insgesamt fließend und Konzepte",
       "category": "S/N"
     },
     "MBTIQuestion7": {
-      "question": "When learning new skills",
-      "optionA": "Learn step by step following the manual",
-      "optionB": "Learn intuitively through hands-on experience",
+      "question": "Wenn Sie neue Fähigkeiten lernen",
+      "optionA": "Schritt für Schritt nach der Anleitung",
+      "optionB": "Intuitiv durch praktische Erfahrung",
       "category": "S/N"
     },
     "MBTIQuestion8": {
-      "question": "In daily life",
-      "optionA": "Prefer familiar environments with little change",
-      "optionB": "Find new experiences and changes more interesting",
+      "question": "In Alltag",
+      "optionA": "Gern bekannte Umgebungen mit wenig Veränderung",
+      "optionB": "Neue Erfahrungen und Veränderungen mehr interessieren",
       "category": "S/N"
     },
     "MBTIQuestion9": {
-      "question": "When working or studying",
-      "optionA": "Check details thoroughly",
-      "optionB": "Focus on understanding the overall flow",
+      "question": "Wenn Sie arbeiten oder studieren",
+      "optionA": "Genauigkeit überprüfen",
+      "optionB": "Auf das Verständnis des Gesamtflusses konzentrieren",
       "category": "S/N"
     },
     "MBTIQuestion10": {
-      "question": "When making judgments",
-      "optionA": "Judge the present based on past experiences",
-      "optionB": "Consider future possibilities more important",
+      "question": "Wenn Sie Urteile fällen",
+      "optionA": "Urteilen Sie auf der Grundlage der Vergangenheit",
+      "optionB": "Denken Sie daran, dass zukünftige Möglichkeiten wichtiger sind",
       "category": "S/N"
     },
     "MBTIQuestion11": {
-      "question": "When making important decisions",
-      "optionA": "Value logic and objective facts",
-      "optionB": "Consider emotions and relationships",
+      "question": "Wenn Sie wichtige Entscheidungen treffen",
+      "optionA": "Wertung logischer und objektiver Fakten",
+      "optionB": "Denken Sie an Gefühle und Beziehungen",
       "category": "T/F"
     },
     "MBTIQuestion12": {
-      "question": "In debates, what's important is",
-      "optionA": "Winning with logic",
-      "optionB": "Considering others' feelings",
+      "question": "In Debatten, was ist wichtig",
+      "optionA": "Gewinnen mit Logik",
+      "optionB": "Denken Sie daran, dass andere Menschen Gefühle haben",
       "category": "T/F"
     },
     "MBTIQuestion13": {
-      "question": "When others share their concerns",
-      "optionA": "Suggest practical solutions",
-      "optionB": "Empathize with their feelings",
+      "question": "Wenn andere ihre Bedenken teilen",
+      "optionA": "Praktische Lösungen vorschlagen",
+      "optionB": "Mit ihnen identifizieren",
       "category": "T/F"
     },
     "MBTIQuestion14": {
-      "question": "When handling tasks, what's important is",
-      "optionA": "Efficiency and logic",
-      "optionB": "Teamwork and atmosphere",
+      "question": "Wenn Sie Aufgaben erledigen, was ist wichtig",
+      "optionA": "Effizienz und Logik",
+      "optionB": "Teamwork und Atmosphäre",
       "category": "T/F"
     },
     "MBTIQuestion15": {
-      "question": "When making decisions",
-      "optionA": "Judge based on right and wrong",
-      "optionB": "Consider others' feelings",
+      "question": "Wenn Sie Entscheidungen treffen",
+      "optionA": "Urteilen Sie auf der Grundlage von Recht und Unrecht",
+      "optionB": "Denken Sie daran, dass andere Menschen Gefühle haben",
       "category": "T/F"
     },
     "MBTIQuestion16": {
-      "question": "Schedule management",
-      "optionA": "Like to plan ahead and stick to it",
-      "optionB": "Act flexibly and spontaneously",
+      "question": "Zeitmanagement",
+      "optionA": "Gern vorausplanen und es einhalten",
+      "optionB": "Flexibel und spontan handeln",
       "category": "J/P"
     },
     "MBTIQuestion17": {
-      "question": "When going on a trip",
-      "optionA": "Make detailed plans",
-      "optionB": "Decide spontaneously on the spot",
+      "question": "Wenn Sie auf eine Reise gehen",
+      "optionA": "Detaillierte Pläne machen",
+      "optionB": "Spontan auf der Stelle entscheiden",
       "category": "J/P"
     },
     "MBTIQuestion18": {
-      "question": "When there's a deadline",
-      "optionA": "Prefer to finish early",
-      "optionB": "Flexibly adjust until the last minute",
+      "question": "Wenn es eine Frist gibt",
+      "optionA": "Gern früher beenden",
+      "optionB": "Flexibel anpassen, bis zum letzten Moment",
       "category": "J/P"
     },
     "MBTIQuestion19": {
-      "question": "Preferred environment",
-      "optionA": "Organized and neat space",
-      "optionB": "Space with free atmosphere",
+      "question": "Bevorzugte Umgebung",
+      "optionA": "Organisiert und sauberes Raum",
+      "optionB": "Raum mit freiem Atmosphäre",
       "category": "J/P"
     },
     "MBTIQuestion20": {
-      "question": "When plans change",
-      "optionA": "Feel uncomfortable",
-      "optionB": "Adapt flexibly",
+      "question": "Wenn sich Pläne ändern",
+      "optionA": "Sich unbehaglich fühlen",
+      "optionB": "Flexibel anpassen",
       "category": "J/P"
     }
   },
   "mbtiResult": {
-    "quickInfo": "📚 Quick Learning Info",
-    "learningGuide": "🎯 Learning Method Guide",
-    "consultingSummary": "💡 Learning Consulting Summary",
-    "recommendedTime": "Recommended Study Time",
-    "dailyStudyTime": "Recommended Daily Study Hours",
-    "strongSubjects": "Strong Subjects",
-    "weakSubjects": "Weak Subjects",
-    "learningMethod": "Learning Method",
-    "timeManagement": "Time Management",
-    "analysisTitle": "MBTI Learning Style Analysis Report",
-    "analysisResult": "Learning Type Analysis Result",
-    "confirm": "Confirm",
-    "shareComplete": "Share completed",
-    "shareFailed": "Share failed",
-    "myMBTIStyle": "My MBTI Learning Style",
-    "CheckMyMBTI": "Check my MBTI learning style result!\n#StudyDuck #StudyDuck #MBTILearning",
-    "MBTILearningStyleTest": "MBTI Learning Style Test",
-    "question": "Question",
-    "MBTINotTest": "You haven't taken the MBTI test yet. Please take the test.",
-    "error": "Error",
-    "Tryagain": "Try again",
-    "Failedtoloadthequestion": "Failed to load the question.",
-    "GoTest": "Go to Test",
-    "permissionDenied": "Permission denied",
-    "permissionTitle": "Permission",
-    "openSettings": "Open Settings"
+    "quickInfo": "📚 Schnelle Lerninfo",
+    "learningGuide": "🎯 Lernmethode-Leitfaden",
+    "consultingSummary": "💡 Lernberatung-Zusammenfassung",
+    "recommendedTime": "Empfohlene Lernzeit",
+    "dailyStudyTime": "Empfohlene Tagesstudienstunden",
+    "strongSubjects": "Starken Fächer",
+    "weakSubjects": "Schwachen Fächer",
+    "learningMethod": "Lernmethode",
+    "timeManagement": "Zeitmanagement",
+    "analysisTitle": "MBTI-Lernstil-Analysebericht",
+    "analysisResult": "Lernstil-Analyseergebnis",
+    "confirm": "Bestätigen",
+    "shareComplete": "Teilen abgeschlossen",
+    "shareFailed": "Teilen fehlgeschlagen",
+    "myMBTIStyle": "Mein MBTI-Lernstil",
+    "CheckMyMBTI": "Überprüfen Sie Ihren MBTI-Lernstil!\n#StudyDuck #StudyDuck #MBTILearning",
+    "MBTILearningStyleTest": "MBTI-Lernstil-Test",
+    "question": "Frage",
+    "MBTINotTest": "Sie haben den MBTI-Test noch nicht abgeschlossen. Bitte nehmen Sie den Test.",
+    "error": "Fehler",
+    "Tryagain": "Erneut versuchen",
+    "Failedtoloadthequestion": "Frage konnte nicht geladen werden.",
+    "GoTest": "Zum Test gehen",
+    "permissionDenied": "Berechtigung verweigert",
+    "permissionTitle": "Berechtigung",
+    "openSettings": "Einstellungen öffnen"
   },
   "mbtiTypeResult": {
     "ISTJ": {
@@ -556,21 +556,21 @@
     }
   },
   "MBTIResoltScreen": {
-    "MyMBTIresult": "My MBTI result"
+    "MyMBTIresult": "Mein MBTI-Ergebnis"
   },
   "License": {
-    "License": "License"
+    "License": "Lizenz"
   },
   "BreathingExercise": {
-    "Intro": "This breathing technique was introduced by Dr. Andrew Weil. \nIt is effective in quickly calming the nervous system, relieving stress, and improving concentration. \n\n We will now proceed with the 4-7-8 breathing exercise.",
-    "Inhale": "Close your mouth and inhale slowly through your nose for 4 seconds.",
-    "Hold": "Hold your breath for 7 seconds.",
-    "Exhale": "Exhale slowly and completely through your mouth for 8 seconds, making a \"whoosh\" sound.",
-    "Completed": "Breathing exercise completed!",
-    "Repetition": "Repetition"
+    "Intro": "Diese Atemtechnik wurde von Dr. Andrew Weil eingeführt. \nEs ist effektiv in der schnellen Entspannung des Nervensystems, dem Entspannen und dem Verbessern der Konzentration. \n\n Wir werden nun mit der 4-7-8 Atemübung fortfahren.",
+    "Inhale": "Schließen Sie Ihren Mund und atmen Sie langsam durch Ihren Neffen für 4 Sekunden.",
+    "Hold": "Halten Sie Ihren Atem für 7 Sekunden.",
+    "Exhale": "Langsam ausatmen und vollständig durch Ihren Mund ausatmen für 8 Sekunden, während Sie einen \"whoosh\" Sound machen.",
+    "Completed": "Atemübung abgeschlossen!",
+    "Repetition": "Wiederholung"
   },
   "Common": {
-    "Advertisement": "4-7-8 Breathing Exercise",
-    "Close": "Start Learning"
+    "Advertisement": "4-7-8 Atemübung",
+    "Close": "Lernen beginnen"
   }
 }
