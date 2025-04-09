@@ -228,7 +228,7 @@
   },
   "TimerSetting": {
     "AutoFocusMode": "Автоматический режим фокусировки",
-    "AutoBreathingExercise": "Автоматическое дыхательное упражнение",
+    "AutoBreathingExercise": "Автоматический режим дыхания для концентрации",
     "TimeerSetting": "Настройки таймера"
   },
   "TotalDuratinosLineChartWidget": {
