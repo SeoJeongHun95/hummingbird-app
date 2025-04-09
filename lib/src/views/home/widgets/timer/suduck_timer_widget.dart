@@ -232,6 +232,10 @@ class _SuDuckTimerWidgetState extends ConsumerState<SuDuckTimerWidget>
   }
 
   void _showBottomSheet() {
+    final isAutoBreathing =
+        ref.read(appSettingViewModelProvider).autoBreathingExercise;
+    if (!isAutoBreathing) return;
+
     showModalBottomSheet(
       context: context,
       isScrollControlled:

@@ -13,6 +13,7 @@ class AppSetting with _$AppSetting {
     @HiveField(2) @Default('ko') String language,
     @HiveField(3) @Default(true) bool isFirstInstalled,
     @HiveField(4) @Default(false) bool autoFocusMode,
+    @HiveField(5) @Default(true) bool autoBreathingExercise,
   }) = _AppSetting;
 
   factory AppSetting.fromJson(Map<String, dynamic> json) =>

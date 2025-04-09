@@ -20,6 +20,7 @@ class AppSettingViewModel extends _$AppSettingViewModel {
     int? updatedFontSize,
     String? updatedLanguage,
     bool? updatedAutoFocusMode,
+    bool? updatedAutoBreathingExercise,
   }) async {
     final currentAppSetting = repository.getAppSetting();
     final updatedAppSetting = currentAppSetting.copyWith(
@@ -27,6 +28,8 @@ class AppSettingViewModel extends _$AppSettingViewModel {
       fontSize: updatedFontSize ?? currentAppSetting.fontSize,
       language: updatedLanguage ?? currentAppSetting.language,
       autoFocusMode: updatedAutoFocusMode ?? currentAppSetting.autoFocusMode,
+      autoBreathingExercise: updatedAutoBreathingExercise ??
+          currentAppSetting.autoBreathingExercise,
     );
     await repository.updateAppSetting(updatedAppSetting);
     state = updatedAppSetting;
