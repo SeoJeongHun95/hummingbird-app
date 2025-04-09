@@ -24,8 +24,10 @@ class TimerSettingScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                   child: Column(
                     children: [
+                      //자동 포커스 모드
                       AutoFocusSwitchWidget(),
                       Divider(),
+                      //자동 숨쉬기 연습
                       AutoBreathingSwitchWidget(),
                       Divider(),
                     ],
