@@ -1,577 +1,577 @@
 {
   "DailyStatistics": {
-    "Error": "Error loading data: {0}",
-    "NoData": "No recorded data today."
+    "Error": "Error al cargar los datos: {0}",
+    "NoData": "No hay datos registrados hoy."
   },
   "DailySummary": {
-    "GoalStudyTime": "Target study time",
-    "StudyTimeToday": "Today's study time",
-    "TodaySummary": "Today's study summary"
+    "GoalStudyTime": "Tiempo de estudio objetivo",
+    "StudyTimeToday": "Tiempo de estudio de hoy",
+    "TodaySummary": "Resumen de hoy"
   },
   "DDayAddScreen": {
-    "Add": "Add",
-    "Cancel": "Cancel",
+    "Add": "Añadir",
+    "Cancel": "Cancelar",
     "Color": "Color:",
-    "Confirm": "Confirm",
-    "DDayAdd": "Add D-Day",
-    "Edit": "Edit",
-    "FillInAllFields": "Please fill in all fields.",
-    "GoalDate": "Goal Date:",
-    "GoalTime": "Goal Time:",
-    "GoalTitle": "Goal Title",
-    "Save": "Save",
-    "SelectDate": "Select a date",
-    "SelectTime": "Select a time"
+    "Confirm": "Confirmar",
+    "DDayAdd": "Añadir D-Day",
+    "Edit": "Editar",
+    "FillInAllFields": "Por favor, completa todos los campos.",
+    "GoalDate": "Fecha objetivo:",
+    "GoalTime": "Hora objetivo:",
+    "GoalTitle": "Título del objetivo",
+    "Save": "Guardar",
+    "SelectDate": "Seleccionar una fecha",
+    "SelectTime": "Seleccionar una hora"
   },
   "DDayListTile": {
-    "AreYouSure": "Are you sure you want to delete ",
-    "Cancel": "Cancel",
-    "Confirm": "Confirm",
-    "Delete": "Delete",
+    "AreYouSure": "¿Estás seguro de que quieres eliminar ",
+    "Cancel": "Cancelar",
+    "Confirm": "Confirmar",
+    "Delete": "Eliminar",
     "DeleteConfirmationSuffix": "?",
-    "Edit": "Edit",
-    "GoalDate": "Goal date:",
-    "OfflineEditDeleteError": "Editing and deleting are unavailable offline.",
-    "OfflineStatus": "Offline status"
+    "Edit": "Editar",
+    "GoalDate": "Fecha objetivo:",
+    "OfflineEditDeleteError": "La edición y eliminación no están disponibles sin conexión.",
+    "OfflineStatus": "Estado sin conexión"
   },
   "DDayUpdateScreen": {
     "Color": "Color:",
-    "DDayEdit": "Edit D-Day",
-    "FillInAllFields": "Please fill in all fields.",
-    "GoalDate": "Goal Date:",
-    "GoalTime": "Goal Time:",
-    "GoalTitle": "Goal Title",
-    "Save": "Save"
+    "DDayEdit": "Editar D-Day",
+    "FillInAllFields": "Por favor, completa todos los campos.",
+    "GoalDate": "Fecha objetivo:",
+    "GoalTime": "Hora objetivo:",
+    "GoalTitle": "Título del objetivo",
+    "Save": "Guardar"
   },
   "Dialog": {
-    "Cancel": "Cancel",
-    "Confirm": "Confirm",
-    "Focus!": "Focus!",
-    "YouarestudyingPutyourphonedownandfocus": "You are studying.\nPut your phone down and focus.",
-    "restoreTimer": "There is an existing timer. Do you want to restore it?",
-    "LogoutDialog": "Are you sure you want to log out?",
-    "DeleteUserDialog": "Are you sure you want to delete your account?"
+    "Cancel": "Cancelar",
+    "Confirm": "Confirmar",
+    "Focus!": "¡Concéntrate!",
+    "YouarestudyingPutyourphonedownandfocus": "Estás estudiando.\nDeja el teléfono y concéntrate.",
+    "restoreTimer": "Hay un temporizador existente. ¿Quieres restaurarlo?",
+    "LogoutDialog": "¿Estás seguro de que quieres cerrar sesión?",
+    "DeleteUserDialog": "¿Estás seguro de que quieres eliminar tu cuenta?"
   },
   "HomeSegmentBar": {
     "Dday": "D-Day",
-    "Summary": "Summary",
-    "Timer": "Timer"
+    "Summary": "Resumen",
+    "Timer": "Temporizador"
   },
   "InquiryButtonWidget": {
-    "ContactUs": "Contact us"
+    "ContactUs": "Contáctanos"
   },
   "LogoutButtonWidget": {
-    "Logout": "Logout"
+    "Logout": "Cerrar sesión"
   },
   "DeleteUserButtonWidget": {
-    "DeleteUser": "Delete Account"
+    "DeleteUser": "Eliminar cuenta"
   },
   "MonthlyStatisticsScreen": {
-    "noData": "No recorded data."
+    "noData": "No hay datos registrados."
   },
   "NavigationBar": {
-    "Home": "Home",
-    "More": "More",
-    "Social": "Rank",
-    "Statistics": "Statistics",
-    "Timer": "Timer"
+    "Home": "Inicio",
+    "More": "Más",
+    "Social": "Clasificación",
+    "Statistics": "Estadísticas",
+    "Timer": "Temporizador"
   },
   "NotificationButton": {
-    "Alarm": "Alarm"
+    "Alarm": "Alarma"
   },
   "PrivacyPolicyWidget": {
-    "PrivacyPolicy": "Privacy Policy",
-    "URLCannotBeOpened": "Cannot open this URL.",
-    "URLFailedToOpen": "Failed to open URL.",
-    "URLLaunchError": "An error occurred."
+    "PrivacyPolicy": "Política de privacidad",
+    "URLCannotBeOpened": "No se puede abrir esta URL.",
+    "URLFailedToOpen": "No se pudo abrir la URL.",
+    "URLLaunchError": "Ocurrió un error."
   },
   "ProfileInfoWidget": {
-    "birthDate": "Date of birth",
-    "birthDateHint": "Register your date of birth",
-    "nickName": "Nickname",
-    "nickNameHint": "Edit Profile",
-    "save": "SAVE",
-    "mbtiTest": "MBTI Test",
-    "NoMBTIResult": "No MBTI result"
+    "birthDate": "Fecha de nacimiento",
+    "birthDateHint": "Registra tu fecha de nacimiento",
+    "nickName": "Apodo",
+    "nickNameHint": "Editar perfil",
+    "save": "GUARDAR",
+    "mbtiTest": "Prueba MBTI",
+    "NoMBTIResult": "Sin resultados MBTI"
   },
   "ProfileSettingScreen": {
-    "loadingText": "Doing your best today with Study Duck..."
+    "loadingText": "Dando lo mejor de ti hoy con Study Duck..."
   },
   "Rank": {
-    "Rank": "Study Ranking",
-    "NotReady": "Ranking data is still being prepared!"
+    "Rank": "Clasificación de estudio",
+    "NotReady": "¡Los datos de clasificación aún se están preparando!"
   },
   "SelectCountryButtonWidget": {
-    "Country": "Country",
-    "SouthKorea": "South Korea"
+    "Country": "País",
+    "SouthKorea": "Corea del Sur"
   },
   "SelectCountryContainerWidget": {
-    "FuturePlan": "Planned for future updates",
-    "SouthKorea": "South Korea"
+    "FuturePlan": "Planificado para futuras actualizaciones",
+    "SouthKorea": "Corea del Sur"
   },
   "SelectCountryScreen": {
-    "Country": "Country"
+    "Country": "País"
   },
   "SelectFontSizeButtonWidget": {
-    "FontSize": "Font size",
-    "Large": "Large",
-    "Medium": "Medium",
-    "Small": "Small"
+    "FontSize": "Tamaño de fuente",
+    "Large": "Grande",
+    "Medium": "Mediano",
+    "Small": "Pequeño"
   },
   "SelectGoalDurationButtonWidget": {
-    "Complete": "Complete",
-    "GoalStudyTime": "Target study time",
-    "TimeSelection": "Select time"
+    "Complete": "Completar",
+    "GoalStudyTime": "Tiempo de estudio objetivo",
+    "TimeSelection": "Seleccionar hora"
   },
   "SelectGroupBottomSheet": {
-    "complete": "Complete",
-    "selectGroup": "Select group"
+    "complete": "Completar",
+    "selectGroup": "Seleccionar grupo"
   },
   "SelectGroupButtonWidget": {
-    "Group": "Group",
-    "SelectGroupPrompt": "Select a group"
+    "Group": "Grupo",
+    "SelectGroupPrompt": "Selecciona un grupo"
   },
   "SelectGroupScreen": {
-    "Group": "Group"
+    "Group": "Grupo"
   },
   "SelectLanguageButtonWidget": {
-    "Korean": "Korean",
-    "Language": "Language"
+    "Korean": "Coreano",
+    "Language": "Idioma"
   },
   "SelectLanguageContainerWidget": {
-    "FuturePlan": "Planned for future updates",
-    "Korean": "Korean"
+    "FuturePlan": "Planificado para futuras actualizaciones",
+    "Korean": "Coreano"
   },
   "SelectLanguageScreen": {
-    "Language": "Language"
+    "Language": "Idioma"
   },
   "SelectThemeButtonWidget": {
-    "FuturePlan": "Planned for future updates",
-    "ThemeColor": "Theme color"
+    "FuturePlan": "Planificado para futuras actualizaciones",
+    "ThemeColor": "Color del tema"
   },
   "SetStudySettingWidget": {
-    "done": "Done",
-    "goalDuration": "Goal Study Time",
-    "group": "Group",
-    "timePickerTitle": "Choose Time"
+    "done": "Hecho",
+    "goalDuration": "Duración objetivo de estudio",
+    "group": "Grupo",
+    "timePickerTitle": "Elegir hora"
   },
   "SettingButton": {
-    "Setting": "Settings"
+    "Setting": "Configuraciones"
   },
   "SettingsScreen": {
-    "Settings": "Settings"
+    "Settings": "Configuraciones"
   },
   "SetProfileWidget": {
-    "next": "Next",
-    "selectBirthDate": "Select your date of birth",
-    "skip": "Skip"
+    "next": "Siguiente",
+    "selectBirthDate": "Selecciona tu fecha de nacimiento",
+    "skip": "Omitir"
   },
-  "SocialScreen": "Social screen",
+  "SocialScreen": "Pantalla social",
   "SplashScreen": {
-    "message": "Doing your best today with Study Duck..."
+    "message": "Dando lo mejor de ti hoy con Study Duck..."
   },
   "StatisticsScreen": {
-    "monthly": "Monthly",
-    "weekly": "Weekly"
+    "monthly": "Mensual",
+    "weekly": "Semanal"
   },
   "StudyBarChartWidget": {
-    "subjectStudyTime": "Study time per subject"
+    "subjectStudyTime": "Tiempo de estudio por asignatura"
   },
   "StudyPieChartWidget": {
-    "subjectPercentage": "Subject percentage"
+    "subjectPercentage": "Porcentaje por asignatura"
   },
   "StudySettingScreen": {
-    "complete": "Complete",
-    "previous": "Previous"
+    "complete": "Completar",
+    "previous": "Anterior"
   },
   "SubjectAddScreen": {
-    "AddSubject": "Add subject",
-    "DuplicateSubject": "This subject already exists.",
-    "Save": "Save",
-    "SelectColor": "Select color",
-    "SubjectName": "Subject name"
+    "AddSubject": "Añadir asignatura",
+    "DuplicateSubject": "Esta asignatura ya existe.",
+    "Save": "Guardar",
+    "SelectColor": "Seleccionar color",
+    "SubjectName": "Nombre de la asignatura"
   },
   "SubjectList": {
-    "AddSubject": "Add subject",
-    "Cancel": "Cancel",
-    "CannotUndoWarning": "This action cannot be undone.",
-    "Confirm": "Confirm",
-    "Delete": "Delete",
-    "DeleteSubjectPrompt": "Are you sure you want to delete this subject?",
-    "Edit": "Edit",
-    "EditSubject": "Edit subject",
-    "EnterSubjectName": "Enter subject name",
-    "SelectColor": "Select color",
-    "SelfStudy": "Self-study",
-    "Subject": "Subject",
-    "SubjectName": "Subject name"
+    "AddSubject": "Añadir asignatura",
+    "Cancel": "Cancelar",
+    "CannotUndoWarning": "Esta acción no se puede deshacer.",
+    "Confirm": "Confirmar",
+    "Delete": "Eliminar",
+    "DeleteSubjectPrompt": "¿Estás seguro de que quieres eliminar esta asignatura?",
+    "Edit": "Editar",
+    "EditSubject": "Editar asignatura",
+    "EnterSubjectName": "Ingresa el nombre de la asignatura",
+    "SelectColor": "Seleccionar color",
+    "SelfStudy": "Autoestudio",
+    "Subject": "Asignatura",
+    "SubjectName": "Nombre de la asignatura"
   },
   "SubjectUpdateScreen": {
-    "EditSubject": "Edit subject",
-    "EnterSubjectName": "Please enter the subject name.",
-    "Save": "Save",
-    "SelectColor": "Select color",
-    "SubjectName": "Subject name"
+    "EditSubject": "Editar asignatura",
+    "EnterSubjectName": "Por favor, ingresa el nombre de la asignatura.",
+    "Save": "Guardar",
+    "SelectColor": "Seleccionar color",
+    "SubjectName": "Nombre de la asignatura"
   },
   "SummaryWidget": {
-    "averageStudyTime": "Average study time",
-    "totalStudyTime": "Total study time"
+    "averageStudyTime": "Tiempo promedio de estudio",
+    "totalStudyTime": "Tiempo total de estudio"
   },
   "Timer": {
-    "Pause": "PAUSE",
-    "SelfStudy": "Self-study",
-    "Start": "START"
+    "Pause": "PAUSA",
+    "SelfStudy": "Autoestudio",
+    "Start": "INICIAR"
   },
   "TimerControlBar": {
-    "FocusMode": "Focus mode",
-    "WhiteNoise": "White noise"
+    "FocusMode": "Modo enfoque",
+    "WhiteNoise": "Ruido blanco"
   },
   "TimerSetting": {
-    "AutoFocusMode": "Modo de enfoque automático",
+    "AutoFocusMode": "Modo enfoque automático",
     "AutoBreathingExercise": "Ejercicio de respiración automático",
     "TimeerSetting": "Configuración del temporizador"
   },
   "TotalDuratinosLineChartWidget": {
-    "totalStudyTime": "Total study time per day"
+    "totalStudyTime": "Tiempo total de estudio por día"
   },
   "UserProfileWidget": {
-    "profileEdit": "Edit profile"
+    "profileEdit": "Editar perfil"
   },
   "WeeklyStatisticsScreen": {
-    "noData": "No recorded data."
+    "noData": "No hay datos registrados."
   },
   "WhiteNoiseScreen": {
-    "Cafe": "Cafe",
-    "Rain": "Rain",
-    "Wind": "Wind",
-    "Fire": "Fire",
-    "Chime": "Chime",
-    "Stream": "Stream",
-    "Wave": "Wave",
-    "Bird": "bird",
-    "chooseYourWhiteNoise": "hooseYourWhiteNoise",
-    "WhiteNoise": "whiteNoise",
-    "No white noise playing": "No white noise playing",
-    "Volume Control": "Volume Control",
-    "Close": "Close",
-    "Stop": "Stop"
+    "Cafe": "Café",
+    "Rain": "Lluvia",
+    "Wind": "Viento",
+    "Fire": "Fuego",
+    "Chime": "Campanilla",
+    "Stream": "Arroyo",
+    "Wave": "Ola",
+    "Bird": "Pájaro",
+    "chooseYourWhiteNoise": "Elige tu ruido blanco",
+    "WhiteNoise": "Ruido blanco",
+    "No white noise playing": "No hay ruido blanco reproduciéndose",
+    "Volume Control": "Control de volumen",
+    "Close": "Cerrar",
+    "Stop": "Detener"
   },
   "getBrithDateText": {
-    "birthDate": "Date of birth",
-    "birthDateHint": "Register your date of birth"
+    "birthDate": "Fecha de nacimiento",
+    "birthDateHint": "Registra tu fecha de nacimiento"
   },
   "mbti": {
     "MBTIQuestion1": {
-      "question": "When meeting new people",
-      "optionA": "I feel energized and happy",
-      "optionB": "I feel more comfortable being alone",
+      "question": "Al conocer gente nueva",
+      "optionA": "Me siento energizado y feliz",
+      "optionB": "Me siento más cómodo estando solo",
       "category": "E/I"
     },
     "MBTIQuestion2": {
-      "question": "How do you recharge on weekends?",
-      "optionA": "Spending time with friends",
-      "optionB": "Having time alone",
+      "question": "¿Cómo recargas energías los fines de semana?",
+      "optionA": "Pasando tiempo con amigos",
+      "optionB": "Pasando tiempo solo",
       "category": "E/I"
     },
     "MBTIQuestion3": {
-      "question": "When organizing thoughts",
-      "optionA": "I speak out loud to organize them",
-      "optionB": "I organize them quietly in my head",
+      "question": "Al organizar tus pensamientos",
+      "optionA": "Hablo en voz alta para organizarlos",
+      "optionB": "Los organizo silenciosamente en mi cabeza",
       "category": "E/I"
     },
     "MBTIQuestion4": {
-      "question": "Speaking in front of many people",
-      "optionA": "Feels natural and comfortable",
-      "optionB": "Feels burdensome and nervous",
+      "question": "Hablar frente a muchas personas",
+      "optionA": "Se siente natural y cómodo",
+      "optionB": "Se siente pesado y me pone nervioso",
       "category": "E/I"
     },
     "MBTIQuestion5": {
-      "question": "If traveling alone",
-      "optionA": "Might feel boring and lonely",
-      "optionB": "Feel excited and looking forward to it",
+      "question": "Si viajo solo",
+      "optionA": "Podría sentirme aburrido y solo",
+      "optionB": "Me siento emocionado y lo espero con ansias",
       "category": "E/I"
     },
     "MBTIQuestion6": {
-      "question": "When listening to explanations, what's important is",
-      "optionA": "Specific examples and details",
-      "optionB": "Overall flow and concepts",
+      "question": "Al escuchar explicaciones, lo importante es",
+      "optionA": "Ejemplos específicos y detalles",
+      "optionB": "El flujo general y los conceptos",
       "category": "S/N"
     },
     "MBTIQuestion7": {
-      "question": "When learning new skills",
-      "optionA": "Learn step by step following the manual",
-      "optionB": "Learn intuitively through hands-on experience",
+      "question": "Al aprender nuevas habilidades",
+      "optionA": "Aprendo paso a paso siguiendo el manual",
+      "optionB": "Aprendo intuitivamente a través de la experiencia práctica",
       "category": "S/N"
     },
     "MBTIQuestion8": {
-      "question": "In daily life",
-      "optionA": "Prefer familiar environments with little change",
-      "optionB": "Find new experiences and changes more interesting",
+      "question": "En la vida diaria",
+      "optionA": "Prefiero entornos familiares con pocos cambios",
+      "optionB": "Encuentro más interesantes las nuevas experiencias y cambios",
       "category": "S/N"
     },
     "MBTIQuestion9": {
-      "question": "When working or studying",
-      "optionA": "Check details thoroughly",
-      "optionB": "Focus on understanding the overall flow",
+      "question": "Al trabajar o estudiar",
+      "optionA": "Reviso los detalles minuciosamente",
+      "optionB": "Me concentro en entender el flujo general",
       "category": "S/N"
     },
     "MBTIQuestion10": {
-      "question": "When making judgments",
-      "optionA": "Judge the present based on past experiences",
-      "optionB": "Consider future possibilities more important",
+      "question": "Al hacer juicios",
+      "optionA": "Juzgo el presente basándome en experiencias pasadas",
+      "optionB": "Considero más importantes las posibilidades futuras",
       "category": "S/N"
     },
     "MBTIQuestion11": {
-      "question": "When making important decisions",
-      "optionA": "Value logic and objective facts",
-      "optionB": "Consider emotions and relationships",
+      "question": "Al tomar decisiones importantes",
+      "optionA": "Valoro la lógica y los hechos objetivos",
+      "optionB": "Considero las emociones y las relaciones",
       "category": "T/F"
     },
     "MBTIQuestion12": {
-      "question": "In debates, what's important is",
-      "optionA": "Winning with logic",
-      "optionB": "Considering others' feelings",
+      "question": "En debates, lo importante es",
+      "optionA": "Ganar con lógica",
+      "optionB": "Considerar los sentimientos de los demás",
       "category": "T/F"
     },
     "MBTIQuestion13": {
-      "question": "When others share their concerns",
-      "optionA": "Suggest practical solutions",
-      "optionB": "Empathize with their feelings",
+      "question": "Cuando otros comparten sus preocupaciones",
+      "optionA": "Sugiero soluciones prácticas",
+      "optionB": "Empatizo con sus sentimientos",
       "category": "T/F"
     },
     "MBTIQuestion14": {
-      "question": "When handling tasks, what's important is",
-      "optionA": "Efficiency and logic",
-      "optionB": "Teamwork and atmosphere",
+      "question": "Al manejar tareas, lo importante es",
+      "optionA": "La eficiencia y la lógica",
+      "optionB": "El trabajo en equipo y el ambiente",
       "category": "T/F"
     },
     "MBTIQuestion15": {
-      "question": "When making decisions",
-      "optionA": "Judge based on right and wrong",
-      "optionB": "Consider others' feelings",
+      "question": "Al tomar decisiones",
+      "optionA": "Juzgo basado en lo correcto e incorrecto",
+      "optionB": "Considero los sentimientos de los demás",
       "category": "T/F"
     },
     "MBTIQuestion16": {
-      "question": "Schedule management",
-      "optionA": "Like to plan ahead and stick to it",
-      "optionB": "Act flexibly and spontaneously",
+      "question": "Gestión del horario",
+      "optionA": "Me gusta planificar con antelación y seguirlo",
+      "optionB": "Actúo de manera flexible y espontánea",
       "category": "J/P"
     },
     "MBTIQuestion17": {
-      "question": "When going on a trip",
-      "optionA": "Make detailed plans",
-      "optionB": "Decide spontaneously on the spot",
+      "question": "Al ir de viaje",
+      "optionA": "Hago planes detallados",
+      "optionB": "Decido espontáneamente en el momento",
       "category": "J/P"
     },
     "MBTIQuestion18": {
-      "question": "When there's a deadline",
-      "optionA": "Prefer to finish early",
-      "optionB": "Flexibly adjust until the last minute",
+      "question": "Cuando hay un plazo",
+      "optionA": "Prefiero terminar temprano",
+      "optionB": "Ajusto de manera flexible hasta el último minuto",
       "category": "J/P"
     },
     "MBTIQuestion19": {
-      "question": "Preferred environment",
-      "optionA": "Organized and neat space",
-      "optionB": "Space with free atmosphere",
+      "question": "Entorno preferido",
+      "optionA": "Espacio organizado y limpio",
+      "optionB": "Espacio con una atmósfera libre",
       "category": "J/P"
     },
     "MBTIQuestion20": {
-      "question": "When plans change",
-      "optionA": "Feel uncomfortable",
-      "optionB": "Adapt flexibly",
+      "question": "Cuando los planes cambian",
+      "optionA": "Me siento incómodo",
+      "optionB": "Me adapto de manera flexible",
       "category": "J/P"
     }
   },
   "mbtiResult": {
-    "quickInfo": "📚 Quick Learning Info",
-    "learningGuide": "🎯 Learning Method Guide",
-    "consultingSummary": "💡 Learning Consulting Summary",
-    "recommendedTime": "Recommended Study Time",
-    "dailyStudyTime": "Recommended Daily Study Hours",
-    "strongSubjects": "Strong Subjects",
-    "weakSubjects": "Weak Subjects",
-    "learningMethod": "Learning Method",
-    "timeManagement": "Time Management",
-    "analysisTitle": "MBTI Learning Style Analysis Report",
-    "analysisResult": "Learning Type Analysis Result",
-    "confirm": "Confirm",
-    "shareComplete": "Share completed",
-    "shareFailed": "Share failed",
-    "myMBTIStyle": "My MBTI Learning Style",
-    "CheckMyMBTI": "Check my MBTI learning style result!\n#StudyDuck #StudyDuck #MBTILearning",
-    "MBTILearningStyleTest": "MBTI Learning Style Test",
-    "question": "Question",
-    "MBTINotTest": "You haven't taken the MBTI test yet. Please take the test.",
+    "quickInfo": "📚 Información rápida sobre el aprendizaje",
+    "learningGuide": "🎯 Guía de métodos de aprendizaje",
+    "consultingSummary": "💡 Resumen de consultoría de aprendizaje",
+    "recommendedTime": "Tiempo de estudio recomendado",
+    "dailyStudyTime": "Horas de estudio diarias recomendadas",
+    "strongSubjects": "Asignaturas fuertes",
+    "weakSubjects": "Asignaturas débiles",
+    "learningMethod": "Método de aprendizaje",
+    "timeManagement": "Gestión del tiempo",
+    "analysisTitle": "Informe de análisis del estilo de aprendizaje MBTI",
+    "analysisResult": "Resultado del análisis del tipo de aprendizaje",
+    "confirm": "Confirmar",
+    "shareComplete": "Compartido completado",
+    "shareFailed": "Fallo al compartir",
+    "myMBTIStyle": "Mi estilo de aprendizaje MBTI",
+    "CheckMyMBTI": "¡Mira mi resultado de estilo de aprendizaje MBTI!\n#StudyDuck #MBTILearning",
+    "MBTILearningStyleTest": "Prueba de estilo de aprendizaje MBTI",
+    "question": "Pregunta",
+    "MBTINotTest": "Aún no has tomado la prueba MBTI. Por favor, realiza la prueba.",
     "error": "Error",
-    "Tryagain": "Try again",
-    "Failedtoloadthequestion": "Failed to load the question.",
-    "GoTest": "Go to Test",
-    "permissionDenied": "Permission denied",
-    "permissionTitle": "Permission",
-    "openSettings": "Open Settings"
+    "Tryagain": "Intentar de nuevo",
+    "Failedtoloadthequestion": "No se pudo cargar la pregunta.",
+    "GoTest": "Ir a la prueba",
+    "permissionDenied": "Permiso denegado",
+    "permissionTitle": "Permiso",
+    "openSettings": "Abrir configuraciones"
   },
   "mbtiTypeResult": {
     "ISTJ": {
-      "learningMethod": "Prefers systematic and logical approaches, with planned learning being important.",
-      "timeManagement": "Following a set schedule is efficient.",
-      "recommendedTime": "Morning or Evening, Quiet environment",
-      "dailyStudyTime": "2~4 hours",
-      "strongSubjects": "Math, Science, History",
-      "weakSubjects": "Literature, Art, Philosophy",
-      "consultingSummary": "ISTJ can learn effectively through thorough planning and systematic approaches. They show excellent performance in subjects like mathematics, science, and history. It's important to study consistently in a regular time and environment, showing strengths in practical and logical subjects. They may struggle with creative and emotional subjects like literature, art, and philosophy, so it's effective to learn these subjects through practical examples. They can achieve great results by studying consistently at set times daily and setting goals."
+      "learningMethod": "Prefiere enfoques sistemáticos y lógicos, el aprendizaje planificado es importante.",
+      "timeManagement": "Seguir un horario establecido es eficiente.",
+      "recommendedTime": "Mañana o noche, ambiente tranquilo",
+      "dailyStudyTime": "2~4 horas",
+      "strongSubjects": "Matemáticas, Ciencias, Historia",
+      "weakSubjects": "Literatura, Arte, Filosofía",
+      "consultingSummary": "Los ISTJ pueden aprender eficazmente mediante una planificación cuidadosa y enfoques sistemáticos. Muestran un excelente desempeño en asignaturas como matemáticas, ciencias e historia. Es importante estudiar de manera constante en un horario y entorno regulares, destacando en asignaturas prácticas y lógicas. Pueden tener dificultades con materias creativas y emocionales como literatura, arte y filosofía, por lo que es efectivo aprender estas asignaturas a través de ejemplos prácticos. Pueden lograr grandes resultados estudiando de manera constante a horas fijas diariamente y estableciendo metas."
     },
     "ISFJ": {
-      "learningMethod": "Effective through repetitive learning and attention to detail",
-      "timeManagement": "Important to make and follow plans in advance",
-      "recommendedTime": "Afternoon, stable environment",
-      "dailyStudyTime": "2~3 hours",
-      "strongSubjects": "History, Biology, Social Studies, Literature",
-      "weakSubjects": "Math, Physics, Physical Education",
-      "consultingSummary": "ISFJ can achieve results through repetitive learning. They show excellent performance in subjects like history, literature, and social studies, and can learn accurately by paying attention to details. They may find theoretical and abstract subjects like mathematics and physics challenging. It's good to set and follow daily plans consistently, and it's important to complete one subject thoroughly even if progress is slow. They can achieve results by concentrating in a stable environment."
+      "learningMethod": "Efectivo mediante aprendizaje repetitivo y atención al detalle",
+      "timeManagement": "Es importante hacer y seguir planes con antelación",
+      "recommendedTime": "Tarde, ambiente estable",
+      "dailyStudyTime": "2~3 horas",
+      "strongSubjects": "Historia, Biología, Estudios Sociales, Literatura",
+      "weakSubjects": "Matemáticas, Física, Educación Física",
+      "consultingSummary": "Los ISFJ pueden lograr resultados mediante un aprendizaje repetitivo. Muestran un excelente desempeño en asignaturas como historia, literatura y estudios sociales, y pueden aprender con precisión prestando atención a los detalles. Las materias teóricas y abstractas como matemáticas y física pueden ser un desafío. Es bueno establecer y seguir planes diarios de manera constante, y es importante completar una asignatura completamente incluso si el progreso es lento. Pueden lograr resultados concentrándose en un entorno estable."
     },
     "INFJ": {
-      "learningMethod": "Values deep understanding and insight, effective through finding meaning",
-      "timeManagement": "Requires long-term goal setting and self-reflection",
-      "recommendedTime": "Night, quiet space",
-      "dailyStudyTime": "3~5 hours",
-      "strongSubjects": "Literature, Philosophy, Psychology",
-      "weakSubjects": "Math, Physics",
-      "consultingSummary": "INFJ learns through deep exploration and insight. They excel in subjects like literature, philosophy, and psychology. They seek meaningful connections while learning, so motivation is important. They may find concrete subjects like math or physics challenging, and it's beneficial to approach these subjects by breaking down basic concepts first. They continuously adjust their learning methods through self-reflection, focusing on long-term goals and continuous development."
+      "learningMethod": "Valora la comprensión profunda y la perspicacia, efectivo al encontrar significado",
+      "timeManagement": "Requiere establecer metas a largo plazo y autorreflexión",
+      "recommendedTime": "Noche, espacio tranquilo",
+      "dailyStudyTime": "3~5 horas",
+      "strongSubjects": "Literatura, Filosofía, Psicología",
+      "weakSubjects": "Matemáticas, Física",
+      "consultingSummary": "Los INFJ aprenden mediante una exploración profunda y perspicacia. Destacan en asignaturas como literatura, filosofía y psicología. Buscan conexiones significativas mientras aprenden, por lo que la motivación es importante. Las materias concretas como matemáticas o física pueden ser un desafío, y es beneficioso abordar estas asignaturas descomponiendo primero los conceptos básicos. Ajustan continuamente sus métodos de aprendizaje mediante la autorreflexión, enfocándose en metas a largo plazo y desarrollo continuo."
     },
     "INTJ": {
-      "learningMethod": "Prefers logical and systematic learning, with strategic approach being important",
-      "timeManagement": "Must set long-term plans and efficiently allocate time",
-      "recommendedTime": "Dawn or Evening",
-      "dailyStudyTime": "4~6 hours",
-      "strongSubjects": "Math, Science, Logic",
-      "weakSubjects": "Physical Education, Art",
-      "consultingSummary": "INTJ can learn effectively through thorough planning and strategic approaches. They show excellent performance in subjects like mathematics, science, and logic. They can achieve deep understanding through independent learning. However, they may be overly perfectionistic, which can slow down their learning pace. They may struggle with subjects like physical education and art, so it's effective to approach these subjects through practical examples. Setting realistic goals and deadlines can maximize their learning efficiency."
+      "learningMethod": "Prefiere un aprendizaje lógico y sistemático, el enfoque estratégico es importante",
+      "timeManagement": "Debe establecer planes a largo plazo y asignar el tiempo de manera eficiente",
+      "recommendedTime": "Amanecer o noche",
+      "dailyStudyTime": "4~6 horas",
+      "strongSubjects": "Matemáticas, Ciencias, Lógica",
+      "weakSubjects": "Educación Física, Arte",
+      "consultingSummary": "Los INTJ pueden aprender eficazmente mediante una planificación cuidadosa y enfoques estratégicos. Muestran un excelente desempeño en asignaturas como matemáticas, ciencias y lógica. Pueden alcanzar una comprensión profunda mediante el aprendizaje independiente. Sin embargo, pueden ser demasiado perfeccionistas, lo que puede ralentizar su ritmo de aprendizaje. Las materias como educación física y arte pueden ser un desafío, por lo que es efectivo abordar estas asignaturas a través de ejemplos prácticos. Establecer metas realistas y plazos puede maximizar su eficiencia de aprendizaje."
     },
     "ISTP": {
-      "learningMethod": "Effective through hands-on experience and practice",
-      "timeManagement": "Prefers spontaneous learning, requiring flexible plans",
-      "recommendedTime": "Daytime, active environment",
-      "dailyStudyTime": "2~4 hours",
-      "strongSubjects": "Engineering, Physics, Computer Science",
-      "weakSubjects": "Philosophy, Literature",
-      "consultingSummary": "ISTP can learn quickly through hands-on experience and practice. They show strengths in practical and logical subjects like engineering, physics, and computer science. However, they may find theoretical subjects like philosophy and literature challenging, so it's effective to approach these subjects through practical examples. It's important to maintain flexibility in time management and learning plans, and to create an environment where they can focus."
+      "learningMethod": "Efectivo mediante experiencia práctica y práctica",
+      "timeManagement": "Prefiere un aprendizaje espontáneo, requiere planes flexibles",
+      "recommendedTime": "Día, ambiente activo",
+      "dailyStudyTime": "2~4 horas",
+      "strongSubjects": "Ingeniería, Física, Informática",
+      "weakSubjects": "Filosofía, Literatura",
+      "consultingSummary": "Los ISTP pueden aprender rápidamente mediante experiencia práctica y práctica. Muestran fortalezas en asignaturas prácticas y lógicas como ingeniería, física e informática. Sin embargo, las materias teóricas como filosofía y literatura pueden ser un desafío, por lo que es efectivo abordar estas asignaturas a través de ejemplos prácticos. Es importante mantener flexibilidad en la gestión del tiempo y los planes de aprendizaje, y crear un entorno donde puedan concentrarse."
     },
     "ISFP": {
-      "learningMethod": "Prefers sensory and practical approaches, favoring practical learning",
-      "timeManagement": "Effective through free learning, but basic planning is needed",
-      "recommendedTime": "Afternoon or Evening",
-      "dailyStudyTime": "2~3 hours",
-      "strongSubjects": "Art, Design, Biology",
-      "weakSubjects": "Math, Logic",
-      "consultingSummary": "ISFP can learn effectively through creative and sensory approaches. They show excellent performance in creative and intuitive subjects like art, design, and biology. They may find theoretical and analytical subjects like math and logic challenging, so it's effective to approach these subjects through practical examples. Free and flexible learning methods are advantageous, and it's important to continue learning independently."
+      "learningMethod": "Prefiere enfoques sensoriales y prácticos, favoreciendo el aprendizaje práctico",
+      "timeManagement": "Efectivo mediante aprendizaje libre, pero se necesita una planificación básica",
+      "recommendedTime": "Tarde o noche",
+      "dailyStudyTime": "2~3 horas",
+      "strongSubjects": "Arte, Diseño, Biología",
+      "weakSubjects": "Matemáticas, Lógica",
+      "consultingSummary": "Los ISFP pueden aprender eficazmente mediante enfoques creativos y sensoriales. Muestran un excelente desempeño en asignaturas creativas e intuitivas como arte, diseño y biología. Las materias teóricas y analíticas como matemáticas y lógica pueden ser un desafío, por lo que es efectivo abordar estas asignaturas a través de ejemplos prácticos. Los métodos de aprendizaje libres y flexibles son ventajosos, y es importante continuar aprendiendo de manera independiente."
     },
     "INFP": {
-      "learningMethod": "Prefers emotional and meaningful learning, enjoying deep exploration",
-      "timeManagement": "Important to maintain their own pace",
-      "recommendedTime": "Night, quiet space",
-      "dailyStudyTime": "3~5 hours",
-      "strongSubjects": "Literature, Psychology, Sociology",
-      "weakSubjects": "Math, Science",
-      "consultingSummary": "INFP approaches learning creatively and passionately. They show excellent performance in subjects related to people, such as literature, psychology, and sociology, and continue learning through new ideas. They may find calculative and structured subjects like math and science challenging. Flexible planning and frequently changing learning methods are effective, and it's important to enjoy learning and approach it creatively."
+      "learningMethod": "Prefiere un aprendizaje emocional y significativo, disfrutando de una exploración profunda",
+      "timeManagement": "Es importante mantener su propio ritmo",
+      "recommendedTime": "Noche, espacio tranquilo",
+      "dailyStudyTime": "3~5 horas",
+      "strongSubjects": "Literatura, Psicología, Sociología",
+      "weakSubjects": "Matemáticas, Ciencias",
+      "consultingSummary": "Los INFP abordan el aprendizaje de manera creativa y apasionada. Muestran un excelente desempeño en asignaturas relacionadas con las personas, como literatura, psicología y sociología, y continúan aprendiendo a través de nuevas ideas. Las materias calculativas y estructuradas como matemáticas y ciencias pueden ser un desafío. La planificación flexible y los cambios frecuentes en los métodos de aprendizaje son efectivos, y es importante disfrutar del aprendizaje y abordarlo de manera creativa."
     },
     "INTP": {
-      "learningMethod": "Effective through exploring theoretical concepts and experimental approaches",
-      "timeManagement": "Requires flexible schedules, sometimes attempting spontaneous learning",
-      "recommendedTime": "Dawn, quiet environment",
-      "dailyStudyTime": "4~6 hours",
-      "strongSubjects": "Philosophy, Science, Math",
-      "weakSubjects": "Art, Physical Education",
-      "consultingSummary": "INTP progresses through logical and theoretical approaches, showing strengths in solving problems from various perspectives. They show excellent performance in subjects like philosophy, science, and math, enjoying solving complex problems from multiple angles. They may find emotional and practical subjects like art and physical education challenging, so it's effective to approach these subjects through more concrete and practical examples. Free time management and spontaneous learning are also effective."
+      "learningMethod": "Efectivo mediante la exploración de conceptos teóricos y enfoques experimentales",
+      "timeManagement": "Requiere horarios flexibles, a veces intentando un aprendizaje espontáneo",
+      "recommendedTime": "Amanecer, ambiente tranquilo",
+      "dailyStudyTime": "4~6 horas",
+      "strongSubjects": "Filosofía, Ciencias, Matemáticas",
+      "weakSubjects": "Arte, Educación Física",
+      "consultingSummary": "Los INTP progresan mediante enfoques lógicos y teóricos, mostrando fortalezas en resolver problemas desde varias perspectivas. Muestran un excelente desempeño en asignaturas como filosofía, ciencias y matemáticas, disfrutando de resolver problemas complejos desde múltiples ángulos. Las materias emocionales y prácticas como arte y educación física pueden ser un desafío, por lo que es efectivo abordar estas asignaturas a través de ejemplos más concretos y prácticos. La gestión del tiempo libre y el aprendizaje espontáneo también son efectivos."
     },
     "ESTP": {
-      "learningMethod": "Prefers experimental and intuitive approaches, effective through active learning",
-      "timeManagement": "Plans flexibly and attempts spontaneous learning",
-      "recommendedTime": "Daytime, active environment",
-      "dailyStudyTime": "3~5 hours",
-      "strongSubjects": "Physics, Math, Engineering",
-      "weakSubjects": "Literature, Philosophy",
-      "consultingSummary": "ESTP shows strengths in learning through experimental methods. They excel in subjects like physics, engineering, and math, approaching learning by solving real problems. They may find abstract subjects like literature and philosophy challenging. It's ideal to learn in an active and experimental environment, and flexible time planning is effective."
+      "learningMethod": "Prefiere enfoques experimentales e intuitivos, efectivo mediante aprendizaje activo",
+      "timeManagement": "Planifica de manera flexible e intenta un aprendizaje espontáneo",
+      "recommendedTime": "Día, ambiente activo",
+      "dailyStudyTime": "3~5 horas",
+      "strongSubjects": "Física, Matemáticas, Ingeniería",
+      "weakSubjects": "Literatura, Filosofía",
+      "consultingSummary": "Los ESTP muestran fortalezas en el aprendizaje mediante métodos experimentales. Destacan en asignaturas como física, ingeniería y matemáticas, abordando el aprendizaje resolviendo problemas reales. Las materias abstractas como literatura y filosofía pueden ser un desafío. Es ideal aprender en un entorno activo y experimental, y la planificación flexible del tiempo es efectiva."
     },
     "ESFP": {
-      "learningMethod": "Prefers sensory and practical approaches, learning actively and enjoyably",
-      "timeManagement": "Enjoys learning through free planning",
-      "recommendedTime": "Afternoon, active environment",
-      "dailyStudyTime": "3~4 hours",
-      "strongSubjects": "Art, Social Studies, Biology",
-      "weakSubjects": "Math, Physics",
-      "consultingSummary": "ESFP prefers practical and sensory learning. They show excellent performance in creative and intuitive subjects like art, social studies, and biology. They may find theoretical subjects like math and physics challenging, so a more practical approach is needed. Learning is effective when it's enjoyable and active, and it's important to continue learning with free time management and creative methods."
+      "learningMethod": "Prefiere enfoques sensoriales y prácticos, aprendiendo de manera activa y agradable",
+      "timeManagement": "Disfruta del aprendizaje mediante una planificación libre",
+      "recommendedTime": "Tarde, ambiente activo",
+      "dailyStudyTime": "3~4 horas",
+      "strongSubjects": "Arte, Estudios Sociales, Biología",
+      "weakSubjects": "Matemáticas, Física",
+      "consultingSummary": "Los ESFP prefieren un aprendizaje práctico y sensorial. Muestran un excelente desempeño en asignaturas creativas e intuitivas como arte, estudios sociales y biología. Las materias teóricas como matemáticas y física pueden ser un desafío, por lo que se necesita un enfoque más práctico. El aprendizaje es efectivo cuando es agradable y activo, y es importante continuar aprendiendo con una gestión del tiempo libre y métodos creativos."
     },
     "ENFP": {
-      "learningMethod": "Prefers creative and passionate approaches, trying new ideas",
-      "timeManagement": "Learns through flexible planning and frequent changes",
-      "recommendedTime": "Afternoon, creative environment",
-      "dailyStudyTime": "3~5 hours",
-      "strongSubjects": "Literature, Psychology, Sociology",
-      "weakSubjects": "Math, Science",
-      "consultingSummary": "ENFP approaches learning creatively and passionately. They show excellent performance in subjects related to people, such as literature, psychology, and sociology, and continue learning through new ideas. They may find calculative and structured subjects like math and science challenging. Flexible planning and frequently changing learning methods are effective, and it's important to enjoy learning and approach it creatively."
+      "learningMethod": "Prefiere enfoques creativos y apasionados, probando nuevas ideas",
+      "timeManagement": "Aprende mediante una planificación flexible y cambios frecuentes",
+      "recommendedTime": "Tarde, ambiente creativo",
+      "dailyStudyTime": "3~5 horas",
+      "strongSubjects": "Literatura, Psicología, Sociología",
+      "weakSubjects": "Matemáticas, Ciencias",
+      "consultingSummary": "Los ENFP abordan el aprendizaje de manera creativa y apasionada. Muestran un excelente desempeño en asignaturas relacionadas con las personas, como literatura, psicología y sociología, y continúan aprendiendo a través de nuevas ideas. Las materias calculativas y estructuradas como matemáticas y ciencias pueden ser un desafío. La planificación flexible y los cambios frecuentes en los métodos de aprendizaje son efectivos, y es importante disfrutar del aprendizaje y abordarlo de manera creativa."
     },
     "ENTP": {
-      "learningMethod": "Prefers logical and theoretical approaches, solving problems from various perspectives",
-      "timeManagement": "Requires free time management, sometimes attempting spontaneous learning",
-      "recommendedTime": "Evening, stimulating environment",
-      "dailyStudyTime": "4~6 hours",
-      "strongSubjects": "Philosophy, Science, Math",
-      "weakSubjects": "Art, Physical Education",
-      "consultingSummary": "ENTP progresses through logical and theoretical approaches, showing strengths in solving problems from various perspectives. They show excellent performance in subjects like philosophy, science, and math, enjoying solving complex problems from multiple angles. They may find emotional and practical subjects like art and physical education challenging, so it's effective to approach these subjects through more concrete and practical examples. Free time management and spontaneous learning are also effective."
+      "learningMethod": "Prefiere enfoques lógicos y teóricos, resolviendo problemas desde varias perspectivas",
+      "timeManagement": "Requiere una gestión del tiempo libre, a veces intentando un aprendizaje espontáneo",
+      "recommendedTime": "Noche, ambiente estimulante",
+      "dailyStudyTime": "4~6 horas",
+      "strongSubjects": "Filosofía, Ciencias, Matemáticas",
+      "weakSubjects": "Arte, Educación Física",
+      "consultingSummary": "Los ENTP progresan mediante enfoques lógicos y teóricos, mostrando fortalezas en resolver problemas desde varias perspectivas. Muestran un excelente desempeño en asignaturas como filosofía, ciencias y matemáticas, disfrutando de resolver problemas complejos desde múltiples ángulos. Las materias emocionales y prácticas como arte y educación física pueden ser un desafío, por lo que es efectivo abordar estas asignaturas a través de ejemplos más concretos y prácticos. La gestión del tiempo libre y el aprendizaje espontáneo también son efectivos."
     },
     "ESTJ": {
-      "learningMethod": "Prefers structured and systematic approaches, with clear goal setting and planning being important",
-      "timeManagement": "Effective through strict schedules",
-      "recommendedTime": "Morning, organized environment",
-      "dailyStudyTime": "3~5 hours",
-      "strongSubjects": "Math, Business, Economics",
-      "weakSubjects": "Art, Psychology",
-      "consultingSummary": "ESTJ prefers highly structured and systematic learning methods. They show excellent performance in practical and concrete subjects like math, business, and economics. However, they may find creative and emotional subjects like art and psychology challenging. It's important to set clear goals and manage time strictly, progressing through efficient learning plans to achieve high performance."
+      "learningMethod": "Prefiere enfoques estructurados y sistemáticos, la definición clara de metas y la planificación son importantes",
+      "timeManagement": "Efectivo mediante horarios estrictos",
+      "recommendedTime": "Mañana, ambiente organizado",
+      "dailyStudyTime": "3~5 horas",
+      "strongSubjects": "Matemáticas, Negocios, Economía",
+      "weakSubjects": "Arte, Psicología",
+      "consultingSummary": "Los ESTJ prefieren métodos de aprendizaje altamente estructurados y sistemáticos. Muestran un excelente desempeño en asignaturas prácticas y concretas como matemáticas, negocios y economía. Sin embargo, las materias creativas y emocionales como arte y psicología pueden ser un desafío. Es importante establecer metas claras y gestionar el tiempo de manera estricta, progresando a través de planes de aprendizaje eficientes para alcanzar un alto rendimiento."
     },
     "ESFJ": {
-      "learningMethod": "Prefers social and cooperative approaches, learning effectively with others",
-      "timeManagement": "Plans in advance and learns through interactions with people",
-      "recommendedTime": "Afternoon, comfortable environment",
-      "dailyStudyTime": "3~4 hours",
-      "strongSubjects": "Sociology, History, Linguistics",
-      "weakSubjects": "Math, Physics",
-      "consultingSummary": "ESFJ can achieve results through social and cooperative learning methods. They show excellent performance in subjects like sociology, history, and linguistics, enjoying learning through interactions with others. They may find subjects like math and physics challenging, so a more concrete and systematic approach is needed. Learning with others or in group activities can maximize their learning effectiveness."
+      "learningMethod": "Prefiere enfoques sociales y cooperativos, aprendiendo eficazmente con otros",
+      "timeManagement": "Planifica con antelación y aprende mediante interacciones con las personas",
+      "recommendedTime": "Tarde, ambiente cómodo",
+      "dailyStudyTime": "3~4 horas",
+      "strongSubjects": "Sociología, Historia, Lingüística",
+      "weakSubjects": "Matemáticas, Física",
+      "consultingSummary": "Los ESFJ pueden lograr resultados mediante métodos de aprendizaje sociales y cooperativos. Muestran un excelente desempeño en asignaturas como sociología, historia y lingüística, disfrutando del aprendizaje a través de interacciones con otros. Las materias como matemáticas y física pueden ser un desafío, por lo que se necesita un enfoque más concreto y sistemático. Aprender con otros o en actividades grupales puede maximizar su efectividad de aprendizaje."
     },
     "ENFJ": {
-      "learningMethod": "Values communication with people, focusing on emotional and motivational aspects",
-      "timeManagement": "Learns efficiently through interactions and cooperation with people",
-      "recommendedTime": "Morning, positive environment",
-      "dailyStudyTime": "3~5 hours",
-      "strongSubjects": "Psychology, Literature, Sociology",
-      "weakSubjects": "Math, Physics",
-      "consultingSummary": "ENFJ progresses through communication with people. They show excellent performance in subjects like psychology, literature, and sociology, valuing exchanges of opinions and cooperation with others during learning. They may find subjects like math and physics challenging, so it's beneficial to approach these subjects through emotional and intuitive methods. Learning in a positive and cooperative environment can provide greater motivation."
+      "learningMethod": "Valora la comunicación con las personas, enfocándose en aspectos emocionales y motivacionales",
+      "timeManagement": "Aprende eficientemente mediante interacciones y cooperación con las personas",
+      "recommendedTime": "Mañana, ambiente positivo",
+      "dailyStudyTime": "3~5 horas",
+      "strongSubjects": "Psicología, Literatura, Sociología",
+      "weakSubjects": "Matemáticas, Física",
+      "consultingSummary": "Los ENFJ progresan mediante la comunicación con las personas. Muestran un excelente desempeño en asignaturas como psicología, literatura y sociología, valorando el intercambio de opiniones y la cooperación con otros durante el aprendizaje. Las materias como matemáticas y física pueden ser un desafío, por lo que es beneficioso abordar estas asignaturas a través de métodos emocionales e intuitivos. Aprender en un entorno positivo y cooperativo puede proporcionar mayor motivación."
     },
     "ENTJ": {
-      "learningMethod": "Prefers structured and goal-oriented approaches, setting efficient strategies",
-      "timeManagement": "Learns through strict time management and planning",
-      "recommendedTime": "Morning, focused environment",
-      "dailyStudyTime": "4~6 hours",
-      "strongSubjects": "Business, Economics, Math",
-      "weakSubjects": "Art, Literature",
-      "consultingSummary": "ENTJ prefers clear goal setting and structured approaches to learning. They show excellent performance in logical and analytical subjects like business, economics, and math. They may find creative and emotional subjects like art and literature challenging, so a more practical and structured learning method is needed. Strict time management and efficient planning are important, always setting clear goals and focusing on learning intensively."
+      "learningMethod": "Prefiere enfoques estructurados y orientados a objetivos, estableciendo estrategias eficientes",
+      "timeManagement": "Aprende mediante una gestión estricta del tiempo y planificación",
+      "recommendedTime": "Mañana, ambiente enfocado",
+      "dailyStudyTime": "4~6 horas",
+      "strongSubjects": "Negocios, Economía, Matemáticas",
+      "weakSubjects": "Arte, Literatura",
+      "consultingSummary": "Los ENTJ prefieren una definición clara de metas y enfoques estructurados para el aprendizaje. Muestran un excelente desempeño en asignaturas lógicas y analíticas como negocios, economía y matemáticas. Las materias creativas y emocionales como arte y literatura pueden ser un desafío, por lo que se necesita un método de aprendizaje más práctico y estructurado. La gestión estricta del tiempo y la planificación eficiente son importantes, estableciendo siempre metas claras y enfocándose intensamente en el aprendizaje."
     }
   },
   "MBTIResoltScreen": {
-    "MyMBTIresult": "My MBTI result"
+    "MyMBTIresult": "Mi resultado MBTI"
   },
   "License": {
-    "License": "License"
+    "License": "Licencia"
   },
   "BreathingExercise": {
-    "Intro": "La técnica de respiración 4-7-8, introducida por el Dr. Andrew Weil,\nes un método eficaz para calmar el sistema nervioso, reducir el estrés y mejorar la concentración.\n\nVamos a realizar el ejercicio de respiración 4-7-8.",
-    "Inhale": "Cierre la boca e inhale lentamente por la nariz durante 4 segundos.",
-    "Hold": "Mantenga la respiración durante 7 segundos.",
-    "Exhale": "Exhale lenta y completamente por la boca durante 8 segundos, haciendo un sonido de soplido.",
+    "Intro": "Esta técnica de respiración fue introducida por el Dr. Andrew Weil.\nEs efectiva para calmar rápidamente el sistema nervioso, aliviar el estrés y mejorar la concentración.\n\nAhora procederemos con el ejercicio de respiración 4-7-8.",
+    "Inhale": "Cierra la boca e inhala lentamente por la nariz durante 4 segundos.",
+    "Hold": "Retén la respiración durante 7 segundos.",
+    "Exhale": "Exhala lentamente y completamente por la boca durante 8 segundos, haciendo un sonido 'whoosh'.",
     "Completed": "¡Ejercicio de respiración completado!",
-    "Repetition": "Repetir"
+    "Repetition": "Repetición"
   },
   "Common": {
     "Advertisement": "Ejercicio de respiración 4-7-8",
-    "Close": "Comenzar a estudiar"
+    "Close": "Comenzar a aprender"
   }
 }

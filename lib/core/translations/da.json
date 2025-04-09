@@ -1,12 +1,12 @@
 {
   "DailyStatistics": {
     "Error": "Fejl ved indlæsning af data: {0}",
-    "NoData": "Ingen registrerede data i dag."
+    "NoData": "Ingen data registreret i dag."
   },
   "DailySummary": {
     "GoalStudyTime": "Mål for studietid",
-    "StudyTimeToday": "Dagens studietid",
-    "TodaySummary": "Dagens studieoversigt"
+    "StudyTimeToday": "Studietid i dag",
+    "TodaySummary": "Dagens oversigt"
   },
   "DDayAddScreen": {
     "Add": "Tilføj",
@@ -31,7 +31,7 @@
     "DeleteConfirmationSuffix": "?",
     "Edit": "Rediger",
     "GoalDate": "Måldato:",
-    "OfflineEditDeleteError": "Redigering og sletning er ikke tilgængelig offline.",
+    "OfflineEditDeleteError": "Redigering og sletning er ikke tilgængelige offline.",
     "OfflineStatus": "Offline status"
   },
   "DDayUpdateScreen": {
@@ -46,9 +46,9 @@
   "Dialog": {
     "Cancel": "Annuller",
     "Confirm": "Bekræft",
-    "Focus!": "Fokus!",
+    "Focus!": "Fokuser!",
     "YouarestudyingPutyourphonedownandfocus": "Du studerer.\nLæg din telefon væk og fokuser.",
-    "restoreTimer": "Der er en eksisterende timer. Vil du gendanne den?",
+    "restoreTimer": "Der findes en eksisterende timer. Vil du gendanne den?",
     "LogoutDialog": "Er du sikker på, at du vil logge ud?",
     "DeleteUserDialog": "Er du sikker på, at du vil slette din konto?"
   },
@@ -72,7 +72,7 @@
   "NavigationBar": {
     "Home": "Hjem",
     "More": "Mere",
-    "Social": "Rang",
+    "Social": "Rangliste",
     "Statistics": "Statistik",
     "Timer": "Timer"
   },
@@ -81,8 +81,8 @@
   },
   "PrivacyPolicyWidget": {
     "PrivacyPolicy": "Privatlivspolitik",
-    "URLCannotBeOpened": "Kan ikke åbne denne URL.",
-    "URLFailedToOpen": "Kunne ikke åbne URL.",
+    "URLCannotBeOpened": "Denne URL kan ikke åbnes.",
+    "URLFailedToOpen": "Kunne ikke åbne URL'en.",
     "URLLaunchError": "Der opstod en fejl."
   },
   "ProfileInfoWidget": {
@@ -91,15 +91,15 @@
     "nickName": "Kaldenavn",
     "nickNameHint": "Rediger profil",
     "save": "GEM",
-    "mbtiTest": "MBTI Test",
+    "mbtiTest": "MBTI-test",
     "NoMBTIResult": "Intet MBTI-resultat"
   },
   "ProfileSettingScreen": {
-    "loadingText": "Gør dit bedste i dag med Study Duck..."
+    "loadingText": "Giv dit bedste i dag med Study Duck..."
   },
   "Rank": {
-    "Rank": "Study Ranking",
-    "NotReady": "Ranking data is still being prepared!"
+    "Rank": "Studierangliste",
+    "NotReady": "Ranglistedata er stadig under forberedelse!"
   },
   "SelectCountryButtonWidget": {
     "Country": "Land",
@@ -119,12 +119,12 @@
     "Small": "Lille"
   },
   "SelectGoalDurationButtonWidget": {
-    "Complete": "Fuldfør",
+    "Complete": "Færdiggør",
     "GoalStudyTime": "Mål for studietid",
     "TimeSelection": "Vælg tid"
   },
   "SelectGroupBottomSheet": {
-    "complete": "Fuldfør",
+    "complete": "Færdiggør",
     "selectGroup": "Vælg gruppe"
   },
   "SelectGroupButtonWidget": {
@@ -168,71 +168,71 @@
   },
   "SocialScreen": "Social skærm",
   "SplashScreen": {
-    "message": "Gør dit bedste i dag med Study Duck..."
+    "message": "Giv dit bedste i dag med Study Duck..."
   },
   "StatisticsScreen": {
     "monthly": "Månedlig",
     "weekly": "Ugentlig"
   },
   "StudyBarChartWidget": {
-    "subjectStudyTime": "Studietid pr. emne"
+    "subjectStudyTime": "Studietid pr. fag"
   },
   "StudyPieChartWidget": {
-    "subjectPercentage": "Emneprocentdel"
+    "subjectPercentage": "Procent pr. fag"
   },
   "StudySettingScreen": {
-    "complete": "Fuldfør",
+    "complete": "Færdiggør",
     "previous": "Forrige"
   },
   "SubjectAddScreen": {
-    "AddSubject": "Tilføj emne",
-    "DuplicateSubject": "Dette emne findes allerede.",
+    "AddSubject": "Tilføj fag",
+    "DuplicateSubject": "Dette fag findes allerede.",
     "Save": "Gem",
     "SelectColor": "Vælg farve",
-    "SubjectName": "Emnenavn"
+    "SubjectName": "Fagnavn"
   },
   "SubjectList": {
-    "AddSubject": "Tilføj emne",
+    "AddSubject": "Tilføj fag",
     "Cancel": "Annuller",
     "CannotUndoWarning": "Denne handling kan ikke fortrydes.",
     "Confirm": "Bekræft",
     "Delete": "Slet",
-    "DeleteSubjectPrompt": "Er du sikker på, at du vil slette dette emne?",
+    "DeleteSubjectPrompt": "Er du sikker på, at du vil slette dette fag?",
     "Edit": "Rediger",
-    "EditSubject": "Rediger emne",
-    "EnterSubjectName": "Indtast emnenavn",
+    "EditSubject": "Rediger fag",
+    "EnterSubjectName": "Indtast fagnavnet",
     "SelectColor": "Vælg farve",
-    "SelfStudy": "Selvstudie",
-    "Subject": "Emne",
-    "SubjectName": "Emnenavn"
+    "SelfStudy": "Selvstudium",
+    "Subject": "Fag",
+    "SubjectName": "Fagnavn"
   },
   "SubjectUpdateScreen": {
-    "EditSubject": "Rediger emne",
-    "EnterSubjectName": "Indtast venligst emnenavnet.",
+    "EditSubject": "Rediger fag",
+    "EnterSubjectName": "Indtast venligst fagnavnet.",
     "Save": "Gem",
     "SelectColor": "Vælg farve",
-    "SubjectName": "Emnenavn"
+    "SubjectName": "Fagnavn"
   },
   "SummaryWidget": {
     "averageStudyTime": "Gennemsnitlig studietid",
-    "totalStudyTime": "Samlet studietid"
+    "totalStudyTime": "Total studietid"
   },
   "Timer": {
     "Pause": "PAUSE",
-    "SelfStudy": "Selvstudie",
+    "SelfStudy": "Selvstudium",
     "Start": "START"
   },
   "TimerControlBar": {
-    "FocusMode": "Fokustilstand",
+    "FocusMode": "Fokus-tilstand",
     "WhiteNoise": "Hvid støj"
   },
   "TimerSetting": {
-    "AutoFocusMode": "Automatisk fokustilstand",
-    "AutoBreathingExercise": "Automatisk vejrtrækningsøvelse",
-    "TimeerSetting": "Timer-indstillinger"
+    "AutoFocusMode": "Automatisk fokus-tilstand",
+    "AutoBreathingExercise": "Automatisk åndedrætsøvelse",
+    "TimeerSetting": "Timerindstillinger"
   },
   "TotalDuratinosLineChartWidget": {
-    "totalStudyTime": "Samlet studietid pr. dag"
+    "totalStudyTime": "Total studietid pr. dag"
   },
   "UserProfileWidget": {
     "profileEdit": "Rediger profil"
@@ -245,7 +245,7 @@
     "Rain": "Regn",
     "Wind": "Vind",
     "Fire": "Ild",
-    "Chime": "Klokkespil",
+    "Chime": "Klang",
     "Stream": "Bæk",
     "Wave": "Bølge",
     "Bird": "Fugl",
@@ -262,117 +262,117 @@
   },
   "mbti": {
     "MBTIQuestion1": {
-      "question": "Når jeg møder nye mennesker",
+      "question": "Når du møder nye mennesker",
       "optionA": "Føler jeg mig energisk og glad",
-      "optionB": "Føler jeg mig mere komfortabel alene",
+      "optionB": "Føler jeg mig mere tilpas alene",
       "category": "E/I"
     },
     "MBTIQuestion2": {
-      "question": "Hvordan lader du op i weekenden?",
+      "question": "Hvordan genoplader du i weekenden?",
       "optionA": "Ved at tilbringe tid med venner",
-      "optionB": "Ved at have tid alene",
+      "optionB": "Ved at tilbringe tid alene",
       "category": "E/I"
     },
     "MBTIQuestion3": {
-      "question": "Når jeg organiserer tanker",
-      "optionA": "Taler jeg højt for at organisere dem",
+      "question": "Når du organiserer dine tanker",
+      "optionA": "Tænker jeg højt for at organisere dem",
       "optionB": "Organiserer jeg dem stille i mit hoved",
       "category": "E/I"
     },
     "MBTIQuestion4": {
       "question": "At tale foran mange mennesker",
       "optionA": "Føles naturligt og behageligt",
-      "optionB": "Føles byrdefuldt og nervøst",
+      "optionB": "Føles tungt og gør mig nervøs",
       "category": "E/I"
     },
     "MBTIQuestion5": {
       "question": "Hvis jeg rejser alene",
-      "optionA": "Kan det føles kedeligt og ensomt",
-      "optionB": "Føler jeg mig spændt og ser frem til det",
+      "optionA": "Kan det blive kedeligt og ensomt",
+      "optionB": "Føler jeg mig begejstret og ser frem til det",
       "category": "E/I"
     },
     "MBTIQuestion6": {
-      "question": "Når jeg lytter til forklaringer, er det vigtigt med",
+      "question": "Når du lytter til forklaringer, er det vigtige",
       "optionA": "Specifikke eksempler og detaljer",
-      "optionB": "Overordnet flow og koncepter",
+      "optionB": "Den overordnede strøm og begreberne",
       "category": "S/N"
     },
     "MBTIQuestion7": {
-      "question": "Når jeg lærer nye færdigheder",
-      "optionA": "Lærer jeg trin for trin ved at følge manualen",
+      "question": "Når du lærer nye færdigheder",
+      "optionA": "Lærer jeg trin for trin efter manualen",
       "optionB": "Lærer jeg intuitivt gennem praktisk erfaring",
       "category": "S/N"
     },
     "MBTIQuestion8": {
-      "question": "I dagligdagen",
-      "optionA": "Foretrækker jeg velkendte miljøer med få ændringer",
+      "question": "I hverdagen",
+      "optionA": "Foretrækker jeg velkendte omgivelser med få ændringer",
       "optionB": "Finder jeg nye oplevelser og ændringer mere interessante",
       "category": "S/N"
     },
     "MBTIQuestion9": {
-      "question": "Når jeg arbejder eller studerer",
-      "optionA": "Tjekker jeg detaljer grundigt",
-      "optionB": "Fokuserer jeg på at forstå det overordnede flow",
+      "question": "Når du arbejder eller studerer",
+      "optionA": "Tjekker jeg detaljerne omhyggeligt",
+      "optionB": "Fokuserer jeg på at forstå den overordnede strøm",
       "category": "S/N"
     },
     "MBTIQuestion10": {
-      "question": "Når jeg træffer beslutninger",
+      "question": "Når du dømmer",
       "optionA": "Bedømmer jeg nutiden baseret på tidligere erfaringer",
-      "optionB": "Anser jeg fremtidige muligheder for vigtigere",
+      "optionB": "Finder jeg fremtidige muligheder vigtigere",
       "category": "S/N"
     },
     "MBTIQuestion11": {
-      "question": "Når jeg træffer vigtige beslutninger",
+      "question": "Når du træffer vigtige beslutninger",
       "optionA": "Værdsætter jeg logik og objektive fakta",
-      "optionB": "Overvejer jeg følelser og relationer",
+      "optionB": "Tager jeg hensyn til følelser og relationer",
       "category": "T/F"
     },
     "MBTIQuestion12": {
-      "question": "I debatter er det vigtigt at",
-      "optionA": "Vinde med logik",
-      "optionB": "Overveje andres følelser",
+      "question": "I debatter er det vigtige",
+      "optionA": "At vinde med logik",
+      "optionB": "At tage hensyn til andres følelser",
       "category": "T/F"
     },
     "MBTIQuestion13": {
       "question": "Når andre deler deres bekymringer",
       "optionA": "Foreslår jeg praktiske løsninger",
-      "optionB": "Udviser jeg empati for deres følelser",
+      "optionB": "Føler jeg med deres følelser",
       "category": "T/F"
     },
     "MBTIQuestion14": {
-      "question": "Når jeg håndterer opgaver, er det vigtigt med",
+      "question": "Når du håndterer opgaver, er det vigtige",
       "optionA": "Effektivitet og logik",
-      "optionB": "Teamwork og atmosfære",
+      "optionB": "Samarbejde og stemning",
       "category": "T/F"
     },
     "MBTIQuestion15": {
-      "question": "Når jeg træffer beslutninger",
-      "optionA": "Bedømmer jeg baseret på rigtigt og forkert",
-      "optionB": "Overvejer jeg andres følelser",
+      "question": "Når du træffer beslutninger",
+      "optionA": "Bedømmer jeg ud fra rigtigt og forkert",
+      "optionB": "Tager jeg hensyn til andres følelser",
       "category": "T/F"
     },
     "MBTIQuestion16": {
-      "question": "Tidsplanstyring",
-      "optionA": "Kan lide at planlægge forud og holde mig til det",
-      "optionB": "Handler fleksibelt og spontant",
+      "question": "Tidsstyring",
+      "optionA": "Jeg kan lide at planlægge på forhånd og holde mig til det",
+      "optionB": "Jeg handler fleksibelt og spontant",
       "category": "J/P"
     },
     "MBTIQuestion17": {
-      "question": "Når jeg tager på tur",
+      "question": "Når jeg tager på rejse",
       "optionA": "Laver jeg detaljerede planer",
       "optionB": "Beslutter jeg spontant på stedet",
       "category": "J/P"
     },
     "MBTIQuestion18": {
-      "question": "Når der er en deadline",
-      "optionA": "Foretrækker jeg at blive færdig tidligt",
-      "optionB": "Justerer jeg fleksibelt indtil sidste øjeblik",
+      "question": "Når der er en frist",
+      "optionA": "Foretrækker jeg at afslutte tidligt",
+      "optionB": "Justerer jeg fleksibelt indtil sidste minut",
       "category": "J/P"
     },
     "MBTIQuestion19": {
-      "question": "Foretrukket miljø",
-      "optionA": "Organiseret og pænt rum",
-      "optionB": "Rum med fri atmosfære",
+      "question": "Foretrukne omgivelser",
+      "optionA": "Et organiseret og rent rum",
+      "optionB": "Et rum med fri atmosfære",
       "category": "J/P"
     },
     "MBTIQuestion20": {
@@ -383,177 +383,177 @@
     }
   },
   "mbtiResult": {
-    "quickInfo": "📚 Hurtig læringsinfo",
-    "learningGuide": "🎯 Læringsmetodevejledning",
-    "consultingSummary": "💡 Læringskonsultationsoversigt",
+    "quickInfo": "📚 Hurtige læringsinformationer",
+    "learningGuide": "🎯 Guide til læringsmetoder",
+    "consultingSummary": "💡 Opsummering af læringsrådgivning",
     "recommendedTime": "Anbefalet studietid",
     "dailyStudyTime": "Anbefalede daglige studietimer",
     "strongSubjects": "Stærke fag",
     "weakSubjects": "Svage fag",
     "learningMethod": "Læringsmetode",
     "timeManagement": "Tidsstyring",
-    "analysisTitle": "MBTI Læringsstil Analyserapport",
-    "analysisResult": "Læringstype Analyseresultat",
+    "analysisTitle": "MBTI-læringsstil-analyse rapport",
+    "analysisResult": "Resultat af læringsstil-analyse",
     "confirm": "Bekræft",
     "shareComplete": "Deling fuldført",
     "shareFailed": "Deling mislykkedes",
-    "myMBTIStyle": "Min MBTI Læringsstil",
-    "CheckMyMBTI": "Tjek mit MBTI læringsstil resultat!\n#StudyDuck #StudyDuck #MBTILearning",
-    "MBTILearningStyleTest": "MBTI Læringsstil Test",
+    "myMBTIStyle": "Min MBTI-læringsstil",
+    "CheckMyMBTI": "Se mit MBTI-læringsstil-resultat!\n#StudyDuck #MBTILearning",
+    "MBTILearningStyleTest": "MBTI-læringsstil-test",
     "question": "Spørgsmål",
-    "MBTINotTest": "Du har endnu ikke taget MBTI-testen. Tag venligst testen.",
+    "MBTINotTest": "Du har ikke taget MBTI-testen endnu. Tag venligst testen.",
     "error": "Fejl",
     "Tryagain": "Prøv igen",
     "Failedtoloadthequestion": "Kunne ikke indlæse spørgsmålet.",
-    "GoTest": "Gå til test",
+    "GoTest": "Gå til testen",
     "permissionDenied": "Tilladelse nægtet",
     "permissionTitle": "Tilladelse",
     "openSettings": "Åbn indstillinger"
   },
   "mbtiTypeResult": {
     "ISTJ": {
-      "learningMethod": "Foretrækker systematiske og logiske tilgange, hvor planlagt læring er vigtig.",
-      "timeManagement": "At følge en fast tidsplan er effektivt.",
-      "recommendedTime": "Morgen eller aften, stille miljø",
-      "dailyStudyTime": "2-4 timer",
+      "learningMethod": "Foretrækker systematiske og logiske tilgange, planlagt læring er vigtig.",
+      "timeManagement": "At følge en fastlagt tidsplan er effektivt.",
+      "recommendedTime": "Morgen eller aften, roligt miljø",
+      "dailyStudyTime": "2~4 timer",
       "strongSubjects": "Matematik, Naturvidenskab, Historie",
       "weakSubjects": "Litteratur, Kunst, Filosofi",
-      "consultingSummary": "ISTJ kan lære effektivt gennem grundig planlægning og systematiske tilgange. De viser fremragende præstationer i fag som matematik, naturvidenskab og historie. Det er vigtigt at studere konsekvent i et regelmæssigt tidsrum og miljø, og de viser styrker i praktiske og logiske fag. De kan have svært ved kreative og følelsesmæssige fag som litteratur, kunst og filosofi, så det er effektivt at lære disse fag gennem praktiske eksempler. De kan opnå gode resultater ved at studere konsekvent på faste tidspunkter dagligt og sætte mål."
+      "consultingSummary": "ISTJ'er kan lære effektivt gennem omhyggelig planlægning og systematiske tilgange. De udmærker sig i fag som matematik, naturvidenskab og historie. Det er vigtigt at studere konsekvent på faste tidspunkter og i et stabilt miljø, hvor de viser styrke i praktiske og logiske fag. De kan have svært ved kreative og følelsesmæssige fag som litteratur, kunst og filosofi, så det er effektivt at lære disse fag gennem praktiske eksempler. De kan opnå gode resultater ved at studere regelmæssigt på faste tidspunkter hver dag og sætte mål."
     },
     "ISFJ": {
-      "learningMethod": "Effektiv gennem gentagen læring og opmærksomhed på detaljer",
-      "timeManagement": "Vigtigt at lave og følge planer på forhånd",
+      "learningMethod": "Effektiv gennem gentaget læring og opmærksomhed på detaljer",
+      "timeManagement": "Vigtigt at lave planer på forhånd og følge dem",
       "recommendedTime": "Eftermiddag, stabilt miljø",
-      "dailyStudyTime": "2-3 timer",
+      "dailyStudyTime": "2~3 timer",
       "strongSubjects": "Historie, Biologi, Samfundsfag, Litteratur",
       "weakSubjects": "Matematik, Fysik, Idræt",
-      "consultingSummary": "ISFJ kan opnå resultater gennem gentagen læring. De viser fremragende præstationer i fag som historie, litteratur og samfundsfag, og kan lære præcist ved at være opmærksomme på detaljer. De kan finde teoretiske og abstrakte fag som matematik og fysik udfordrende. Det er godt at sætte og følge daglige planer konsekvent, og det er vigtigt at færdiggøre et fag grundigt, selvom fremskridtet er langsomt. De kan opnå resultater ved at koncentrere sig i et stabilt miljø."
+      "consultingSummary": "ISFJ'er kan opnå resultater gennem gentaget læring. De udmærker sig i fag som historie, litteratur og samfundsfag og kan lære præcist ved at fokusere på detaljer. Teoretiske og abstrakte fag som matematik og fysik kan være en udfordring. Det er godt at lave og følge daglige planer konsekvent, og det er vigtigt at færdiggøre et fag helt, selv hvis fremskridtet er langsomt. De kan opnå resultater ved at fokusere i et stabilt miljø."
     },
     "INFJ": {
-      "learningMethod": "Værdsætter dyb forståelse og indsigt, effektiv gennem at finde mening",
-      "timeManagement": "Kræver langsigtet målsætning og selvrefleksion",
-      "recommendedTime": "Nat, stille rum",
-      "dailyStudyTime": "3-5 timer",
+      "learningMethod": "Værdsætter dyb forståelse og indsigt, effektiv ved at finde mening",
+      "timeManagement": "Kræver at sætte langsigtede mål og selvrefleksion",
+      "recommendedTime": "Nat, roligt rum",
+      "dailyStudyTime": "3~5 timer",
       "strongSubjects": "Litteratur, Filosofi, Psykologi",
       "weakSubjects": "Matematik, Fysik",
-      "consultingSummary": "INFJ lærer gennem dyb udforskning og indsigt. De udmærker sig i fag som litteratur, filosofi og psykologi. De søger meningsfulde forbindelser under læring, så motivation er vigtig. De kan finde konkrete fag som matematik eller fysik udfordrende, og det er gavnligt at nærme sig disse fag ved først at nedbryde grundlæggende koncepter. De justerer løbende deres læringsmetoder gennem selvrefleksion, med fokus på langsigtede mål og kontinuerlig udvikling."
+      "consultingSummary": "INFJ'er lærer gennem dyb udforskning og indsigt. De udmærker sig i fag som litteratur, filosofi og psykologi. De søger meningsfulde forbindelser under læring, så motivation er vigtig. Konkrete fag som matematik eller fysik kan være en udfordring, og det er nyttigt at nærme sig disse fag ved først at nedbryde grundlæggende begreber. De justerer løbende deres læringsmetoder gennem selvrefleksion og fokuserer på langsigtede mål og kontinuerlig udvikling."
     },
     "INTJ": {
-      "learningMethod": "Foretrækker logisk og systematisk læring, hvor strategisk tilgang er vigtig",
-      "timeManagement": "Skal sætte langsigtede planer og effektivt allokere tid",
-      "recommendedTime": "Daggry eller aften",
-      "dailyStudyTime": "4-6 timer",
+      "learningMethod": "Foretrækker logisk og systematisk læring, en strategisk tilgang er vigtig",
+      "timeManagement": "Skal lave langsigtede planer og fordele tiden effektivt",
+      "recommendedTime": "Morgengry eller aften",
+      "dailyStudyTime": "4~6 timer",
       "strongSubjects": "Matematik, Naturvidenskab, Logik",
       "weakSubjects": "Idræt, Kunst",
-      "consultingSummary": "INTJ kan lære effektivt gennem grundig planlægning og strategiske tilgange. De viser fremragende præstationer i fag som matematik, naturvidenskab og logik. De kan opnå dyb forståelse gennem selvstændig læring. Dog kan de være overdrevent perfektionistiske, hvilket kan bremse deres læringstempo. De kan have svært ved fag som idræt og kunst, så det er effektivt at nærme sig disse fag gennem praktiske eksempler. At sætte realistiske mål og deadlines kan maksimere deres læringseffektivitet."
+      "consultingSummary": "INTJ'er kan lære effektivt gennem omhyggelig planlægning og strategiske tilgange. De udmærker sig i fag som matematik, naturvidenskab og logik. De kan opnå dyb forståelse gennem selvstændig læring. Dog kan de være for perfektionistiske, hvilket kan sænke deres læringstempo. Fag som idræt og kunst kan være en udfordring, så det er effektivt at nærme sig disse fag gennem praktiske eksempler. At sætte realistiske mål og frister kan maksimere deres læringseffektivitet."
     },
     "ISTP": {
       "learningMethod": "Effektiv gennem praktisk erfaring og øvelse",
       "timeManagement": "Foretrækker spontan læring, kræver fleksible planer",
-      "recommendedTime": "Dagtimerne, aktivt miljø",
-      "dailyStudyTime": "2-4 timer",
+      "recommendedTime": "Dag, aktivt miljø",
+      "dailyStudyTime": "2~4 timer",
       "strongSubjects": "Ingeniørvidenskab, Fysik, Datalogi",
       "weakSubjects": "Filosofi, Litteratur",
-      "consultingSummary": "ISTP kan lære hurtigt gennem praktisk erfaring og øvelse. De viser styrker i praktiske og logiske fag som ingeniørvidenskab, fysik og datalogi. Dog kan de finde teoretiske fag som filosofi og litteratur udfordrende, så det er effektivt at nærme sig disse fag gennem praktiske eksempler. Det er vigtigt at opretholde fleksibilitet i tidsstyring og læringsplaner, og at skabe et miljø, hvor de kan fokusere."
+      "consultingSummary": "ISTP'er kan lære hurtigt gennem praktisk erfaring og øvelse. De viser styrke i praktiske og logiske fag som ingeniørvidenskab, fysik og datalogi. Teoretiske fag som filosofi og litteratur kan dog være en udfordring, så det er effektivt at nærme sig disse fag gennem praktiske eksempler. Det er vigtigt at bevare fleksibilitet i tidsstyring og læringsplaner og skabe et miljø, hvor de kan koncentrere sig."
     },
     "ISFP": {
       "learningMethod": "Foretrækker sensoriske og praktiske tilgange, favoriserer praktisk læring",
-      "timeManagement": "Effektiv gennem fri læring, men grundlæggende planlægning er nødvendig",
+      "timeManagement": "Effektiv gennem fri læring, men basal planlægning er nødvendig",
       "recommendedTime": "Eftermiddag eller aften",
-      "dailyStudyTime": "2-3 timer",
+      "dailyStudyTime": "2~3 timer",
       "strongSubjects": "Kunst, Design, Biologi",
       "weakSubjects": "Matematik, Logik",
-      "consultingSummary": "ISFP kan lære effektivt gennem kreative og sensoriske tilgange. De viser fremragende præstationer i kreative og intuitive fag som kunst, design og biologi. De kan finde teoretiske og analytiske fag som matematik og logik udfordrende, så det er effektivt at nærme sig disse fag gennem praktiske eksempler. Frie og fleksible læringsmetoder er fordelagtige, og det er vigtigt at fortsætte med at lære selvstændigt."
+      "consultingSummary": "ISFP'er kan lære effektivt gennem kreative og sensoriske tilgange. De udmærker sig i kreative og intuitive fag som kunst, design og biologi. Teoretiske og analytiske fag som matematik og logik kan være en udfordring, så det er effektivt at nærme sig disse fag gennem praktiske eksempler. Frie og fleksible læringsmetoder er fordelagtige, og det er vigtigt at fortsætte med at lære selvstændigt."
     },
     "INFP": {
       "learningMethod": "Foretrækker følelsesmæssig og meningsfuld læring, nyder dyb udforskning",
       "timeManagement": "Vigtigt at opretholde deres eget tempo",
-      "recommendedTime": "Nat, stille rum",
-      "dailyStudyTime": "3-5 timer",
+      "recommendedTime": "Nat, roligt rum",
+      "dailyStudyTime": "3~5 timer",
       "strongSubjects": "Litteratur, Psykologi, Sociologi",
       "weakSubjects": "Matematik, Naturvidenskab",
-      "consultingSummary": "INFP nærmer sig læring kreativt og passioneret. De viser fremragende præstationer i fag relateret til mennesker, såsom litteratur, psykologi og sociologi, og fortsætter med at lære gennem nye ideer. De kan finde beregnende og strukturerede fag som matematik og naturvidenskab udfordrende. Fleksibel planlægning og hyppigt skiftende læringsmetoder er effektive, og det er vigtigt at nyde læring og nærme sig det kreativt."
+      "consultingSummary": "INFP'er griber læring an på en kreativ og passioneret måde. De udmærker sig i fag relateret til mennesker som litteratur, psykologi og sociologi og fortsætter med at lære gennem nye ideer. Beregningsmæssige og strukturerede fag som matematik og naturvidenskab kan være en udfordring. Fleksibel planlægning og hyppige ændringer i læringsmetoder er effektive, og det er vigtigt at nyde læringen og nærme sig den kreativt."
     },
     "INTP": {
-      "learningMethod": "Effektiv gennem udforskning af teoretiske koncepter og eksperimentelle tilgange",
-      "timeManagement": "Kræver fleksible tidsplaner, forsøger undertiden spontan læring",
-      "recommendedTime": "Daggry, stille miljø",
-      "dailyStudyTime": "4-6 timer",
+      "learningMethod": "Effektiv gennem udforskning af teoretiske begreber og eksperimentelle tilgange",
+      "timeManagement": "Kræver fleksible tidsplaner, prøver til tider spontan læring",
+      "recommendedTime": "Morgengry, roligt miljø",
+      "dailyStudyTime": "4~6 timer",
       "strongSubjects": "Filosofi, Naturvidenskab, Matematik",
       "weakSubjects": "Kunst, Idræt",
-      "consultingSummary": "INTP udvikler sig gennem logiske og teoretiske tilgange, og viser styrker i at løse problemer fra forskellige perspektiver. De viser fremragende præstationer i fag som filosofi, naturvidenskab og matematik, og nyder at løse komplekse problemer fra flere vinkler. De kan finde følelsesmæssige og praktiske fag som kunst og idræt udfordrende, så det er effektivt at nærme sig disse fag gennem mere konkrete og praktiske eksempler. Fri tidsstyring og spontan læring er også effektivt."
+      "consultingSummary": "INTP'er gør fremskridt gennem logiske og teoretiske tilgange og viser styrke i at løse problemer fra forskellige perspektiver. De udmærker sig i fag som filosofi, naturvidenskab og matematik og nyder at løse komplekse problemer fra flere vinkler. Følelsesmæssige og praktiske fag som kunst og idræt kan være en udfordring, så det er effektivt at nærme sig disse fag gennem mere konkrete og praktiske eksempler. Frit tidsstyring og spontan læring er også effektivt."
     },
     "ESTP": {
       "learningMethod": "Foretrækker eksperimentelle og intuitive tilgange, effektiv gennem aktiv læring",
-      "timeManagement": "Planlægger fleksibelt og forsøger spontan læring",
-      "recommendedTime": "Dagtimerne, aktivt miljø",
-      "dailyStudyTime": "3-5 timer",
+      "timeManagement": "Planlægger fleksibelt og prøver spontan læring",
+      "recommendedTime": "Dag, aktivt miljø",
+      "dailyStudyTime": "3~5 timer",
       "strongSubjects": "Fysik, Matematik, Ingeniørvidenskab",
       "weakSubjects": "Litteratur, Filosofi",
-      "consultingSummary": "ESTP viser styrker i læring gennem eksperimentelle metoder. De udmærker sig i fag som fysik, ingeniørvidenskab og matematik, og nærmer sig læring ved at løse reelle problemer. De kan finde abstrakte fag som litteratur og filosofi udfordrende. Det er ideelt at lære i et aktivt og eksperimentelt miljø, og fleksibel tidsplanlægning er effektiv."
+      "consultingSummary": "ESTP'er viser styrke i læring gennem eksperimentelle metoder. De udmærker sig i fag som fysik, ingeniørvidenskab og matematik og griber læring an ved at løse virkelige problemer. Abstrakte fag som litteratur og filosofi kan være en udfordring. Det er ideelt at lære i et aktivt og eksperimentelt miljø, og fleksibel tidsplanlægning er effektiv."
     },
     "ESFP": {
-      "learningMethod": "Foretrækker sensoriske og praktiske tilgange, lærer aktivt og fornøjeligt",
-      "timeManagement": "Nyder at lære gennem fri planlægning",
+      "learningMethod": "Foretrækker sensoriske og praktiske tilgange, lærer aktivt og glædeligt",
+      "timeManagement": "Nyder læring gennem fri planlægning",
       "recommendedTime": "Eftermiddag, aktivt miljø",
-      "dailyStudyTime": "3-4 timer",
+      "dailyStudyTime": "3~4 timer",
       "strongSubjects": "Kunst, Samfundsfag, Biologi",
       "weakSubjects": "Matematik, Fysik",
-      "consultingSummary": "ESFP foretrækker praktisk og sensorisk læring. De viser fremragende præstationer i kreative og intuitive fag som kunst, samfundsfag og biologi. De kan finde teoretiske fag som matematik og fysik udfordrende, så en mere praktisk tilgang er nødvendig. Læring er effektiv, når den er fornøjelig og aktiv, og det er vigtigt at fortsætte med at lære med fri tidsstyring og kreative metoder."
+      "consultingSummary": "ESFP'er foretrækker praktisk og sensorisk læring. De udmærker sig i kreative og intuitive fag som kunst, samfundsfag og biologi. Teoretiske fag som matematik og fysik kan være en udfordring, så en mere praktisk tilgang er nødvendig. Læring er effektiv, når den er glædelig og aktiv, og det er vigtigt at fortsætte med at lære med frit tidsstyring og kreative metoder."
     },
     "ENFP": {
       "learningMethod": "Foretrækker kreative og passionerede tilgange, prøver nye ideer",
       "timeManagement": "Lærer gennem fleksibel planlægning og hyppige ændringer",
       "recommendedTime": "Eftermiddag, kreativt miljø",
-      "dailyStudyTime": "3-5 timer",
+      "dailyStudyTime": "3~5 timer",
       "strongSubjects": "Litteratur, Psykologi, Sociologi",
       "weakSubjects": "Matematik, Naturvidenskab",
-      "consultingSummary": "ENFP nærmer sig læring kreativt og passioneret. De viser fremragende præstationer i fag relateret til mennesker, såsom litteratur, psykologi og sociologi, og fortsætter med at lære gennem nye ideer. De kan finde beregnende og strukturerede fag som matematik og naturvidenskab udfordrende. Fleksibel planlægning og hyppigt skiftende læringsmetoder er effektive, og det er vigtigt at nyde læring og nærme sig det kreativt."
+      "consultingSummary": "ENFP'er griber læring an på en kreativ og passioneret måde. De udmærker sig i fag relateret til mennesker som litteratur, psykologi og sociologi og fortsætter med at lære gennem nye ideer. Beregningsmæssige og strukturerede fag som matematik og naturvidenskab kan være en udfordring. Fleksibel planlægning og hyppige ændringer i læringsmetoder er effektive, og det er vigtigt at nyde læringen og nærme sig den kreativt."
     },
     "ENTP": {
       "learningMethod": "Foretrækker logiske og teoretiske tilgange, løser problemer fra forskellige perspektiver",
-      "timeManagement": "Kræver fri tidsstyring, forsøger undertiden spontan læring",
+      "timeManagement": "Kræver frit tidsstyring, prøver til tider spontan læring",
       "recommendedTime": "Aften, stimulerende miljø",
-      "dailyStudyTime": "4-6 timer",
+      "dailyStudyTime": "4~6 timer",
       "strongSubjects": "Filosofi, Naturvidenskab, Matematik",
       "weakSubjects": "Kunst, Idræt",
-      "consultingSummary": "ENTP udvikler sig gennem logiske og teoretiske tilgange, og viser styrker i at løse problemer fra forskellige perspektiver. De viser fremragende præstationer i fag som filosofi, naturvidenskab og matematik, og nyder at løse komplekse problemer fra flere vinkler. De kan finde følelsesmæssige og praktiske fag som kunst og idræt udfordrende, så det er effektivt at nærme sig disse fag gennem mere konkrete og praktiske eksempler. Fri tidsstyring og spontan læring er også effektivt."
+      "consultingSummary": "ENTP'er gør fremskridt gennem logiske og teoretiske tilgange og viser styrke i at løse problemer fra forskellige perspektiver. De udmærker sig i fag som filosofi, naturvidenskab og matematik og nyder at løse komplekse problemer fra flere vinkler. Følelsesmæssige og praktiske fag som kunst og idræt kan være en udfordring, så det er effektivt at nærme sig disse fag gennem mere konkrete og praktiske eksempler. Frit tidsstyring og spontan læring er også effektivt."
     },
     "ESTJ": {
-      "learningMethod": "Foretrækker strukturerede og systematiske tilgange, hvor klar målsætning og planlægning er vigtig",
-      "timeManagement": "Effektiv gennem stramme tidsplaner",
+      "learningMethod": "Foretrækker strukturerede og systematiske tilgange, klar målsætning og planlægning er vigtig",
+      "timeManagement": "Effektiv gennem strikte tidsplaner",
       "recommendedTime": "Morgen, organiseret miljø",
-      "dailyStudyTime": "3-5 timer",
+      "dailyStudyTime": "3~5 timer",
       "strongSubjects": "Matematik, Erhverv, Økonomi",
       "weakSubjects": "Kunst, Psykologi",
-      "consultingSummary": "ESTJ foretrækker højt strukturerede og systematiske læringsmetoder. De viser fremragende præstationer i praktiske og konkrete fag som matematik, erhverv og økonomi. Dog kan de finde kreative og følelsesmæssige fag som kunst og psykologi udfordrende. Det er vigtigt at sætte klare mål og styre tiden stramt, og at udvikle sig gennem effektive læringsplaner for at opnå høj ydeevne."
+      "consultingSummary": "ESTJ'er foretrækker stærkt strukturerede og systematiske læringsmetoder. De udmærker sig i praktiske og konkrete fag som matematik, erhverv og økonomi. Kreative og følelsesmæssige fag som kunst og psykologi kan dog være en udfordring. Det er vigtigt at sætte klare mål og styre tiden stramt, hvor de gør fremskridt gennem effektive læringsplaner for at opnå høje præstationer."
     },
     "ESFJ": {
-      "learningMethod": "Foretrækker sociale og samarbejdende tilgange, lærer effektivt sammen med andre",
+      "learningMethod": "Foretrækker sociale og samarbejdende tilgange, lærer effektivt med andre",
       "timeManagement": "Planlægger på forhånd og lærer gennem interaktioner med mennesker",
       "recommendedTime": "Eftermiddag, behageligt miljø",
-      "dailyStudyTime": "3-4 timer",
+      "dailyStudyTime": "3~4 timer",
       "strongSubjects": "Sociologi, Historie, Lingvistik",
       "weakSubjects": "Matematik, Fysik",
-      "consultingSummary": "ESFJ kan opnå resultater gennem sociale og samarbejdende læringsmetoder. De viser fremragende præstationer i fag som sociologi, historie og lingvistik, og nyder at lære gennem interaktioner med andre. De kan finde fag som matematik og fysik udfordrende, så en mere konkret og systematisk tilgang er nødvendig. At lære sammen med andre eller i gruppeaktiviteter kan maksimere deres læringseffektivitet."
+      "consultingSummary": "ESFJ'er kan opnå resultater gennem sociale og samarbejdende læringsmetoder. De udmærker sig i fag som sociologi, historie og lingvistik og nyder at lære gennem interaktioner med andre. Fag som matematik og fysik kan være en udfordring, så en mere konkret og systematisk tilgang er nødvendig. At lære med andre eller i gruppeaktiviteter kan maksimere deres læringseffektivitet."
     },
     "ENFJ": {
       "learningMethod": "Værdsætter kommunikation med mennesker, fokuserer på følelsesmæssige og motiverende aspekter",
       "timeManagement": "Lærer effektivt gennem interaktioner og samarbejde med mennesker",
       "recommendedTime": "Morgen, positivt miljø",
-      "dailyStudyTime": "3-5 timer",
+      "dailyStudyTime": "3~5 timer",
       "strongSubjects": "Psykologi, Litteratur, Sociologi",
       "weakSubjects": "Matematik, Fysik",
-      "consultingSummary": "ENFJ udvikler sig gennem kommunikation med mennesker. De viser fremragende præstationer i fag som psykologi, litteratur og sociologi, og værdsætter udveksling af meninger og samarbejde med andre under læring. De kan finde fag som matematik og fysik udfordrende, så det er gavnligt at nærme sig disse fag gennem følelsesmæssige og intuitive metoder. Læring i et positivt og samarbejdende miljø kan give større motivation."
+      "consultingSummary": "ENFJ'er gør fremskridt gennem kommunikation med mennesker. De udmærker sig i fag som psykologi, litteratur og sociologi og værdsætter udveksling af meninger og samarbejde med andre under læring. Fag som matematik og fysik kan være en udfordring, så det er gavnligt at nærme sig disse fag gennem følelsesmæssige og intuitive metoder. At lære i et positivt og samarbejdende miljø kan give større motivation."
     },
     "ENTJ": {
       "learningMethod": "Foretrækker strukturerede og målorienterede tilgange, sætter effektive strategier",
-      "timeManagement": "Lærer gennem stram tidsstyring og planlægning",
+      "timeManagement": "Lærer gennem stramt tidsstyring og planlægning",
       "recommendedTime": "Morgen, fokuseret miljø",
-      "dailyStudyTime": "4-6 timer",
+      "dailyStudyTime": "4~6 timer",
       "strongSubjects": "Erhverv, Økonomi, Matematik",
       "weakSubjects": "Kunst, Litteratur",
-      "consultingSummary": "ENTJ foretrækker klar målsætning og strukturerede tilgange til læring. De viser fremragende præstationer i logiske og analytiske fag som erhverv, økonomi og matematik. De kan finde kreative og følelsesmæssige fag som kunst og litteratur udfordrende, så en mere praktisk og struktureret læringsmetode er nødvendig. Stram tidsstyring og effektiv planlægning er vigtig, altid at sætte klare mål og fokusere på at lære intensivt."
+      "consultingSummary": "ENTJ'er foretrækker klare målsætninger og strukturerede tilgange til læring. De udmærker sig i logiske og analytiske fag som erhverv, økonomi og matematik. Kreative og følelsesmæssige fag som kunst og litteratur kan være en udfordring, så en mere praktisk og struktureret læringsmetode er nødvendig. Stramt tidsstyring og effektiv planlægning er vigtigt, hvor de altid sætter klare mål og fokuserer intenst på læring."
     }
   },
   "MBTIResoltScreen": {
@@ -563,15 +563,15 @@
     "License": "Licens"
   },
   "BreathingExercise": {
-    "Intro": "4-7-8 vejrtrækningsteknikken, introduceret af Dr. Andrew Weil,\ner en effektiv metode til at berolige nervesystemet, reducere stress og forbedre koncentrationen.\n\nVi vil nu udføre 4-7-8 vejrtrækningsøvelsen.",
-    "Inhale": "Luk munden og træk vejret langsomt ind gennem næsen i 4 sekunder.",
+    "Intro": "Denne åndedrætsteknik blev introduceret af Dr. Andrew Weil.\nDen er effektiv til hurtigt at berolige nervesystemet, lindre stress og forbedre koncentrationen.\n\nVi vil nu fortsætte med 4-7-8-åndedrætsøvelsen.",
+    "Inhale": "Luk munden og ånd langsomt ind gennem næsen i 4 sekunder.",
     "Hold": "Hold vejret i 7 sekunder.",
-    "Exhale": "Pust langsomt og fuldstændigt ud gennem munden i 8 sekunder, mens du laver en hvislende lyd.",
-    "Completed": "Vejrtrækningsøvelse gennemført!",
-    "Repetition": "Gentag"
+    "Exhale": "Ånd langsomt og helt ud gennem munden i 8 sekunder, mens du laver en 'whoosh'-lyd.",
+    "Completed": "Åndedrætsøvelse fuldført!",
+    "Repetition": "Gentagelse"
   },
   "Common": {
-    "Advertisement": "4-7-8 vejrtrækningsøvelse",
-    "Close": "Start læring"
+    "Advertisement": "4-7-8-åndedrætsøvelse",
+    "Close": "Begynd at lære"
   }
 }
