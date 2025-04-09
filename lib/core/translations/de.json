@@ -228,6 +228,7 @@
   },
   "TimerSetting": {
     "AutoFocusMode": "Auto focus mode",
+    "AutoBreathingExercise": "Automatische Atemübung",
     "TimeerSetting": "Timer settings"
   },
   "TotalDuratinosLineChartWidget": {
@@ -562,15 +563,15 @@
     "License": "License"
   },
   "BreathingExercise": {
-    "Intro": "This breathing technique was introduced by Dr. Andrew Weil. \nIt is effective in quickly calming the nervous system, relieving stress, and improving concentration. \n\n We will now proceed with the 4-7-8 breathing exercise.",
-    "Inhale": "Close your mouth and inhale slowly through your nose for 4 seconds.",
-    "Hold": "Hold your breath for 7 seconds.",
-    "Exhale": "Exhale slowly and completely through your mouth for 8 seconds, making a \"whoosh\" sound.",
-    "Completed": "Breathing exercise completed!",
-    "Repetition": "Repetition"
+    "Intro": "Die 4-7-8-Atemtechnik, entwickelt von Dr. Andrew Weil,\nist eine effektive Methode zur Beruhigung des Nervensystems, Stressabbau und Verbesserung der Konzentration.\n\nWir werden jetzt die 4-7-8-Atemübung durchführen.",
+    "Inhale": "Schließen Sie den Mund und atmen Sie 4 Sekunden lang langsam durch die Nase ein.",
+    "Hold": "Halten Sie den Atem 7 Sekunden lang an.",
+    "Exhale": "Atmen Sie 8 Sekunden lang langsam und vollständig durch den Mund aus und machen Sie dabei ein Pustegeäusch.",
+    "Completed": "Atemübung abgeschlossen!",
+    "Repetition": "Wiederholen"
   },
   "Common": {
-    "Advertisement": "4-7-8 Breathing Exercise",
-    "Close": "Start Learning"
+    "Advertisement": "4-7-8 Atemübung",
+    "Close": "Mit dem Lernen beginnen"
   }
 }

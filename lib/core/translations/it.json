@@ -227,8 +227,9 @@
     "WhiteNoise": "White noise"
   },
   "TimerSetting": {
-    "AutoFocusMode": "Auto focus mode",
-    "TimeerSetting": "Timer settings"
+    "AutoFocusMode": "Modalità focus automatica",
+    "AutoBreathingExercise": "Esercizio di respirazione automatico",
+    "TimeerSetting": "Impostazioni timer"
   },
   "TotalDuratinosLineChartWidget": {
     "totalStudyTime": "Total study time per day"

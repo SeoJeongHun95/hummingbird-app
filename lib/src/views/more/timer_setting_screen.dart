@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../core/enum/mxnRate.dart';
 import '../../../core/widgets/mxnContainer.dart';
 import 'widgets/settings/timer_stteing/auto_focus_switch_widget.dart';
+import 'widgets/settings/timer_stteing/auto_breathing_switch_widget.dart';
 
 class TimerSettingScreen extends StatelessWidget {
   const TimerSettingScreen({super.key});
@@ -24,6 +25,8 @@ class TimerSettingScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       AutoFocusSwitchWidget(),
+                      Divider(),
+                      AutoBreathingSwitchWidget(),
                       Divider(),
                     ],
                   ),

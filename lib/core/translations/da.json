@@ -227,8 +227,9 @@
     "WhiteNoise": "Hvid støj"
   },
   "TimerSetting": {
-    "AutoFocusMode": "Auto fokustilstand",
-    "TimeerSetting": "Timerindstillinger"
+    "AutoFocusMode": "Automatisk fokustilstand",
+    "AutoBreathingExercise": "Automatisk vejrtrækningsøvelse",
+    "TimeerSetting": "Timer-indstillinger"
   },
   "TotalDuratinosLineChartWidget": {
     "totalStudyTime": "Samlet studietid pr. dag"
@@ -562,15 +563,15 @@
     "License": "Licens"
   },
   "BreathingExercise": {
-    "Intro": "Denne vejrtrækningsteknik blev introduceret af Dr. Andrew Weil. \nDen er effektiv til hurtigt at berolige nervesystemet, lindre stress og forbedre koncentrationen. \n\n Vi vil nu fortsætte med 4-7-8 vejrtrækningsøvelsen.",
+    "Intro": "4-7-8 vejrtrækningsteknikken, introduceret af Dr. Andrew Weil,\ner en effektiv metode til at berolige nervesystemet, reducere stress og forbedre koncentrationen.\n\nVi vil nu udføre 4-7-8 vejrtrækningsøvelsen.",
     "Inhale": "Luk munden og træk vejret langsomt ind gennem næsen i 4 sekunder.",
     "Hold": "Hold vejret i 7 sekunder.",
-    "Exhale": "Pust langsomt og fuldstændigt ud gennem munden i 8 sekunder, mens du laver en \"whoosh\"-lyd.",
-    "Completed": "Vejrtrækningsøvelse fuldført!",
-    "Repetition": "Gentagelse"
+    "Exhale": "Pust langsomt og fuldstændigt ud gennem munden i 8 sekunder, mens du laver en hvislende lyd.",
+    "Completed": "Vejrtrækningsøvelse gennemført!",
+    "Repetition": "Gentag"
   },
   "Common": {
-    "Advertisement": "4-7-8 Vejrtrækningsøvelse",
+    "Advertisement": "4-7-8 vejrtrækningsøvelse",
     "Close": "Start læring"
   }
 }

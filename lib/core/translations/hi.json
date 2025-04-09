@@ -227,6 +227,7 @@
   },
   "TimerSetting": {
     "AutoFocusMode": "ऑटो फोकस मोड",
+    "AutoBreathingExercise": "स्वचालित श्वास व्यायाम",
     "TimeerSetting": "टाइमर सेटिंग्स"
   },
   "TotalDuratinosLineChartWidget": {

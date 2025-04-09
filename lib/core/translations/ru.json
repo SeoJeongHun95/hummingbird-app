@@ -227,8 +227,9 @@
     "WhiteNoise": "White noise"
   },
   "TimerSetting": {
-    "AutoFocusMode": "Auto focus mode",
-    "TimeerSetting": "Timer settings"
+    "AutoFocusMode": "Автоматический режим фокусировки",
+    "AutoBreathingExercise": "Автоматическое дыхательное упражнение",
+    "TimeerSetting": "Настройки таймера"
   },
   "TotalDuratinosLineChartWidget": {
     "totalStudyTime": "Total study time per day"
@@ -562,15 +563,15 @@
     "License": "License"
   },
   "BreathingExercise": {
-    "Intro": "This breathing technique was introduced by Dr. Andrew Weil. \nIt is effective in quickly calming the nervous system, relieving stress, and improving concentration. \n\n We will now proceed with the 4-7-8 breathing exercise.",
-    "Inhale": "Close your mouth and inhale slowly through your nose for 4 seconds.",
-    "Hold": "Hold your breath for 7 seconds.",
-    "Exhale": "Exhale slowly and completely through your mouth for 8 seconds, making a \"whoosh\" sound.",
-    "Completed": "Breathing exercise completed!",
-    "Repetition": "Repetition"
+    "Intro": "Техника дыхания 4-7-8, представленная доктором Эндрю Вейлом,\nэто эффективный метод для успокоения нервной системы, снятия стресса и улучшения концентрации.\n\nСейчас мы выполним дыхательное упражнение 4-7-8.",
+    "Inhale": "Закройте рот и медленно вдохните через нос в течение 4 секунд.",
+    "Hold": "Задержите дыхание на 7 секунд.",
+    "Exhale": "Медленно и полностью выдохните через рот в течение 8 секунд, издавая свистящий звук.",
+    "Completed": "Дыхательное упражнение завершено!",
+    "Repetition": "Повторить"
   },
   "Common": {
-    "Advertisement": "4-7-8 Breathing Exercise",
-    "Close": "Start Learning"
+    "Advertisement": "Дыхательное упражнение 4-7-8",
+    "Close": "Начать обучение"
   }
 }

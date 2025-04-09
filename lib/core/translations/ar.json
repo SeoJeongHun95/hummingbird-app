@@ -1,174 +1,174 @@
 {
   "DailyStatistics": {
-    "Error": "Error loading data: {0}",
-    "NoData": "No recorded data today."
+    "Error": "خطأ في تحميل البيانات: {0}",
+    "NoData": "لا توجد بيانات مسجلة اليوم"
   },
   "DailySummary": {
-    "GoalStudyTime": "Target study time",
-    "StudyTimeToday": "Today's study time",
-    "TodaySummary": "Today's study summary"
+    "GoalStudyTime": "وقت الدراسة المستهدف",
+    "StudyTimeToday": "وقت الدراسة اليوم",
+    "TodaySummary": "ملخص الدراسة اليوم"
   },
   "DDayAddScreen": {
-    "Add": "Add",
-    "Cancel": "Cancel",
-    "Color": "Color:",
-    "Confirm": "Confirm",
-    "DDayAdd": "Add D-Day",
-    "Edit": "Edit",
-    "FillInAllFields": "Please fill in all fields.",
-    "GoalDate": "Goal Date:",
-    "GoalTime": "Goal Time:",
-    "GoalTitle": "Goal Title",
-    "Save": "Save",
-    "SelectDate": "Select a date",
-    "SelectTime": "Select a time"
+    "Add": "إضافة",
+    "Cancel": "إلغاء",
+    "Color": "اللون:",
+    "Confirm": "تأكيد",
+    "DDayAdd": "إضافة يوم العد التنازلي",
+    "Edit": "تعديل",
+    "FillInAllFields": "يرجى ملء جميع الحقول",
+    "GoalDate": "تاريخ الهدف:",
+    "GoalTime": "وقت الهدف:",
+    "GoalTitle": "عنوان الهدف",
+    "Save": "حفظ",
+    "SelectDate": "اختر تاريخاً",
+    "SelectTime": "اختر وقتاً"
   },
   "DDayListTile": {
-    "AreYouSure": "Are you sure you want to delete ",
-    "Cancel": "Cancel",
-    "Confirm": "Confirm",
-    "Delete": "Delete",
-    "DeleteConfirmationSuffix": "?",
-    "Edit": "Edit",
-    "GoalDate": "Goal date:",
-    "OfflineEditDeleteError": "Editing and deleting are unavailable offline.",
-    "OfflineStatus": "Offline status"
+    "AreYouSure": "هل أنت متأكد أنك تريد حذف ",
+    "Cancel": "إلغاء",
+    "Confirm": "تأكيد",
+    "Delete": "حذف",
+    "DeleteConfirmationSuffix": "؟",
+    "Edit": "تعديل",
+    "GoalDate": "تاريخ الهدف:",
+    "OfflineEditDeleteError": "التعديل والحذف غير متاحين في وضع عدم الاتصال",
+    "OfflineStatus": "حالة عدم الاتصال"
   },
   "DDayUpdateScreen": {
-    "Color": "Color:",
-    "DDayEdit": "Edit D-Day",
-    "FillInAllFields": "Please fill in all fields.",
-    "GoalDate": "Goal Date:",
-    "GoalTime": "Goal Time:",
-    "GoalTitle": "Goal Title",
-    "Save": "Save"
+    "Color": "اللون:",
+    "DDayEdit": "تعديل يوم العد التنازلي",
+    "FillInAllFields": "يرجى ملء جميع الحقول",
+    "GoalDate": "تاريخ الهدف:",
+    "GoalTime": "وقت الهدف:",
+    "GoalTitle": "عنوان الهدف",
+    "Save": "حفظ"
   },
   "Dialog": {
-    "Cancel": "Cancel",
-    "Confirm": "Confirm",
-    "Focus!": "Focus!",
-    "YouarestudyingPutyourphonedownandfocus": "You are studying.\nPut your phone down and focus.",
-    "restoreTimer": "There is an existing timer. Do you want to restore it?",
-    "LogoutDialog": "Are you sure you want to log out?",
-    "DeleteUserDialog": "Are you sure you want to delete your account?"
+    "Cancel": "إلغاء",
+    "Confirm": "تأكيد",
+    "Focus!": "ركز!",
+    "YouarestudyingPutyourphonedownandfocus": "أنت تدرس.\nضع هاتفك جانباً وركز.",
+    "restoreTimer": "هناك مؤقت موجود. هل تريد استعادته؟",
+    "LogoutDialog": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+    "DeleteUserDialog": "هل أنت متأكد أنك تريد حذف حسابك؟"
   },
   "HomeSegmentBar": {
-    "Dday": "D-Day",
-    "Summary": "Summary",
-    "Timer": "Timer"
+    "Dday": "العد التنازلي",
+    "Summary": "الملخص",
+    "Timer": "المؤقت"
   },
   "InquiryButtonWidget": {
-    "ContactUs": "Contact us"
+    "ContactUs": "اتصل بنا"
   },
   "LogoutButtonWidget": {
-    "Logout": "Logout"
+    "Logout": "تسجيل الخروج"
   },
   "DeleteUserButtonWidget": {
-    "DeleteUser": "Delete Account"
+    "DeleteUser": "حذف الحساب"
   },
   "MonthlyStatisticsScreen": {
-    "noData": "No recorded data."
+    "noData": "لا توجد بيانات مسجلة"
   },
   "NavigationBar": {
-    "Home": "Home",
-    "More": "More",
-    "Social": "Rank",
-    "Statistics": "Statistics",
-    "Timer": "Timer"
+    "Home": "الرئيسية",
+    "More": "المزيد",
+    "Social": "التصنيف",
+    "Statistics": "الإحصائيات",
+    "Timer": "المؤقت"
   },
   "NotificationButton": {
-    "Alarm": "Alarm"
+    "Alarm": "التنبيه"
   },
   "PrivacyPolicyWidget": {
-    "PrivacyPolicy": "Privacy Policy",
-    "URLCannotBeOpened": "Cannot open this URL.",
-    "URLFailedToOpen": "Failed to open URL.",
-    "URLLaunchError": "An error occurred."
+    "PrivacyPolicy": "سياسة الخصوصية",
+    "URLCannotBeOpened": "لا يمكن فتح هذا الرابط",
+    "URLFailedToOpen": "فشل في فتح الرابط",
+    "URLLaunchError": "حدث خطأ"
   },
   "ProfileInfoWidget": {
-    "birthDate": "Date of birth",
-    "birthDateHint": "Register your date of birth",
-    "nickName": "Nickname",
-    "nickNameHint": "Edit Profile",
-    "save": "SAVE",
-    "mbtiTest": "MBTI Test",
-    "NoMBTIResult": "No MBTI result"
+    "birthDate": "تاريخ الميلاد",
+    "birthDateHint": "سجل تاريخ ميلادك",
+    "nickName": "الاسم المستعار",
+    "nickNameHint": "تعديل الملف الشخصي",
+    "save": "حفظ",
+    "mbtiTest": "اختبار MBTI",
+    "NoMBTIResult": "لا توجد نتيجة MBTI"
   },
   "ProfileSettingScreen": {
-    "loadingText": "Doing your best today with Study Duck..."
+    "loadingText": "تبذل قصارى جهدك اليوم مع Study Duck..."
   },
   "Rank": {
-    "Rank": "Study Ranking",
-    "NotReady": "Ranking data is still being prepared!"
+    "Rank": "تصنيف الدراسة",
+    "NotReady": "بيانات التصنيف قيد الإعداد!"
   },
   "SelectCountryButtonWidget": {
-    "Country": "Country",
-    "SouthKorea": "South Korea"
+    "Country": "البلد",
+    "SouthKorea": "كوريا الجنوبية"
   },
   "SelectCountryContainerWidget": {
-    "FuturePlan": "Planned for future updates",
-    "SouthKorea": "South Korea"
+    "FuturePlan": "مخطط للتحديثات المستقبلية",
+    "SouthKorea": "كوريا الجنوبية"
   },
   "SelectCountryScreen": {
-    "Country": "Country"
+    "Country": "البلد"
   },
   "SelectFontSizeButtonWidget": {
-    "FontSize": "Font size",
-    "Large": "Large",
-    "Medium": "Medium",
-    "Small": "Small"
+    "FontSize": "حجم الخط",
+    "Large": "كبير",
+    "Medium": "متوسط",
+    "Small": "صغير"
   },
   "SelectGoalDurationButtonWidget": {
-    "Complete": "Complete",
-    "GoalStudyTime": "Target study time",
-    "TimeSelection": "Select time"
+    "Complete": "إكمال",
+    "GoalStudyTime": "وقت الدراسة المستهدف",
+    "TimeSelection": "اختيار الوقت"
   },
   "SelectGroupBottomSheet": {
-    "complete": "Complete",
-    "selectGroup": "Select group"
+    "complete": "إكمال",
+    "selectGroup": "اختيار المجموعة"
   },
   "SelectGroupButtonWidget": {
-    "Group": "Group",
-    "SelectGroupPrompt": "Select a group"
+    "Group": "المجموعة",
+    "SelectGroupPrompt": "اختر مجموعة"
   },
   "SelectGroupScreen": {
-    "Group": "Group"
+    "Group": "المجموعة"
   },
   "SelectLanguageButtonWidget": {
-    "Korean": "Korean",
-    "Language": "Language"
+    "Korean": "الكورية",
+    "Language": "اللغة"
   },
   "SelectLanguageContainerWidget": {
-    "FuturePlan": "Planned for future updates",
-    "Korean": "Korean"
+    "FuturePlan": "مخطط للتحديثات المستقبلية",
+    "Korean": "الكورية"
   },
   "SelectLanguageScreen": {
-    "Language": "Language"
+    "Language": "اللغة"
   },
   "SelectThemeButtonWidget": {
-    "FuturePlan": "Planned for future updates",
-    "ThemeColor": "Theme color"
+    "FuturePlan": "مخطط للتحديثات المستقبلية",
+    "ThemeColor": "لون السمة"
   },
   "SetStudySettingWidget": {
-    "done": "Done",
-    "goalDuration": "Goal Study Time",
-    "group": "Group",
-    "timePickerTitle": "Choose Time"
+    "done": "تم",
+    "goalDuration": "وقت الدراسة المستهدف",
+    "group": "المجموعة",
+    "timePickerTitle": "اختيار الوقت"
   },
   "SettingButton": {
-    "Setting": "Settings"
+    "Setting": "الإعدادات"
   },
   "SettingsScreen": {
-    "Settings": "Settings"
+    "Settings": "الإعدادات"
   },
   "SetProfileWidget": {
-    "next": "Next",
-    "selectBirthDate": "Select your date of birth",
-    "skip": "Skip"
+    "next": "التالي",
+    "selectBirthDate": "اختر تاريخ ميلادك",
+    "skip": "تخطي"
   },
-  "SocialScreen": "Social screen",
+  "SocialScreen": "الشاشة الاجتماعية",
   "SplashScreen": {
-    "message": "Doing your best today with Study Duck..."
+    "message": "تبذل قصارى جهدك اليوم مع Study Duck..."
   },
   "StatisticsScreen": {
     "monthly": "Monthly",
@@ -227,8 +227,9 @@
     "WhiteNoise": "White noise"
   },
   "TimerSetting": {
-    "AutoFocusMode": "Auto focus mode",
-    "TimeerSetting": "Timer settings"
+    "AutoFocusMode": "وضع التركيز التلقائي",
+    "AutoBreathingExercise": "تمرين التنفس التلقائي",
+    "TimeerSetting": "إعدادات المؤقت"
   },
   "TotalDuratinosLineChartWidget": {
     "totalStudyTime": "Total study time per day"
@@ -240,174 +241,64 @@
     "noData": "No recorded data."
   },
   "WhiteNoiseScreen": {
-    "Cafe": "Cafe",
-    "Rain": "Rain",
-    "Wind": "Wind",
-    "Fire": "Fire",
-    "Chime": "Chime",
-    "Stream": "Stream",
-    "Wave": "Wave",
-    "Bird": "bird",
-    "chooseYourWhiteNoise": "hooseYourWhiteNoise",
-    "WhiteNoise": "whiteNoise",
-    "No white noise playing": "No white noise playing",
-    "Volume Control": "Volume Control",
-    "Close": "Close",
-    "Stop": "Stop"
+    "Cafe": "مقهى",
+    "Rain": "مطر",
+    "Wind": "رياح",
+    "Fire": "نار",
+    "Chime": "جرس",
+    "Stream": "جدول",
+    "Wave": "موج",
+    "Bird": "طيور",
+    "chooseYourWhiteNoise": "اختر الضوضاء البيضاء",
+    "WhiteNoise": "الضوضاء البيضاء",
+    "No white noise playing": "لا توجد ضوضاء بيضاء قيد التشغيل",
+    "Volume Control": "التحكم في مستوى الصوت",
+    "Close": "إغلاق",
+    "Stop": "إيقاف"
   },
   "getBrithDateText": {
-    "birthDate": "Date of birth",
-    "birthDateHint": "Register your date of birth"
+    "birthDate": "تاريخ الميلاد",
+    "birthDateHint": "سجل تاريخ ميلادك"
   },
   "mbti": {
-    "MBTIQuestion1": {
-      "question": "When meeting new people",
-      "optionA": "I feel energized and happy",
-      "optionB": "I feel more comfortable being alone",
-      "category": "E/I"
-    },
-    "MBTIQuestion2": {
-      "question": "How do you recharge on weekends?",
-      "optionA": "Spending time with friends",
-      "optionB": "Having time alone",
-      "category": "E/I"
-    },
-    "MBTIQuestion3": {
-      "question": "When organizing thoughts",
-      "optionA": "I speak out loud to organize them",
-      "optionB": "I organize them quietly in my head",
-      "category": "E/I"
-    },
-    "MBTIQuestion4": {
-      "question": "Speaking in front of many people",
-      "optionA": "Feels natural and comfortable",
-      "optionB": "Feels burdensome and nervous",
-      "category": "E/I"
-    },
-    "MBTIQuestion5": {
-      "question": "If traveling alone",
-      "optionA": "Might feel boring and lonely",
-      "optionB": "Feel excited and looking forward to it",
-      "category": "E/I"
-    },
-    "MBTIQuestion6": {
-      "question": "When listening to explanations, what's important is",
-      "optionA": "Specific examples and details",
-      "optionB": "Overall flow and concepts",
-      "category": "S/N"
-    },
-    "MBTIQuestion7": {
-      "question": "When learning new skills",
-      "optionA": "Learn step by step following the manual",
-      "optionB": "Learn intuitively through hands-on experience",
-      "category": "S/N"
-    },
-    "MBTIQuestion8": {
-      "question": "In daily life",
-      "optionA": "Prefer familiar environments with little change",
-      "optionB": "Find new experiences and changes more interesting",
-      "category": "S/N"
-    },
-    "MBTIQuestion9": {
-      "question": "When working or studying",
-      "optionA": "Check details thoroughly",
-      "optionB": "Focus on understanding the overall flow",
-      "category": "S/N"
-    },
-    "MBTIQuestion10": {
-      "question": "When making judgments",
-      "optionA": "Judge the present based on past experiences",
-      "optionB": "Consider future possibilities more important",
-      "category": "S/N"
-    },
-    "MBTIQuestion11": {
-      "question": "When making important decisions",
-      "optionA": "Value logic and objective facts",
-      "optionB": "Consider emotions and relationships",
-      "category": "T/F"
-    },
-    "MBTIQuestion12": {
-      "question": "In debates, what's important is",
-      "optionA": "Winning with logic",
-      "optionB": "Considering others' feelings",
-      "category": "T/F"
-    },
-    "MBTIQuestion13": {
-      "question": "When others share their concerns",
-      "optionA": "Suggest practical solutions",
-      "optionB": "Empathize with their feelings",
-      "category": "T/F"
-    },
-    "MBTIQuestion14": {
-      "question": "When handling tasks, what's important is",
-      "optionA": "Efficiency and logic",
-      "optionB": "Teamwork and atmosphere",
-      "category": "T/F"
-    },
-    "MBTIQuestion15": {
-      "question": "When making decisions",
-      "optionA": "Judge based on right and wrong",
-      "optionB": "Consider others' feelings",
-      "category": "T/F"
-    },
-    "MBTIQuestion16": {
-      "question": "Schedule management",
-      "optionA": "Like to plan ahead and stick to it",
-      "optionB": "Act flexibly and spontaneously",
-      "category": "J/P"
-    },
-    "MBTIQuestion17": {
-      "question": "When going on a trip",
-      "optionA": "Make detailed plans",
-      "optionB": "Decide spontaneously on the spot",
-      "category": "J/P"
-    },
-    "MBTIQuestion18": {
-      "question": "When there's a deadline",
-      "optionA": "Prefer to finish early",
-      "optionB": "Flexibly adjust until the last minute",
-      "category": "J/P"
-    },
-    "MBTIQuestion19": {
-      "question": "Preferred environment",
-      "optionA": "Organized and neat space",
-      "optionB": "Space with free atmosphere",
-      "category": "J/P"
-    },
-    "MBTIQuestion20": {
-      "question": "When plans change",
-      "optionA": "Feel uncomfortable",
-      "optionB": "Adapt flexibly",
-      "category": "J/P"
-    }
+    "MBTIQuestion1": "كيف تشحن طاقتك؟",
+    "MBTIQuestion1Option1": "أحب قضاء الوقت مع الآخرين",
+    "MBTIQuestion1Option2": "أحب قضاء الوقت بمفردي",
+    "MBTIQuestion2": "كيف تجمع المعلومات؟",
+    "MBTIQuestion2Option1": "أركز على الحقائق والتفاصيل",
+    "MBTIQuestion2Option2": "أركز على المعنى والإمكانيات",
+    "MBTIQuestion3": "كيف تتخذ القرارات؟",
+    "MBTIQuestion3Option1": "أفكر بشكل منطقي وموضوعي",
+    "MBTIQuestion3Option2": "أعتمد على مشاعري وقيمي",
+    "MBTIQuestion4": "كيف تنظم حياتك؟",
+    "MBTIQuestion4Option1": "أحب التخطيط والتنظيم",
+    "MBTIQuestion4Option2": "أفضل المرونة والتكيف"
   },
   "mbtiResult": {
-    "quickInfo": "📚 Quick Learning Info",
-    "learningGuide": "🎯 Learning Method Guide",
-    "consultingSummary": "💡 Learning Consulting Summary",
-    "recommendedTime": "Recommended Study Time",
-    "dailyStudyTime": "Recommended Daily Study Hours",
-    "strongSubjects": "Strong Subjects",
-    "weakSubjects": "Weak Subjects",
-    "learningMethod": "Learning Method",
-    "timeManagement": "Time Management",
-    "analysisTitle": "MBTI Learning Style Analysis Report",
-    "analysisResult": "Learning Type Analysis Result",
-    "confirm": "Confirm",
-    "shareComplete": "Share completed",
-    "shareFailed": "Share failed",
-    "myMBTIStyle": "My MBTI Learning Style",
-    "CheckMyMBTI": "Check my MBTI learning style result!\n#StudyDuck #StudyDuck #MBTILearning",
-    "MBTILearningStyleTest": "MBTI Learning Style Test",
-    "question": "Question",
-    "MBTINotTest": "You haven't taken the MBTI test yet. Please take the test.",
-    "error": "Error",
-    "Tryagain": "Try again",
-    "Failedtoloadthequestion": "Failed to load the question.",
-    "GoTest": "Go to Test",
-    "permissionDenied": "Permission denied",
-    "permissionTitle": "Permission",
-    "openSettings": "Open Settings"
+    "consultingSummary": "💡 ملخص استشارة التعلم",
+    "recommendedTime": "وقت الدراسة الموصى به",
+    "dailyStudyTime": "ساعات الدراسة اليومية الموصى بها",
+    "strongSubjects": "المواد القوية",
+    "weakSubjects": "المواد الضعيفة",
+    "learningMethod": "طريقة التعلم",
+    "timeManagement": "إدارة الوقت",
+    "analysisTitle": "تقرير تحليل نمط التعلم MBTI",
+    "analysisResult": "نتيجة تحليل نمط التعلم",
+    "confirm": "تأكيد",
+    "shareComplete": "تم المشاركة",
+    "shareFailed": "فشلت المشاركة",
+    "myMBTIStyle": "نمط تعلمي MBTI",
+    "CheckMyMBTI": "تحقق من نتيجة نمط تعلمي MBTI!\n#StudyDuck #StudyDuck #MBTILearning",
+    "MBTILearningStyleTest": "اختبار نمط التعلم MBTI",
+    "question": "سؤال",
+    "MBTINotTest": "لم تقم باختبار MBTI بعد. يرجى إجراء الاختبار.",
+    "error": "خطأ",
+    "Tryagain": "حاول مرة أخرى",
+    "Failedtoloadthequestion": "فشل في تحميل السؤال",
+    "GoTest": "اذهب إلى الاختبار",
+    "permissionDenied": "تم رفض الإذن",
+    "permissionTitle": "الإذن",
+    "openSettings": "فتح الإعدادات"
   },
   "mbtiTypeResult": {
     "ISTJ": {
@@ -556,21 +447,20 @@
     }
   },
   "MBTIResoltScreen": {
-    "MyMBTIresult": "My MBTI result"
+    "MyMBTIresult": "نتيجة MBTI الخاصة بي"
   },
   "License": {
-    "License": "License"
+    "License": "الترخيص"
   },
   "BreathingExercise": {
-    "Intro": "This breathing technique was introduced by Dr. Andrew Weil. \nIt is effective in quickly calming the nervous system, relieving stress, and improving concentration. \n\n We will now proceed with the 4-7-8 breathing exercise.",
-    "Inhale": "Close your mouth and inhale slowly through your nose for 4 seconds.",
-    "Hold": "Hold your breath for 7 seconds.",
-    "Exhale": "Exhale slowly and completely through your mouth for 8 seconds, making a \"whoosh\" sound.",
-    "Completed": "Breathing exercise completed!",
-    "Repetition": "Repetition"
+    "Intro": "تقنية التنفس 4-7-8 هي تمرين تنفس بسيط يمكن أن يساعد في تهدئة الجسم والعقل",
+    "Step1": "استنشق من خلال أنفك لمدة 4 ثوانٍ",
+    "Step2": "احبس أنفاسك لمدة 7 ثوانٍ",
+    "Step3": "أخرج الهواء من فمك لمدة 8 ثوانٍ",
+    "Step4": "كرر هذه العملية 4 مرات"
   },
   "Common": {
-    "Advertisement": "4-7-8 Breathing Exercise",
-    "Close": "Start Learning"
+    "Advertisement": "تمرين التنفس 4-7-8",
+    "Close": "ابدأ الدراسة"
   }
 }

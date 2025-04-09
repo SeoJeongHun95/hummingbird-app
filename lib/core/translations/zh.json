@@ -228,6 +228,7 @@
   },
   "TimerSetting": {
     "AutoFocusMode": "自动专注模式",
+    "AutoBreathingExercise": "自动呼吸练习",
     "TimeerSetting": "计时器设置"
   },
   "TotalDuratinosLineChartWidget": {
@@ -565,7 +566,7 @@
     "Intro": "这是由安德鲁·韦尔博士介绍的一种呼吸方法，\n它能有效快速地镇静神经系统、缓解压力并提高注意力。\n\n 我们将进行 4-7-8 呼吸练习。",
     "Inhale": "闭上嘴巴，用鼻子缓慢地吸气 4 秒钟。",
     "Hold": "屏住呼吸 7 秒钟。",
-    "Exhale": "微微张开嘴巴，缓慢而完全地呼气 8 秒钟，发出“嘘”的声音。",
+    "Exhale": "微微张开嘴巴，缓慢而完全地呼气 8 秒钟，发出\"嘘\"的声音。",
     "Completed": "呼吸练习完成！",
     "Repetition": "重复"
   },

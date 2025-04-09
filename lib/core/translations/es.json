@@ -227,8 +227,9 @@
     "WhiteNoise": "White noise"
   },
   "TimerSetting": {
-    "AutoFocusMode": "Auto focus mode",
-    "TimeerSetting": "Timer settings"
+    "AutoFocusMode": "Modo de enfoque automático",
+    "AutoBreathingExercise": "Ejercicio de respiración automático",
+    "TimeerSetting": "Configuración del temporizador"
   },
   "TotalDuratinosLineChartWidget": {
     "totalStudyTime": "Total study time per day"
@@ -562,15 +563,15 @@
     "License": "License"
   },
   "BreathingExercise": {
-    "Intro": "This breathing technique was introduced by Dr. Andrew Weil. \nIt is effective in quickly calming the nervous system, relieving stress, and improving concentration. \n\n We will now proceed with the 4-7-8 breathing exercise.",
-    "Inhale": "Close your mouth and inhale slowly through your nose for 4 seconds.",
-    "Hold": "Hold your breath for 7 seconds.",
-    "Exhale": "Exhale slowly and completely through your mouth for 8 seconds, making a \"whoosh\" sound.",
-    "Completed": "Breathing exercise completed!",
-    "Repetition": "Repetition"
+    "Intro": "La técnica de respiración 4-7-8, introducida por el Dr. Andrew Weil,\nes un método eficaz para calmar el sistema nervioso, reducir el estrés y mejorar la concentración.\n\nVamos a realizar el ejercicio de respiración 4-7-8.",
+    "Inhale": "Cierre la boca e inhale lentamente por la nariz durante 4 segundos.",
+    "Hold": "Mantenga la respiración durante 7 segundos.",
+    "Exhale": "Exhale lenta y completamente por la boca durante 8 segundos, haciendo un sonido de soplido.",
+    "Completed": "¡Ejercicio de respiración completado!",
+    "Repetition": "Repetir"
   },
   "Common": {
-    "Advertisement": "4-7-8 Breathing Exercise",
-    "Close": "Start Learning"
+    "Advertisement": "Ejercicio de respiración 4-7-8",
+    "Close": "Comenzar a estudiar"
   }
 }

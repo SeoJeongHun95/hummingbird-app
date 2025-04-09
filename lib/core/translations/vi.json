@@ -228,6 +228,7 @@
   },
   "TimerSetting": {
     "AutoFocusMode": "Chế độ tập trung tự động",
+    "AutoBreathingExercise": "Bài tập thở tự động",
     "TimeerSetting": "Cài đặt hẹn giờ"
   },
   "TotalDuratinosLineChartWidget": {
@@ -562,10 +563,10 @@
     "License": "Giấy phép"
   },
   "BreathingExercise": {
-    "Intro": "Đây là phương pháp thở được giới thiệu bởi Tiến sĩ Andrew Weil, \nhiệu quả trong việc nhanh chóng làm dịu hệ thần kinh, giảm căng thẳng và cải thiện sự tập trung. \n\n Chúng ta sẽ thực hiện bài tập thở 4-7-8.",
-    "Inhale": "Ngậm miệng và hít vào từ từ bằng mũi trong 4 giây.",
-    "Hold": "Giữ hơi thở trong 7 giây.",
-    "Exhale": "Thở ra từ từ và hoàn toàn bằng miệng trong 8 giây, tạo ra âm thanh \"phù\".",
+    "Intro": "Kỹ thuật thở 4-7-8, được giới thiệu bởi Tiến sĩ Andrew Weil,\nlà một phương pháp hiệu quả để làm dịu hệ thần kinh, giảm căng thẳng và cải thiện tập trung.\n\nChúng ta sẽ thực hiện bài tập thở 4-7-8.",
+    "Inhale": "Ngậm miệng và hít vào chậm rãi qua mũi trong 4 giây.",
+    "Hold": "Nín thở trong 7 giây.",
+    "Exhale": "Thở ra chậm rãi và hoàn toàn qua miệng trong 8 giây, tạo âm thanh thổi.",
     "Completed": "Hoàn thành bài tập thở!",
     "Repetition": "Lặp lại"
   },
