@@ -228,7 +228,7 @@
   },
   "TimerSetting": {
     "AutoFocusMode": "وضع التركيز التلقائي",
-    "AutoBreathingExercise": "تمرين التنفس التلقائي",
+    "AutoBreathingExercise": "وضع التنفس التلقائي للتركيز,",
     "TimeerSetting": "إعدادات المؤقت"
   },
   "TotalDuratinosLineChartWidget": {
