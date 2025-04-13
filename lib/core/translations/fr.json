@@ -249,6 +249,8 @@
     "Stream": "Ruisseau",
     "Wave": "Vague",
     "Bird": "Oiseau",
+    "Pen": "Stylo",
+    "Keyboard": "Clavier",
     "chooseYourWhiteNoise": "Choisissez votre bruit blanc",
     "WhiteNoise": "Bruit blanc",
     "No white noise playing": "Aucun bruit blanc en cours",
