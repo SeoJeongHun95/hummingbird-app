@@ -5,6 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../../../core/services/analytics_service.dart';
 import '../../../core/utils/utils.dart';
@@ -22,48 +24,48 @@ class Auth extends _$Auth {
 
   bool get isLoggedIn => user != null;
 
-  Future<void> signInWithGoogle() async {
+  Future<UserCredential> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      if (googleUser == null) return;
-
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser.authentication;
-
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
       final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
       );
+      final userCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
 
-      await FirebaseAuth.instance.signInWithCredential(credential);
+      // Analytics 로깅
+      await AnalyticsService().logLogin('google');
 
-      // Google 로그인 이벤트 추적
-      await AnalyticsService().logLogin('google_login');
+      return userCredential;
     } catch (e) {
-      log("Google 로그인 실패: $e");
+      throw Exception('Google 로그인 실패: $e');
     }
   }
 
-  Future<void> signInWithApple() async {
+  Future<UserCredential> signInWithApple() async {
     try {
       final appleCredential = await SignInWithApple.getAppleIDCredential(
         scopes: [
           AppleIDAuthorizationScopes.email,
-          AppleIDAuthorizationScopes.fullName
+          AppleIDAuthorizationScopes.fullName,
         ],
       );
-
-      final AuthCredential credential = OAuthProvider("apple.com").credential(
+      final oauthCredential = OAuthProvider('apple.com').credential(
         idToken: appleCredential.identityToken,
         accessToken: appleCredential.authorizationCode,
       );
+      final userCredential =
+          await FirebaseAuth.instance.signInWithCredential(oauthCredential);
 
-      await FirebaseAuth.instance.signInWithCredential(credential);
+      // Analytics 로깅
+      await AnalyticsService().logLogin('apple');
 
-      // Apple 로그인 이벤트 추적
-      await AnalyticsService().logLogin('apple_login');
+      return userCredential;
     } catch (e) {
-      log("Apple 로그인 실패: $e");
+      throw Exception('Apple 로그인 실패: $e');
     }
   }
 
@@ -125,6 +127,20 @@ class Auth extends _$Auth {
       }
     } catch (e) {
       log("❌ 오류 발생: $e");
+    }
+  }
+
+  Future<void> signUp(String email, String password) async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      // Analytics 로깅
+      await AnalyticsService().logSignUp('email');
+    } catch (e) {
+      throw Exception('회원가입 실패: $e');
     }
   }
 }

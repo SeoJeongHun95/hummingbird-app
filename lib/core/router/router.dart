@@ -267,7 +267,7 @@ CustomTransitionPage buildPageWithDefaultTransition<T>({
 }) {
   // 화면 전환 이벤트 추적
   final String toPage = state.matchedLocation;
-  AnalyticsService().logScreenView(toPage);
+  AnalyticsService().logScreenView(toPage, 'Router');
 
   if (currentPage != null) {
     AnalyticsService().logPageNavigation(currentPage!, toPage);

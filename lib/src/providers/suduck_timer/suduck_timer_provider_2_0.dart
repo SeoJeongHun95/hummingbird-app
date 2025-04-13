@@ -170,7 +170,7 @@ class SuDuckTimer extends _$SuDuckTimer {
 
     await AnalyticsService().logTimerSave(
       currentSubject.title,
-      state.elapsedTime,
+      Duration(seconds: state.elapsedTime),
     );
 
     resetTimer();

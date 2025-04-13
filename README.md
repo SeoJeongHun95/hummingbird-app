@@ -55,48 +55,54 @@ zh.json 중국어
 
 ## Analytics 로그
 
-### 로그 이벤트 종류
+### 현재 로깅되는 이벤트
 
-1. **페이지 이동 이벤트**
+1. **페이지 이동 이벤트 (`page_navigation`)**
 
-   - 이벤트명: `page_navigation`
+   - 발생 위치: `router.dart`의 페이지 전환 시
    - 파라미터:
-     - `from_page`: 이전 페이지 경로
+     - `from_page`: 이전 페이지 경로 (예: `/home`, `/social`)
      - `to_page`: 이동한 페이지 경로
-     - `timestamp`: 이벤트 발생 시간
+     - `timestamp`: 이벤트 발생 시간 (ISO 8601 형식)
 
-2. **화면 조회 이벤트**
+2. **화면 조회 이벤트 (`screen_view`)**
 
-   - 이벤트명: `screen_view`
+   - 발생 위치: `router.dart`의 화면 전환 시
    - 파라미터:
-     - `screen_name`: 화면 이름
-     - `screen_class`: 화면 클래스
+     - `screen_name`: 화면 이름 (예: `HomeScreen`, `SocialScreen`)
+     - `screen_class`: 화면 클래스 이름
      - `timestamp`: 이벤트 발생 시간
 
 3. **타이머 관련 이벤트**
 
-   - 이벤트명: `timer_start`
-   - 파라미터:
+   - 타이머 시작 (`timer_start`)
 
-     - `timer_type`: 타이머 종류
-     - `timestamp`: 이벤트 발생 시간
+     - 발생 위치: `SuduckTimerFocusModeWidget` 초기화 시
+     - 파라미터:
+       - `timer_type`: 타이머 종류 (현재 `focus_mode`만 사용)
+       - `timestamp`: 이벤트 발생 시간
 
-   - 이벤트명: `timer_save`
-   - 파라미터:
-     - `timer_type`: 타이머 종류
-     - `duration`: 타이머 지속 시간
-     - `timestamp`: 이벤트 발생 시간
+   - 타이머 저장 (`timer_save`)
+     - 발생 위치: `SuduckTimerFocusModeWidget`의 `_saveTimerData` 메서드
+     - 파라미터:
+       - `timer_type`: 타이머 종류 (`focus_mode`)
+       - `duration`: 타이머 지속 시간 (초 단위)
+       - `timestamp`: 이벤트 발생 시간
 
 4. **인증 관련 이벤트**
 
-   - 이벤트명: `login`
-   - 파라미터:
+   - 로그인 (`login`)
 
-     - `login_method`: 로그인 방법
+     - 발생 위치: `AuthProvider`의 로그인 메서드
+     - 파라미터:
+       - `login_method`: 로그인 방법 (`google`, `apple`)
+       - `timestamp`: 이벤트 발생 시간
 
-   - 이벤트명: `sign_up`
-   - 파라미터:
-     - `sign_up_method`: 회원가입 방법
+   - 회원가입 (`sign_up`)
+     - 발생 위치: `AuthProvider`의 `signUp` 메서드
+     - 파라미터:
+       - `sign_up_method`: 회원가입 방법 (현재 `email`만 사용)
+       - `timestamp`: 이벤트 발생 시간
 
 ### 로그 확인 방법
 
@@ -108,9 +114,11 @@ zh.json 중국어
    - "Events" 탭에서 각 이벤트별 통계 확인 가능
 
 2. **BigQuery 연동**
+
    - Firebase Console에서 BigQuery 연동 설정
    - BigQuery에서 SQL 쿼리를 사용하여 상세 데이터 분석 가능
    - 예시 쿼리:
+
      ```sql
      -- 페이지 이동 패턴 분석
      SELECT
@@ -121,6 +129,23 @@ zh.json 중국어
      WHERE event_name = 'page_navigation'
      GROUP BY from_page, to_page
      ORDER BY count DESC;
+
+     -- 타이머 사용 패턴 분석
+     SELECT
+       timer_type,
+       AVG(duration) as avg_duration,
+       COUNT(*) as count
+     FROM `project.dataset.events_*`
+     WHERE event_name = 'timer_save'
+     GROUP BY timer_type;
+
+     -- 로그인 방법 분석
+     SELECT
+       login_method,
+       COUNT(*) as count
+     FROM `project.dataset.events_*`
+     WHERE event_name = 'login'
+     GROUP BY login_method;
      ```
 
 ### 주요 분석 지표
@@ -129,12 +154,13 @@ zh.json 중국어
 
    - 가장 많이 방문하는 페이지
    - 페이지 간 이동 패턴
-   - 기능 사용 빈도
+   - 타이머 사용 빈도와 평균 지속 시간
+   - 로그인 방법 선호도
 
 2. **사용자 경험 최적화**
 
    - 페이지 이동 경로 분석
-   - 사용자 흐름 파악
+   - 타이머 사용 패턴
    - 기능 접근성 평가
 
 3. **성능 모니터링**
