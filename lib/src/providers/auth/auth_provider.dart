@@ -98,7 +98,9 @@ class Auth extends _$Auth {
 
       if (providerId == GoogleAuthProvider.PROVIDER_ID) {
         final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-        if (googleUser == null) throw Exception("Google 로그인 실패");
+        if (googleUser == null) {
+          return;
+        }
 
         final GoogleSignInAuthentication googleAuth =
             await googleUser.authentication;
