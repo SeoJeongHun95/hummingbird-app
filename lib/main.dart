@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:ui';
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'core/router/router.dart';
+import 'core/services/analytics_service.dart';
 import 'core/services/notification_service.dart';
 import 'core/utils/show_snack_bar.dart';
 import 'src/app_initialize.dart';
@@ -45,6 +47,11 @@ void main() async {
   // Firebase 초기화를 먼저 수행
   await Firebase.initializeApp();
   await MobileAds.instance.initialize();
+
+  // Firebase Analytics 초기화
+  await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
+  await FirebaseAnalytics.instance
+      .setSessionTimeoutDuration(const Duration(minutes: 30));
 
   await EasyLocalization.ensureInitialized();
   await appInitialize();

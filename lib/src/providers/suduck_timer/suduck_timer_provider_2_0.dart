@@ -6,6 +6,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../core/services/analytics_service.dart';
 import '../../../core/utils/selection_haptic.dart';
 import '../../../core/utils/utils.dart';
 import '../../datasource/suduck_timer_state.dart';
@@ -113,6 +114,10 @@ class SuDuckTimer extends _$SuDuckTimer {
       currSubject: subject,
       startAt: formattedEpochTime,
     );
+
+    await AnalyticsService().logTimerStart(
+      subject == null ? 'study_start' : subject.title,
+    );
   }
 
   void stopTimer() async {
@@ -162,6 +167,11 @@ class SuDuckTimer extends _$SuDuckTimer {
         .addStudyRecord(updatedRecord);
 
     await suduckRepo.deleteSuDuckTimerState();
+
+    await AnalyticsService().logTimerSave(
+      currentSubject.title,
+      Duration(seconds: state.elapsedTime),
+    );
 
     resetTimer();
   }

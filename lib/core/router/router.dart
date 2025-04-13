@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../src/models/subject/subject.dart';
 import '../../src/providers/auth/auth_provider.dart';
@@ -22,9 +23,12 @@ import '../../src/views/statistics/views/statistics_screen.dart';
 import '../../src/views/tutorial/profile_setting_screen.dart';
 import '../../src/views/tutorial/study_setting_screen.dart';
 import '../../src/views/white_noise/white_noise_player_screen.dart';
+import '../../core/services/analytics_service.dart';
+import 'bottom_nav_bar.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 bool firstRun = true;
+String? currentPage;
 
 // GoRouter 설정
 final goRouterProvider = Provider<GoRouter>((ref) {
@@ -253,10 +257,6 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         ),
       ),
     ],
-
-    // errorBuilder: (context, state) => PageNotFound(
-    //   errMsg: state.error.toString(),
-    // ),
   );
 });
 
@@ -265,6 +265,15 @@ CustomTransitionPage buildPageWithDefaultTransition<T>({
   required GoRouterState state,
   required Widget child,
 }) {
+  // 화면 전환 이벤트 추적
+  final String toPage = state.matchedLocation;
+  AnalyticsService().logScreenView(toPage, 'Router');
+
+  if (currentPage != null) {
+    AnalyticsService().logPageNavigation(currentPage!, toPage);
+  }
+  currentPage = toPage;
+
   return CustomTransitionPage<T>(
     key: state.pageKey,
     child: child,

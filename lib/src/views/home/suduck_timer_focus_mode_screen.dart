@@ -12,6 +12,7 @@ import '../../../core/utils/get_formatted_time.dart';
 import '../../../core/utils/selection_haptic.dart';
 import '../../providers/suduck_timer/suduck_timer_provider_2_0.dart';
 import '../../viewmodels/timer/timer_bg_color_provider.dart';
+import '../../../core/services/analytics_service.dart';
 
 class SuduckTimerFocusModeWidget extends ConsumerStatefulWidget {
   const SuduckTimerFocusModeWidget({super.key});
@@ -145,6 +146,9 @@ class _SuduckTimerFocusModeWidgetState
       begin: ref.read(timerBgColorProvider),
       end: ref.read(timerBgColorProvider),
     ).animate(_colorController);
+
+    // 타이머 시작 이벤트
+    AnalyticsService().logTimerStart('focus_mode');
   }
 
   @override
@@ -396,6 +400,11 @@ class _SuduckTimerFocusModeWidgetState
     } else {
       return hsl.withLightness(hsl.lightness < 0.5 ? 0.9 : 0.1).toColor();
     }
+  }
+
+  Future<void> _saveTimerData(Duration duration) async {
+    // 타이머 저장 이벤트
+    await AnalyticsService().logTimerSave('focus_mode', duration);
   }
 }
 
