@@ -228,6 +228,7 @@
   },
   "TimerSetting": {
     "AutoFocusMode": "Modo foco automático",
+    "AutoBreathingExercise": "Exercício de respiração automático",
     "TimeerSetting": "Configurações do temporizador"
   },
   "TotalDuratinosLineChartWidget": {
@@ -574,5 +575,14 @@
   "Common": {
     "Advertisement": "Exercício de Respiração 4-7-8",
     "Close": "Começar a Estudar"
+  },
+  "study_group": {
+    "worker": "Trabalhador",
+    "university_student": "Estudante Universitário",
+    "high_school_3rd": "3º Ano do Ensino Médio",
+    "high_school_2nd": "2º Ano do Ensino Médio",
+    "high_school_1st": "1º Ano do Ensino Médio",
+    "middle_school_student": "Estudante do Ensino Médio",
+    "elementary_student": "Estudante do Ensino Fundamental"
   }
 }

@@ -575,5 +575,14 @@
   "Common": {
     "Advertisement": "تمرين التنفس 4-7-8",
     "Close": "ابدأ التعلم"
+  },
+  "study_group": {
+    "worker": "عامل",
+    "university_student": "طالب جامعي",
+    "high_school_3rd": "ثالث ثانوي",
+    "high_school_2nd": "ثاني ثانوي",
+    "high_school_1st": "أول ثانوي",
+    "middle_school_student": "ثاني متوسط",
+    "elementary_student": "أول متوسط"
   }
 }

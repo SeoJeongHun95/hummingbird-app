@@ -57,12 +57,13 @@ class _SelectGroupBottomSheetState extends State<SelectGroupBottomSheet> {
             Expanded(
               child: ListView.separated(
                 itemBuilder: (context, index) {
+                  final key = groups[index];
                   return GestureDetector(
                     behavior: HitTestBehavior.opaque,
-                    onTap: () => selectGroup(groups[index]),
+                    onTap: () => selectGroup(key),
                     child: SettingTileWidget(
-                      title: groups[index],
-                      trailing: selectedGroup == groups[index]
+                      title: key,
+                      trailing: selectedGroup == key
                           ? Icon(
                               Icons.check,
                               size: 16.w,
@@ -81,5 +82,5 @@ class _SelectGroupBottomSheetState extends State<SelectGroupBottomSheet> {
     );
   }
 
-  List<String> get groups => StudyGroup.studyGroup[0]!;
+  List<String> get groups => StudyGroup.studyGroupKeys[0]!;
 }

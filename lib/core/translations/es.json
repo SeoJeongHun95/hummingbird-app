@@ -575,5 +575,14 @@
   "Common": {
     "Advertisement": "Ejercicio de respiración 4-7-8",
     "Close": "Comenzar a aprender"
+  },
+  "study_group": {
+    "worker": "Trabajador",
+    "university_student": "Estudiante universitario",
+    "high_school_3rd": "3er año de secundaria",
+    "high_school_2nd": "2do año de secundaria",
+    "high_school_1st": "1er año de secundaria",
+    "middle_school_student": "Estudiante de secundaria",
+    "elementary_student": "Estudiante de primaria"
   }
 }

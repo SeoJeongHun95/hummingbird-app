@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../../core/enum/mxnRate.dart';
 import '../../../../../../core/widgets/mxnContainer.dart';
 import 'select_goal_duration_button_widget.dart';
+import 'select_group_button_widget.dart';
 
 class StudySettingWidget extends StatelessWidget {
   const StudySettingWidget({super.key});
@@ -18,8 +19,8 @@ class StudySettingWidget extends StatelessWidget {
           children: [
             // SelectCountryButtonWidget(),
             // Divider(),
-            // SelectGroupButtonWidget(),
-            // Divider(),
+            SelectGroupButtonWidget(),
+            Divider(),
             SelectGoalDurationButtonWidget(),
           ],
         ),

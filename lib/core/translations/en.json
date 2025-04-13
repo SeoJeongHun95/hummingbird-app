@@ -575,5 +575,14 @@
   "Common": {
     "Advertisement": "4-7-8 Breathing Exercise",
     "Close": "Start Learning"
+  },
+  "study_group": {
+    "worker": "Worker",
+    "university_student": "University Student",
+    "high_school_3rd": "High School Senior",
+    "high_school_2nd": "High School Junior",
+    "high_school_1st": "High School Sophomore",
+    "middle_school_student": "Middle School Student",
+    "elementary_student": "Elementary Student"
   }
 }

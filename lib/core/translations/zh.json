@@ -575,5 +575,14 @@
   "Common": {
     "Advertisement": "4-7-8 呼吸练习",
     "Close": "开始学习"
+  },
+  "study_group": {
+    "worker": "工人",
+    "university_student": "大学生",
+    "high_school_3rd": "高中三年级",
+    "high_school_2nd": "高中二年级",
+    "high_school_1st": "高中一年级",
+    "middle_school_student": "初中生",
+    "elementary_student": "小学生"
   }
 }
