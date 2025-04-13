@@ -6,6 +6,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
+import '../../../core/services/analytics_service.dart';
 import '../../../core/utils/utils.dart';
 
 part 'auth_provider.g.dart';
@@ -35,6 +36,9 @@ class Auth extends _$Auth {
       );
 
       await FirebaseAuth.instance.signInWithCredential(credential);
+
+      // Google 로그인 이벤트 추적
+      await AnalyticsService().logLogin('google_login');
     } catch (e) {
       log("Google 로그인 실패: $e");
     }
@@ -55,8 +59,11 @@ class Auth extends _$Auth {
       );
 
       await FirebaseAuth.instance.signInWithCredential(credential);
+
+      // Apple 로그인 이벤트 추적
+      await AnalyticsService().logLogin('apple_login');
     } catch (e) {
-      log("Google 로그인 실패: $e");
+      log("Apple 로그인 실패: $e");
     }
   }
 

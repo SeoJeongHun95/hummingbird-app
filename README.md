@@ -52,3 +52,92 @@ ru.json 러시아어
 th.json 태국어
 vi.json 베트남어
 zh.json 중국어
+
+## Analytics 로그
+
+### 로그 이벤트 종류
+
+1. **페이지 이동 이벤트**
+
+   - 이벤트명: `page_navigation`
+   - 파라미터:
+     - `from_page`: 이전 페이지 경로
+     - `to_page`: 이동한 페이지 경로
+     - `timestamp`: 이벤트 발생 시간
+
+2. **화면 조회 이벤트**
+
+   - 이벤트명: `screen_view`
+   - 파라미터:
+     - `screen_name`: 화면 이름
+     - `screen_class`: 화면 클래스
+     - `timestamp`: 이벤트 발생 시간
+
+3. **타이머 관련 이벤트**
+
+   - 이벤트명: `timer_start`
+   - 파라미터:
+
+     - `timer_type`: 타이머 종류
+     - `timestamp`: 이벤트 발생 시간
+
+   - 이벤트명: `timer_save`
+   - 파라미터:
+     - `timer_type`: 타이머 종류
+     - `duration`: 타이머 지속 시간
+     - `timestamp`: 이벤트 발생 시간
+
+4. **인증 관련 이벤트**
+
+   - 이벤트명: `login`
+   - 파라미터:
+
+     - `login_method`: 로그인 방법
+
+   - 이벤트명: `sign_up`
+   - 파라미터:
+     - `sign_up_method`: 회원가입 방법
+
+### 로그 확인 방법
+
+1. **Firebase Console**
+
+   - [Firebase Console](https://console.firebase.google.com/)에 접속
+   - 프로젝트 선택
+   - 좌측 메뉴에서 "Analytics" 선택
+   - "Events" 탭에서 각 이벤트별 통계 확인 가능
+
+2. **BigQuery 연동**
+   - Firebase Console에서 BigQuery 연동 설정
+   - BigQuery에서 SQL 쿼리를 사용하여 상세 데이터 분석 가능
+   - 예시 쿼리:
+     ```sql
+     -- 페이지 이동 패턴 분석
+     SELECT
+       from_page,
+       to_page,
+       COUNT(*) as count
+     FROM `project.dataset.events_*`
+     WHERE event_name = 'page_navigation'
+     GROUP BY from_page, to_page
+     ORDER BY count DESC;
+     ```
+
+### 주요 분석 지표
+
+1. **사용자 행동 분석**
+
+   - 가장 많이 방문하는 페이지
+   - 페이지 간 이동 패턴
+   - 기능 사용 빈도
+
+2. **사용자 경험 최적화**
+
+   - 페이지 이동 경로 분석
+   - 사용자 흐름 파악
+   - 기능 접근성 평가
+
+3. **성능 모니터링**
+   - 이벤트 발생 시간 분석
+   - 사용자 세션 지속 시간
+   - 기능별 사용 빈도
