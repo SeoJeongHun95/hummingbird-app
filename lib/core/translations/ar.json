@@ -249,6 +249,8 @@
     "Stream": "جدول",
     "Wave": "موجة",
     "Bird": "طائر",
+    "Pen": "قلم",
+    "Keyboard": "لوحة المفاتيح",
     "chooseYourWhiteNoise": "اختر ضوضاءك البيضاء",
     "WhiteNoise": "ضوضاء بيضاء",
     "No white noise playing": "لا يتم تشغيل ضوضاء بيضاء",
@@ -573,5 +575,14 @@
   "Common": {
     "Advertisement": "تمرين التنفس 4-7-8",
     "Close": "ابدأ التعلم"
+  },
+  "study_group": {
+    "worker": "عامل",
+    "university_student": "طالب جامعي",
+    "high_school_3rd": "ثالث ثانوي",
+    "high_school_2nd": "ثاني ثانوي",
+    "high_school_1st": "أول ثانوي",
+    "middle_school_student": "ثاني متوسط",
+    "elementary_student": "أول متوسط"
   }
 }

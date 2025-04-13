@@ -249,6 +249,8 @@
     "Stream": "시냇물",
     "Wave": "파도",
     "Bird": "새",
+    "Pen": "펜",
+    "Keyboard": "키보드",
     "chooseYourWhiteNoise": "원하는 화이트 노이즈를 선택하세요",
     "WhiteNoise": "화이트 노이즈",
     "No white noise playing": "재생중인 화이트 노이즈 없음",
@@ -573,5 +575,14 @@
   "Common": {
     "Advertisement": "4-7-8 호흡법",
     "Close": "학습 시작하기"
+  },
+  "study_group": {
+    "worker": "직장인",
+    "university_student": "대학생",
+    "high_school_3rd": "고등학교 3학년/수험생",
+    "high_school_2nd": "고등학교 2학년",
+    "high_school_1st": "고등학교 1학년",
+    "middle_school_student": "중학생",
+    "elementary_student": "초등학생"
   }
 }

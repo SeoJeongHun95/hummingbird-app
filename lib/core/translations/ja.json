@@ -249,6 +249,8 @@
     "Stream": "小川",
     "Wave": "波",
     "Bird": "鳥",
+    "Pen": "ペン",
+    "Keyboard": "キーボード",
     "chooseYourWhiteNoise": "お好みのホワイトノイズを選んでください",
     "WhiteNoise": "ホワイトノイズ",
     "No white noise playing": "再生中のホワイトノイズはありません",
@@ -573,5 +575,14 @@
   "Common": {
     "Advertisement": "4-7-8呼吸法",
     "Close": "学習を始める"
+  },
+  "study_group": {
+    "worker": "従業員",
+    "university_student": "大学学生",
+    "high_school_3rd": "高校3年生",
+    "high_school_2nd": "高校2年生",
+    "high_school_1st": "高校1年生",
+    "middle_school_student": "中学生",
+    "elementary_student": "小学生"
   }
 }

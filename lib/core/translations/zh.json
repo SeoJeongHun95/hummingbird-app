@@ -249,6 +249,8 @@
     "Stream": "溪流",
     "Wave": "波浪",
     "Bird": "鸟",
+    "Pen": "笔",
+    "Keyboard": "键盘",
     "chooseYourWhiteNoise": "选择您的白噪音",
     "WhiteNoise": "白噪音",
     "No white noise playing": "没有播放白噪音",
@@ -573,5 +575,14 @@
   "Common": {
     "Advertisement": "4-7-8 呼吸练习",
     "Close": "开始学习"
+  },
+  "study_group": {
+    "worker": "工人",
+    "university_student": "大学生",
+    "high_school_3rd": "高中三年级",
+    "high_school_2nd": "高中二年级",
+    "high_school_1st": "高中一年级",
+    "middle_school_student": "初中生",
+    "elementary_student": "小学生"
   }
 }

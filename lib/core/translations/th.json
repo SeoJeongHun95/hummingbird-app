@@ -249,6 +249,8 @@
     "Stream": "ลำธาร",
     "Wave": "คลื่น",
     "Bird": "นก",
+    "Pen": "ปากกา",
+    "Keyboard": "คีย์บอร์ด",
     "chooseYourWhiteNoise": "เลือกเสียงไวท์นอยซ์ของคุณ",
     "WhiteNoise": "เสียงไวท์นอยซ์",
     "No white noise playing": "ไม่มีเสียงไวท์นอยซ์ที่กำลังเล่นอยู่",
@@ -573,5 +575,14 @@
   "Common": {
     "Advertisement": "การฝึกหายใจ 4-7-8",
     "Close": "เริ่มเรียน"
+  },
+  "study_group": {
+    "worker": "พนักงาน",
+    "university_student": "นักเรียนมัธยมศึกษาปีที่ 3",
+    "high_school_3rd": "มัธยมศึกษาปีที่ 3",
+    "high_school_2nd": "มัธยมศึกษาปีที่ 2",
+    "high_school_1st": "มัธยมศึกษาปีที่ 1",
+    "middle_school_student": "นักเรียนมัธยมศึกษาปีที่ 2",
+    "elementary_student": "นักเรียนมัธยมศึกษาปีที่ 1"
   }
 }

@@ -41,5 +41,5 @@ class SelectGroupContainerWidget extends ConsumerWidget {
     );
   }
 
-  List<String> get groups => StudyGroup.studyGroup[0]!;
+  List<String> get groups => StudyGroup.studyGroupKeys[0]!;
 }

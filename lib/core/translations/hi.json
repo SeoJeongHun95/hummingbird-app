@@ -249,6 +249,8 @@
     "Stream": "धारा",
     "Wave": "लहर",
     "Bird": "पक्षी",
+    "Pen": "पेन",
+    "Keyboard": "कीबोर्ड",
     "chooseYourWhiteNoise": "अपना श्वेत शोर चुनें",
     "WhiteNoise": "श्वेत शोर",
     "No white noise playing": "कोई श्वेत शोर नहीं चल रहा",
@@ -573,5 +575,14 @@
   "Common": {
     "Advertisement": "4-7-8 श्वास व्यायाम",
     "Close": "सीखना शुरू करें"
+  },
+  "study_group": {
+    "worker": "कर्मचारी",
+    "university_student": "विश्वविद्यालय छात्र",
+    "high_school_3rd": "उच्च विद्यालय 3 वर्ष",
+    "high_school_2nd": "उच्च विद्यालय 2 वर्ष",
+    "high_school_1st": "उच्च विद्यालय 1 वर्ष",
+    "middle_school_student": "मध्यम विद्यालय छात्र",
+    "elementary_student": "आदिम विद्यालय छात्र"
   }
 }

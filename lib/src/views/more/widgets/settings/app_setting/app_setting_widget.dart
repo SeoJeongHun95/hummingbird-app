@@ -4,6 +4,7 @@ import '../../../../../../core/enum/mxnRate.dart';
 import '../../../../../../core/widgets/mxnContainer.dart';
 import 'select_font_size_button_widget.dart';
 import 'select_language_button_widget.dart';
+import 'select_theme_button_widget.dart';
 
 class AppSettingWidget extends StatelessWidget {
   const AppSettingWidget({super.key});
@@ -19,8 +20,8 @@ class AppSettingWidget extends StatelessWidget {
           children: [
             // SelectThemeButtonWidget(),
             // Divider(),
-            SelectLanguageButtonWidget(),
-            Divider(),
+            // SelectLanguageButtonWidget(),
+            // Divider(),
             SelectFontSizeButtonWidget(),
           ],
         ),

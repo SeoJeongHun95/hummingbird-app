@@ -249,6 +249,8 @@
     "Stream": "Ruisseau",
     "Wave": "Vague",
     "Bird": "Oiseau",
+    "Pen": "Stylo",
+    "Keyboard": "Clavier",
     "chooseYourWhiteNoise": "Choisissez votre bruit blanc",
     "WhiteNoise": "Bruit blanc",
     "No white noise playing": "Aucun bruit blanc en cours",
@@ -573,5 +575,14 @@
   "Common": {
     "Advertisement": "Exercice de respiration 4-7-8",
     "Close": "Commencer l'apprentissage"
+  },
+  "study_group": {
+    "worker": "Travailleur",
+    "university_student": "Étudiant universitaire",
+    "high_school_3rd": "3ème année du lycée",
+    "high_school_2nd": "2ème année du lycée",
+    "high_school_1st": "1ère année du lycée",
+    "middle_school_student": "2ème année du collège",
+    "elementary_student": "1ère année du collège"
   }
 }

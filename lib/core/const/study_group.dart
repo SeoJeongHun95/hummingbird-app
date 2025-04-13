@@ -1,13 +1,13 @@
 class StudyGroup {
-  static const Map<int, List<String>> studyGroup = {
+  static const Map<int, List<String>> studyGroupKeys = {
     0: [
-      '직장인',
-      '대학생',
-      '고등학교 3학년/수험생',
-      '고등학교 2학년',
-      '고등학교 1학년',
-      '중학생',
-      '초등학생',
+      'study_group.worker',
+      'study_group.university_student',
+      'study_group.high_school_3rd',
+      'study_group.high_school_2nd',
+      'study_group.high_school_1st',
+      'study_group.middle_school_student',
+      'study_group.elementary_student',
     ],
   };
 }

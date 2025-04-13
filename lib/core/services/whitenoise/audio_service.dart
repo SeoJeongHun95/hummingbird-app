@@ -142,6 +142,14 @@ final multiAudioViewModelProvider =
           assetPath:
               'lib/core/mp3/evening-birds-singing-in-spring-background-sounds-of-nature-146388.mp3',
           imagePath: 'lib/core/imgs/whitenoise/bird.png'),
+      AudioModel(
+          name: 'WhiteNoiseScreen.Pen',
+          assetPath: 'lib/core/mp3/writing-with-pen-35109.mp3',
+          imagePath: 'lib/core/imgs/whitenoise/pen.png'),
+      AudioModel(
+          name: 'WhiteNoiseScreen.Keyboard',
+          assetPath: 'lib/core/mp3/typing-on-laptop-keyboard-308455.mp3',
+          imagePath: 'lib/core/imgs/whitenoise/keyboard.png'),
     ],
   );
 });
