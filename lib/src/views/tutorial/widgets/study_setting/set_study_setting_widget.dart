@@ -64,7 +64,7 @@ class SetStudySettingWidget extends StatelessWidget {
               },
               child: Row(
                 children: [
-                  Text(selectedGroup ?? ''),
+                  Text(selectedGroup ?? '').tr(),
                   const Spacer(),
                   Icon(Icons.keyboard_arrow_down),
                 ],
