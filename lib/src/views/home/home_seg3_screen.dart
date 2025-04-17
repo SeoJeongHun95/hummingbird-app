@@ -23,7 +23,7 @@ class Seg3Screen extends StatelessWidget {
               child: const StudyGrassWidget(),
             ),
           ),
-          const SizedBox(height: 8),
+          AdMobWidget.showBannerAd(50, true),
           DailyStatisticsWidget(),
         ],
       ),
