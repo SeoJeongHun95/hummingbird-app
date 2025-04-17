@@ -54,6 +54,15 @@ class _StudyGrassWidgetState extends State<StudyGrassWidget> {
 
   @override
   Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: _buildContent(),
+      ),
+    );
+  }
+
+  Widget _buildContent() {
     if (_isLoading) {
       return const Center(
         child: Padding(
@@ -85,70 +94,12 @@ class _StudyGrassWidgetState extends State<StudyGrassWidget> {
       );
     }
 
-    if (_grassData.isEmpty) {
-      return Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                tr('StudyGrass.NoData'),
-                style: TextStyle(color: Colors.grey[600]),
-              ),
-              const SizedBox(height: 8),
-              GrassGrid(grassData: []), // 빈 데이터로 그리드 표시
-              const SizedBox(height: 16),
-              _buildLegend(), // 빈 데이터일 때도 범례 표시
-            ],
-          ),
-        ),
-      );
-    }
-
     return Column(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const SizedBox(height: 16),
         GrassGrid(grassData: _grassData),
-        const SizedBox(height: 16),
-        _buildLegend(),
       ],
-    );
-  }
-
-  Widget _buildLegend() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(tr('StudyGrass.StudyTime'), style: TextStyle(fontSize: 12)),
-        _buildLegendItem('0h', Colors.grey[300]!),
-        _buildLegendItem('~1h', Colors.green[100]!),
-        _buildLegendItem('~2h', Colors.green[300]!),
-        _buildLegendItem('~4h', Colors.green[500]!),
-        _buildLegendItem('4h+', Colors.green[700]!),
-      ],
-    );
-  }
-
-  Widget _buildLegendItem(String text, Color color) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            width: 12,
-            height: 12,
-            decoration: BoxDecoration(
-              color: color,
-              borderRadius: BorderRadius.circular(2),
-            ),
-          ),
-          const SizedBox(width: 4),
-          Text(text, style: const TextStyle(fontSize: 12)),
-        ],
-      ),
     );
   }
 }
