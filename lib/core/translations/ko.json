@@ -587,8 +587,14 @@
     "elementary_student": "초등학생"
   },
   "StudyGrass": {
-    "Error": "학습 데이터를 불러오는 중 오류가 발생했습니다",
-    "NoData": "아직 학습 기록이 없습니다",
-    "StudyTime": "학습시간: "
+    "MonthRange": "{0} - {1}",
+    "StudyTime": "학습 시간",
+    "Duration": {
+      "Zero": "0시간",
+      "UnderOneHour": "~1시간",
+      "UnderTwoHours": "~2시간",
+      "UnderFourHours": "~4시간",
+      "OverFourHours": "4시간+"
+    }
   }
 }

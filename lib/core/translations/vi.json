@@ -574,7 +574,8 @@
   },
   "Common": {
     "Advertisement": "Bài tập thở 4-7-8",
-    "Close": "Bắt đầu học"
+    "Close": "Bắt đầu học",
+    "Retry": "Thử lại"
   },
   "study_group": {
     "worker": "Công nhân",
@@ -584,5 +585,16 @@
     "high_school_1st": "Lớp 10",
     "middle_school_student": "Lớp 9",
     "elementary_student": "Lớp 8"
+  },
+  "StudyGrass": {
+    "MonthRange": "{0} - {1}",
+    "StudyTime": "Thời gian học tập",
+    "Duration": {
+      "Zero": "0 giờ",
+      "UnderOneHour": "~1 giờ",
+      "UnderTwoHours": "~2 giờ",
+      "UnderFourHours": "~4 giờ",
+      "OverFourHours": "4 giờ+"
+    }
   }
 }

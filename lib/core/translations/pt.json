@@ -574,7 +574,8 @@
   },
   "Common": {
     "Advertisement": "Exercício de Respiração 4-7-8",
-    "Close": "Começar a Estudar"
+    "Close": "Começar a Estudar",
+    "Retry": "Tentar Novamente"
   },
   "study_group": {
     "worker": "Trabalhador",
@@ -584,5 +585,16 @@
     "high_school_1st": "1º Ano do Ensino Médio",
     "middle_school_student": "Estudante do Ensino Médio",
     "elementary_student": "Estudante do Ensino Fundamental"
+  },
+  "StudyGrass": {
+    "MonthRange": "{0} - {1}",
+    "StudyTime": "Tempo de Estudo",
+    "Duration": {
+      "Zero": "0 horas",
+      "UnderOneHour": "~1 hora",
+      "UnderTwoHours": "~2 horas",
+      "UnderFourHours": "~4 horas",
+      "OverFourHours": "4 horas+"
+    }
   }
 }
