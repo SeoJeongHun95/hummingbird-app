@@ -54,18 +54,18 @@ class GrassGrid extends StatelessWidget {
   Size _calculateOptimalCellSize(BuildContext context, int weeksCount) {
     final screenSize = MediaQuery.of(context).size;
     final horizontalPadding = 32.0; // 좌우 패딩 16.0 * 2
-    final monthRangeHeight = 24.0; // 연도와 월 표시 영역
-    final monthRangeMargin = 8.0; // 연도와 월 아래 마진
-    final legendHeight = 32.0; // 범례 영역
-    final legendMargin = 16.0; // 범례 위아래 마진
-    final containerPadding = 16.0; // 컨테이너 내부 패딩
+    final monthRangeHeight = 20.0; // 연도와 월 표시 영역
+    final monthRangeMargin = 2.0; // 연도와 월 아래 마진
+    final legendHeight = 1.0; // 범례 영역
+    final legendMargin = 4.0; // 범례 위아래 마진
+    final containerPadding = 5.0; // 컨테이너 내부 패딩
     final totalVerticalPadding = monthRangeHeight +
         monthRangeMargin +
         legendHeight +
         (legendMargin * 2) +
         (containerPadding * 2);
 
-    final cellMargin = 4.0;
+    final cellMargin = 2.0;
 
     // 가로 방향 계산
     final totalColumns = weeksCount + 1; // 요일 열 포함
@@ -73,8 +73,8 @@ class GrassGrid extends StatelessWidget {
     final maxCellWidth =
         (availableWidth - (totalColumns * cellMargin)) / totalColumns;
 
-    // 세로 방향 계산 (화면 높이의 35%를 최대로 사용)
-    final maxContainerHeight = screenSize.height * 0.35;
+    // 세로 방향 계산 (화면 높이의 25%를 최대로 사용)
+    final maxContainerHeight = screenSize.height * 0.25;
     final availableHeight = maxContainerHeight - totalVerticalPadding;
     final maxCellHeight = (availableHeight - (7 * cellMargin)) / 7;
 
@@ -90,7 +90,7 @@ class GrassGrid extends StatelessWidget {
     final now = DateTime.now();
     final weeksInTwoMonths = _getWeeksInTwoMonths();
     final cellSize = _calculateOptimalCellSize(context, weeksInTwoMonths);
-    final cellMargin = 4.0;
+    final cellMargin = 2.0;
 
     // Create a map of study durations by date
     final studyDurationMap = {
@@ -98,7 +98,7 @@ class GrassGrid extends StatelessWidget {
     };
 
     return Container(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(12.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -108,14 +108,14 @@ class GrassGrid extends StatelessWidget {
               Text(
                 _getMonthRangeText(),
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 13,
                   fontWeight: FontWeight.bold,
                   color: Colors.grey[800],
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 4),
           Container(
             decoration: BoxDecoration(
               border: Border.all(color: Colors.grey[200]!, width: 0.5),
@@ -139,7 +139,7 @@ class GrassGrid extends StatelessWidget {
                           child: Text(
                             day,
                             style: TextStyle(
-                              fontSize: cellSize.width < 14 ? 10 : 11,
+                              fontSize: 10,
                               color: Colors.grey[600],
                             ),
                           ),
