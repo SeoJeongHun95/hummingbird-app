@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../../../models/grass/grass_data_model.dart';
 
 class GrassGrid extends StatelessWidget {
@@ -28,34 +29,75 @@ class GrassGrid extends StatelessWidget {
       for (var data in grassData) data.studyDay: data.studyCount
     };
 
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: List.generate(16, (weekIndex) {
-          final weekStartDate = startDate.add(Duration(days: weekIndex * 7));
-          return Column(
-            children: List.generate(7, (dayIndex) {
-              final currentDate = weekStartDate.add(Duration(days: dayIndex));
-              final studyCount = studyCountMap[DateTime(
-                    currentDate.year,
-                    currentDate.month,
-                    currentDate.day,
-                  )] ??
-                  0;
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(DateFormat('MM/dd').format(startDate)),
+              Text(DateFormat('MM/dd').format(now)),
+            ],
+          ),
+        ),
+        const SizedBox(height: 4),
+        Row(
+          children: [
+            // 요일 열
+            Column(
+              children: List.generate(7, (dayIndex) {
+                final day = ['월', '화', '수', '목', '금', '토', '일'][dayIndex];
+                return Container(
+                  width: 20,
+                  height: 20,
+                  alignment: Alignment.center,
+                  margin: const EdgeInsets.all(2),
+                  child: Text(
+                    day,
+                    style: TextStyle(fontSize: 12),
+                  ),
+                );
+              }),
+            ),
+            // 잔디 그리드
+            Expanded(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(16, (weekIndex) {
+                    final weekStartDate =
+                        startDate.add(Duration(days: weekIndex * 7));
+                    return Column(
+                      children: List.generate(7, (dayIndex) {
+                        final currentDate =
+                            weekStartDate.add(Duration(days: dayIndex));
+                        final studyCount = studyCountMap[DateTime(
+                              currentDate.year,
+                              currentDate.month,
+                              currentDate.day,
+                            )] ??
+                            0;
 
-              return Container(
-                width: 12,
-                height: 12,
-                margin: const EdgeInsets.all(2),
-                decoration: BoxDecoration(
-                  color: _getColorForStudyCount(studyCount),
-                  borderRadius: BorderRadius.circular(2),
+                        return Container(
+                          width: 20,
+                          height: 20,
+                          margin: const EdgeInsets.all(2),
+                          decoration: BoxDecoration(
+                            color: _getColorForStudyCount(studyCount),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                        );
+                      }),
+                    );
+                  }),
                 ),
-              );
-            }),
-          );
-        }),
-      ),
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
