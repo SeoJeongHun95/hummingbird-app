@@ -34,6 +34,12 @@ class _StudyGrassWidgetState extends State<StudyGrassWidget> {
 
       final data = await _studyTimeService.getStudyTimeData();
 
+      print('Loaded study time data:');
+      for (var item in data) {
+        print(
+            'Date: ${item.studyDay}, Duration: ${item.studyDuration} seconds');
+      }
+
       if (mounted) {
         setState(() {
           _grassData = data;

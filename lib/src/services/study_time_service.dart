@@ -16,15 +16,18 @@ class StudyTimeService {
       // 현재 날짜의 시작 (00:00:00)
       final now = DateTime.now();
       final today = DateTime(now.year, now.month, now.day);
+      print('Getting study time data for current date: $today'); // 디버그 로그 추가
 
-      // 16주 전의 월요일을 구합니다
-      var startDate = today.subtract(const Duration(days: 16 * 7));
-      final weekday = startDate.weekday;
-      if (weekday != 1) {
-        startDate = startDate.subtract(Duration(days: weekday - 1));
+      // 이전 달의 첫 번째 월요일을 구합니다
+      final startOfPrevMonth = DateTime(now.year, now.month - 1, 1);
+      var startDate = startOfPrevMonth;
+      while (startDate.weekday != 1) {
+        startDate = startDate.subtract(const Duration(days: 1));
       }
 
       final startTimestamp = startDate.millisecondsSinceEpoch ~/ 1000;
+      print('Start date: $startDate'); // 디버그 로그 추가
+      print('Start timestamp: $startTimestamp'); // 디버그 로그 추가
 
       final QuerySnapshot snapshot = await _firestore
           .collection('users')
@@ -34,8 +37,12 @@ class StudyTimeService {
           .orderBy('studyDay', descending: true)
           .get();
 
-      return snapshot.docs.map((doc) {
+      print('Retrieved ${snapshot.docs.length} documents'); // 디버그 로그 추가
+
+      final result = snapshot.docs.map((doc) {
         final data = doc.data() as Map<String, dynamic>;
+        print('Document data: $data'); // 디버그 로그 추가
+
         // studyDuration이 없는 경우 studyCount를 기반으로 계산 (이전 데이터 호환성)
         if (!data.containsKey('studyDuration') &&
             data.containsKey('studyCount')) {
@@ -44,6 +51,15 @@ class StudyTimeService {
         }
         return GrassDataModel.fromJson(data);
       }).toList();
+
+      print(
+          'Converted to ${result.length} GrassDataModel objects'); // 디버그 로그 추가
+      for (var item in result) {
+        print(
+            'Model - Date: ${item.studyDay}, Duration: ${item.studyDuration}');
+      }
+
+      return result;
     } catch (e) {
       print('Error fetching study time data: $e');
       return [];
@@ -61,17 +77,33 @@ class StudyTimeService {
       final DateTime startOfDay = DateTime(today.year, today.month, today.day);
       final int studyDay = startOfDay.millisecondsSinceEpoch ~/ 1000;
 
-      await _firestore
+      print('Updating study time:'); // 디버그 로그 추가
+      print('Date: $startOfDay');
+      print('Study Day (timestamp): $studyDay');
+      print('Duration: $studyDuration seconds');
+
+      final docRef = _firestore
           .collection('users')
           .doc(user.uid)
           .collection('study_times')
-          .doc(studyDay.toString())
-          .set({
+          .doc(studyDay.toString());
+
+      // 현재 데이터 확인
+      final docSnapshot = await docRef.get();
+      if (docSnapshot.exists) {
+        print('Existing data: ${docSnapshot.data()}');
+      } else {
+        print('No existing data for this date');
+      }
+
+      await docRef.set({
         'studyDay': studyDay,
         'studyDuration': studyDuration,
         'studyCount': (studyDuration / 3600).ceil(), // 이전 버전과의 호환성을 위해 유지
         'updatedAt': FieldValue.serverTimestamp(),
       }, SetOptions(merge: true));
+
+      print('Study time updated successfully');
     } catch (e) {
       print('Error updating study time: $e');
       rethrow;

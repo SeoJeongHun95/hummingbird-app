@@ -14,15 +14,43 @@ class GrassGrid extends StatelessWidget {
 
   Color _getColorForStudyDuration(int durationInSeconds) {
     final hours = durationInSeconds / 3600; // 초를 시간으로 변환
-    if (durationInSeconds == 0) return Colors.grey[300]!;
-    if (hours <= 1) return Colors.green[100]!; // 1시간 이하
-    if (hours <= 2) return Colors.green[300]!; // 2시간 이하
-    if (hours <= 4) return Colors.green[500]!; // 4시간 이하
-    return Colors.green[700]!; // 4시간 초과
+    print(
+        'Converting duration: $durationInSeconds seconds = $hours hours'); // 디버그 로그
+
+    if (durationInSeconds == 0) {
+      print('Return gray for 0 hours');
+      return Colors.grey[300]!;
+    }
+    if (hours <= 1) {
+      print('Return light green for <= 1 hour');
+      return Colors.green[100]!;
+    }
+    if (hours <= 2) {
+      print('Return medium green for <= 2 hours');
+      return Colors.green[300]!;
+    }
+    if (hours <= 4) {
+      print('Return dark green for <= 4 hours');
+      return Colors.green[500]!;
+    }
+    print('Return darkest green for > 4 hours');
+    return Colors.green[700]!;
   }
 
   String _getDateKey(DateTime date) {
     return DateFormat('yyyy-MM-dd').format(date);
+  }
+
+  Map<String, int> _createStudyDurationMap() {
+    final Map<String, int> durationMap = {};
+    print('\nCreating study duration map from grass data:');
+    for (var data in grassData) {
+      final key = _getDateKey(data.studyDay);
+      durationMap[key] = data.studyDuration;
+      print(
+          'Adding to map - Date: ${data.studyDay}, Key: $key, Duration: ${data.studyDuration}');
+    }
+    return durationMap;
   }
 
   DateTime _getStartDate() {
@@ -56,14 +84,9 @@ class GrassGrid extends StatelessWidget {
     final horizontalPadding = 32.0; // 좌우 패딩 16.0 * 2
     final monthRangeHeight = 20.0; // 연도와 월 표시 영역
     final monthRangeMargin = 2.0; // 연도와 월 아래 마진
-    final legendHeight = 1.0; // 범례 영역
-    final legendMargin = 4.0; // 범례 위아래 마진
-    final containerPadding = 5.0; // 컨테이너 내부 패딩
-    final totalVerticalPadding = monthRangeHeight +
-        monthRangeMargin +
-        legendHeight +
-        (legendMargin * 2) +
-        (containerPadding * 2);
+    final containerPadding = 10.0; // 컨테이너 내부 패딩
+    final totalVerticalPadding =
+        monthRangeHeight + monthRangeMargin + (containerPadding * 2);
 
     final cellMargin = 2.0;
 
@@ -92,10 +115,23 @@ class GrassGrid extends StatelessWidget {
     final cellSize = _calculateOptimalCellSize(context, weeksInTwoMonths);
     final cellMargin = 2.0;
 
-    // Create a map of study durations by date
-    final studyDurationMap = {
-      for (var data in grassData) _getDateKey(data.studyDay): data.studyDuration
-    };
+    print('\nInitial data check:');
+    print('Start date: $startDate');
+    print('Current date: $now');
+    print('Weeks in two months: $weeksInTwoMonths');
+    print('Raw grass data length: ${grassData.length}');
+
+    for (var data in grassData) {
+      print(
+          'Raw data - Date: ${data.studyDay}, Duration: ${data.studyDuration}');
+    }
+
+    final studyDurationMap = _createStudyDurationMap();
+
+    print('\nFinal study duration map:');
+    studyDurationMap.forEach((key, value) {
+      print('$key: $value seconds');
+    });
 
     return Container(
       padding: const EdgeInsets.all(12.0),
@@ -126,7 +162,6 @@ class GrassGrid extends StatelessWidget {
               child: IntrinsicHeight(
                 child: Row(
                   children: [
-                    // 요일 열
                     Column(
                       children: List.generate(7, (dayIndex) {
                         final day =
@@ -146,7 +181,6 @@ class GrassGrid extends StatelessWidget {
                         );
                       }),
                     ),
-                    // 잔디 그리드
                     Row(
                       children: List.generate(weeksInTwoMonths, (weekIndex) {
                         final weekStartDate =
@@ -160,6 +194,9 @@ class GrassGrid extends StatelessWidget {
                             final dateKey = _getDateKey(currentDate);
                             final studyDuration =
                                 studyDurationMap[dateKey] ?? 0;
+
+                            print(
+                                'Cell date: $dateKey, isInRange: $isInRange, duration: $studyDuration'); // 디버그 로그
 
                             return Container(
                               width: cellSize.width,
