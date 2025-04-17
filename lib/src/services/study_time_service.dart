@@ -79,9 +79,15 @@ class StudyTimeService {
         throw Exception('User not found');
       }
 
-      // 오늘 날짜의 시작 시간 (00:00:00)
-      final DateTime today = DateTime.now();
-      final DateTime startOfDay = DateTime(today.year, today.month, today.day);
+      // 한국 시간 기준으로 새벽 6시 이전이면 전날로 처리
+      final now = DateTime.now();
+      final koreanTime = now.add(const Duration(hours: 9)); // UTC to KST
+      final isBeforeSixAM = koreanTime.hour < 6;
+
+      final DateTime startOfDay = isBeforeSixAM
+          ? DateTime(now.year, now.month, now.day - 1)
+          : DateTime(now.year, now.month, now.day);
+
       final int studyDay = startOfDay.millisecondsSinceEpoch ~/ 1000;
 
       print('Updating study time for user: ${user.uid}');
