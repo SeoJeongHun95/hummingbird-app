@@ -7,6 +7,10 @@ class StudyTimeService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  // 콜렉션 이름을 상수로 정의
+  static const String _jandiCollection = 'jandi';
+  static const String _studyTimesCollection = 'study_times';
+
   /// 사용자의 지난 16주간의 공부 시간 데이터를 가져옵니다.
   Future<List<GrassDataModel>> getStudyTimeData() async {
     try {
@@ -16,7 +20,7 @@ class StudyTimeService {
       // 현재 날짜의 시작 (00:00:00)
       final now = DateTime.now();
       final today = DateTime(now.year, now.month, now.day);
-      print('Getting study time data for current date: $today'); // 디버그 로그 추가
+      print('Getting study time data for current date: $today');
 
       // 이전 달의 첫 번째 월요일을 구합니다
       final startOfPrevMonth = DateTime(now.year, now.month - 1, 1);
@@ -26,22 +30,22 @@ class StudyTimeService {
       }
 
       final startTimestamp = startDate.millisecondsSinceEpoch ~/ 1000;
-      print('Start date: $startDate'); // 디버그 로그 추가
-      print('Start timestamp: $startTimestamp'); // 디버그 로그 추가
+      print('Start date: $startDate');
+      print('Start timestamp: $startTimestamp');
 
       final QuerySnapshot snapshot = await _firestore
-          .collection('users')
+          .collection(_jandiCollection)
           .doc(user.uid)
-          .collection('study_times')
+          .collection(_studyTimesCollection)
           .where('studyDay', isGreaterThanOrEqualTo: startTimestamp)
           .orderBy('studyDay', descending: true)
           .get();
 
-      print('Retrieved ${snapshot.docs.length} documents'); // 디버그 로그 추가
+      print('Retrieved ${snapshot.docs.length} documents');
 
       final result = snapshot.docs.map((doc) {
         final data = doc.data() as Map<String, dynamic>;
-        print('Document data: $data'); // 디버그 로그 추가
+        print('Document data: $data');
 
         // studyDuration이 없는 경우 studyCount를 기반으로 계산 (이전 데이터 호환성)
         if (!data.containsKey('studyDuration') &&
@@ -52,16 +56,16 @@ class StudyTimeService {
         return GrassDataModel.fromJson(data);
       }).toList();
 
-      print(
-          'Converted to ${result.length} GrassDataModel objects'); // 디버그 로그 추가
+      print('Converted to ${result.length} GrassDataModel objects');
       for (var item in result) {
         print(
             'Model - Date: ${item.studyDay}, Duration: ${item.studyDuration}');
       }
 
       return result;
-    } catch (e) {
+    } catch (e, stackTrace) {
       print('Error fetching study time data: $e');
+      print('Stack trace: $stackTrace');
       return [];
     }
   }
@@ -69,23 +73,30 @@ class StudyTimeService {
   /// 오늘의 공부 시간을 저장하거나 업데이트합니다.
   Future<void> updateTodayStudyTime(int studyDuration) async {
     try {
+      // 사용자 인증 상태 확인
       final user = _auth.currentUser;
-      if (user == null) throw Exception('User not found');
+      if (user == null) {
+        print('Error: User not authenticated');
+        throw Exception('User not found');
+      }
 
       // 오늘 날짜의 시작 시간 (00:00:00)
       final DateTime today = DateTime.now();
       final DateTime startOfDay = DateTime(today.year, today.month, today.day);
       final int studyDay = startOfDay.millisecondsSinceEpoch ~/ 1000;
 
-      print('Updating study time:'); // 디버그 로그 추가
+      print('Updating study time for user: ${user.uid}');
+      print(
+          'Collection path: $_jandiCollection/${user.uid}/$_studyTimesCollection');
       print('Date: $startOfDay');
       print('Study Day (timestamp): $studyDay');
       print('Duration: $studyDuration seconds');
 
+      // 문서 참조 생성
       final docRef = _firestore
-          .collection('users')
+          .collection(_jandiCollection)
           .doc(user.uid)
-          .collection('study_times')
+          .collection(_studyTimesCollection)
           .doc(studyDay.toString());
 
       // 현재 데이터 확인
@@ -93,19 +104,25 @@ class StudyTimeService {
       if (docSnapshot.exists) {
         print('Existing data: ${docSnapshot.data()}');
       } else {
-        print('No existing data for this date');
+        print('No existing data for this date, creating new document');
       }
 
-      await docRef.set({
+      // 데이터 저장
+      final data = {
         'studyDay': studyDay,
         'studyDuration': studyDuration,
         'studyCount': (studyDuration / 3600).ceil(), // 이전 버전과의 호환성을 위해 유지
         'updatedAt': FieldValue.serverTimestamp(),
-      }, SetOptions(merge: true));
+      };
+
+      print('Saving data: $data');
+
+      await docRef.set(data, SetOptions(merge: true));
 
       print('Study time updated successfully');
-    } catch (e) {
+    } catch (e, stackTrace) {
       print('Error updating study time: $e');
+      print('Stack trace: $stackTrace');
       rethrow;
     }
   }
@@ -120,9 +137,9 @@ class StudyTimeService {
       final int studyDay = startOfDay.millisecondsSinceEpoch ~/ 1000;
 
       final DocumentSnapshot doc = await _firestore
-          .collection('users')
+          .collection(_jandiCollection)
           .doc(user.uid)
-          .collection('study_times')
+          .collection(_studyTimesCollection)
           .doc(studyDay.toString())
           .get();
 
@@ -130,8 +147,9 @@ class StudyTimeService {
 
       final data = doc.data() as Map<String, dynamic>;
       return GrassDataModel.fromJson(data);
-    } catch (e) {
+    } catch (e, stackTrace) {
       print('Error fetching study time for date: $e');
+      print('Stack trace: $stackTrace');
       return null;
     }
   }
