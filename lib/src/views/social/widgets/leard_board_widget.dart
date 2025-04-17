@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/widgets/admob_widget.dart';
 import '../../../viewmodels/leader_board/leader_board_view_model_view_model.dart';
 
 class LeaderboardWidget extends ConsumerWidget {
@@ -26,9 +27,17 @@ class LeaderboardWidget extends ConsumerWidget {
 
           return Expanded(
             child: ListView.builder(
-              itemCount: leaderboardStatedata.length,
+              itemCount: leaderboardStatedata.length +
+                  (leaderboardStatedata.length ~/ 3), // 3개 항목마다 광고 추가
               itemBuilder: (context, index) {
-                final player = leaderboardStatedata["rank_${index + 1}"];
+                // 광고 위치 계산 (3개 항목마다)
+                if (index > 0 && index % 4 == 3) {
+                  return AdMobWidget.showBannerAd(50, true);
+                }
+
+                // 실제 데이터 인덱스 계산 (광고 위치 고려)
+                final dataIndex = index - (index ~/ 4);
+                final player = leaderboardStatedata["rank_${dataIndex + 1}"];
 
                 if (player == null) {
                   return SizedBox.shrink();
@@ -41,13 +50,13 @@ class LeaderboardWidget extends ConsumerWidget {
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
-                    gradient: index == 0
+                    gradient: dataIndex == 0
                         ? const LinearGradient(
                             colors: [Colors.amber, Colors.orange])
-                        : index == 1
+                        : dataIndex == 1
                             ? LinearGradient(
                                 colors: [Colors.grey[200]!, Colors.grey[400]!])
-                            : index == 2
+                            : dataIndex == 2
                                 ? LinearGradient(colors: [
                                     Colors.brown[100]!,
                                     Colors.brown[300]!
@@ -78,18 +87,18 @@ class LeaderboardWidget extends ConsumerWidget {
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        if (index == 0)
+                        if (dataIndex == 0)
                           const Icon(Icons.emoji_events,
                               color: Colors.yellow, size: 28),
-                        if (index == 1)
+                        if (dataIndex == 1)
                           const Icon(Icons.emoji_events,
                               color: Colors.grey, size: 28),
-                        if (index == 2)
+                        if (dataIndex == 2)
                           const Icon(Icons.emoji_events,
                               color: Colors.brown, size: 28),
                         const SizedBox(width: 8),
                         Text(
-                          "Rank ${index + 1}",
+                          "Rank ${dataIndex + 1}",
                           style: const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16),
                         ),
