@@ -19,6 +19,10 @@ class GrassGrid extends StatelessWidget {
     return Colors.green[700]!;
   }
 
+  String _getDateKey(DateTime date) {
+    return '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+  }
+
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
@@ -26,7 +30,7 @@ class GrassGrid extends StatelessWidget {
 
     // Create a map of study counts by date
     final studyCountMap = {
-      for (var data in grassData) data.studyDay: data.studyCount
+      for (var data in grassData) _getDateKey(data.studyDay): data.studyCount
     };
 
     return Column(
@@ -73,12 +77,8 @@ class GrassGrid extends StatelessWidget {
                       children: List.generate(7, (dayIndex) {
                         final currentDate =
                             weekStartDate.add(Duration(days: dayIndex));
-                        final studyCount = studyCountMap[DateTime(
-                              currentDate.year,
-                              currentDate.month,
-                              currentDate.day,
-                            )] ??
-                            0;
+                        final dateKey = _getDateKey(currentDate);
+                        final studyCount = studyCountMap[dateKey] ?? 0;
 
                         return Container(
                           width: 20,

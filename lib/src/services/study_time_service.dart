@@ -24,6 +24,7 @@ class StudyTimeService {
           .where('studyDay',
               isGreaterThanOrEqualTo:
                   sixteenWeeksAgo.millisecondsSinceEpoch ~/ 1000)
+          .orderBy('studyDay', descending: true)
           .get();
 
       return snapshot.docs.map((doc) {
