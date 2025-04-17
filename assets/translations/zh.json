@@ -1,0 +1,13 @@
+{
+  "StudyGrass": {
+    "MonthRange": "{0} - {1}",
+    "StudyTime": "学习时间",
+    "Duration": {
+      "Zero": "0小时",
+      "UnderOneHour": "~1小时",
+      "UnderTwoHours": "~2小时",
+      "UnderFourHours": "~4小时",
+      "OverFourHours": "4小时+"
+    }
+  }
+}

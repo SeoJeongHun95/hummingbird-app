@@ -1,0 +1,13 @@
+{
+  "StudyGrass": {
+    "MonthRange": "{0} - {1}",
+    "StudyTime": "Время обучения",
+    "Duration": {
+      "Zero": "0ч",
+      "UnderOneHour": "~1ч",
+      "UnderTwoHours": "~2ч",
+      "UnderFourHours": "~4ч",
+      "OverFourHours": "4ч+"
+    }
+  }
+}

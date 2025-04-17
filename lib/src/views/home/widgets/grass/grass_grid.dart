@@ -76,7 +76,13 @@ class GrassGrid extends StatelessWidget {
   String _getMonthRangeText() {
     final now = DateTime.now();
     final prevMonth = DateTime(now.year, now.month - 1);
-    return '${DateFormat('yyyy년 MM월').format(prevMonth)} - ${DateFormat('MM월').format(now)}';
+    return tr(
+      'StudyGrass.MonthRange',
+      args: [
+        DateFormat('yyyy년 MM월').format(prevMonth),
+        DateFormat('MM월').format(now)
+      ],
+    );
   }
 
   Size _calculateOptimalCellSize(BuildContext context, int weeksCount) {
@@ -233,11 +239,11 @@ class GrassGrid extends StatelessWidget {
                   style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                 ),
                 const SizedBox(width: 8),
-                _buildLegendItem('0h', Colors.grey[300]!),
-                _buildLegendItem('~1h', Colors.green[100]!),
-                _buildLegendItem('~2h', Colors.green[300]!),
-                _buildLegendItem('~4h', Colors.green[500]!),
-                _buildLegendItem('4h+', Colors.green[700]!),
+                _buildLegendItem('Zero', Colors.grey[300]!),
+                _buildLegendItem('UnderOneHour', Colors.green[100]!),
+                _buildLegendItem('UnderTwoHours', Colors.green[300]!),
+                _buildLegendItem('UnderFourHours', Colors.green[500]!),
+                _buildLegendItem('OverFourHours', Colors.green[700]!),
               ],
             ),
           ),
@@ -246,7 +252,7 @@ class GrassGrid extends StatelessWidget {
     );
   }
 
-  Widget _buildLegendItem(String text, Color color) {
+  Widget _buildLegendItem(String duration, Color color) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4),
       child: Row(
@@ -266,7 +272,7 @@ class GrassGrid extends StatelessWidget {
           ),
           const SizedBox(width: 4),
           Text(
-            text,
+            tr('StudyGrass.Duration.$duration'),
             style: TextStyle(fontSize: 12, color: Colors.grey[600]),
           ),
         ],
