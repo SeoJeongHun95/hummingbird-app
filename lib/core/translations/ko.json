@@ -574,7 +574,8 @@
   },
   "Common": {
     "Advertisement": "4-7-8 호흡법",
-    "Close": "학습 시작하기"
+    "Close": "학습 시작하기",
+    "Retry": "다시 시도"
   },
   "study_group": {
     "worker": "직장인",
@@ -584,5 +585,10 @@
     "high_school_1st": "고등학교 1학년",
     "middle_school_student": "중학생",
     "elementary_student": "초등학생"
+  },
+  "StudyGrass": {
+    "Error": "학습 데이터를 불러오는 중 오류가 발생했습니다",
+    "NoData": "아직 학습 기록이 없습니다",
+    "StudyTime": "학습시간: "
   }
 }

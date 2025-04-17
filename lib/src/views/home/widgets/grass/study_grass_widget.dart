@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../models/grass/grass_data_model.dart';
 import '../../../../services/study_time_service.dart';
@@ -16,6 +17,7 @@ class _StudyGrassWidgetState extends State<StudyGrassWidget> {
   final StudyTimeService _studyTimeService = StudyTimeService();
   List<GrassDataModel> _grassData = [];
   bool _isLoading = true;
+  String? _error;
 
   @override
   void initState() {
@@ -25,15 +27,27 @@ class _StudyGrassWidgetState extends State<StudyGrassWidget> {
 
   Future<void> _loadStudyTimeData() async {
     try {
+      setState(() {
+        _isLoading = true;
+        _error = null;
+      });
+
       final data = await _studyTimeService.getStudyTimeData();
-      setState(() {
-        _grassData = data;
-        _isLoading = false;
-      });
+
+      if (mounted) {
+        setState(() {
+          _grassData = data;
+          _isLoading = false;
+        });
+      }
     } catch (e) {
-      setState(() {
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+          _error = e.toString();
+          _grassData = [];
+        });
+      }
       print('Error loading study time data: $e');
     }
   }
@@ -41,10 +55,57 @@ class _StudyGrassWidgetState extends State<StudyGrassWidget> {
   @override
   Widget build(BuildContext context) {
     if (_isLoading) {
-      return const Center(child: CircularProgressIndicator());
+      return const Center(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
+    if (_error != null) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                tr('StudyGrass.Error'),
+                style: TextStyle(color: Colors.red),
+              ),
+              const SizedBox(height: 8),
+              TextButton(
+                onPressed: _loadStudyTimeData,
+                child: Text(tr('Common.Retry')),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    if (_grassData.isEmpty) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                tr('StudyGrass.NoData'),
+                style: TextStyle(color: Colors.grey[600]),
+              ),
+              const SizedBox(height: 8),
+              GrassGrid(grassData: []), // 빈 데이터로 그리드 표시
+            ],
+          ),
+        ),
+      );
     }
 
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         const SizedBox(height: 16),
         GrassGrid(grassData: _grassData),
@@ -58,7 +119,7 @@ class _StudyGrassWidgetState extends State<StudyGrassWidget> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('학습시간: ', style: TextStyle(fontSize: 12)),
+        Text(tr('StudyGrass.StudyTime'), style: TextStyle(fontSize: 12)),
         _buildLegendItem('0', const Color(0xFF242424)),
         _buildLegendItem('1-2', const Color(0xFF0E4429)),
         _buildLegendItem('3-4', const Color(0xFF006D32)),
