@@ -98,6 +98,8 @@ class _StudyGrassWidgetState extends State<StudyGrassWidget> {
               ),
               const SizedBox(height: 8),
               GrassGrid(grassData: []), // 빈 데이터로 그리드 표시
+              const SizedBox(height: 16),
+              _buildLegend(), // 빈 데이터일 때도 범례 표시
             ],
           ),
         ),
@@ -120,10 +122,11 @@ class _StudyGrassWidgetState extends State<StudyGrassWidget> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(tr('StudyGrass.StudyTime'), style: TextStyle(fontSize: 12)),
-        _buildLegendItem('0', const Color(0xFF242424)),
-        _buildLegendItem('1-2', const Color(0xFF0E4429)),
-        _buildLegendItem('3-4', const Color(0xFF006D32)),
-        _buildLegendItem('5+', const Color(0xFF26A641)),
+        _buildLegendItem('0h', Colors.grey[300]!),
+        _buildLegendItem('~1h', Colors.green[100]!),
+        _buildLegendItem('~2h', Colors.green[300]!),
+        _buildLegendItem('~4h', Colors.green[500]!),
+        _buildLegendItem('4h+', Colors.green[700]!),
       ],
     );
   }
@@ -132,6 +135,7 @@ class _StudyGrassWidgetState extends State<StudyGrassWidget> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Container(
             width: 12,

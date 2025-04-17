@@ -11,12 +11,13 @@ class GrassGrid extends StatelessWidget {
     required this.grassData,
   }) : super(key: key);
 
-  Color _getColorForStudyCount(int count) {
-    if (count == 0) return Colors.grey[300]!;
-    if (count <= 2) return Colors.green[100]!;
-    if (count <= 4) return Colors.green[300]!;
-    if (count <= 6) return Colors.green[500]!;
-    return Colors.green[700]!;
+  Color _getColorForStudyDuration(int durationInSeconds) {
+    final hours = durationInSeconds / 3600; // 초를 시간으로 변환
+    if (durationInSeconds == 0) return Colors.grey[300]!;
+    if (hours <= 1) return Colors.green[100]!; // 1시간 이하
+    if (hours <= 2) return Colors.green[300]!; // 2시간 이하
+    if (hours <= 4) return Colors.green[500]!; // 4시간 이하
+    return Colors.green[700]!; // 4시간 초과
   }
 
   String _getDateKey(DateTime date) {
@@ -28,9 +29,9 @@ class GrassGrid extends StatelessWidget {
     final now = DateTime.now();
     final startDate = now.subtract(const Duration(days: 16 * 7));
 
-    // Create a map of study counts by date
-    final studyCountMap = {
-      for (var data in grassData) _getDateKey(data.studyDay): data.studyCount
+    // Create a map of study durations by date
+    final studyDurationMap = {
+      for (var data in grassData) _getDateKey(data.studyDay): data.studyDuration
     };
 
     return Column(
@@ -78,14 +79,14 @@ class GrassGrid extends StatelessWidget {
                         final currentDate =
                             weekStartDate.add(Duration(days: dayIndex));
                         final dateKey = _getDateKey(currentDate);
-                        final studyCount = studyCountMap[dateKey] ?? 0;
+                        final studyDuration = studyDurationMap[dateKey] ?? 0;
 
                         return Container(
                           width: 20,
                           height: 20,
                           margin: const EdgeInsets.all(2),
                           decoration: BoxDecoration(
-                            color: _getColorForStudyCount(studyCount),
+                            color: _getColorForStudyDuration(studyDuration),
                             borderRadius: BorderRadius.circular(4),
                           ),
                         );

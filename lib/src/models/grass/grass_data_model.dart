@@ -1,18 +1,19 @@
 class GrassDataModel {
   final DateTime studyDay;
-  final int studyCount;
+  final int studyDuration; // 초 단위로 저장
 
   // 생성자
   GrassDataModel({
     required this.studyDay,
-    required this.studyCount,
+    required this.studyDuration,
   });
 
   // JSON을 객체로 변환하는 생성자
   factory GrassDataModel.fromJson(Map<String, dynamic> json) {
     return GrassDataModel(
       studyDay: DateTime.fromMillisecondsSinceEpoch(json['studyDay'] * 1000),
-      studyCount: json['studyCount'] as int,
+      studyDuration: json['studyDuration'] as int? ??
+          (json['studyCount'] as int) * 1800, // 이전 데이터 호환성 유지 (30분 = 1800초)
     );
   }
 
@@ -20,7 +21,7 @@ class GrassDataModel {
   Map<String, dynamic> toJson() {
     return {
       'studyDay': studyDay.millisecondsSinceEpoch ~/ 1000,
-      'studyCount': studyCount,
+      'studyDuration': studyDuration,
     };
   }
 
