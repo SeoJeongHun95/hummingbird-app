@@ -73,7 +73,6 @@ class StudyTimeService {
   /// 오늘의 공부 시간을 저장하거나 업데이트합니다.
   Future<void> updateTodayStudyTime(int studyDuration) async {
     try {
-      // 사용자 인증 상태 확인
       final user = _auth.currentUser;
       if (user == null) {
         print('Error: User not authenticated');
@@ -90,7 +89,7 @@ class StudyTimeService {
           'Collection path: $_jandiCollection/${user.uid}/$_studyTimesCollection');
       print('Date: $startOfDay');
       print('Study Day (timestamp): $studyDay');
-      print('Duration: $studyDuration seconds');
+      print('New Duration to add: $studyDuration seconds');
 
       // 문서 참조 생성
       final docRef = _firestore
@@ -101,8 +100,17 @@ class StudyTimeService {
 
       // 현재 데이터 확인
       final docSnapshot = await docRef.get();
+      int totalDuration = studyDuration;
+
       if (docSnapshot.exists) {
-        print('Existing data: ${docSnapshot.data()}');
+        final existingData = docSnapshot.data() as Map<String, dynamic>;
+        print('Existing data: $existingData');
+        // 기존 studyDuration이 있으면 더하기
+        if (existingData.containsKey('studyDuration')) {
+          totalDuration += existingData['studyDuration'] as int;
+          print(
+              'Adding to existing duration: ${existingData['studyDuration']} + $studyDuration = $totalDuration');
+        }
       } else {
         print('No existing data for this date, creating new document');
       }
@@ -110,16 +118,17 @@ class StudyTimeService {
       // 데이터 저장
       final data = {
         'studyDay': studyDay,
-        'studyDuration': studyDuration,
-        'studyCount': (studyDuration / 3600).ceil(), // 이전 버전과의 호환성을 위해 유지
+        'studyDuration': totalDuration,
+        'studyCount': (totalDuration / 3600).ceil(), // 이전 버전과의 호환성을 위해 유지
         'updatedAt': FieldValue.serverTimestamp(),
       };
 
-      print('Saving data: $data');
+      print('Saving data with total duration: $data');
 
       await docRef.set(data, SetOptions(merge: true));
 
-      print('Study time updated successfully');
+      print(
+          'Study time updated successfully with total duration: $totalDuration seconds');
     } catch (e, stackTrace) {
       print('Error updating study time: $e');
       print('Stack trace: $stackTrace');
