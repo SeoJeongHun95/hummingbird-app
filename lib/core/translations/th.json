@@ -574,7 +574,8 @@
   },
   "Common": {
     "Advertisement": "การฝึกหายใจ 4-7-8",
-    "Close": "เริ่มเรียน"
+    "Close": "เริ่มเรียน",
+    "Retry": "ลองใหม่อีกครั้ง"
   },
   "study_group": {
     "worker": "พนักงาน",
@@ -584,5 +585,16 @@
     "high_school_1st": "มัธยมศึกษาปีที่ 1",
     "middle_school_student": "นักเรียนมัธยมศึกษาปีที่ 2",
     "elementary_student": "นักเรียนมัธยมศึกษาปีที่ 1"
+  },
+  "StudyGrass": {
+    "MonthRange": "{0} - {1}",
+    "StudyTime": "ช่วงเวลาการเรียน",
+    "Duration": {
+      "Zero": "0 ชั่วโมง",
+      "UnderOneHour": "~1 ชั่วโมง",
+      "UnderTwoHours": "~2 ชั่วโมง",
+      "UnderFourHours": "~4 ชั่วโมง",
+      "OverFourHours": "4 ชั่วโมง+"
+    }
   }
 }

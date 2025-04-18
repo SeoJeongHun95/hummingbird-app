@@ -150,10 +150,10 @@ class StudyRecordViewModel extends _$StudyRecordViewModel {
   }) {
     final date =
         DateTime.fromMillisecondsSinceEpoch(secondsSinceEpoch * 1000).toLocal();
-
     final target = DateTime(targetDate.year, targetDate.month, targetDate.day);
 
-    return target.add(const Duration(hours: 6)).isBefore(date) &&
-        target.add(const Duration(days: 1, hours: 6)).isAfter(date);
+    // 새벽 6시를 기준으로 날짜 범위 체크
+    return target.add(const Duration(hours: 9)).isBefore(date) &&
+        target.add(const Duration(days: 1, hours: 9)).isAfter(date);
   }
 }

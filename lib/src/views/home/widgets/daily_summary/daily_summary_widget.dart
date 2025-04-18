@@ -22,7 +22,7 @@ class DailySummaryWidget extends StatelessWidget {
       MxN_rate: MxNRate.TWOBYONE,
       MxN_child: Container(
         color: Colors.white,
-        padding: const EdgeInsets.all(0.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

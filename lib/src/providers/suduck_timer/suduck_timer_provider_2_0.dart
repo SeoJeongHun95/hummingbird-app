@@ -15,6 +15,7 @@ import '../../models/subject/subject.dart';
 import '../../repositories/suduck_timer_repositories.dart';
 import '../../viewmodels/study_record/study_record_viewmodel.dart';
 import '../../viewmodels/timer/timer_bg_color_provider.dart';
+import '../../services/study_time_service.dart';
 
 part 'suduck_timer_provider_2_0.g.dart';
 
@@ -64,6 +65,7 @@ class SuDuckTimer extends _$SuDuckTimer {
   late final SuduckTimerState suduckLocalState;
   late final SuduckTimerRepositories suduckRepo;
   late final TimerLifecycleManager _appLifecycleListener;
+  final StudyTimeService _studyTimeService = StudyTimeService();
 
   @override
   TimerState build() {
@@ -165,6 +167,8 @@ class SuDuckTimer extends _$SuDuckTimer {
     await ref
         .read(studyRecordViewModelProvider.notifier)
         .addStudyRecord(updatedRecord);
+
+    await _studyTimeService.updateTodayStudyTime(state.elapsedTime);
 
     await suduckRepo.deleteSuDuckTimerState();
 

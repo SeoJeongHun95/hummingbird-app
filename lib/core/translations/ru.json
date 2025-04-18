@@ -574,7 +574,8 @@
   },
   "Common": {
     "Advertisement": "Дыхательное упражнение 4-7-8",
-    "Close": "Начать обучение"
+    "Close": "Начать обучение",
+    "Retry": "Повторить"
   },
   "study_group": {
     "worker": "Работник",
@@ -584,5 +585,16 @@
     "high_school_1st": "1-й год школы",
     "middle_school_student": "2-й год средней школы",
     "elementary_student": "1-й год средней школы"
+  },
+  "StudyGrass": {
+    "MonthRange": "{0} - {1}",
+    "StudyTime": "Время обучения",
+    "Duration": {
+      "Zero": "0 часов",
+      "UnderOneHour": "~1 час",
+      "UnderTwoHours": "~2 часа",
+      "UnderFourHours": "~4 часа",
+      "OverFourHours": "4 часа+"
+    }
   }
 }

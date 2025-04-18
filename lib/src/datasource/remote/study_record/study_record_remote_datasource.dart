@@ -8,10 +8,15 @@ class StudyRecordDataSource {
   StudyRecordDataSource();
 
   void addStudyRecord(StudyRecord studyRecord) async {
-    // String monthKey = DateFormat('yyyy-MM').format(DateTime.now());
-    // 새벽3시에 전날로 판단하기위해서
-    String monthKey = DateFormat('yyyy-MM')
-        .format(DateTime.now().subtract(const Duration(hours: 6)));
+    // 한국 시간 기준으로 새벽 6시 이전이면 전날로 처리
+    final now = DateTime.now();
+    final koreanTime = now.add(const Duration(hours: 9)); // UTC to KST
+    final isBeforeSixAM = koreanTime.hour < 6;
+
+    final adjustedDate =
+        isBeforeSixAM ? now.subtract(const Duration(days: 1)) : now;
+
+    String monthKey = DateFormat('yyyy-MM').format(adjustedDate);
     String userId = FirebaseAuth.instance.currentUser!.uid;
 
     await FirebaseFirestore.instance
