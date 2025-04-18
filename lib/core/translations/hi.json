@@ -574,7 +574,8 @@
   },
   "Common": {
     "Advertisement": "4-7-8 श्वास व्यायाम",
-    "Close": "सीखना शुरू करें"
+    "Close": "सीखना शुरू करें",
+    "Retry": "पुनरावर्तन"
   },
   "study_group": {
     "worker": "कर्मचारी",
@@ -584,5 +585,16 @@
     "high_school_1st": "उच्च विद्यालय 1 वर्ष",
     "middle_school_student": "मध्यम विद्यालय छात्र",
     "elementary_student": "आदिम विद्यालय छात्र"
+  },
+  "StudyGrass": {
+    "MonthRange": "{0} - {1}",
+    "StudyTime": "अध्ययन समय",
+    "Duration": {
+      "Zero": "0 घंटे",
+      "UnderOneHour": "~1 घंटे",
+      "UnderTwoHours": "~2 घंटे",
+      "UnderFourHours": "~4 घंटे",
+      "OverFourHours": "4 घंटे+"
+    }
   }
 }

@@ -574,7 +574,8 @@
   },
   "Common": {
     "Advertisement": "4-7-8 Breathing Exercise",
-    "Close": "Start Learning"
+    "Close": "Start Learning",
+    "Retry": "Retry"
   },
   "study_group": {
     "worker": "Worker",
@@ -584,5 +585,16 @@
     "high_school_1st": "High School Sophomore",
     "middle_school_student": "Middle School Student",
     "elementary_student": "Elementary Student"
+  },
+  "StudyGrass": {
+    "MonthRange": "{0} - {1}",
+    "StudyTime": "Study Time",
+    "Duration": {
+      "Zero": "0h",
+      "UnderOneHour": "~1h",
+      "UnderTwoHours": "~2h",
+      "UnderFourHours": "~4h",
+      "OverFourHours": "4h+"
+    }
   }
 }

@@ -574,7 +574,8 @@
   },
   "Common": {
     "Advertisement": "4-7-8-åndedrætsøvelse",
-    "Close": "Begynd at lære"
+    "Close": "Begynd at lære",
+    "Retry": "Gentag"
   },
   "study_group": {
     "worker": "Arbejder",
@@ -584,5 +585,16 @@
     "high_school_1st": "1. år på gymnasiet",
     "middle_school_student": "2. år på folkeskolen",
     "elementary_student": "1. år på folkeskolen"
+  },
+  "StudyGrass": {
+    "MonthRange": "{0} - {1}",
+    "StudyTime": "Studietid",
+    "Duration": {
+      "Zero": "0 timer",
+      "UnderOneHour": "~1 time",
+      "UnderTwoHours": "~2 timer",
+      "UnderFourHours": "~4 timer",
+      "OverFourHours": "4 timer+"
+    }
   }
 }

@@ -574,7 +574,8 @@
   },
   "Common": {
     "Advertisement": "4-7-8呼吸法",
-    "Close": "学習を始める"
+    "Close": "学習を始める",
+    "Retry": "やり直す"
   },
   "study_group": {
     "worker": "従業員",
@@ -584,5 +585,16 @@
     "high_school_1st": "高校1年生",
     "middle_school_student": "中学生",
     "elementary_student": "小学生"
+  },
+  "StudyGrass": {
+    "MonthRange": "{0} - {1}",
+    "StudyTime": "学習時間",
+    "Duration": {
+      "Zero": "0時間",
+      "UnderOneHour": "~1時間",
+      "UnderTwoHours": "~2時間",
+      "UnderFourHours": "~4時間",
+      "OverFourHours": "4時間+"
+    }
   }
 }
