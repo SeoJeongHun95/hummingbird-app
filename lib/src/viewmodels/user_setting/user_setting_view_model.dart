@@ -71,9 +71,7 @@ class UserSettingViewModel extends _$UserSettingViewModel {
   Future<void> updateMbti(String mbtiType) async {
     state = const AsyncValue.loading();
     try {
-      final updatedSetting = state.value?.copyWith(mbti: mbtiType);
-      // Save to your data source here
-      state = AsyncValue.data(updatedSetting!);
+      await updateUserSetting(updatedMbti: mbtiType);
     } catch (e) {
       state = AsyncValue.error(e, StackTrace.current);
     }

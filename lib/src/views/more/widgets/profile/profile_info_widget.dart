@@ -19,6 +19,7 @@ class ProfileInfoWidget extends ConsumerWidget {
     required this.selectDate,
     required this.validateNickName,
     required this.mbti,
+    this.onMbtiUpdate,
   });
 
   final TextEditingController nickNameController;
@@ -28,6 +29,7 @@ class ProfileInfoWidget extends ConsumerWidget {
   final FocusNode mbtiFocusNode;
   final void Function(DateTime selectedDate) selectDate;
   final void Function() validateNickName;
+  final void Function(String)? onMbtiUpdate;
   final String mbti;
 
   @override
@@ -119,6 +121,7 @@ class ProfileInfoWidget extends ConsumerWidget {
                                 .read(userSettingViewModelProvider.notifier)
                                 .updateMbti(mbtiType);
                             mbtiController.text = mbtiType;
+                            onMbtiUpdate?.call(mbtiType);
                             return mbtiType;
                           },
                         ),

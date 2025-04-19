@@ -29,6 +29,15 @@ class _ResultScreenState extends State<ResultScreen> {
   final GlobalKey _printKey = GlobalKey();
   bool isLoading = false;
 
+  @override
+  void initState() {
+    super.initState();
+    // MBTI 결과를 부모 위젯에 전달
+    if (widget.onMbtiResult != null) {
+      widget.onMbtiResult!(widget.mbtiType);
+    }
+  }
+
   final Map<String, Map<String, String>> learningTips = {};
 
   Future<void> handleShare() async {
@@ -235,11 +244,6 @@ class _ResultScreenState extends State<ResultScreen> {
   }
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final tips = learningTips[widget.mbtiType] ?? {};
     return Scaffold(
@@ -298,9 +302,12 @@ class _ResultScreenState extends State<ResultScreen> {
     );
   }
 
-  void _MoveToThePageAfterTheMBTItest() {
+  void _MoveToThePageAfterTheMBTItest() async {
     print("MBTI 결과 화면에서 온 경우");
-    widget.onMbtiResult?.call(widget.mbtiType);
+    if (widget.onMbtiResult != null) {
+      await widget.onMbtiResult!(widget.mbtiType);
+    }
+    if (!mounted) return;
     int count = 0;
     Navigator.of(context).popUntil((route) {
       return count++ == 2;
