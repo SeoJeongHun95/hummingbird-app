@@ -41,7 +41,7 @@ class _ProfileContainerWidgetState extends State<SetProfileWidget> {
 
     _nickNameController = TextEditingController(text: widget.nickName);
     _birthDateController = TextEditingController(text: widget.birthDate);
-    _mbtiController = TextEditingController(text: '');
+    _mbtiController = TextEditingController(text: widget.mbti ?? '');
 
     userSettingViewModel = widget.userSettingViewModel;
   }
@@ -82,6 +82,11 @@ class _ProfileContainerWidgetState extends State<SetProfileWidget> {
             mbtiFocusNode: _mbtiFocusNode,
             selectDate: selectDate,
             validateNickName: validateNickName,
+            onMbtiUpdate: (String newMbti) {
+              setState(() {
+                _mbtiController.text = newMbti;
+              });
+            },
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -107,6 +112,7 @@ class _ProfileContainerWidgetState extends State<SetProfileWidget> {
                   await userSettingViewModel.updateUserSetting(
                     updatedNickName: _nickNameController.text,
                     updatedAge: _birthDateController.text,
+                    updatedMbti: _mbtiController.text,
                   );
                   if (context.mounted) {
                     context.go('/tutorial/studySetting');
